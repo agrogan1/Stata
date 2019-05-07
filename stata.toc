@@ -1,0 +1,13 @@
+v 3
+d Materials by Andy Grogan-Kaylor, agrogan@umich.edu
+
+p icc A program to calculate intraclass correlation coefficients after using xtmixed.
+
+p rtodi A program to calculate d from r (for use in meta-analysis)
+
+p cohensdi A program to calculate Cohen's d  (for use in meta-analysis)
+
+p michigan A graph scheme with University of Michigan colors
+
+
+
