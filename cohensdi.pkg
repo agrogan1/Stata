@@ -1,0 +1,8 @@
+v 3
+d cohensdi.  Package to calculate Cohens d from pre-calculated values
+d Andrew Grogan-Kaylor, agrogan@umich.edu
+
+f cohensdi.ado
+f cohensdi.sthlp
+
+
