@@ -1,0 +1,86 @@
+* scheme to create Stata graphs
+* with University of Michigan colors
+
+* designed by Andy Grogan-Kaylor (agrogan@umich.edu)
+* questions & comments welcome
+
+* This scheme uses as its foundation, the wonderful lean2 scheme 
+* developed by Svend Juul, University of Aarhus, Denmark
+
+* some inspiration is drawn from http://www.soe.umich.edu/files/IdentityGuidelines.pdf
+* and http://vpcomm.umich.edu/brand/style-guide/design-principles/colors 
+
+#include lean2
+
+* histogram
+
+color histogram navy
+color histogram gold
+color histogram ltblue
+color histogram gray
+color histogram green
+color histogram orange
+color histogram red
+color histogram purple
+color histogram midblue
+
+* pie charts
+
+color p1pie navy
+color p2pie gold
+color p3pie ltblue
+color p4pie gray
+color p5pie green
+color p6pie orange
+color p7pie red
+color p8pie purple
+color p9pie midblue
+
+* scatterplot
+
+symbol p1 circle
+color p1markfill navy
+color p1markline navy
+
+symbol p2 circle
+color p2markfill gold
+color p2markline gold
+
+symbol p3 circle
+color p3markfill ltblue
+color p3markline ltblue
+
+symbol p4 circle
+color p3markfill green
+color p3markline green
+
+symbol p5 circle
+color p3markfill orange
+color p3markline orange
+
+* line charts
+
+color p1lineplot navy
+linewidth p1lineplot thick
+
+color p2lineplot gold
+linewidth p2lineplot thick
+
+color p3lineplot green
+linewidth p3lineplot thick
+
+color p4lineplot orange
+linewidth p4lineplot thick
+
+* plot elements
+
+color p1 navy
+color p2 gold
+color p3 ltblue
+color p4 gray
+
+
+
+
+
+
