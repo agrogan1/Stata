@@ -74,6 +74,7 @@ linewidth p4lineplot thick
 
 * plot elements
 
+color p navy
 color p1 navy
 color p2 gold
 color p3 ltblue
