@@ -24,7 +24,19 @@ color histogram red
 color histogram purple
 color histogram midblue
 
-* pie charts
+* bar chart
+
+color p1bar navy
+color p2bar gold
+color p3bar ltblue
+color p4bar gray
+color p5bar green
+color p6bar orange
+color p7bar red
+color p8bar purple
+color p9bar midblue
+
+* pie chart
 
 color p1pie navy
 color p2pie gold
@@ -58,7 +70,7 @@ symbol p5 circle
 color p3markfill orange
 color p3markline orange
 
-* line charts
+* line chart
 
 color p1lineplot navy
 linewidth p1lineplot thick
@@ -71,6 +83,18 @@ linewidth p3lineplot thick
 
 color p4lineplot orange
 linewidth p4lineplot thick
+
+* area chart
+
+color p1area navy
+color p2area gold
+color p3area ltblue
+color p4area gray
+color p5area green
+color p6area orange
+color p7area red
+color p8area purple
+color p9area midblue
 
 * plot elements
 
