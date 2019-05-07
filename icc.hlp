@@ -1,0 +1,52 @@
+{smcl}
+
+{cmd:help icc}
+{hline}
+
+{title:Help for ICC}
+
+{title:Calculate intraclass correlation coefficient following xtmixed}
+
+{title:Syntax}
+
+{p 8 17 2}
+icc
+
+{title:Description}
+
+{pstd}
+{cmd:icc} calculates the intraclass correlation coefficient following 
+the use of xtmixed with a single nesting.
+
+{title:Remarks}
+
+{pstd}
+For detailed information on the xtmixed command, see {bf:[R] xtmixed}.
+icc will not currently work on models with more than a single nesting, 
+or cross classified models.
+
+{title:Examples}
+
+Regression of Behavior Problems Index by Census tract.
+
+Unconditional Model:
+
+{phang}{cmd:. xtmixed bpi || tract:  }
+
+{phang}{cmd:. icc}
+
+Conditional Model:
+
+{phang}{cmd:. xtmixed bpi x y z || tract:  }
+
+{phang}{cmd:. icc}
+
+{title:Author}
+
+{phang}Andrew Grogan-Kaylor, University of Michigan, agrogan@umich.edu
+
+{title:Also see}
+
+{psee}
+Online:  {helpb xtmixed}
+

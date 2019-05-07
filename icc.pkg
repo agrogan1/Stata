@@ -1,0 +1,8 @@
+v 3
+d icc.  Package to calculate intraclass correlation coefficients
+d Andrew Grogan-Kaylor, agrogan@umich.edu
+
+f icc.ado
+f icc.hlp
+
+
