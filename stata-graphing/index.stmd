@@ -1,0 +1,283 @@
+% Better Graphing in Stata
+% Andy Grogan-Kaylor
+% `s c(current_date)`
+
+# Introduction 
+
+* Stata is a powerful and intuitive data analysis program. 
+* Learning how to graph in Stata is an important part of learning how to use Stata. 
+Yet, the default graphs in Stata can sometimes be less than optimal. 
+* This document is an introduction to (a) basic graphing ideas in Stata;
+and (b) some simple ways to make your Stata graphs look more professional.
+* Navigation links are in the corner of this slide deck. 
+* You can also generate a printable version of these slides, by clicking on the "Ø", 
+and a [PDF version](https://agrogan1.github.io/stata-graphing/index.pdf) is available.
+
+# Data
+
+We are going to use the famous "iris" data collected by Ronald Fisher.
+
+```{s}
+
+    use "iris.dta", clear
+
+	summarize
+
+```
+
+# Basic Graphs
+
+# Continuous Variable `histogram`
+
+```{s}
+
+    histogram Petal_Length
+
+```
+
+```{s/}
+	
+    quietly graph export myhistogram.png, width(500) replace
+
+```
+	
+![Histogram of Petal Width](myhistogram.png)
+	
+# Categorical Variable `graph bar`
+
+```{s}
+
+    graph bar, over(Species)
+
+```
+
+```{s/}
+	
+	quietly graph export mybargraph.png, width(500) replace
+
+```
+
+![Bar Graph of Species](mybargraph.png)
+
+# Continuous by Continuous `twoway`
+
+```{s}
+
+    twoway scatter Petal_Length Petal_Width
+
+```
+
+```{s/}
+	
+	quietly graph export myscatter.png, width(500) replace
+
+```
+	
+![Scatterplot](myscatter.png)
+
+# Categorical by Categorical `graph bar`
+
+```{s}
+
+    recode Petal_Length ///
+	(min/3.758 = 0 "below mean") ///
+	(3.758/max = 1 "above mean"), ///
+	generate(Petal_Group) // dichotomize Petal_Length
+	
+	graph bar, over(Species) over(Petal_Group)
+
+```
+
+```{s/}
+	
+    quietly graph export mybargraph2.png, width(500) replace
+
+```	
+
+![Bar Graph of Species by Category of Petal Length](mybargraph2.png)
+
+# Continuous by Categorical `graph bar`
+
+```{s}
+
+    graph bar Petal_Length, over(Species)
+
+```
+
+```{s/}
+	
+    quietly graph export mybargraph3.png, width(500) replace
+
+```
+
+![Bar Graph of Petal Length by Species](mybargraph3.png)	
+
+# Titles and Labels `, title(...) xtitle(...) ytitle(...)`
+
+```{s}
+
+    twoway scatter Petal_Length Petal_Width, scheme(s1rcolor) ///
+	title("Petal Length by Petal Width") ///
+	xtitle("Petal Width") ytitle("Petal Width") ///
+	caption("Iris Data") 
+
+```
+
+```{s/}
+	
+	quietly graph export graphtitleslabels.png, width(500) replace
+
+```
+
+![Graph With Titles and Labels](graphtitleslabels.png)
+
+# Better Graphing With Schemes `,scheme(...)`
+
+The easiest method to make better Stata graphs is through the use of predefined Stata 
+graphing schemes.
+
+# Pre-Defined Schemes
+
+Some schemes, e.g. `economist`, `sj` and `s1rcolor` are pre-installed with Stata.
+
+# Economist Scheme
+
+```{s}
+
+    twoway scatter Petal_Length Petal_Width, scheme(economist)
+
+```
+
+```{s/}
+	
+    quietly graph export econscatter.png, width(500) replace
+
+```
+	
+![Scatterplot with Economist Scheme](econscatter.png)	
+
+# *Stata Journal* Scheme
+
+```{s}
+
+    twoway scatter Petal_Length Petal_Width, scheme(sj)
+
+```
+
+```{s/}
+	
+    quietly graph export sjscatter.png, width(500) replace
+
+```
+	
+![Scatterplot with *Stata Journal* Scheme](sjscatter.png)	
+
+# `s1rcolor` Scheme
+
+```{s}
+
+    twoway scatter Petal_Length Petal_Width, scheme(s1rcolor)
+
+```
+
+```{s/}
+	
+    quietly graph export s1rcolorscatter.png, width(500) replace
+
+```
+	
+![Scatterplot with `s1rcolor` Scheme](s1rcolorscatter.png)	
+
+# User Written Schemes
+
+Two of the best user written schemes are `plottig` and `lean2`. 
+
+Use the `findit` command e.g. `findit lean2` to find these schemes.
+
+# `lean2` Scheme
+
+```{s}
+
+    twoway scatter Petal_Length Petal_Width, scheme(lean2)
+
+```
+
+```{s/}
+	
+    quietly graph export lean2scatter.png, width(500) replace
+
+```
+	
+![Scatterplot with `lean2` Scheme](lean2scatter.png)
+
+# Michigan graph scheme	
+
+I have written a `michigan` graph scheme 
+described [here](https://agroganweb.wordpress.com/michigan-graph-scheme-for-stata/).
+
+```{s}
+
+    twoway (scatter Petal_Length Petal_Width) /// 
+	(lfit Petal_Length Petal_Width), scheme(michigan)
+
+```
+
+```{s/}
+	
+    quietly graph export michiganscatter.png, width(500) replace
+
+```
+	
+![Scatterplot with `michigan` Scheme](michiganscatter.png)	
+
+# Schemes as a Base for Further Tweaking
+
+Schemes can be used as a base that can then be further modified.
+
+```{s}
+
+    twoway (scatter Petal_Length Petal_Width, msymbol(0) mcolor(red)) ///
+	(lfit Petal_Length Petal_Width), ///
+	scheme(lean2) 
+
+```
+
+```{s/}
+	
+	quietly graph export lean2Ascatter.png, width(500) replace
+
+```
+	
+![Modified Scatterplot with `lean2` Scheme as a Base](lean2Ascatter.png)	
+
+# Even More Tweaks
+
+Based upon an example at 
+[https://blog.stata.com/2018/10/02/scheming-your-way-to-your-favorite-graph-style/](https://blog.stata.com/2018/10/02/scheming-your-way-to-your-favorite-graph-style/)
+
+```{s}
+
+    twoway scatter Sepal_Length Sepal_Width Petal_Width Petal_Length, /// 
+	color(%50 %50 %50) /// transparency 
+	title("Multiple Iris Characteristics") /// title
+	scheme(s1rcolor) // scheme
+
+```
+
+```{s/}
+	
+	quietly graph export s1rcolorAscatter.png, width(500) replace
+
+```
+	
+![Modified Scatterplot with `s1rcolor` Scheme as a Base](s1rcolorAscatter.png)
+	
+# More Information
+
+See also [Two Page Stata](http://www-personal.umich.edu/~agrogan/stata/TwoPageStata.pdf)
+
+Created by [agrogan@umich.edu](agrogan@umich.edu)
+
+
+
+
