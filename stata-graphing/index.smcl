@@ -3,7 +3,7 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Box Sync/GitHub/stata/stata-graphing/index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}28 May 2019, 16:14:55
+ {txt}opened on:  {res}28 May 2019, 16:28:17
 {txt}
 {com}. //_1
 . display c(current_date)
@@ -182,7 +182,7 @@ symbol,  default attributes used)
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Box Sync/GitHub/stata/stata-graphing/index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}28 May 2019, 16:15:14
+ {txt}closed on:  {res}28 May 2019, 16:28:36
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
