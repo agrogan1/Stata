@@ -1,8 +1,10 @@
 % Better Graphing in Stata
 % Andy Grogan-Kaylor
-% `s c(current_date)`
+% `s c(current_date)` `s c(current_time)`
 
 # Introduction 
+
+<style>.slide code {color: red;}</style>
 
 * Stata is a powerful and intuitive data analysis program. 
 * Learning how to graph in Stata is an important part of learning how to use Stata. 

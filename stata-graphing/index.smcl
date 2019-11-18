@@ -3,13 +3,17 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}18 Nov 2019, 13:21:34
+ {txt}opened on:  {res}18 Nov 2019, 13:33:01
 {txt}
 {com}. //_1
 . display c(current_date)
 {res}18 Nov 2019
 {txt}
 {com}. //_2
+. display c(current_time)
+{res}13:33:01
+{txt}
+{com}. //_3
 . 
 . use "iris.dta", clear
 {txt}
@@ -25,38 +29,38 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 {txt}{space 5}Species {c |}{res}        150           2    .8192319          1          3
 {txt}
 {com}. 
-. //_3
+. //_4
 . 
 . histogram Petal_Length
 {txt}(bin={res}12{txt}, start={res}1{txt}, width={res}.49166667{txt})
 {res}{txt}
 {com}. 
-. //_4q
+. //_5q
 .     
 . quietly graph export myhistogram.png, width(500) replace
 {txt}
 {com}. 
-. //_5
+. //_6
 . 
 . graph bar, over(Species)
 {res}{txt}
 {com}. 
-. //_6q
+. //_7q
 .     
 . quietly graph export mybargraph.png, width(500) replace
 {txt}
 {com}. 
-. //_7
+. //_8
 . 
 . twoway scatter Petal_Length Petal_Width
 {res}{txt}
 {com}. 
-. //_8q
+. //_9q
 .     
 . quietly graph export myscatter.png, width(500) replace
 {txt}
 {com}. 
-. //_9
+. //_10
 . 
 . recode Petal_Length ///
 > (min/3.758 = 0 "below mean") ///
@@ -68,22 +72,22 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 . graph bar, over(Species) over(Petal_Group)
 {res}{txt}
 {com}. 
-. //_10q
+. //_11q
 .     
 . quietly graph export mybargraph2.png, width(500) replace
 {txt}
 {com}. 
-. //_11
+. //_12
 . 
 . graph bar Petal_Length, over(Species)
 {res}{txt}
 {com}. 
-. //_12q
+. //_13q
 .     
 . quietly graph export mybargraph3.png, width(500) replace
 {txt}
 {com}. 
-. //_13
+. //_14
 . 
 . twoway scatter Petal_Length Petal_Width, scheme(s1rcolor) ///
 > title("Petal Length by Petal Width") ///
@@ -91,63 +95,63 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 > caption("Iris Data") 
 {res}{txt}
 {com}. 
-. //_14q
+. //_15q
 .     
 . quietly graph export graphtitleslabels.png, width(500) replace
 {txt}
 {com}. 
-. //_15
+. //_16
 . 
 . twoway scatter Petal_Length Petal_Width, scheme(economist)
 {res}{txt}
 {com}. 
-. //_16q
+. //_17q
 .     
 . quietly graph export econscatter.png, width(500) replace
 {txt}
 {com}. 
-. //_17
+. //_18
 . 
 . twoway scatter Petal_Length Petal_Width, scheme(sj)
 {res}{txt}
 {com}. 
-. //_18q
+. //_19q
 .     
 . quietly graph export sjscatter.png, width(500) replace
 {txt}
 {com}. 
-. //_19
+. //_20
 . 
 . twoway scatter Petal_Length Petal_Width, scheme(s1rcolor)
 {res}{txt}
 {com}. 
-. //_20q
+. //_21q
 .     
 . quietly graph export s1rcolorscatter.png, width(500) replace
 {txt}
 {com}. 
-. //_21
+. //_22
 . 
 . twoway scatter Petal_Length Petal_Width, scheme(lean2)
 {res}{txt}
 {com}. 
-. //_22q
+. //_23q
 .     
 . quietly graph export lean2scatter.png, width(500) replace
 {txt}
 {com}. 
-. //_23
+. //_24
 . 
 . twoway (scatter Petal_Length Petal_Width) /// 
 > (lfit Petal_Length Petal_Width), scheme(michigan)
 {res}{txt}
 {com}. 
-. //_24q
+. //_25q
 .     
 . quietly graph export michiganscatter.png, width(500) replace
 {txt}
 {com}. 
-. //_25
+. //_26
 . 
 . twoway (scatter Petal_Length Petal_Width, msymbol(0) mcolor(red)) ///
 > (lfit Petal_Length Petal_Width), ///
@@ -159,12 +163,12 @@ symbol,  default attributes used)
 {p_end}
 {res}{txt}
 {com}. 
-. //_26q
+. //_27q
 .     
 . quietly graph export lean2Ascatter.png, width(500) replace
 {txt}
 {com}. 
-. //_27
+. //_28
 . 
 . twoway scatter Sepal_Length Sepal_Width Petal_Width Petal_Length, /// 
 > color(%50 %50 %50) /// transparency 
@@ -172,7 +176,7 @@ symbol,  default attributes used)
 > scheme(s1rcolor) // scheme
 {res}{txt}
 {com}. 
-. //_28q
+. //_29q
 .     
 . quietly graph export s1rcolorAscatter.png, width(500) replace
 {txt}
@@ -182,7 +186,7 @@ symbol,  default attributes used)
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}18 Nov 2019, 13:21:47
+ {txt}closed on:  {res}18 Nov 2019, 13:33:13
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
