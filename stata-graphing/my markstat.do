@@ -1,8 +1,11 @@
 * render document using markstat
 
-markstat using index.stmd, slides(santiago+) // bundle 
+markstat using index.stmd, bundle // HTML
+
+markstat using index.stmd, slides(santiago+) bundle // slides
 
 * CSS:  <style>.slide code {color: red;}</style>
+* CSS:  <style> code {color: red;}</style>
 
 graph close _all
 

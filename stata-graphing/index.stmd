@@ -4,7 +4,7 @@
 
 # Introduction 
 
-<style>.slide code {color: red;}</style>
+<style> code {color: red;} .slide code {color: red;}</style>
 
 * Stata is a powerful and intuitive data analysis program. 
 * Learning how to graph in Stata is an important part of learning how to use Stata. 
