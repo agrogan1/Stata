@@ -20,7 +20,8 @@ graph close _all
 // copy index-b.html index.html
 // rm index-b.html
 
+// pandoc -s --webtex -i -t slidy "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.html" -o "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\slidy.html"
 
+// pandoc -s --mathml -i -t dzslides "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.html" -o "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\dzslides.html"
 
-
-
+// pandoc -s --mathjax -i -t revealjs "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.html" -o "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\revealjs.html"
