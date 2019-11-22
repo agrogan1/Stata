@@ -4,6 +4,8 @@ markstat using index.stmd, bundle // HTML
 
 markstat using index.stmd, slides(santiago+) bundle // slides
 
+markstat using index.stmd, docx // Word
+
 * CSS:  <style>.slide code {color: red;}</style>
 * CSS:  <style> code {color: red;}</style>
 
@@ -13,10 +15,10 @@ markstat using index.stmd, pdf
 
 graph close _all
 
-* bundle using index.html
-* rm index.html
-* copy index-b.html index.html
-* rm index-b.html
+// bundle using index.html
+// rm index.html
+// copy index-b.html index.html
+// rm index-b.html
 
 
 
