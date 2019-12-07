@@ -214,7 +214,7 @@ Use the `findit` command e.g. `findit lean2` to find these schemes.
 # Michigan graph scheme	
 
 I have written a `michigan` graph scheme 
-described [here](https://agroganweb.wordpress.com/michigan-graph-scheme-for-stata/).
+described [here](https://agrogan1.github.io/Stata/).
 
 ```{s}
 
