@@ -1,17 +1,17 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.smcl
+       {txt}log:  {res}/Users/agrogan/Box Sync/GitHub/Stata/stata-graphing/index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 5 Dec 2019, 16:41:13
+ {txt}opened on:  {res} 7 Dec 2019, 14:47:25
 {txt}
 {com}. //_1
 . display c(current_date)
-{res} 5 Dec 2019
+{res} 7 Dec 2019
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}16:41:13
+{res}14:47:25
 {txt}
 {com}. //_3
 . 
@@ -133,6 +133,7 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 . //_22
 . 
 . twoway scatter Petal_Length Petal_Width, scheme(lean2)
+{txt}(note: scheme lean2 not found, using s2color)
 {res}{txt}
 {com}. 
 . //_23q
@@ -144,6 +145,7 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 . 
 . twoway (scatter Petal_Length Petal_Width) /// 
 > (lfit Petal_Length Petal_Width), scheme(michigan)
+{txt}(note: scheme michigan not found, using s2color)
 {res}{txt}
 {com}. 
 . //_25q
@@ -156,6 +158,7 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 . twoway (scatter Petal_Length Petal_Width, msymbol(0) mcolor(red)) ///
 > (lfit Petal_Length Petal_Width), ///
 > scheme(lean2) 
+{txt}(note: scheme lean2 not found, using s2color)
 {p 0 4 2}
 {txt}(note:  named style
 0 not found in class
@@ -184,9 +187,9 @@ symbol,  default attributes used)
 . //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.smcl
+       {txt}log:  {res}/Users/agrogan/Box Sync/GitHub/Stata/stata-graphing/index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 5 Dec 2019, 16:41:27
+ {txt}closed on:  {res} 7 Dec 2019, 14:47:39
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

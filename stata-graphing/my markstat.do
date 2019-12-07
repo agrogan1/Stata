@@ -2,14 +2,18 @@
 
 markstat using index.stmd, bundle // HTML
 
+graph close _all
+
 markstat using index.stmd, slides(santiago+) bundle // slides
+
+graph close _all
 
 markstat using index.stmd, docx // Word
 
+graph close _all
+
 * CSS:  <style>.slide code {color: red;}</style>
 * CSS:  <style> code {color: red;}</style>
-
-graph close _all
 
 markstat using index.stmd, pdf
 
