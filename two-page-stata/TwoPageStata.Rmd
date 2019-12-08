@@ -3,15 +3,6 @@ title: "Two Page Stata"
 author: "Andrew Grogan-Kaylor"
 date: '`r format(Sys.Date(), format="%B %d, %Y")`'
 output:
-  html_document: 
-    theme: united
-    toc: yes
-    toc_float:
-      collapsed: no
-      smooth_scroll: yes
-  tufte::tufte_handout:
-    number_sections: yes
-    toc: no
   tint::tintPdf:
     toc: no
     number_sections: yes
@@ -22,12 +13,21 @@ output:
     - fonts
     - italics
     css: mycss.css
-  bookdown::epub_book: default
-  pdf_document:
-    latex_engine: xelatex
+  tufte::tufte_handout:
+    number_sections: yes
+    toc: no
   tint::tintHtml:
     toc: yes
     number_sections: yes
+  bookdown::epub_book: default
+  pdf_document:
+    latex_engine: xelatex
+  html_document: 
+    theme: united
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
 fontsize: 11pt
 geometry: margin=.30in
 mainfont: Tw Cen MT
