@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -268,7 +269,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -342,18 +342,6 @@ summary {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
@@ -391,6 +379,10 @@ $(document).ready(function () {
 <h2>Two Page Stata</h2>
 <p><a href="https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf">https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf</a></p>
 </div>
+<div id="a-very-short-introduction-to-stata" class="section level2">
+<h2>A <em>Very</em> Short Introduction to Stata</h2>
+<p><a href="https://agrogan1.github.io/Stata/very-short-introduction/very-short-introduction.html">https://agrogan1.github.io/Stata/very-short-introduction/very-short-introduction.html</a></p>
+</div>
 </div>
 
 
@@ -410,6 +402,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
