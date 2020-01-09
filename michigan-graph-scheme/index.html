@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Andy Grogan-Kaylor" />
+  <title>Installing and Using the Michigan Graph Scheme</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!-- configuration parameters -->
+  <meta name="defaultView" content="slideshow" />
+  <meta name="controlVis" content="hidden" />
+  <!-- style sheet links -->
+  <link rel="stylesheet" href="c:/ado/plus/m/s5/santiago/slides.css" type="text/css" media="projection" id="slideProj" />
+  <link rel="stylesheet" href="c:/ado/plus/m/s5/santiago/outline.css" type="text/css" media="screen" id="outlineStyle" />
+  <link rel="stylesheet" href="c:/ado/plus/m/s5/santiago/print.css" type="text/css" media="print" id="slidePrint" />
+  <link rel="stylesheet" href="c:/ado/plus/m/s5/santiago/opera.css" type="text/css" media="projection" id="operaFix" />
+  <!-- S5 JS -->
+  <script src="c:/ado/plus/m/s5/santiago/slides.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="layout">
+<div id="controls"></div>
+<div id="currentSlide"></div>
+<div id="header"></div>
+<div id="footer">
+  <h1>9 Jan 2020 15:11:05</h1>
+  <h2>Installing and Using the Michigan Graph Scheme</h2>
+</div>
+</div>
+<div class="presentation">
+<div class="titleslide slide">
+  <h1>Installing and Using the Michigan Graph Scheme</h1>
+  <h2>Andy Grogan-Kaylor</h2>
+  <h3>9 Jan 2020 15:11:05</h3>
+</div>
+<div id="introduction" class="slide section level1">
+<h1>Introduction</h1>
+<p>Stata provides the use of graph schemes that improve the overall look of graphs.</p>
+<p>See <code>help scheme</code>.</p>
+<p>The <em>Michigan graph scheme</em> makes use of official University of Michigan colors.</p>
+</div>
+<div id="installation" class="slide section level1">
+<h1>Installation</h1>
+<p>Use of the <em>Michigan graph scheme</em> depends on installation of the `lean2' graph scheme developed by Svend Juul.</p>
+<p>Type <code>findit lean2</code> and click through on the install links to install <code>lean2</code>.</p>
+<p>Then type <code>net from https://agrogan1.github.io/Stata</code> and click the links to install.</p>
+</div>
+<div id="example-data" class="slide section level1">
+<h1>Example Data</h1>
+<p>We are going to use the famous &quot;iris&quot; data collected by Ronald Fisher.</p>
+<pre class='stata'>. 
+. use "iris.dta", clear
+
+. 
+. summarize
+
+    Variable │        Obs        Mean    Std. Dev.       Min        Max
+─────────────┼─────────────────────────────────────────────────────────
+Sepal_Length │        150    5.843333    .8280661        4.3        7.9
+ Sepal_Width │        150    3.057333    .4358663          2        4.4
+Petal_Length │        150       3.758    1.765298          1        6.9
+ Petal_Width │        150    1.199333    .7622377         .1        2.5
+     Species │        150           2    .8192319          1          3
+
+. 
+</pre>
+</div>
+<div id="usage" class="slide section level1">
+<h1>Usage</h1>
+</div>
+<div id="histogram" class="slide section level1">
+<h1>Histogram</h1>
+<pre class='stata'>. 
+. histogram Petal_Length, scheme(michigan)
+(bin=12, start=1, width=.49166667)
+
+. 
+</pre>
+
+<div class="figure">
+<img src="myhistogram.png" alt="Histogram Using Michigan Scheme" />
+<p class="caption">Histogram Using Michigan Scheme</p>
+</div>
+</div>
+<div id="scatterplot" class="slide section level1">
+<h1>Scatterplot</h1>
+<pre class='stata'>. 
+. twoway (scatter Petal_Length Petal_Width) ///
+> (lfit Petal_Length Petal_Width), ///
+> scheme(michigan)
+
+. 
+</pre>
+
+<div class="figure">
+<img src="myscatter.png" alt="Scatterplot Using Michigan Scheme" />
+<p class="caption">Scatterplot Using Michigan Scheme</p>
+</div>
+</div>
+</div>
+</body>
+</html>

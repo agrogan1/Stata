@@ -1,0 +1,70 @@
+% Installing and Using the Michigan Graph Scheme
+% Andy Grogan-Kaylor
+% `s c(current_date)` `s c(current_time)`
+
+# Introduction
+
+Stata provides the use of graph schemes that improve the overall look of graphs.
+
+See `help scheme`.
+
+The *Michigan graph scheme* makes use of official University of Michigan colors.
+
+# Installation
+
+Use of the *Michigan graph scheme* depends on installation of the `lean2' graph scheme developed by Svend Juul.
+
+Type `findit lean2` and click through on the install links to install `lean2`.
+      
+Then type `net from https://agrogan1.github.io/Stata` and click the links to install.
+
+# Example Data
+
+We are going to use the famous "iris" data collected by Ronald Fisher.
+
+```{s}
+
+    use "iris.dta", clear
+
+	summarize
+
+```
+
+# Usage
+
+# Histogram
+
+```{s}
+
+    histogram Petal_Length, scheme(michigan)
+
+```
+
+```{s/}
+	
+    quietly graph export myhistogram.png, width(500) replace
+
+```
+	
+![Histogram Using Michigan Scheme](myhistogram.png)
+
+# Scatterplot
+
+```{s}
+
+    twoway (scatter Petal_Length Petal_Width) ///
+	(lfit Petal_Length Petal_Width), ///
+	scheme(michigan)
+
+```
+
+```{s/}
+	
+	quietly graph export myscatter.png, width(500) replace
+
+```
+	
+![Scatterplot Using Michigan Scheme](myscatter.png)
+
+
+
