@@ -1,53 +1,65 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<style>
+/* CSS for Markstat 2.0 using Pandoc 2.0 */
+body{padding:14px 28px;}
+body, table {font-family: Helvetica, Arial, Sans-serif; font-size: 14px;}
+h1, h2, h3, h4 {font-weight: normal; color: #3366cc}
+h1 {font-size: 200%;}
+h2 {font-size: 150%;}
+h3 {font-size: 120%;}
+h4 {font-size: 100%; font-weight:bold}
+img.center {display:block; margin-left:auto; margin-right:auto}
+.small{font-size:8pt;}
+a {color: black;}
+a:visited {color: #808080;}
+a.plain {text-decoration:none;}
+a.plain:hover {text-decoration:underline;}
+.em {font-weight:bold;}
+pre, code {font-family: "lucida console", monospace;}
+pre.stata {font-size:13px; line-height:13px;}
+pre {padding:8px; border:1px solid #c0c0c0; border-radius:8px; background-color:#fdfdfd;}
+code {color:#3366cc; background-color:#fafafa;}
+pre code { color:black; background-color:white}
+/* Added for Pandoc */
+figure > img, div.figure > img {display:block; margin:auto}
+figcaption, p.caption {text-align:center; font-weight:bold; color:#3366cc;}
+h1.title {text-align:center; margin-bottom:0}
+p.author, h2.author {font-style:italic; text-align:center;margin-top:4px;margin-bottom:0}
+p.date, h3.date {text-align:center;margin-top:4px; margin-bottom:0}
+/* Tables*/
+table { margin:auto; border-collapse:collapse; }
+table caption { margin-bottom:1ex;}
+th, td { padding:4px 6px;}
+thead tr:first-child th {border-top:1px solid black; padding-top:6px}
+thead tr:last-child  th {padding-bottom:6px}
+tbody tr:first-child td {border-top:1px solid black; padding-top:6px}
+tbody tr:last-child  td {padding-bottom:6px;}
+table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
+</style>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Andy Grogan-Kaylor" />
   <title>Installing and Using the Michigan Graph Scheme</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <!-- configuration parameters -->
-  <meta name="defaultView" content="slideshow" />
-  <meta name="controlVis" content="hidden" />
-  <!-- style sheet links -->
-  <link rel="stylesheet" href="c:/ado/plus/m/s5/santiago/slides.css" type="text/css" media="projection" id="slideProj" />
-  <link rel="stylesheet" href="c:/ado/plus/m/s5/santiago/outline.css" type="text/css" media="screen" id="outlineStyle" />
-  <link rel="stylesheet" href="c:/ado/plus/m/s5/santiago/print.css" type="text/css" media="print" id="slidePrint" />
-  <link rel="stylesheet" href="c:/ado/plus/m/s5/santiago/opera.css" type="text/css" media="projection" id="operaFix" />
-  <!-- S5 JS -->
-  <script src="c:/ado/plus/m/s5/santiago/slides.js" type="text/javascript"></script>
 </head>
 <body>
-<div class="layout">
-<div id="controls"></div>
-<div id="currentSlide"></div>
-<div id="header"></div>
-<div id="footer">
-  <h1>9 Jan 2020 15:11:05</h1>
-  <h2>Installing and Using the Michigan Graph Scheme</h2>
+<div id="header">
+<h1 class="title">Installing and Using the Michigan Graph Scheme</h1>
+<h2 class="author">Andy Grogan-Kaylor</h2>
+<h3 class="date">9 Jan 2020 15:14:07</h3>
 </div>
-</div>
-<div class="presentation">
-<div class="titleslide slide">
-  <h1>Installing and Using the Michigan Graph Scheme</h1>
-  <h2>Andy Grogan-Kaylor</h2>
-  <h3>9 Jan 2020 15:11:05</h3>
-</div>
-<div id="introduction" class="slide section level1">
-<h1>Introduction</h1>
+<h1 id="introduction">Introduction</h1>
 <p>Stata provides the use of graph schemes that improve the overall look of graphs.</p>
 <p>See <code>help scheme</code>.</p>
 <p>The <em>Michigan graph scheme</em> makes use of official University of Michigan colors.</p>
-</div>
-<div id="installation" class="slide section level1">
-<h1>Installation</h1>
+<h1 id="installation">Installation</h1>
 <p>Use of the <em>Michigan graph scheme</em> depends on installation of the `lean2' graph scheme developed by Svend Juul.</p>
 <p>Type <code>findit lean2</code> and click through on the install links to install <code>lean2</code>.</p>
 <p>Then type <code>net from https://agrogan1.github.io/Stata</code> and click the links to install.</p>
-</div>
-<div id="example-data" class="slide section level1">
-<h1>Example Data</h1>
+<h1 id="example-data">Example Data</h1>
 <p>We are going to use the famous &quot;iris&quot; data collected by Ronald Fisher.</p>
 <pre class='stata'>. 
 . use "iris.dta", clear
@@ -65,12 +77,8 @@ Petal_Length │        150       3.758    1.765298          1        6.9
 
 . 
 </pre>
-</div>
-<div id="usage" class="slide section level1">
-<h1>Usage</h1>
-</div>
-<div id="histogram" class="slide section level1">
-<h1>Histogram</h1>
+<h1 id="usage">Usage</h1>
+<h1 id="histogram">Histogram</h1>
 <pre class='stata'>. 
 . histogram Petal_Length, scheme(michigan)
 (bin=12, start=1, width=.49166667)
@@ -82,9 +90,7 @@ Petal_Length │        150       3.758    1.765298          1        6.9
 <img src="myhistogram.png" alt="Histogram Using Michigan Scheme" />
 <p class="caption">Histogram Using Michigan Scheme</p>
 </div>
-</div>
-<div id="scatterplot" class="slide section level1">
-<h1>Scatterplot</h1>
+<h1 id="scatterplot">Scatterplot</h1>
 <pre class='stata'>. 
 . twoway (scatter Petal_Length Petal_Width) ///
 > (lfit Petal_Length Petal_Width), ///
@@ -96,8 +102,6 @@ Petal_Length │        150       3.758    1.765298          1        6.9
 <div class="figure">
 <img src="myscatter.png" alt="Scatterplot Using Michigan Scheme" />
 <p class="caption">Scatterplot Using Michigan Scheme</p>
-</div>
-</div>
 </div>
 </body>
 </html>

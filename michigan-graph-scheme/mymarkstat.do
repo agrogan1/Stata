@@ -1,5 +1,5 @@
 markstat using index.stmd
 
-markstat using index.stmd, slides(santiago+)
+markstat using index.stmd, slides(santiago+) bundle
 
 graph close _all
