@@ -1,0 +1,37 @@
+---
+title: "A Very Short Introduction to Stata"
+author: "Andy Grogan-Kaylor"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    highlight: haddock
+  distill::distill_article:
+    highlight: haddock
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+# A Very Short Introduction to Stata
+
+The basic philosophy of Stata---“Stata in one sentence”---is `do_something to_a_variable, options`
+
+The general idea of most Stata commands is `command variables, options`. Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults. Commands that you actually type are represented in `monospace` font. `x` and `y` refer to variables in your data.
+
+| Task | Command | 
+|------|-----|
+| Descriptive statistics | `summarize x y` |
+| Frequencies | `tabulate x` |
+| Correlation | `corr x y` |
+| Regression | `regress y x` |
+| Histogram | | `histogram x` |
+| Scatterplot | `twoway scatter y x` |
+
+
+
