@@ -1,6 +1,6 @@
 # Stata Materials
 
-## Stata Programs and Graph Schemes
+## Stata Programs and Stata Graph Scheme
 
 In Stata, type `net from https://agrogan1.github.io/Stata` to install these programs.
 
