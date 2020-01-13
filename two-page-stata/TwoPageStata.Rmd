@@ -3,16 +3,17 @@ title: "Two Page Stata"
 author: "Andrew Grogan-Kaylor"
 date: '`r format(Sys.Date(), format="%B %d, %Y")`'
 output:
-  tufte::tufte_html:
-    number_sections: yes
-    toc: yes
-    tufte_features:
-    - fonts
-    - italics
-    css: mycss.css
   tint::tintPdf:
     toc: no
     number_sections: yes
+  html_document: 
+    css: mycss.css
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
   tufte::tufte_handout:
     number_sections: yes
     toc: no
@@ -22,12 +23,13 @@ output:
   bookdown::epub_book: default
   pdf_document:
     latex_engine: xelatex
-  html_document: 
-    theme: united
+  tufte::tufte_html:
+    number_sections: yes
     toc: yes
-    toc_float:
-      collapsed: no
-      smooth_scroll: yes
+    tufte_features:
+    - fonts
+    - italics
+    css: mycss.css
 fontsize: 11pt
 geometry: margin=.30in
 mainfont: Tw Cen MT
@@ -116,7 +118,7 @@ Tabulating two categorical variables together gives you a cross-tabulation of th
 
 [^other-regressions]: Other regression commands follow a very similar format:  `command y x z` but are beyond the purview of this 2 page guide.
 
-[^factor]: Stata's factor variables allow one to generate interactions and indicator variables on the fly, but again are beyond the purview of this guide.)
+[^factor]: Stata's factor variables allow one to generate interactions and indicator variables on the fly, but again are beyond the purview of this guide.
 
 [^estat-summarize]: After running many multivariate models `estat summarize` will give you simple descriptive statistics for the specific sample used in that particular analysis.
 

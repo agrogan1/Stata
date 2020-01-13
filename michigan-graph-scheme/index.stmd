@@ -4,6 +4,8 @@
 
 # Introduction
 
+<style> code {color: red;} .slide code {color: red;}</style>
+
 Stata provides the use of graph schemes that improve the overall look of graphs.
 
 See `help scheme`.
@@ -29,8 +31,6 @@ We are going to use the famous "iris" data collected by Ronald Fisher.
 	summarize
 
 ```
-
-# Usage
 
 # Histogram
 
