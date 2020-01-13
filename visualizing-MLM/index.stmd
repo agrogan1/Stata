@@ -1,0 +1,46 @@
+% Visualizing Multilevel Models
+% Andy Grogan-Kaylor
+% `s c(current_date)` `s c(current_time)`
+
+# Introduction
+
+<style> code {color: red;} .slide code {color: red;}</style>
+
+# Data Dimensions
+
+# Using Color
+
+# Graph Schemes & Graph Options
+
+# Small Multiples
+
+# Bivariate Relationships
+
+# Multivariate (Predicted) Relationships
+
+* Multivariate
+* Empirical Bayes
+
+# Visualizing Uncertainty
+
+* Matthew Kay
+* Claus Wilke
+
+* shaded regions
+* normal curves
+* gradient
+* spaghetti plot
+
+# Spaghetti Plots
+
+* `spagplot`
+* `xtline`
+* coding by hand
+
+
+# Correlation of $\beta_0$ and $\beta_t$
+
+# Curvilinear and Linear Fits
+
+(esp. w/ longitudinal data)
+
