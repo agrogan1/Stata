@@ -1,9 +1,9 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\visualizing-MLM\index.smcl
+       {txt}log:  {res}/Users/agrogan/Box Sync/GitHub/Stata/visualizing-MLM/index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}13 Jan 2020, 10:43:22
+ {txt}opened on:  {res}13 Jan 2020, 13:19:18
 {txt}
 {com}. //_1
 . display c(current_date)
@@ -11,14 +11,14 @@
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}10:43:22
+{res}13:19:18
 {txt}
 {com}. //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\visualizing-MLM\index.smcl
+       {txt}log:  {res}/Users/agrogan/Box Sync/GitHub/Stata/visualizing-MLM/index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}13 Jan 2020, 10:43:22
+ {txt}closed on:  {res}13 Jan 2020, 13:19:18
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

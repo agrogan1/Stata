@@ -24,6 +24,8 @@ graph close _all
 // copy index-b.html index.html
 // rm index-b.html
 
+// C:\Program Files\RStudio\bin\pandoc\ 
+
 // pandoc -s --webtex -i -t slidy "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.html" -o "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\slidy.html"
 
 // pandoc -s --mathml -i -t dzslides "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.html" -o "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\dzslides.html"
