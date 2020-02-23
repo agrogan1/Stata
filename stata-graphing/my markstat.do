@@ -6,11 +6,11 @@ cd "/Users/agrogan/Box Sync/GitHub/Stata/stata-graphing"
 
 * render in different formats
 
-markstat using index.stmd, /* bundle */ // HTML
+markstat using index.stmd, bundle  // HTML
 
 graph close _all
 
-markstat using index.stmd, slides(santiago+) /* bundle */ // slides
+markstat using index.stmd, slides(santiago+) bundle  // slides
 
 graph close _all
 
