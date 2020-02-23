@@ -1,10 +1,16 @@
 * render document using markstat
 
-markstat using index.stmd, bundle // HTML
+* change to correct directory
+
+cd "/Users/agrogan/Box Sync/GitHub/Stata/stata-graphing"
+
+* render in different formats
+
+markstat using index.stmd, /* bundle */ // HTML
 
 graph close _all
 
-markstat using index.stmd, slides(santiago+) bundle // slides
+markstat using index.stmd, slides(santiago+) /* bundle */ // slides
 
 graph close _all
 
@@ -15,7 +21,7 @@ graph close _all
 * CSS:  <style>.slide code {color: red;}</style>
 * CSS:  <style> code {color: red;}</style>
 
-markstat using index.stmd, pdf
+markstat using index.stmd, pdf keep(tex) // PDF
 
 graph close _all
 

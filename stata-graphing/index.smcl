@@ -1,17 +1,17 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}/Users/agrogan/Box Sync/GitHub/Stata/stata-graphing/index.smcl
+       {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}12 Jan 2020, 14:25:16
+ {txt}opened on:  {res}23 Feb 2020, 15:17:48
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}12 Jan 2020
+{res}23 Feb 2020
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}14:25:16
+{res}15:17:48
 {txt}
 {com}. //_3
 . 
@@ -184,9 +184,9 @@ symbol,  default attributes used)
 . //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}/Users/agrogan/Box Sync/GitHub/Stata/stata-graphing/index.smcl
+       {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}12 Jan 2020, 14:25:33
+ {txt}closed on:  {res}23 Feb 2020, 15:18:03
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

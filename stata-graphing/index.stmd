@@ -1,4 +1,4 @@
-% Better Graphing in Stata
+% Data Visualization With Stata
 % Andy Grogan-Kaylor
 % `s c(current_date)` `s c(current_time)`
 
@@ -14,9 +14,30 @@ and (b) some simple ways to make your Stata graphs look more professional.
 * If this document is presented as slides, navigation links are in the corner of this slide deck.
 * If this document is presented as slides, you can generate a printable version of these slides, by clicking on the "Ø".
 
+# What are Variables?
+
+* By variables, I simply mean the columns of data that you have.
+* For our purposes, you may think of variables as synonymous with questionnaire items, or columns of data.
+
+# Variable Types
+
+* *categorical variables* represent unordered categories like *neighborhood*, or *religious affiliation*, or *place of residence*.
+* *continuous variables* represent a continuous scale like a *mental health scale*, or a *measure of life expectancy*.
+
+# A Data Visualization Strategy
+
+Once we have discerned the type of variable that have, there are two followup questions we may ask before deciding upon a chart strategy:
+
+* Is our graph about **one thing at a time**?
+     + How much of *x* is there? 
+     + What is the distribution of *x*?
+* Is our graph about **two things at a time**?
+     + What is the relationship of *x* and *y*?
+     + How are *x* and *y* associated?
+
 # Data
 
-We are going to use the famous "iris" data collected by Ronald Fisher.
+We are going to use the famous "iris" data collected by Edgar Anderson in the early 20th Century.
 
 ```{s}
 
@@ -25,6 +46,14 @@ We are going to use the famous "iris" data collected by Ronald Fisher.
 	summarize
 
 ```
+
+> The `iris` data set has 5 variables.
+
+# Species of Iris
+
+> Iris species images courtesy [Wikipedia](https://www.wikipedia.org/).
+
+![Iris Species](iris-species.png)
 
 # Basic Graphs
 
