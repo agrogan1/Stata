@@ -277,7 +277,7 @@ if (window.hljs) {
 <li><a href="#bivariate-statisticsanova"><span class="toc-section-number">4</span> Bivariate Statistics</a></li>
 <li><a href="#multivariate-statisticsfactor"><span class="toc-section-number">5</span> Multivariate Statistics</a></li>
 <li><a href="#graphinggraph-options"><span class="toc-section-number">6</span> Graphing</a></li>
-<li><a href="#by"><span class="toc-section-number">7</span> by:</a></li>
+<li><a href="#by-and-bysort"><span class="toc-section-number">7</span> <code>by:</code> and <code>bysort:</code></a></li>
 </ul>
 </div>
 
@@ -317,10 +317,10 @@ if (window.hljs) {
 <p><code>twoway scatter y x</code> gives you a twoway scatterplot of your data. <code>twoway lfit y x</code> will give you a linear fit graph. The two syntaxes may be combined e.g. <code>twoway (scatter y x)(lfit y x)</code>.</p>
 <p><code>graph bar x, over(y)</code> is useful for creating a bar graph of a continuous or categorical variable graphed across the categories of a categorical variable.</p>
 </div>
-<div id="by" class="section level1">
-<h1><span class="header-section-number">7</span> by:</h1>
+<div id="by-and-bysort" class="section level1">
+<h1><span class="header-section-number">7</span> <code>by:</code> and <code>bysort:</code></h1>
 <p>In many cases you may want to look at the results of some calculation for x, or x and y over a third variable z. In such cases the by: syntax will be especially useful. For example to look at the correlation of x and y over different values of z.</p>
-<p><code>sort z</code> <code>by z: pwcorr x y, sig</code></p>
+<p><code>bysort z: pwcorr x y, sig</code></p>
 </div>
 
 

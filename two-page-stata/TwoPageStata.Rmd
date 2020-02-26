@@ -3,9 +3,6 @@ title: "Two Page Stata"
 author: "Andrew Grogan-Kaylor"
 date: '`r format(Sys.Date(), format="%B %d, %Y")`'
 output:
-  tint::tintPdf:
-    toc: no
-    number_sections: yes
   tufte::tufte_html:
     number_sections: yes
     toc: yes
@@ -13,6 +10,9 @@ output:
     - fonts
     - italics
     css: mycss.css
+  tint::tintPdf:
+    toc: no
+    number_sections: yes
 fontsize: 11pt
 geometry: margin=.30in
 mainfont: Tw Cen MT
@@ -119,12 +119,11 @@ Tabulating two categorical variables together gives you a cross-tabulation of th
 
 [^graph-options]: For all graphs, options after a "," will be helpful in titling your graph  e.g. `twoway lfit y x, title(".") xtitle(".") ytitle(".")`
 
-# by:
+# `by:` and `bysort:`
 
 In many cases you may want to look at the results of some calculation for x, or x and y over a third variable z.  In such cases the by: syntax will be especially useful.  For example to look at the correlation of x and y over different values of z.
 
-`sort z`
-`by z: pwcorr x y, sig`
+`bysort z: pwcorr x y, sig`
 
 [^questions]: Comments, questions and corrections most welcome and may be sent to:  [Andrew Grogan-Kaylor](http://www.umich.edu/~agrogan) @  [agrogan@umich.edu](agrogan@umich.edu).  This document available on the web @ [https://agroganweb.wordpress.com/stata-resources/](https://agroganweb.wordpress.com/stata-resources/) 
 
