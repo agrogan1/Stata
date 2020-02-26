@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
 <meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -12,7 +13,7 @@
 
 <meta name="author" content="Andrew Grogan-Kaylor" />
 
-<meta name="date" content="2020-02-21" />
+<meta name="date" content="2020-02-26" />
 
 <title>Two Page Stata</title>
 
@@ -265,7 +266,7 @@ if (window.hljs) {
 
 <h1 class="title toc-ignore">Two Page Stata</h1>
 <h4 class="author">Andrew Grogan-Kaylor</h4>
-<h4 class="date">February 21, 2020</h4>
+<h4 class="date">February 26, 2020</h4>
 
 
 <div id="TOC">
@@ -287,17 +288,17 @@ if (window.hljs) {
 <p><code>describe</code> tells you about the contents of a specific variable. E.g. <code>describe x y</code>. <code>describe, short</code> will tell you very basic things about your data, including the number of observations in the data set, and the size of your data file.</p>
 </div>
 <div id="process-your-datamissing-values" class="section level1">
-<h1><span class="header-section-number">2</span> Process Your Data<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> Data with missing values, often represented as negative numbers (e.g. -99, -9, -8) need to be recoded so that the missing values are represented as a missing value character (“.”) that Stata knows to exclude from calculations.</span></h1>
+<h1><span class="header-section-number">2</span> Process Your Data<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> Data with missing values, often represented as negative numbers (e.g. -99, -9, -8) need to be recoded so that the missing values are represented as a missing value character (“.”) that Stata knows to exclude from calculations.</span></h1>
 <p><code>recode x (oldvalue = newvalue), generate(z)</code> will recode a variable into a new variable, often a good idea.</p>
 <p><code>recode _all (-99/-1 = .)</code> will recode all negative numbers from -99 to -1 to missing for all variables in your data. <code>recode x (7/9 = .)</code> changes 7 through 9 to be missing for x. Indeed, <code>recode</code> will change specific values in your data to anything you want, not just missing values.</p>
-<p>It is often convenient to <code>rename</code> your variables so that the variables have more intuitively understandable names e.g. <code>rename x depression</code>.</p>
-<p>You can create new variables out of old variables using <code>generate newvar = expression</code> e.g. <code>generate newvar = oldvar1 + oldvar2</code>.<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> <code>alpha oldvar1 oldvar2</code> will calculate Cronbach’s alpha from this scale.</span></p>
+<p>It is often convenient to <code>rename</code> your variables so that the variables have more intuitively understandable names e.g. <code>rename x depression</code>.</p>
+<p>You can create new variables out of old variables using <code>generate newvar = expression</code> e.g. <code>generate newvar = oldvar1 + oldvar2</code>.<label for="tufte-sn-7" class="margin-toggle sidenote-number">7</label><input type="checkbox" id="tufte-sn-7" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">7</span> <code>alpha oldvar1 oldvar2</code> will calculate Cronbach’s alpha from this scale.</span></p>
 <p>It is sometimes useful to <code>sort</code> your data. <code>sort x</code> will sort your data by the values of x.</p>
 </div>
 <div id="descriptive-statistics" class="section level1">
 <h1><span class="header-section-number">3</span> Descriptive Statistics</h1>
 <p><code>summarize</code> gives you basic descriptive statistics for a variable, such as the mean (average). Especially useful for continuous variables. E.g. <code>summarize x y</code> or <code>summarize x y, detail</code>.</p>
-<p><code>tabulate</code> gives you a frequency distribution for your variable. Especially useful for categorical variables. e.g. <code>tabulate x</code>.</p>
+<p><code>tabulate</code> gives you a frequency distribution for your variable. Especially useful for categorical variables. e.g. <code>tabulate x</code>.</p>
 </div>
 <div id="bivariate-statisticsanova" class="section level1">
 <h1><span class="header-section-number">4</span> Bivariate Statistics<label for="tufte-sn-8" class="margin-toggle sidenote-number">8</label><input type="checkbox" id="tufte-sn-8" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">8</span> <code>oneway continous_var categorical_var, tabulate</code> gives you a oneway ANOVA of a continuous variable over a categorical factor.</span></h1>
@@ -310,10 +311,10 @@ if (window.hljs) {
 <code>regress y x z</code> regresses y on x and z.<label for="tufte-sn-11" class="margin-toggle sidenote-number">11</label><input type="checkbox" id="tufte-sn-11" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">11</span> Other regression commands follow a very similar format: <code>command y x z</code> but are beyond the purview of this 2 page guide.</span> <code>regress y x i.z</code> regresses y on x and z, treating x as continuous and z as a set of categorical indicator variables.</p>
 </div>
 <div id="graphinggraph-options" class="section level1">
-<h1><span class="header-section-number">6</span> Graphing<label for="tufte-sn-12" class="margin-toggle sidenote-number">12</label><input type="checkbox" id="tufte-sn-12" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">12</span> For all graphs, options after a “,” will be helpful in titling your graph e.g. <code>twoway lfit y x, title(&quot;.&quot;) xtitle(&quot;.&quot;) ytitle(&quot;.&quot;)</code></span></h1>
+<h1><span class="header-section-number">6</span> Graphing<label for="tufte-sn-12" class="margin-toggle sidenote-number">12</label><input type="checkbox" id="tufte-sn-12" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">12</span> For all graphs, options after a “,” will be helpful in titling your graph e.g. <code>twoway lfit y x, title(&quot;.&quot;) xtitle(&quot;.&quot;) ytitle(&quot;.&quot;)</code></span></h1>
 <p><code>histogram x</code> will give you a nice display of one variable. <code>histogram x, by(y)</code> may be useful for comparing the distributions of two variables over the categories of y.</p>
 <p><code>histogram x, percent</code> will scale the y-axis more intuitively in terms of percentages. <code>histogram x, discrete</code><label for="tufte-sn-13" class="margin-toggle sidenote-number">13</label><input type="checkbox" id="tufte-sn-13" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">13</span> The percent and discrete options can be combined.</span> gives a nicer display for categorical variables.</p>
-<p><code>twoway scatter y x</code> gives you a twoway scatterplot of your data. <code>twoway lfit y x</code> will give you a linear fit graph. The two syntaxes may be combined e.g. <code>twoway (scatter y x)(lfit y x)</code>.</p>
+<p><code>twoway scatter y x</code> gives you a twoway scatterplot of your data. <code>twoway lfit y x</code> will give you a linear fit graph. The two syntaxes may be combined e.g. <code>twoway (scatter y x)(lfit y x)</code>.</p>
 <p><code>graph bar x, over(y)</code> is useful for creating a bar graph of a continuous or categorical variable graphed across the categories of a categorical variable.</p>
 </div>
 <div id="by" class="section level1">

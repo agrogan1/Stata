@@ -3,13 +3,13 @@ title: "A Very Short Introduction to Stata"
 author: "Andy Grogan-Kaylor"
 date: "`r Sys.Date()`"
 output:
-  html_document:
-    highlight: haddock
   pdf_document:
     toc: yes
   distill::distill_article:
     highlight: haddock
     toc: yes
+  html_document:
+    highlight: haddock
 ---
 
 ```{r setup, include=FALSE}

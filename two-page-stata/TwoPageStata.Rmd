@@ -3,6 +3,9 @@ title: "Two Page Stata"
 author: "Andrew Grogan-Kaylor"
 date: '`r format(Sys.Date(), format="%B %d, %Y")`'
 output:
+  tint::tintPdf:
+    toc: no
+    number_sections: yes
   tufte::tufte_html:
     number_sections: yes
     toc: yes
@@ -10,9 +13,6 @@ output:
     - fonts
     - italics
     css: mycss.css
-  tint::tintPdf:
-    toc: no
-    number_sections: yes
 fontsize: 11pt
 geometry: margin=.30in
 mainfont: Tw Cen MT
