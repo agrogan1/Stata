@@ -8,7 +8,7 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 
 [https://agrogan1.github.io/Stata/michigan-graph-scheme](https://agrogan1.github.io/Stata/michigan-graph-scheme)
 
-## Better Graphing in Stata
+## Data Visualization With Stata
 
 [https://agrogan1.github.io/Stata/stata-graphing](https://agrogan1.github.io/Stata/stata-graphing)
 
