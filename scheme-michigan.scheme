@@ -1,52 +1,43 @@
-* scheme to create Stata graphs
+* Scheme to create Stata graphs
 * with University of Michigan colors
 
-* designed by Andy Grogan-Kaylor (agrogan@umich.edu)
-* questions & comments welcome
+* Designed by Andy Grogan-Kaylor (agrogan@umich.edu)
+* Questions & comments welcome
 
 * This scheme uses as its foundation, the wonderful lean2 scheme 
 * developed by Svend Juul, University of Aarhus, Denmark
 
-* some inspiration is drawn from http://www.soe.umich.edu/files/IdentityGuidelines.pdf
-* and http://vpcomm.umich.edu/brand/style-guide/design-principles/colors 
+* Some inspiration is drawn from https://brand.umich.edu/design-resources/colors/
 
 #include lean2
 
 * histogram
 
 color histogram navy
-color histogram gold
-color histogram ltblue
-color histogram gray
-color histogram green
-color histogram orange
-color histogram red
-color histogram purple
-color histogram midblue
 
 * bar chart
 
 color p1bar navy
 color p2bar gold
-color p3bar ltblue
-color p4bar gray
+color p3bar maroon
+color p4bar orange
 color p5bar green
-color p6bar orange
-color p7bar red
+color p6bar teal
+color p7bar edkblue
 color p8bar purple
-color p9bar midblue
+color p9bar stone
 
 * pie chart
 
 color p1pie navy
 color p2pie gold
-color p3pie ltblue
-color p4pie gray
+color p3pie maroon
+color p4pie orange
 color p5pie green
-color p6pie orange
-color p7pie red
+color p6pie teal
+color p7pie edkblue
 color p8pie purple
-color p9pie midblue
+color p9pie stone
 
 * scatterplot
 
@@ -59,16 +50,16 @@ color p2markfill gold
 color p2markline gold
 
 symbol p3 circle
-color p3markfill ltblue
-color p3markline ltblue
+color p3markfill maroon
+color p3markline maroon
 
 symbol p4 circle
-color p3markfill green
-color p3markline green
-
-symbol p5 circle
 color p3markfill orange
 color p3markline orange
+
+symbol p5 circle
+color p3markfill green
+color p3markline green
 
 * line chart
 
@@ -78,7 +69,7 @@ linewidth p1lineplot thick
 color p2lineplot gold
 linewidth p2lineplot thick
 
-color p3lineplot green
+color p3lineplot maroon
 linewidth p3lineplot thick
 
 color p4lineplot orange
@@ -88,21 +79,21 @@ linewidth p4lineplot thick
 
 color p1area navy
 color p2area gold
-color p3area ltblue
-color p4area gray
+color p3area maroon
+color p4area orange
 color p5area green
-color p6area orange
-color p7area red
+color p6area teal
+color p7area edkblue
 color p8area purple
-color p9area midblue
+color p9area stone
 
 * plot elements
 
 color p navy
 color p1 navy
 color p2 gold
-color p3 ltblue
-color p4 gray
+color p3 maroon
+color p4 orange
 
 
 
