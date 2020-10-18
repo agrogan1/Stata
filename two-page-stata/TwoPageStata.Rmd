@@ -10,13 +10,17 @@ output:
     - fonts
     - italics
     css: mycss.css
+  tufte::tufte_handout:
+    toc: yes
+    number_sections: yes
+    latex_engine: xelatex
   tint::tintPdf:
     toc: no
     number_sections: yes
 fontsize: 11pt
 geometry: margin=.30in
 mainfont: Tw Cen MT
-description: an introduction to Stata
+description: An introduction to Stata
 cover-image: Two-Page-Stata-cover.png
 ---
 
