@@ -10,7 +10,7 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 
 ## Data Visualization With Stata
 
-[https://agrogan1.github.io/Stata/stata-graphing](https://agrogan1.github.io/Stata/stata-graphing)
+[https://agrogan1.github.io/newstuff/data-visualization-with-Stata/data-visualization-with-Stata-slidy.html](https://agrogan1.github.io/newstuff/data-visualization-with-Stata/data-visualization-with-Stata-slidy.html) [[PDF](https://agrogan1.github.io/newstuff/data-visualization-with-Stata/data-visualization-with-Stata.pdf)]
 
 ## Two Page Stata
 
