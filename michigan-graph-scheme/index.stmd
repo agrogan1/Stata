@@ -22,7 +22,7 @@ Then type `net from https://agrogan1.github.io/Stata` and click the links to ins
 
 # Example Data
 
-We are going to use the famous "iris" data collected by Ronald Fisher.
+We are going to use the famous "iris" data collected by Edgar Anderson.
 
 ```{s}
 

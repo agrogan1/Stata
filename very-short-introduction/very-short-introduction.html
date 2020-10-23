@@ -24,8 +24,8 @@
   
   
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2020-02-26" />
-  <meta property="article:created" itemprop="dateCreated" content="2020-02-26" />
+  <meta property="article:published" itemprop="datePublished" content="2020-10-23" />
+  <meta property="article:created" itemprop="dateCreated" content="2020-10-23" />
   <meta name="article:author" content="Andy Grogan-Kaylor" />
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -41,7 +41,7 @@
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["A Very Short Introduction to Stata"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andy Grogan-Kaylor"]}]}]},{"type":"character","attributes":{},"value":["2020-02-26"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article","pdf_document","html_document"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight","toc"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc"]}},"value":[{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output","mainfont"]}},"value":[{"type":"character","attributes":{},"value":["A Very Short Introduction to Stata"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andy Grogan-Kaylor"]}]}]},{"type":"character","attributes":{},"value":["2020-10-23"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article","pdf_document","html_document"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight","toc"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","latex_engine"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["xelatex"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]}]}]},{"type":"character","attributes":{},"value":["Futura"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -396,6 +396,16 @@
   .article-footer .subscribe {
     font-size: 15px;
     margin-top: 45px;
+  }
+  
+  
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .custom p {
+    margin-bottom: 0.5em;
   }
   
   
@@ -1929,7 +1939,7 @@ distill-header .nav a {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"A Very Short Introduction to Stata","authors":[{"author":"Andy Grogan-Kaylor","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-02-26T00:00:00.000-05:00","citationText":"Grogan-Kaylor, 2020"}
+{"title":"A Very Short Introduction to Stata","authors":[{"author":"Andy Grogan-Kaylor","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-10-23T00:00:00.000-04:00","citationText":"Grogan-Kaylor, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1947,7 +1957,7 @@ distill-header .nav a {
   
   Andy Grogan-Kaylor
   
-<br />2020-02-26
+<br />2020-10-23
 </div>
 
 <div class="d-article">
@@ -1959,8 +1969,9 @@ distill-header .nav a {
 </nav>
 <hr class="d-toc-separator" />
 <h1 id="a-very-short-introduction-to-stata">A Very Short Introduction to Stata</h1>
-<p>The basic philosophy of Stata—“Stata in one sentence”—is <code>do_something to_a_variable_or_variables, options</code></p>
-<p>The general idea of most Stata commands is <code>command variables, options</code>. Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults. Commands that you actually type are represented in <code>monospace</code> font. <code>x</code> and <code>y</code> refer to variables in your data.</p>
+<p>The basic philosophy of Stata—“Stata in one sentence”—is:</p>
+<p><code>do_something to_a_variable_or_variables, options</code></p>
+<p>The general idea of most Stata commands is <code>command variable(s), options</code>. Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults. Commands that you actually type are represented in <code>monospace</code> font. <code>x</code> and <code>y</code> refer to variables in your data.</p>
 <table>
 <thead>
 <tr class="header">
