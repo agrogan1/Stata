@@ -6,9 +6,6 @@ output:
   tufte::tufte_html:
     number_sections: yes
     toc: yes
-    tufte_features:
-    - fonts
-    - italics
     css: mycss.css
   tint::tintPdf:
     toc: no
@@ -103,12 +100,14 @@ Tabulating two categorical variables together gives you a cross-tabulation of th
 
 `regress y x` regresses y on x.[^estat-summarize]  
 `regress y x z` regresses y on x and z.[^other-regressions]
-`regress y x i.z` regresses y on x and z, treating x as continuous and z as a set of categorical indicator variables. 
+`regress y x i.z` regresses y on x and z, treating x as continuous and z as a set of categorical indicator variables.[^idot] 
 `regress y c.x##i.z` regresses y on continuous x and categorical z, providing both main effects for x and z and the interaction of x and z.
 
 [^other-regressions]: Other regression commands follow a very similar format:  `command y x z` but are beyond the purview of this 2 page guide.
 
 [^estat-summarize]: After running many multivariate models `estat summarize` will give you simple descriptive statistics for the specific sample used in that particular analysis.
+
+[^idot]: `i.x` is Stata's notation for treating independent variables as *categorical* or *indicator* variables.
 
 # Graphing[^graph-options]
 
