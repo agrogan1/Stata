@@ -4,6 +4,12 @@
 
 In Stata, type `net from https://agrogan1.github.io/Stata` to install these programs.
 
+* `icc`: A program to calculate intraclass correlation coefficients after using xtmixed. (Superseded by `estat icc` after `mixed`.)
+* `rtodi`: A program to calculate d from r (for use in meta-analysis)
+* `cohensdi`: A program to calculate Cohen's d (for use in meta-analysis)
+* `michigan`: A graph scheme with University of Michigan colors
+* `unicef`: A graph scheme with official UNICEF colors
+
 ## Installing and Using the Michigan Graph Scheme
 
 [https://agrogan1.github.io/Stata/michigan-graph-scheme](https://agrogan1.github.io/Stata/michigan-graph-scheme)
