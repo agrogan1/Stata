@@ -10,9 +10,9 @@ geometry: margin=1 in
 
 # Background
 
-It sometimes seems like 80% of our work as data analysts is cleaning the data, while only 20% is the actual analysis.  Here are some Stata commands that are useful in cleaning data.
+> It sometimes seems like 80% of our work as data analysts is cleaning the data, while only 20% is the actual analysis.  Here are some Stata commands that are useful in cleaning data.
 
-> First we simulate some data to work with, and to clean.
+First we simulate some data to work with, and to clean.
 
 # Simulate Some Data
 

@@ -49,14 +49,14 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 <div id="header">
 <h1 class="title">Cleaning Data With Stata</h1>
 <h2 class="author">Andy Grogan-Kaylor</h2>
-<h3 class="date">18 Feb 2021 15:47:31</h3>
+<h3 class="date">18 Feb 2021 16:00:07</h3>
 </div>
 <style>h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 <h1 id="background">Background</h1>
-<p>It sometimes seems like 80% of our work as data analysts is cleaning the data, while only 20% is the actual analysis. Here are some Stata commands that are useful in cleaning data.</p>
 <blockquote>
-<p>First we simulate some data to work with, and to clean.</p>
+<p>It sometimes seems like 80% of our work as data analysts is cleaning the data, while only 20% is the actual analysis. Here are some Stata commands that are useful in cleaning data.</p>
 </blockquote>
+<p>First we simulate some data to work with, and to clean.</p>
 <h1 id="simulate-some-data">Simulate Some Data</h1>
 <pre class='stata'>. clear all 
 </pre>
@@ -83,17 +83,17 @@ number of observations (_N) was 0, now 100
      ┌───────────────────────────────────┐
      │ id        age   happy   somethi~e │
      ├───────────────────────────────────┤
-  1. │  1        200       4   -1.833638 │
-  2. │  2   67.47347       3    1.763895 │
-  3. │  3   34.35879       2    .1071787 │
-  4. │  4   48.19574       3   -.0133031 │
-  5. │  5   55.26645       5   -1.016438 │
+  1. │  1        200       1      .06784 │
+  2. │  2   60.42631       3    1.459888 │
+  3. │  3   52.97712       4   -.7060056 │
+  4. │  4   32.77868       5    .0529082 │
+  5. │  5     42.708       1   -.2976007 │
      ├───────────────────────────────────┤
-  6. │  6   53.74429       1   -.8753561 │
-  7. │  7   64.17343       1    .5281762 │
-  8. │  8   47.34469       5   -2.057618 │
-  9. │  9    58.2569       1   -.3222974 │
- 10. │ 10   28.50415     999    .5979892 │
+  6. │  6   58.61826       3   -.2165111 │
+  7. │  7   47.60646       2    1.299809 │
+  8. │  8   55.16549       5    .1418742 │
+  9. │  9   31.87984       3    1.550615 │
+ 10. │ 10   39.84875     999    .2515597 │
      └───────────────────────────────────┘
 </pre>
 <h1 id="clean-the-data">Clean The Data!</h1>
@@ -121,18 +121,18 @@ Sorted by:
     Variable │        Obs        Mean    Std. Dev.       Min        Max
 ─────────────┼─────────────────────────────────────────────────────────
           id │        100        50.5    29.01149          1        100
-         age │        100     51.9906    17.78808   28.25826        200
-       happy │        100       13.01    99.60401          1        999
-somethinge~e │        100   -.0164734    .9947817  -2.103661   3.199156
+         age │        100    49.85175    17.83505   24.33709        200
+       happy │        100        12.9    99.61598          1        999
+somethinge~e │        100   -.0085413    1.072256  -2.685881   2.794861
 </pre>
 <pre class='stata'>. tabulate happy // tabulation of this particular categorical variable
 
       happy │      Freq.     Percent        Cum.
 ────────────┼───────────────────────────────────
-          1 │         15       15.00       15.00
-          2 │         23       23.00       38.00
-          3 │         22       22.00       60.00
-          4 │         20       20.00       80.00
+          1 │         21       21.00       21.00
+          2 │         19       19.00       40.00
+          3 │         23       23.00       63.00
+          4 │         17       17.00       80.00
           5 │         19       19.00       99.00
         999 │          1        1.00      100.00
 ────────────┼───────────────────────────────────
@@ -195,8 +195,8 @@ Sorted by:
     Variable │        Obs        Mean    Std. Dev.       Min        Max
 ─────────────┼─────────────────────────────────────────────────────────
           id │        100        50.5    29.01149          1        100
-         age │        100     50.9906    10.83545   28.25826        100
-       happy │         99    3.050505    1.350538          1          5
+         age │        100    48.85175    10.71257   24.33709        100
+       happy │         99    2.939394    1.412901          1          5
 </pre>
 </body>
 </html>
