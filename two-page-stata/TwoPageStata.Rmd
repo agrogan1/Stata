@@ -3,10 +3,6 @@ title: "Two Page Stata"
 author: "Andrew Grogan-Kaylor"
 date: '`r format(Sys.Date(), format="%B %d, %Y")`'
 output:
-  tufte::tufte_html:
-    number_sections: yes
-    toc: yes
-    css: mycss.css
   tint::tintPdf:
     toc: no
     number_sections: yes
@@ -14,6 +10,10 @@ output:
     toc: no
     number_sections: yes
     latex_engine: xelatex
+  tufte::tufte_html:
+    number_sections: yes
+    toc: yes
+    css: mycss.css
 fontsize: 11pt
 geometry: margin=.30in
 mainfont: Futura
@@ -63,6 +63,8 @@ An introduction to Stata[^twitter] in 2 pages.[^questions] Commands[^commands] t
 [^codebook]: `codebook x y` will produce a nicely formatted codebook of selected variables, which is especially useful if you have added variable labels with the label variable command.  `codebook` is especially useful for seeing how numerical values are associated with value labels.  `codebook` by itself will list every variable in your data and generate a lot of [probably too much] output.
 
 `lookfor` allows you to find variables that contain a specified keyword.  This is especially useful in large data sets with many variables.  Often abbreviated keywords are the most helpful.  e.g. to find a poverty variable, type `lookfor pov`.
+
+With very large data sets, it may be helpful to use `keep x y z` to only keep the variables with which you are working.
 
 `describe` tells you about the contents of a specific variable. E.g. `describe x y`. `describe, short` will tell you very basic things about your data, including the number of observations in the data set, and the size of your data file.
 

@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andrew Grogan-Kaylor" />
 
-<meta name="date" content="2021-01-26" />
+<meta name="date" content="2021-02-18" />
 
 <title>Two Page Stata</title>
 
@@ -280,7 +280,7 @@ if (window.hljs) {
 
 <h1 class="title toc-ignore">Two Page Stata</h1>
 <h4 class="author">Andrew Grogan-Kaylor</h4>
-<h4 class="date">January 26, 2021</h4>
+<h4 class="date">February 18, 2021</h4>
 
 
 <div id="TOC">
@@ -299,6 +299,7 @@ if (window.hljs) {
 <div id="get-acquainted-with-your-datacodebook" class="section level1">
 <h1><span class="header-section-number">1</span> Get Acquainted With Your Data<label for="tufte-sn-6" class="margin-toggle sidenote-number">6</label><input type="checkbox" id="tufte-sn-6" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">6</span> <code>codebook x y</code> will produce a nicely formatted codebook of selected variables, which is especially useful if you have added variable labels with the label variable command. <code>codebook</code> is especially useful for seeing how numerical values are associated with value labels. <code>codebook</code> by itself will list every variable in your data and generate a lot of [probably too much] output.</span></h1>
 <p><code>lookfor</code> allows you to find variables that contain a specified keyword. This is especially useful in large data sets with many variables. Often abbreviated keywords are the most helpful. e.g. to find a poverty variable, type <code>lookfor pov</code>.</p>
+<p>With very large data sets, it may be helpful to use <code>keep x y z</code> to only keep the variables with which you are working.</p>
 <p><code>describe</code> tells you about the contents of a specific variable. E.g. <code>describe x y</code>. <code>describe, short</code> will tell you very basic things about your data, including the number of observations in the data set, and the size of your data file.</p>
 </div>
 <div id="process-your-datamissing-values" class="section level1">

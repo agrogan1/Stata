@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6670 64-bit) (preloaded format=pdflatex 2018.5.1)  26 JAN 2021 14:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6670 64-bit) (preloaded format=pdflatex 2018.5.1)  18 FEB 2021 14:44
 entering extended mode
 **./TwoPageStata.tex
 (TwoPageStata.tex
@@ -758,96 +758,121 @@ Now handling font encoding OMX ...
 ... no UTF-8 mapping file for font encoding OMX
 Now handling font encoding U ...
 ... no UTF-8 mapping file for font encoding U
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
-Now handling font encoding PU ...
-... no UTF-8 mapping file for font encoding PU
-   defining Unicode char U+00A9 (decimal 169)
-   defining Unicode char U+00AA (decimal 170)
-   defining Unicode char U+00AE (decimal 174)
-   defining Unicode char U+00BA (decimal 186)
-   defining Unicode char U+02C6 (decimal 710)
-   defining Unicode char U+02DC (decimal 732)
-   defining Unicode char U+200C (decimal 8204)
-   defining Unicode char U+2026 (decimal 8230)
-   defining Unicode char U+2122 (decimal 8482)
-   defining Unicode char U+2423 (decimal 9251)
-   defining Unicode char U+FEFF (decimal 65279)
-)) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+Now handling font encoding PD1 .\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\c@columnbadness=\count276
+\c@finalcolumnbadness=\count277
+\last@try=\dimen169
+\multicolovershoot=\dimen170
+\multicolundershoot=\dimen171
+\mult@nat@firstbox=\box74
+\colbreak@box=\box75
+\mc@col@check@num=\count278
+))) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks26
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip94
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks27
+\ex@=\dimen172
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen173
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
+\inf@bad=\count279
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count280
+\leftroot@=\count281
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count282
+\DOTSCASE@=\count283
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box76
+\strutbox@=\box77
+\big@size=\dimen174
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count284
+\c@MaxMatrixCols=\count285
+\dotsspace@=\muskip17
+\c@parentequation=\count286
+\dspbrk@lvl=\count287
+\tag@help=\toks28
+\row@=\count288
+\column@=\count289
+\maxfields@=\count290
+\andhelp@=\toks29
+\eqnshift@=\dimen175
+\alignsep@=\dimen176
+\tagshift@=\dimen177
+\tagwidth@=\dimen178
+\totwidth@=\dimen179
+\lineht@=\dimen180
+\@envbody=\toks30
+\multlinegap=\skip95
+\multlinetaggap=\skip96
+\mathdisplay@stack=\toks31
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fixltx2e.sty"
+Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
+Applying: [2015/01/01] Old fixltx2e package on input line 46.
+
+Package fixltx2e Warning: fixltx2e is not required with releases after 2015
+(fixltx2e)                All fixes are now in the LaTeX kernel.
+(fixltx2e)                See the latexrelease package for details.
+
+Already applied: [0000/00/00] Old fixltx2e package on input line 53.
 )
-\Gin@req@height=\dimen142
-\Gin@req@width=\dimen143
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
-Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen144
-\lightrulewidth=\dimen145
-\cmidrulewidth=\dimen146
-\belowrulesep=\dimen147
-\belowbottomsep=\dimen148
-\aboverulesep=\dimen149
-\abovetopsep=\dimen150
-\cmidrulesep=\dimen151
-\cmidrulekern=\dimen152
-\defaultaddspace=\dimen153
-\@cmidla=\count131
-\@cmidlb=\count132
-\@aboverulesep=\dimen154
-\@belowrulesep=\dimen155
-\@thisruleclass=\count133
-\@lastruleclass=\count134
-\@thisrulewidth=\dimen156
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\units\units.sty"
-Package: units 1998/08/04 v0.9b Typesetting units
-("C:\Program Files\MiKTeX 2.9\tex\latex\units\nicefrac.sty"
-Package: nicefrac 1998/08/04 v0.9b Nice fractions
-\L@UnitsRaiseDisplaystyle=\skip90
-\L@UnitsRaiseTextstyle=\skip91
-\L@UnitsRaiseScriptstyle=\skip92
-)) ("C:\Program Files\MiKTeX 2.9\tex\latex\ulem\ulem.sty"
-\UL@box=\box58
-\UL@hyphenbox=\box59
-\UL@skip=\skip93
-\UL@hook=\toks27
-\UL@height=\dimen157
-\UL@pe=\count135
-\UL@pixel=\dimen158
-\ULC@box=\box60
-Package: ulem 2012/05/18
-\ULdepth=\dimen159
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\morefloats\morefloats.sty"
-Package: morefloats 2015/07/22 v1.0h Raise limit of unprocessed floats (HMM)
-Package morefloats Info: Maximum number of possible floats asked for: 36
-(morefloats)             (i.e. 18 more floats).
-(morefloats)             LaTeX might run out of memory before this
-(morefloats)             (in which case it will notify you).
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\roboto\roboto.sty"
-Package: roboto 2017/04/10 (Bob Tennent) Supports Roboto fonts for all LaTeX en
-gines.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty"
-Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
-Package textcomp Info: Sub-encoding information:
-(textcomp)               5 = only ISO-Adobe without \textcurrency
-(textcomp)               4 = 5 + \texteuro
-(textcomp)               3 = 4 + \textohm
-(textcomp)               2 = 3 + \textestimated + \textcurrency
-(textcomp)               1 = TS1 - \textcircled - \t
-(textcomp)               0 = TS1 (full)
-(textcomp)             Font families with sub-encoding setting implement
-(textcomp)             only a restricted character set as indicated.
-(textcomp)             Family '?' is the default used for unknown fonts.
-(textcomp)             See the documentation for details.
-Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.def"
-File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! fontspec error: "font-not-found"
+! 
+! The font "Futura" cannot be found.
+! 
+! See the fontspec documentation for further information.
+! 
+! For immediate help type H <return>.
+!...............................................  
+                                                  
+l.23     \setmainfont[]{Futura}
+                                
+Here is how much of TeX's memory you used:
+ 21961 strings out of 427836
+ 399134 string characters out of 3152480
+ 518301 words of memory out of 3000000
+ 25761 multiletter control sequences out of 15000+200000
+ 530969 words of font info for 27 fonts, out of 3000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 55i,0n,45p,10452b,233s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+No pages of output.
+rd LaTeX file
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.dfu"
@@ -1190,7 +1215,7 @@ LaTeX Font Info:    Font shape `T1/RobotoCondensed-LF/b/n' will be
 LaTeX Warning: Marginpar on page 1 moved.
 
 
-Overfull \hbox (2.49203pt too wide) in paragraph at lines 255--259
+Overfull \hbox (2.49203pt too wide) in paragraph at lines 259--263
 []\T1/cmtt/m/n/10 describe \T1/RobotoCondensed-LF/m/n/10 tells you about the co
 n-tents of a spe-cific vari-able. E.g. \T1/cmtt/m/n/10 describe 
  []
@@ -1226,32 +1251,32 @@ LaTeX Warning: Marginpar on page 2 moved.
 LaTeX Warning: Marginpar on page 2 moved.
 
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 355.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 359.
 
 Package bibentry Warning: You have used \nobibliography* 
 (bibentry)                without a following \bibliography.
 (bibentry)                You may not be able to run BibTeX.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 366.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 370.
 LaTeX Font Info:    Font shape `T1/RobotoCondensed-LF/m/sc' will be
-(Font)              scaled to size 10.0pt on input line 366.
+(Font)              scaled to size 10.0pt on input line 370.
 [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 366.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 370.
 (TwoPageStata.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 366.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 366.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 370.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 370.
 Package rerunfilecheck Info: File `TwoPageStata.out' has not changed.
 (rerunfilecheck)             Checksum: 01455BB897E47C376F27BA07640289C6;1011.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 366.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 370.
  ) 
 Here is how much of TeX's memory you used:
  13924 strings out of 493305
  196727 string characters out of 3138869
- 296465 words of memory out of 3000000
+ 296467 words of memory out of 3000000
  17178 multiletter control sequences out of 15000+200000
  83106 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,11n,51p,276b,376s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 45i,12n,45p,276b,376s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}{C:/Pro
 gram Files/MiKTeX 2.9/fonts/enc/dvips/roboto/rbto_v5svcm.enc}{C:/Program Files/
 MiKTeX 2.9/fonts/enc/dvips/roboto/rbto_idpkzy.enc}<C:/Program Files/MiKTeX 2.9/
@@ -1262,7 +1287,7 @@ X 2.9/fonts/type1/google/roboto/RobotoCondensed-Regular.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/public/cm-super/sftt0800.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/cm-super/sftt1000.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/cm-super/sftt1200.pfb>
-Output written on TwoPageStata.pdf (2 pages, 180581 bytes).
+Output written on TwoPageStata.pdf (2 pages, 181239 bytes).
 PDF statistics:
  92 PDF objects out of 1000 (max. 8388607)
  17 named destinations out of 1000 (max. 500000)
