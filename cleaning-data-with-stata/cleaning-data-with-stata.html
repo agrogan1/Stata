@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+/* CSS for Markstat 2.0 using Pandoc 2.0 */
+body{padding:14px 28px;}
+body, table {font-family: Helvetica, Arial, Sans-serif; font-size: 14px;}
+h1, h2, h3, h4 {font-weight: normal; color: #3366cc}
+h1 {font-size: 200%;}
+h2 {font-size: 150%;}
+h3 {font-size: 120%;}
+h4 {font-size: 100%; font-weight:bold}
+img.center {display:block; margin-left:auto; margin-right:auto}
+.small{font-size:8pt;}
+a {color: black;}
+a:visited {color: #808080;}
+a.plain {text-decoration:none;}
+a.plain:hover {text-decoration:underline;}
+.em {font-weight:bold;}
+pre, code {font-family: "lucida console", monospace;}
+pre.stata {font-size:13px; line-height:13px;}
+pre {padding:8px; border:1px solid #c0c0c0; border-radius:8px; background-color:#fdfdfd;}
+code {color:#3366cc; background-color:#fafafa;}
+pre code { color:black; background-color:white}
+/* Added for Pandoc */
+figure > img, div.figure > img {display:block; margin:auto}
+figcaption, p.caption {text-align:center; font-weight:bold; color:#3366cc;}
+h1.title {text-align:center; margin-bottom:0}
+p.author, h2.author {font-style:italic; text-align:center;margin-top:4px;margin-bottom:0}
+p.date, h3.date {text-align:center;margin-top:4px; margin-bottom:0}
+/* Tables*/
+table { margin:auto; border-collapse:collapse; }
+table caption { margin-bottom:1ex;}
+th, td { padding:4px 6px;}
+thead tr:first-child th {border-top:1px solid black; padding-top:6px}
+thead tr:last-child  th {padding-bottom:6px}
+tbody tr:first-child td {border-top:1px solid black; padding-top:6px}
+tbody tr:last-child  td {padding-bottom:6px;}
+table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
+</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Andy Grogan-Kaylor" />
+  <title>Cleaning Data With Stata</title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Cleaning Data With Stata</h1>
+<h2 class="author">Andy Grogan-Kaylor</h2>
+<h3 class="date">18 Feb 2021 15:47:31</h3>
+</div>
+<style>h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
+<h1 id="background">Background</h1>
+<p>It sometimes seems like 80% of our work as data analysts is cleaning the data, while only 20% is the actual analysis. Here are some Stata commands that are useful in cleaning data.</p>
+<blockquote>
+<p>First we simulate some data to work with, and to clean.</p>
+</blockquote>
+<h1 id="simulate-some-data">Simulate Some Data</h1>
+<pre class='stata'>. clear all 
+</pre>
+<pre class='stata'>. set obs 100 // 100 observations
+number of observations (_N) was 0, now 100
+</pre>
+<pre class='stata'>. generate id = _n // random id 
+</pre>
+<pre class='stata'>. generate age = rnormal(50,10) // random generated age
+</pre>
+<pre class='stata'>. replace age = 200 in 1 // someone is 200 years old!
+(1 real change made)
+</pre>
+<pre class='stata'>. generate happy = runiformint(1,5) // randomly generated happiness
+</pre>
+<pre class='stata'>. replace happy = 999 in 10 // simulate a missing value
+(1 real change made)
+</pre>
+<pre class='stata'>. generate somethingelse = rnormal(0, 1) // something else!
+</pre>
+<h1 id="look-at-some-of-the-data">Look At Some Of The Data</h1>
+<pre class='stata'>. list in 1/10 // list first 10 observations
+
+     ┌───────────────────────────────────┐
+     │ id        age   happy   somethi~e │
+     ├───────────────────────────────────┤
+  1. │  1        200       4   -1.833638 │
+  2. │  2   67.47347       3    1.763895 │
+  3. │  3   34.35879       2    .1071787 │
+  4. │  4   48.19574       3   -.0133031 │
+  5. │  5   55.26645       5   -1.016438 │
+     ├───────────────────────────────────┤
+  6. │  6   53.74429       1   -.8753561 │
+  7. │  7   64.17343       1    .5281762 │
+  8. │  8   47.34469       5   -2.057618 │
+  9. │  9    58.2569       1   -.3222974 │
+ 10. │ 10   28.50415     999    .5979892 │
+     └───────────────────────────────────┘
+</pre>
+<h1 id="clean-the-data">Clean The Data!</h1>
+<h2 id="look-at-variables">Look at Variables</h2>
+<p>When we look at variables we are looking for values that don't make sense, or that are outside the plausible range.</p>
+<pre class='stata'>. describe // describe the data
+
+Contains data
+  obs:           100                          
+ vars:             4                          
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+              storage   display    value
+variable name   type    format     label      variable label
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+id              float   %9.0g                 
+age             float   %9.0g                 
+happy           float   %9.0g                 
+somethingelse   float   %9.0g                 
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Sorted by: 
+     Note: Dataset has changed since last saved.
+</pre>
+<pre class='stata'>. summarize // descriptive statistics
+
+    Variable │        Obs        Mean    Std. Dev.       Min        Max
+─────────────┼─────────────────────────────────────────────────────────
+          id │        100        50.5    29.01149          1        100
+         age │        100     51.9906    17.78808   28.25826        200
+       happy │        100       13.01    99.60401          1        999
+somethinge~e │        100   -.0164734    .9947817  -2.103661   3.199156
+</pre>
+<pre class='stata'>. tabulate happy // tabulation of this particular categorical variable
+
+      happy │      Freq.     Percent        Cum.
+────────────┼───────────────────────────────────
+          1 │         15       15.00       15.00
+          2 │         23       23.00       38.00
+          3 │         22       22.00       60.00
+          4 │         20       20.00       80.00
+          5 │         19       19.00       99.00
+        999 │          1        1.00      100.00
+────────────┼───────────────────────────────────
+      Total │        100      100.00
+</pre>
+<p>Notice that...</p>
+<ul>
+<li>There are variables in which we may not have interest.</li>
+<li>None of the variables are labelled informatively.</li>
+<li>Variables do not seem to have informative value labels.</li>
+<li>Someone appears to 200 years old.</li>
+<li>There appear to be missing values in the variable <code>happy</code> that need to be recoded.</li>
+</ul>
+<h2 id="only-keep-the-variables-of-interest">Only <code>keep</code> The Variables Of Interest</h2>
+<p>We may only be interested in keeping some variables to keep our analytic data set more manageable.</p>
+<p>For this particular analysis we may wish to drop the variable called <code>somethingelse</code>.</p>
+<pre class='stata'>. keep id age happy // keep only relevant variables
+</pre>
+<p>We could also have said <code>drop somethingelse</code>.</p>
+<h2 id="add-variable-labels">Add <em>Variable</em> Labels</h2>
+<pre class='stata'>. label variable id "ID" // label variable
+</pre>
+<pre class='stata'>. label variable age "Age in Years" // label variable
+</pre>
+<pre class='stata'>. label variable happy "Happiness Scale" // label variable
+</pre>
+<h2 id="create-value-labels">Create <em>Value</em> Labels</h2>
+<pre class='stata'>. label define happy 1 "Rarely" 2 "Sometimes" 3 "Often" 4 "Always" // create value label
+</pre>
+<h2 id="attach-value-labels-to-variables">Attach <em>Value</em> Labels To <em>Variables</em></h2>
+<p><em>Variables</em> and <em>value labels</em> can have the same names but are different things. We add the variable label <code>happy</code> to the variable named <code>happy</code>.</p>
+<pre class='stata'>. label values happy happy // attach VALUE LABEL happy to VARIABLE happy
+</pre>
+<h2 id="recode-outliers-or-values-that-are-errors-recode">Recode Outliers or Values That Are Errors (<code>recode</code>)</h2>
+<pre class='stata'>. recode happy (999 = .) // recode values as missing
+(happy: 1 changes made)
+</pre>
+<pre class='stata'>. recode age (100/max = 100) // age is topcoded at 100 (may or may not be plausible)
+(age: 1 changes made)
+</pre>
+<h1 id="we-describe-and-summarize-the-data-and-see-the-changes-that-have-been-made">We <code>describe</code> and <code>summarize</code> The Data And See The Changes That Have Been Made</h1>
+<pre class='stata'>. describe
+
+Contains data
+  obs:           100                          
+ vars:             3                          
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+              storage   display    value
+variable name   type    format     label      variable label
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+id              float   %9.0g                 ID
+age             float   %9.0g                 Age in Years
+happy           float   %9.0g      happy      Happiness Scale
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Sorted by: 
+     Note: Dataset has changed since last saved.
+</pre>
+<pre class='stata'>. summarize
+
+    Variable │        Obs        Mean    Std. Dev.       Min        Max
+─────────────┼─────────────────────────────────────────────────────────
+          id │        100        50.5    29.01149          1        100
+         age │        100     50.9906    10.83545   28.25826        100
+       happy │         99    3.050505    1.350538          1          5
+</pre>
+</body>
+</html>

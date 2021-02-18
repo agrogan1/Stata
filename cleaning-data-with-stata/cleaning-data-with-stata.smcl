@@ -1,0 +1,167 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\cleaning-data-with-stata\cleaning-data-with-stata.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}18 Feb 2021, 15:47:48
+{txt}
+{com}. //_1
+. display c(current_date)
+{res}18 Feb 2021
+{txt}
+{com}. //_2
+. display c(current_time)
+{res}15:47:48
+{txt}
+{com}. //_3
+. clear all 
+{res}{txt}
+{com}. //_4
+. set obs 100 // 100 observations
+{txt}{p}
+number of observations (_N)  was 0,
+now 100
+{p_end}
+
+{com}. //_5
+. generate id = _n // random id 
+{txt}
+{com}. //_6
+. generate age = rnormal(50,10) // random generated age
+{txt}
+{com}. //_7
+. replace age = 200 in 1 // someone is 200 years old!
+{txt}(1 real change made)
+
+{com}. //_8
+. generate happy = runiformint(1,5) // randomly generated happiness
+{txt}
+{com}. //_9
+. replace happy = 999 in 10 // simulate a missing value
+{txt}(1 real change made)
+
+{com}. //_10
+. generate somethingelse = rnormal(0, 1) // something else!
+{txt}
+{com}. //_11
+. list in 1/10 // list first 10 observations
+{txt}
+     {c TLC}{hline 4}{c -}{hline 10}{c -}{hline 7}{c -}{hline 11}{c TRC}
+     {c |} {res}id        age   happy   somethi~e {txt}{c |}
+     {c LT}{hline 4}{c -}{hline 10}{c -}{hline 7}{c -}{hline 11}{c RT}
+  1. {c |} {res} 1        200       1    1.497365 {txt}{c |}
+  2. {c |} {res} 2   66.57332       5    1.376741 {txt}{c |}
+  3. {c |} {res} 3   34.82442       3   -1.079351 {txt}{c |}
+  4. {c |} {res} 4   50.09281       2   -.0128491 {txt}{c |}
+  5. {c |} {res} 5   33.88482       5   -.0264842 {txt}{c |}
+     {c LT}{hline 4}{c -}{hline 10}{c -}{hline 7}{c -}{hline 11}{c RT}
+  6. {c |} {res} 6   61.31433       3    .4895257 {txt}{c |}
+  7. {c |} {res} 7   53.06971       1   -.1926064 {txt}{c |}
+  8. {c |} {res} 8   54.21424       5   -2.171089 {txt}{c |}
+  9. {c |} {res} 9   53.80603       3    -.314195 {txt}{c |}
+ 10. {c |} {res}10   48.48671     999   -.1993797 {txt}{c |}
+     {c BLC}{hline 4}{c -}{hline 10}{c -}{hline 7}{c -}{hline 11}{c BRC}
+
+{com}. //_12
+. describe // describe the data
+
+{txt}Contains data
+  obs:{res}           100                          
+{txt} vars:{res}             4                          
+{txt}{hline}
+              storage   display    value
+variable name   type    format     label      variable label
+{hline}
+{p 0 48}{res}{bind:id             }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:age            }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:happy          }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:somethingelse  }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{txt}{hline}
+Sorted by: 
+{res}     Note: Dataset has changed since last saved.
+{txt}
+{com}. //_13
+. summarize // descriptive statistics
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 10}id {c |}{res}        100        50.5    29.01149          1        100
+{txt}{space 9}age {c |}{res}        100    49.90129    17.77663    24.7626        200
+{txt}{space 7}happy {c |}{res}        100       12.96    99.61034          1        999
+{txt}somethinge~e {c |}{res}        100    .0205791    1.054944  -2.456728   3.322945
+{txt}
+{com}. //_14
+. tabulate happy // tabulation of this particular categorical variable
+
+      {txt}happy {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         20       20.00       20.00
+{txt}          2 {c |}{res}         20       20.00       40.00
+{txt}          3 {c |}{res}         21       21.00       61.00
+{txt}          4 {c |}{res}         16       16.00       77.00
+{txt}          5 {c |}{res}         22       22.00       99.00
+{txt}        999 {c |}{res}          1        1.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        100      100.00
+{txt}
+{com}. //_15
+. keep id age happy // keep only relevant variables
+{txt}
+{com}. //_16
+. label variable id "ID" // label variable
+{txt}
+{com}. //_17
+. label variable age "Age in Years" // label variable
+{txt}
+{com}. //_18
+. label variable happy "Happiness Scale" // label variable
+{txt}
+{com}. //_19
+. label define happy 1 "Rarely" 2 "Sometimes" 3 "Often" 4 "Always" // create value label
+{txt}
+{com}. //_20
+. label values happy happy // attach VALUE LABEL happy to VARIABLE happy
+{txt}
+{com}. //_21
+. recode happy (999 = .) // recode values as missing
+{txt}(happy: 1 changes made)
+
+{com}. //_22
+. recode age (100/max = 100) // age is topcoded at 100 (may or may not be plausible)
+{txt}(age: 1 changes made)
+
+{com}. //_23
+. describe
+
+{txt}Contains data
+  obs:{res}           100                          
+{txt} vars:{res}             3                          
+{txt}{hline}
+              storage   display    value
+variable name   type    format     label      variable label
+{hline}
+{p 0 48}{res}{bind:id             }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}ID{p_end}
+{p 0 48}{bind:age            }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Age in Years{p_end}
+{p 0 48}{bind:happy          }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:happy    }{bind:  }{res}{res}Happiness Scale{p_end}
+{txt}{hline}
+Sorted by: 
+{res}     Note: Dataset has changed since last saved.
+{txt}
+{com}. //_24
+. summarize
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 10}id {c |}{res}        100        50.5    29.01149          1        100
+{txt}{space 9}age {c |}{res}        100    48.90129    10.61974    24.7626        100
+{txt}{space 7}happy {c |}{res}         99           3    1.442786          1          5
+{txt}
+{com}. //_^
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\cleaning-data-with-stata\cleaning-data-with-stata.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}18 Feb 2021, 15:47:48
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

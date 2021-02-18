@@ -1,0 +1,107 @@
+% Cleaning Data With Stata
+% Andy Grogan-Kaylor
+% `s c(current_date)` `s c(current_time)`
+
+---
+geometry: margin=1 in
+---
+
+<style>h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
+
+# Background
+
+It sometimes seems like 80% of our work as data analysts is cleaning the data, while only 20% is the actual analysis.  Here are some Stata commands that are useful in cleaning data.
+
+> First we simulate some data to work with, and to clean.
+
+# Simulate Some Data
+
+    clear all 
+
+    set obs 100 // 100 observations
+
+    generate id = _n // random id 
+
+    generate age = rnormal(50,10) // random generated age
+
+    replace age = 200 in 1 // someone is 200 years old!
+
+    generate happy = runiformint(1,5) // randomly generated happiness
+	
+	replace happy = 999 in 10 // simulate a missing value
+	
+	generate somethingelse = rnormal(0, 1) // something else!
+
+# Look At Some Of The Data
+
+    list in 1/10 // list first 10 observations
+
+# Clean The Data!
+
+## Look at Variables
+
+When we look at variables we are looking for values that don't make sense, or that are outside the plausible range.
+
+    describe // describe the data
+
+    summarize // descriptive statistics
+	
+	tabulate happy // tabulation of this particular categorical variable
+
+Notice that... 
+
+* There are variables in which we may not have interest.
+* None of the variables are labelled informatively.
+* Variables do not seem to have informative value labels.
+* Someone appears to 200 years old.
+* There appear to be missing values in the variable `happy` that need to be recoded.
+
+## Only `keep` The Variables Of Interest
+
+We may only be interested in keeping some variables to keep our analytic data set more manageable.  
+
+For this particular analysis we may wish to drop the variable called `somethingelse`.
+
+    keep id age happy // keep only relevant variables
+   
+We could also have said `drop somethingelse`.
+	
+## Add *Variable* Labels
+
+    label variable id "ID" // label variable
+
+    label variable age "Age in Years" // label variable
+
+    label variable happy "Happiness Scale" // label variable
+
+## Create *Value* Labels
+
+    label define happy 1 "Rarely" 2 "Sometimes" 3 "Often" 4 "Always" // create value label
+
+## Attach *Value* Labels To *Variables*
+
+*Variables* and *value labels* can have the same names but are different things.  We add the variable label `happy` to the variable named `happy`.
+
+    label values happy happy // attach VALUE LABEL happy to VARIABLE happy
+
+## Recode Outliers or Values That Are Errors (`recode`)
+
+    recode happy (999 = .) // recode values as missing
+
+    recode age (100/max = 100) // age is topcoded at 100 (may or may not be plausible)
+
+# We `describe` and `summarize` The Data And See The Changes That Have Been Made
+
+    describe
+	
+	summarize
+	
+	
+	
+
+
+
+
+
+
+
