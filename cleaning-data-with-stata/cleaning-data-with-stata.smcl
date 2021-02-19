@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\cleaning-data-with-stata\cleaning-data-with-stata.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}18 Feb 2021, 16:00:16
+ {txt}opened on:  {res}19 Feb 2021, 13:26:24
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}18 Feb 2021
+{res}19 Feb 2021
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}16:00:16
+{res}13:26:24
 {txt}
 {com}. //_3
 . clear all 
@@ -161,7 +161,7 @@ Sorted by:
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\cleaning-data-with-stata\cleaning-data-with-stata.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}18 Feb 2021, 16:00:16
+ {txt}closed on:  {res}19 Feb 2021, 13:26:24
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

@@ -16,6 +16,8 @@ First we simulate some data to work with, and to clean.
 
 # Simulate Some Data
 
+> This section is provided for illustration only, as it may be helpful to see *how* the data was simulated, and the decisions that went into simulating the data. You may also *safely ignore* this section if you like.
+
     clear all 
 
     set obs 100 // 100 observations
@@ -38,7 +40,7 @@ First we simulate some data to work with, and to clean.
 
 # Clean The Data!
 
-## Look at Variables
+## Look at Variables (`describe`, `summarize`, `tabulate`)
 
 When we look at variables we are looking for values that don't make sense, or that are outside the plausible range.
 
@@ -56,6 +58,9 @@ Notice that...
 * Someone appears to 200 years old.
 * There appear to be missing values in the variable `happy` that need to be recoded.
 
+
+> Remember that the command `lookfor` is often very helpful in *looking for* a particular variable. e.g. `lookfor happy`.
+
 ## Only `keep` The Variables Of Interest
 
 We may only be interested in keeping some variables to keep our analytic data set more manageable.  
@@ -66,7 +71,7 @@ For this particular analysis we may wish to drop the variable called `somethinge
    
 We could also have said `drop somethingelse`.
 	
-## Add *Variable* Labels
+## Add *Variable* Labels (`label variable "..."`)
 
     label variable id "ID" // label variable
 
@@ -74,11 +79,11 @@ We could also have said `drop somethingelse`.
 
     label variable happy "Happiness Scale" // label variable
 
-## Create *Value* Labels
+## Create *Value* Labels (`label define ...`)
 
     label define happy 1 "Rarely" 2 "Sometimes" 3 "Often" 4 "Always" // create value label
 
-## Attach *Value* Labels To *Variables*
+## Attach *Value* Labels To *Variables* (`label values ...`)
 
 *Variables* and *value labels* can have the same names but are different things.  We add the variable label `happy` to the variable named `happy`.
 

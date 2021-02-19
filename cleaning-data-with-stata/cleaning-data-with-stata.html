@@ -49,7 +49,7 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 <div id="header">
 <h1 class="title">Cleaning Data With Stata</h1>
 <h2 class="author">Andy Grogan-Kaylor</h2>
-<h3 class="date">18 Feb 2021 16:00:07</h3>
+<h3 class="date">19 Feb 2021 13:25:42</h3>
 </div>
 <style>h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 <h1 id="background">Background</h1>
@@ -58,6 +58,9 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 </blockquote>
 <p>First we simulate some data to work with, and to clean.</p>
 <h1 id="simulate-some-data">Simulate Some Data</h1>
+<blockquote>
+<p>This section is provided for illustration only, as it may be helpful to see <em>how</em> the data was simulated, and the decisions that went into simulating the data. You may also <em>safely ignore</em> this section if you like.</p>
+</blockquote>
 <pre class='stata'>. clear all 
 </pre>
 <pre class='stata'>. set obs 100 // 100 observations
@@ -97,7 +100,7 @@ number of observations (_N) was 0, now 100
      └───────────────────────────────────┘
 </pre>
 <h1 id="clean-the-data">Clean The Data!</h1>
-<h2 id="look-at-variables">Look at Variables</h2>
+<h2 id="look-at-variables-describe-summarize-tabulate">Look at Variables (<code>describe</code>, <code>summarize</code>, <code>tabulate</code>)</h2>
 <p>When we look at variables we are looking for values that don't make sense, or that are outside the plausible range.</p>
 <pre class='stata'>. describe // describe the data
 
@@ -146,23 +149,26 @@ somethinge~e │        100   -.0085413    1.072256  -2.685881   2.794861
 <li>Someone appears to 200 years old.</li>
 <li>There appear to be missing values in the variable <code>happy</code> that need to be recoded.</li>
 </ul>
+<blockquote>
+<p>Remember that the command <code>lookfor</code> is often very helpful in <em>looking for</em> a particular variable. e.g. <code>lookfor happy</code>.</p>
+</blockquote>
 <h2 id="only-keep-the-variables-of-interest">Only <code>keep</code> The Variables Of Interest</h2>
 <p>We may only be interested in keeping some variables to keep our analytic data set more manageable.</p>
 <p>For this particular analysis we may wish to drop the variable called <code>somethingelse</code>.</p>
 <pre class='stata'>. keep id age happy // keep only relevant variables
 </pre>
 <p>We could also have said <code>drop somethingelse</code>.</p>
-<h2 id="add-variable-labels">Add <em>Variable</em> Labels</h2>
+<h2 id="add-variable-labels-label-variable-...">Add <em>Variable</em> Labels (<code>label variable &quot;...&quot;</code>)</h2>
 <pre class='stata'>. label variable id "ID" // label variable
 </pre>
 <pre class='stata'>. label variable age "Age in Years" // label variable
 </pre>
 <pre class='stata'>. label variable happy "Happiness Scale" // label variable
 </pre>
-<h2 id="create-value-labels">Create <em>Value</em> Labels</h2>
+<h2 id="create-value-labels-label-define-...">Create <em>Value</em> Labels (<code>label define ...</code>)</h2>
 <pre class='stata'>. label define happy 1 "Rarely" 2 "Sometimes" 3 "Often" 4 "Always" // create value label
 </pre>
-<h2 id="attach-value-labels-to-variables">Attach <em>Value</em> Labels To <em>Variables</em></h2>
+<h2 id="attach-value-labels-to-variables-label-values-...">Attach <em>Value</em> Labels To <em>Variables</em> (<code>label values ...</code>)</h2>
 <p><em>Variables</em> and <em>value labels</em> can have the same names but are different things. We add the variable label <code>happy</code> to the variable named <code>happy</code>.</p>
 <pre class='stata'>. label values happy happy // attach VALUE LABEL happy to VARIABLE happy
 </pre>
