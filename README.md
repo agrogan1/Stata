@@ -25,3 +25,12 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 ## A *Very* Short Introduction to Stata
 
 [https://agrogan1.github.io/Stata/very-short-introduction/very-short-introduction.html](https://agrogan1.github.io/Stata/very-short-introduction/very-short-introduction.html)
+
+## Cleaning Data With Stata
+
+[https://agrogan1.github.io/Stata/cleaning-data-with-stata/cleaning-data-with-stata.html](https://agrogan1.github.io/Stata/cleaning-data-with-stata/cleaning-data-with-stata.html)
+
+
+
+
+
