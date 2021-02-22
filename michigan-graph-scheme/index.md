@@ -1,6 +1,6 @@
 % Installing and Using the Michigan Graph Scheme
 % Andy Grogan-Kaylor
-% `s c(current_date)` `s c(current_time)`
+% {{.1}} {{.2}}
 
 
 ---
@@ -29,46 +29,32 @@ Then type `net from https://agrogan1.github.io/Stata` and click the links to ins
 
 We are going to use the famous "iris" data collected by Edgar Anderson.
 
-```{s}
 
-    use "iris.dta", clear
+{{3}}
 
-	summarize
-
-```
 
 # Histogram
 
-```{s}
 
-    histogram Petal_Length, scheme(michigan)
+{{4}}
 
-```
 
-```{s/}
-	
-    quietly graph export myhistogram.png, width(750) replace
 
-```
-	
+{{5}}
+
+    
 ![Histogram Using Michigan Scheme](myhistogram.png)
 
 # Scatterplot
 
-```{s}
 
-    twoway (scatter Petal_Length Petal_Width) ///
-	(lfit Petal_Length Petal_Width), ///
-	scheme(michigan)
+{{6}}
 
-```
 
-```{s/}
-	
-	quietly graph export myscatter.png, width(750) replace
 
-```
-	
+{{7}}
+
+    
 ![Scatterplot Using Michigan Scheme](myscatter.png)
 
 
