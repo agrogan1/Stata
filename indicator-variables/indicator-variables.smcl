@@ -1,0 +1,195 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/agrogan/Box Sync/GitHub/Stata/indicator-variables/indicator-variables.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}24 Feb 2021, 09:26:43
+{txt}
+{com}. //_1
+. display c(current_date)
+{res}24 Feb 2021
+{txt}
+{com}. //_2
+. display c(current_time)
+{res}09:26:43
+{txt}
+{com}. //_3
+. use https://www.stata-press.com/data/r16/margex, clear
+{txt}(Artificial data for margins)
+
+{com}. //_4
+. summarize y
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 11}y {c |}{res}      3,000    69.73357    21.53986          0      146.3
+{txt}
+{com}. //_5
+. tabulate sex
+
+        {txt}sex {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+       male {c |}{res}      1,498       49.93       49.93
+{txt}     female {c |}{res}      1,502       50.07      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      3,000      100.00
+{txt}
+{com}. //_6
+. tabulate group
+
+      {txt}group {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}      1,199       39.97       39.97
+{txt}          2 {c |}{res}      1,118       37.27       77.23
+{txt}          3 {c |}{res}        683       22.77      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      3,000      100.00
+{txt}
+{com}. //_7
+. regress y i.sex i.group
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     3,000
+{txt}{hline 13}{c +}{hline 34}   F(3, 2996)      = {res}   152.06
+{txt}       Model {c |} {res} 183866.077         3  61288.6923   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1207566.93     2,996  403.059723   {txt}R-squared       ={res}    0.1321
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1313
+{txt}       Total {c |} {res} 1391433.01     2,999  463.965657   {txt}Root MSE        =   {res} 20.076
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}           y{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}sex {c |}
+{space 5}female  {c |}{col 14}{res}{space 2} 18.32202{col 26}{space 2} .8930951{col 37}{space 1}   20.52{col 46}{space 3}0.000{col 54}{space 4} 16.57088{col 67}{space 3} 20.07316
+{txt}{space 12} {c |}
+{space 7}group {c |}
+{space 10}2  {c |}{col 14}{res}{space 2} 8.037615{col 26}{space 2}  .913769{col 37}{space 1}    8.80{col 46}{space 3}0.000{col 54}{space 4} 6.245937{col 67}{space 3} 9.829293
+{txt}{space 10}3  {c |}{col 14}{res}{space 2} 18.63922{col 26}{space 2} 1.159503{col 37}{space 1}   16.08{col 46}{space 3}0.000{col 54}{space 4} 16.36572{col 67}{space 3} 20.91272
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 53.32146{col 26}{space 2} .9345465{col 37}{space 1}   57.06{col 46}{space 3}0.000{col 54}{space 4} 51.48904{col 67}{space 3} 55.15388
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. //_8
+. est store M1 // store estimates
+{txt}
+{com}. //_9
+. regress y i.sex ibn.group, noconstant
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     3,000
+{txt}{hline 13}{c +}{hline 34}   F(4, 2996)      = {res}  9162.52
+{txt}       Model {c |} {res}   14772177         4  3693044.26   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1207566.93     2,996  403.059723   {txt}R-squared       ={res}    0.9244
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.9243
+{txt}       Total {c |} {res}   15979744     3,000  5326.58132   {txt}Root MSE        =   {res} 20.076
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}           y{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}sex {c |}
+{space 5}female  {c |}{col 14}{res}{space 2} 18.32202{col 26}{space 2} .8930951{col 37}{space 1}   20.52{col 46}{space 3}0.000{col 54}{space 4} 16.57088{col 67}{space 3} 20.07316
+{txt}{space 12} {c |}
+{space 7}group {c |}
+{space 10}1  {c |}{col 14}{res}{space 2} 53.32146{col 26}{space 2} .9345465{col 37}{space 1}   57.06{col 46}{space 3}0.000{col 54}{space 4} 51.48904{col 67}{space 3} 55.15388
+{txt}{space 10}2  {c |}{col 14}{res}{space 2} 61.35908{col 26}{space 2} .7006367{col 37}{space 1}   87.58{col 46}{space 3}0.000{col 54}{space 4}  59.9853{col 67}{space 3} 62.73285
+{txt}{space 10}3  {c |}{col 14}{res}{space 2} 71.96068{col 26}{space 2} .7730326{col 37}{space 1}   93.09{col 46}{space 3}0.000{col 54}{space 4} 70.44495{col 67}{space 3} 73.47641
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. //_10
+. est store M2 // store estimates
+{txt}
+{com}. //_11
+. est table M1 M2, star
+{res}
+{txt}{hline 12}{c -}{c TT}{c -}{hline 13}{c -}{c -}{c -}{hline 13}{c -}{c -}
+{ralign 12:Variable} {c |} {center 13:M1} {space 1} {center 13:M2} {space 1}
+{hline 12}{c -}{c +}{c -}{hline 13}{c -}{c -}{c -}{hline 13}{c -}{c -}
+{res}{txt}{space 9}sex {c |}
+{space 5}female  {c |}{res} {ralign 10:18.322021}{lalign 3:***}{txt} {space 1}{res} {ralign 10:18.322021}{lalign 3:***}{txt} {space 1}
+{res}{txt}{space 12} {c |}
+{space 7}group {c |}
+{space 10}1  {c |}{res} {ralign 10:(base)}{lalign 3:}{txt} {space 1}{res} {ralign 10:53.321461}{lalign 3:***}{txt} {space 1}
+{res}{txt}{space 10}2  {c |}{res} {ralign 10:8.0376149}{lalign 3:***}{txt} {space 1}{res} {ralign 10:61.359076}{lalign 3:***}{txt} {space 1}
+{res}{txt}{space 10}3  {c |}{res} {ralign 10:18.639222}{lalign 3:***}{txt} {space 1}{res} {ralign 10:71.960683}{lalign 3:***}{txt} {space 1}
+{res}{txt}{space 12} {c |}
+{space 7}_cons {c |}{res} {ralign 10:53.321461}{lalign 3:***}{txt} {space 1}{res} {ralign 10:}{lalign 3:}{txt} {space 1}
+{res}{txt}{hline 12}{c -}{c BT}{c -}{hline 13}{c -}{c -}{c -}{hline 13}{c -}{c -}
+{ralign 46:legend: * p<0.05; ** p<0.01; *** p<0.001}
+{res}{txt}
+{com}. //_12
+. margins sex#group
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}     3,000
+{txt}{col 1}Model VCE{col 14}: {res}OLS
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Linear prediction, predict()}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}     Margin{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}sex#group {c |}
+{space 5}male#1  {c |}{col 14}{res}{space 2} 53.32146{col 26}{space 2} .9345465{col 37}{space 1}   57.06{col 46}{space 3}0.000{col 54}{space 4} 51.48904{col 67}{space 3} 55.15388
+{txt}{space 5}male#2  {c |}{col 14}{res}{space 2} 61.35908{col 26}{space 2} .7006367{col 37}{space 1}   87.58{col 46}{space 3}0.000{col 54}{space 4}  59.9853{col 67}{space 3} 62.73285
+{txt}{space 5}male#3  {c |}{col 14}{res}{space 2} 71.96068{col 26}{space 2} .7730326{col 37}{space 1}   93.09{col 46}{space 3}0.000{col 54}{space 4} 70.44495{col 67}{space 3} 73.47641
+{txt}{space 3}female#1  {c |}{col 14}{res}{space 2} 71.64348{col 26}{space 2} .6015065{col 37}{space 1}  119.11{col 46}{space 3}0.000{col 54}{space 4} 70.46407{col 67}{space 3} 72.82289
+{txt}{space 3}female#2  {c |}{col 14}{res}{space 2}  79.6811{col 26}{space 2} .8022261{col 37}{space 1}   99.32{col 46}{space 3}0.000{col 54}{space 4} 78.10813{col 67}{space 3} 81.25407
+{txt}{space 3}female#3  {c |}{col 14}{res}{space 2}  90.2827{col 26}{space 2} 1.114023{col 37}{space 1}   81.04{col 46}{space 3}0.000{col 54}{space 4} 88.09838{col 67}{space 3} 92.46703
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. //_13
+. regress y ibn.sex ibn.group, noconstant
+{p 0 6 2}{txt}note: 3.group omitted because of collinearity{p_end}
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}     3,000
+{txt}{hline 13}{c +}{hline 34}   F(4, 2996)      = {res}  9162.52
+{txt}       Model {c |} {res}   14772177         4  3693044.26   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1207566.93     2,996  403.059723   {txt}R-squared       ={res}    0.9244
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.9243
+{txt}       Total {c |} {res}   15979744     3,000  5326.58132   {txt}Root MSE        =   {res} 20.076
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}           y{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}sex {c |}
+{space 7}male  {c |}{col 14}{res}{space 2} 71.96068{col 26}{space 2} .7730326{col 37}{space 1}   93.09{col 46}{space 3}0.000{col 54}{space 4} 70.44495{col 67}{space 3} 73.47641
+{txt}{space 5}female  {c |}{col 14}{res}{space 2}  90.2827{col 26}{space 2} 1.114023{col 37}{space 1}   81.04{col 46}{space 3}0.000{col 54}{space 4} 88.09838{col 67}{space 3} 92.46703
+{txt}{space 12} {c |}
+{space 7}group {c |}
+{space 10}1  {c |}{col 14}{res}{space 2}-18.63922{col 26}{space 2} 1.159503{col 37}{space 1}  -16.08{col 46}{space 3}0.000{col 54}{space 4}-20.91272{col 67}{space 3}-16.36572
+{txt}{space 10}2  {c |}{col 14}{res}{space 2}-10.60161{col 26}{space 2}  1.01299{col 37}{space 1}  -10.47{col 46}{space 3}0.000{col 54}{space 4}-12.58783{col 67}{space 3}-8.615381
+{txt}{space 10}3  {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. //_14
+. margins sex#group
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}     3,000
+{txt}{col 1}Model VCE{col 14}: {res}OLS
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Linear prediction, predict()}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}     Margin{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}sex#group {c |}
+{space 5}male#1  {c |}{col 14}{res}{space 2} 53.32146{col 26}{space 2} .9345465{col 37}{space 1}   57.06{col 46}{space 3}0.000{col 54}{space 4} 51.48904{col 67}{space 3} 55.15388
+{txt}{space 5}male#2  {c |}{col 14}{res}{space 2} 61.35908{col 26}{space 2} .7006367{col 37}{space 1}   87.58{col 46}{space 3}0.000{col 54}{space 4}  59.9853{col 67}{space 3} 62.73285
+{txt}{space 5}male#3  {c |}{col 14}{res}{space 2} 71.96068{col 26}{space 2} .7730326{col 37}{space 1}   93.09{col 46}{space 3}0.000{col 54}{space 4} 70.44495{col 67}{space 3} 73.47641
+{txt}{space 3}female#1  {c |}{col 14}{res}{space 2} 71.64348{col 26}{space 2} .6015065{col 37}{space 1}  119.11{col 46}{space 3}0.000{col 54}{space 4} 70.46407{col 67}{space 3} 72.82289
+{txt}{space 3}female#2  {c |}{col 14}{res}{space 2}  79.6811{col 26}{space 2} .8022261{col 37}{space 1}   99.32{col 46}{space 3}0.000{col 54}{space 4} 78.10813{col 67}{space 3} 81.25407
+{txt}{space 3}female#3  {c |}{col 14}{res}{space 2}  90.2827{col 26}{space 2} 1.114023{col 37}{space 1}   81.04{col 46}{space 3}0.000{col 54}{space 4} 88.09838{col 67}{space 3} 92.46703
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. //_^
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/agrogan/Box Sync/GitHub/Stata/indicator-variables/indicator-variables.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}24 Feb 2021, 09:26:44
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

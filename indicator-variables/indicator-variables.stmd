@@ -1,0 +1,57 @@
+% Indicator Variables With Stata
+% Andy Grogan-Kaylor
+% `s c(current_date)` `s c(current_time)`
+
+---
+geometry: margin=1 in
+---
+
+<style>h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
+
+# Introduction 
+
+# Get Data
+
+    use https://www.stata-press.com/data/r16/margex, clear
+	
+# Descriptive Statistics
+
+    summarize y
+	
+    tabulate sex
+	
+    tabulate group
+	
+# Regressions
+
+## "Usual" Regression With Indicator Variables
+
+    regress y i.sex i.group
+	
+	est store M1 // store estimates
+
+## Regression With No Constant and No Reference Category For One Independent Variable
+
+    regress y i.sex ibn.group, noconstant
+	
+	est store M2 // store estimates
+
+## Compare These Approaches
+
+    est table M1 M2, star
+
+## Display Combinations of Results With `margins`
+	
+    margins sex#group
+	
+## The `noconstant` Option Does *Not* Work With Two Indicator Variables
+	
+	regress y ibn.sex ibn.group, noconstant
+
+## Display Combinations of Results With `margins`
+	
+    margins sex#group
+		
+	
+	
+	

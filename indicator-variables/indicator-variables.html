@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<style>
+/* CSS for Markstat 2.0 using Pandoc 2.0 */
+body{padding:14px 28px;}
+body, table {font-family: Helvetica, Arial, Sans-serif; font-size: 14px;}
+h1, h2, h3, h4 {font-weight: normal; color: #3366cc}
+h1 {font-size: 200%;}
+h2 {font-size: 150%;}
+h3 {font-size: 120%;}
+h4 {font-size: 100%; font-weight:bold}
+img.center {display:block; margin-left:auto; margin-right:auto}
+.small{font-size:8pt;}
+a {color: black;}
+a:visited {color: #808080;}
+a.plain {text-decoration:none;}
+a.plain:hover {text-decoration:underline;}
+.em {font-weight:bold;}
+pre, code {font-family: "lucida console", monospace;}
+pre.stata {font-size:13px; line-height:13px;}
+pre {padding:8px; border:1px solid #c0c0c0; border-radius:8px; background-color:#fdfdfd;}
+code {color:#3366cc; background-color:#fafafa;}
+pre code { color:black; background-color:white}
+/* Added for Pandoc */
+figure > img, div.figure > img {display:block; margin:auto}
+figcaption, p.caption {text-align:center; font-weight:bold; color:#3366cc;}
+h1.title {text-align:center; margin-bottom:0}
+p.author, h2.author {font-style:italic; text-align:center;margin-top:4px;margin-bottom:0}
+p.date, h3.date {text-align:center;margin-top:4px; margin-bottom:0}
+/* Tables*/
+table { margin:auto; border-collapse:collapse; }
+table caption { margin-bottom:1ex;}
+th, td { padding:4px 6px;}
+thead tr:first-child th {border-top:1px solid black; padding-top:6px}
+thead tr:last-child  th {padding-bottom:6px}
+tbody tr:first-child td {border-top:1px solid black; padding-top:6px}
+tbody tr:last-child  td {padding-bottom:6px;}
+table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
+</style>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Andy Grogan-Kaylor" />
+  <title>Indicator Variables With Stata</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Indicator Variables With Stata</h1>
+<p class="author">Andy Grogan-Kaylor</p>
+<p class="date">24 Feb 2021 09:24:57</p>
+</header>
+<style>h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
+<h1 id="introduction">Introduction</h1>
+<h1 id="get-data">Get Data</h1>
+<pre class='stata'>. use https://www.stata-press.com/data/r16/margex, clear
+(Artificial data for margins)
+</pre>
+<h1 id="descriptive-statistics">Descriptive Statistics</h1>
+<pre class='stata'>. summarize y
+
+    Variable │        Obs        Mean    Std. Dev.       Min        Max
+─────────────┼─────────────────────────────────────────────────────────
+           y │      3,000    69.73357    21.53986          0      146.3
+</pre>
+<pre class='stata'>. tabulate sex
+
+        sex │      Freq.     Percent        Cum.
+────────────┼───────────────────────────────────
+       male │      1,498       49.93       49.93
+     female │      1,502       50.07      100.00
+────────────┼───────────────────────────────────
+      Total │      3,000      100.00
+</pre>
+<pre class='stata'>. tabulate group
+
+      group │      Freq.     Percent        Cum.
+────────────┼───────────────────────────────────
+          1 │      1,199       39.97       39.97
+          2 │      1,118       37.27       77.23
+          3 │        683       22.77      100.00
+────────────┼───────────────────────────────────
+      Total │      3,000      100.00
+</pre>
+<h1 id="regressions">Regressions</h1>
+<h2 id="usual-regression-with-indicator-variables">“Usual” Regression With Indicator Variables</h2>
+<pre class='stata'>. regress y i.sex i.group
+
+      Source │       SS           df       MS      Number of obs   =     3,000
+─────────────┼──────────────────────────────────   F(3, 2996)      =    152.06
+       Model │  183866.077         3  61288.6923   Prob > F        =    0.0000
+    Residual │  1207566.93     2,996  403.059723   R-squared       =    0.1321
+─────────────┼──────────────────────────────────   Adj R-squared   =    0.1313
+       Total │  1391433.01     2,999  463.965657   Root MSE        =    20.076
+
+─────────────┬────────────────────────────────────────────────────────────────
+           y │      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+─────────────┼────────────────────────────────────────────────────────────────
+         sex │
+     female  │   18.32202   .8930951    20.52   0.000     16.57088    20.07316
+             │
+       group │
+          2  │   8.037615    .913769     8.80   0.000     6.245937    9.829293
+          3  │   18.63922   1.159503    16.08   0.000     16.36572    20.91272
+             │
+       _cons │   53.32146   .9345465    57.06   0.000     51.48904    55.15388
+─────────────┴────────────────────────────────────────────────────────────────
+</pre>
+<pre class='stata'>. est store M1 // store estimates
+</pre>
+<h2 id="regression-with-no-constant-and-no-reference-category-for-one-independent-variable">Regression With No Constant and No Reference Category For One Independent Variable</h2>
+<pre class='stata'>. regress y i.sex ibn.group, noconstant
+
+      Source │       SS           df       MS      Number of obs   =     3,000
+─────────────┼──────────────────────────────────   F(4, 2996)      =   9162.52
+       Model │    14772177         4  3693044.26   Prob > F        =    0.0000
+    Residual │  1207566.93     2,996  403.059723   R-squared       =    0.9244
+─────────────┼──────────────────────────────────   Adj R-squared   =    0.9243
+       Total │    15979744     3,000  5326.58132   Root MSE        =    20.076
+
+─────────────┬────────────────────────────────────────────────────────────────
+           y │      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+─────────────┼────────────────────────────────────────────────────────────────
+         sex │
+     female  │   18.32202   .8930951    20.52   0.000     16.57088    20.07316
+             │
+       group │
+          1  │   53.32146   .9345465    57.06   0.000     51.48904    55.15388
+          2  │   61.35908   .7006367    87.58   0.000      59.9853    62.73285
+          3  │   71.96068   .7730326    93.09   0.000     70.44495    73.47641
+─────────────┴────────────────────────────────────────────────────────────────
+</pre>
+<pre class='stata'>. est store M2 // store estimates
+</pre>
+<h2 id="compare-these-approaches">Compare These Approaches</h2>
+<pre class='stata'>. est table M1 M2, star
+
+─────────────┬────────────────────────────────
+    Variable │      M1              M2        
+─────────────┼────────────────────────────────
+         sex │
+     female  │  18.322021***    18.322021***  
+             │
+       group │
+          1  │     (base)       53.321461***  
+          2  │  8.0376149***    61.359076***  
+          3  │  18.639222***    71.960683***  
+             │
+       _cons │  53.321461***                  
+─────────────┴────────────────────────────────
+      legend: * p&lt;0.05; ** p&lt;0.01; *** p&lt;0.001
+</pre>
+<h2 id="display-combinations-of-results-with-margins">Display Combinations of Results With <code>margins</code></h2>
+<pre class='stata'>. margins sex#group
+
+Adjusted predictions                            Number of obs     =      3,000
+Model VCE    : OLS
+
+Expression   : Linear prediction, predict()
+
+─────────────┬────────────────────────────────────────────────────────────────
+             │            Delta-method
+             │     Margin   Std. Err.      t    P>|t|     [95% Conf. Interval]
+─────────────┼────────────────────────────────────────────────────────────────
+   sex#group │
+     male#1  │   53.32146   .9345465    57.06   0.000     51.48904    55.15388
+     male#2  │   61.35908   .7006367    87.58   0.000      59.9853    62.73285
+     male#3  │   71.96068   .7730326    93.09   0.000     70.44495    73.47641
+   female#1  │   71.64348   .6015065   119.11   0.000     70.46407    72.82289
+   female#2  │    79.6811   .8022261    99.32   0.000     78.10813    81.25407
+   female#3  │    90.2827   1.114023    81.04   0.000     88.09838    92.46703
+─────────────┴────────────────────────────────────────────────────────────────
+</pre>
+<h2 id="the-noconstant-option-does-not-work-with-two-indicator-variables">The <code>noconstant</code> Option Does <em>Not</em> Work With Two Indicator Variables</h2>
+<pre class='stata'>. regress y ibn.sex ibn.group, noconstant
+note: 3.group omitted because of collinearity
+
+      Source │       SS           df       MS      Number of obs   =     3,000
+─────────────┼──────────────────────────────────   F(4, 2996)      =   9162.52
+       Model │    14772177         4  3693044.26   Prob > F        =    0.0000
+    Residual │  1207566.93     2,996  403.059723   R-squared       =    0.9244
+─────────────┼──────────────────────────────────   Adj R-squared   =    0.9243
+       Total │    15979744     3,000  5326.58132   Root MSE        =    20.076
+
+─────────────┬────────────────────────────────────────────────────────────────
+           y │      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+─────────────┼────────────────────────────────────────────────────────────────
+         sex │
+       male  │   71.96068   .7730326    93.09   0.000     70.44495    73.47641
+     female  │    90.2827   1.114023    81.04   0.000     88.09838    92.46703
+             │
+       group │
+          1  │  -18.63922   1.159503   -16.08   0.000    -20.91272   -16.36572
+          2  │  -10.60161    1.01299   -10.47   0.000    -12.58783   -8.615381
+          3  │          0  (omitted)
+─────────────┴────────────────────────────────────────────────────────────────
+</pre>
+<h2 id="display-combinations-of-results-with-margins-1">Display Combinations of Results With <code>margins</code></h2>
+<pre class='stata'>. margins sex#group
+
+Adjusted predictions                            Number of obs     =      3,000
+Model VCE    : OLS
+
+Expression   : Linear prediction, predict()
+
+─────────────┬────────────────────────────────────────────────────────────────
+             │            Delta-method
+             │     Margin   Std. Err.      t    P>|t|     [95% Conf. Interval]
+─────────────┼────────────────────────────────────────────────────────────────
+   sex#group │
+     male#1  │   53.32146   .9345465    57.06   0.000     51.48904    55.15388
+     male#2  │   61.35908   .7006367    87.58   0.000      59.9853    62.73285
+     male#3  │   71.96068   .7730326    93.09   0.000     70.44495    73.47641
+   female#1  │   71.64348   .6015065   119.11   0.000     70.46407    72.82289
+   female#2  │    79.6811   .8022261    99.32   0.000     78.10813    81.25407
+   female#3  │    90.2827   1.114023    81.04   0.000     88.09838    92.46703
+─────────────┴────────────────────────────────────────────────────────────────
+</pre>
+</body>
+</html>
