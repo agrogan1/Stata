@@ -1,0 +1,101 @@
+* Scheme to create Stata graphs
+* with Official UNICEF colors
+* (order of official colors slightly switched to improve presentation)
+
+* Designed by Andy Grogan-Kaylor (agrogan@umich.edu)
+* Questions & comments welcome
+
+* This scheme uses as its foundation, the wonderful lean2 scheme 
+* developed by Svend Juul, University of Aarhus, Denmark
+
+#include lean2
+
+* histogram
+
+color histogram blue
+
+* bar chart
+
+color p1bar blue
+color p2bar magenta
+color p3bar yellow
+color p4bar cyan
+color p5bar black
+color p6bar red
+color p7bar orange
+color p8bar midgreen
+color p9bar lime
+
+* pie chart
+
+color p1pie blue
+color p2pie magenta
+color p3pie yellow
+color p4pie cyan
+color p5pie black
+color p6pie red
+color p7pie orange
+color p8pie midgreen
+color p9pie lime
+
+* scatterplot
+
+symbol p1 circle
+color p1markfill blue
+color p1markline blue
+
+symbol p2 circle
+color p2markfill magenta
+color p2markline magenta
+
+symbol p3 circle
+color p3markfill yellow
+color p3markline yellow
+
+symbol p4 circle
+color p3markfill cyan
+color p3markline cyan
+
+symbol p5 circle
+color p3markfill black
+color p3markline black
+
+* line chart
+
+color p1lineplot blue
+linewidth p1lineplot thick
+
+color p2lineplot magenta
+linewidth p2lineplot thick
+
+color p3lineplot yellow
+linewidth p3lineplot thick
+
+color p4lineplot cyan
+linewidth p4lineplot thick
+
+* area chart
+
+color p1area blue
+color p2area magenta
+color p3area yellow
+color p4area cyan
+color p5area black
+color p6area red
+color p7area orange
+color p8area midgreen
+color p9area lime
+
+* plot elements
+
+color p blue
+color p1 blue
+color p2 magenta
+color p3 yellow
+color p4 cyan
+
+
+
+
+
+
