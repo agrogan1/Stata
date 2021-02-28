@@ -49,7 +49,7 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 <div id="header">
 <h1 class="title">Cleaning Data With Stata</h1>
 <h2 class="author">Andy Grogan-Kaylor</h2>
-<h3 class="date">26 Feb 2021 14:50:24</h3>
+<h3 class="date">27 Feb 2021 19:31:24</h3>
 </div>
 <style>h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 <h1 id="background">Background</h1>
@@ -61,6 +61,10 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 <blockquote>
 <p>This section is provided for illustration only, as it may be helpful to see <em>how</em> the data was simulated, and the decisions that went into simulating the data. You may also <em>safely ignore</em> this section if you like.</p>
 </blockquote>
+<button type="button" class="collapsible">
+Show / Hide Data Simulation Code
+</button>
+<div class="content">
 <pre class='stata'>. clear all 
 </pre>
 <pre class='stata'>. set obs 100 // 100 observations
@@ -80,23 +84,47 @@ number of observations (_N) was 0, now 100
 </pre>
 <pre class='stata'>. generate somethingelse = rnormal(0, 1) // something else!
 </pre>
+</div>
+<style>
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
+</style>
+<script>    
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+coll[i].addEventListener("click", function() {
+this.classList.toggle("active");
+var content = this.nextElementSibling;
+if (content.style.display === "block") {
+content.style.display = "none";
+} else {
+content.style.display = "block";
+}
+});
+}
+</script>
 <h1 id="look-at-some-of-the-data">Look At Some Of The Data</h1>
 <pre class='stata'>. list in 1/10 // list first 10 observations
 
      ┌───────────────────────────────────┐
      │ id        age   happy   somethi~e │
      ├───────────────────────────────────┤
-  1. │  1        200       5   -.2740025 │
-  2. │  2   41.74908       1    .3407284 │
-  3. │  3   48.99197       1    1.097281 │
-  4. │  4   41.29318       2      .99441 │
-  5. │  5   38.30437       1   -.9095201 │
+  1. │  1        200       5   -.8928946 │
+  2. │  2   48.25079       3   -.2428454 │
+  3. │  3   56.89504       4    .3807462 │
+  4. │  4   43.94986       2   -2.170925 │
+  5. │  5   59.49078       4    .5539337 │
      ├───────────────────────────────────┤
-  6. │  6   65.80429       3   -.6050416 │
-  7. │  7   44.24375       2    .0133314 │
-  8. │  8   52.14927       5    .4847669 │
-  9. │  9    54.0201       5   -.9933645 │
- 10. │ 10     67.752     999    .5900007 │
+  6. │  6   51.20415       5    1.076408 │
+  7. │  7   60.57228       2   -.2531089 │
+  8. │  8   27.50295       4    .2897586 │
+  9. │  9   43.67968       1     -.91255 │
+ 10. │ 10   45.31699     999    1.162836 │
      └───────────────────────────────────┘
 </pre>
 <h1 id="clean-the-data">Clean The Data!</h1>
@@ -124,19 +152,19 @@ Sorted by:
     Variable │        Obs        Mean    Std. Dev.       Min        Max
 ─────────────┼─────────────────────────────────────────────────────────
           id │        100        50.5    29.01149          1        100
-         age │        100    51.58624    18.05763    24.2431        200
-       happy │        100       12.94    99.61267          1        999
-somethinge~e │        100   -.0249813    1.009199  -2.277072   2.547337
+         age │        100    50.85314    18.05038   22.84151        200
+       happy │        100       13.14    99.59251          1        999
+somethinge~e │        100    .0922444    1.226602  -3.589473   2.633369
 </pre>
 <pre class='stata'>. tabulate happy // tabulation of this particular categorical variable
 
       happy │      Freq.     Percent        Cum.
 ────────────┼───────────────────────────────────
-          1 │         20       20.00       20.00
-          2 │         24       24.00       44.00
-          3 │         15       15.00       59.00
-          4 │         18       18.00       77.00
-          5 │         22       22.00       99.00
+          1 │         18       18.00       18.00
+          2 │         20       20.00       38.00
+          3 │         11       11.00       49.00
+          4 │         26       26.00       75.00
+          5 │         24       24.00       99.00
         999 │          1        1.00      100.00
 ────────────┼───────────────────────────────────
       Total │        100      100.00
@@ -201,8 +229,8 @@ Sorted by:
     Variable │        Obs        Mean    Std. Dev.       Min        Max
 ─────────────┼─────────────────────────────────────────────────────────
           id │        100        50.5    29.01149          1        100
-         age │        100    50.58624     11.2362    24.2431        100
-       happy │         99    2.979798    1.463709          1          5
+         age │        100    49.85314    11.15838   22.84151        100
+       happy │         99    3.181818    1.466383          1          5
 </pre>
 </body>
 </html>

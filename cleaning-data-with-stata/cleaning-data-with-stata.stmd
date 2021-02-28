@@ -18,6 +18,9 @@ First we simulate some data to work with, and to clean.
 
 > This section is provided for illustration only, as it may be helpful to see *how* the data was simulated, and the decisions that went into simulating the data. You may also *safely ignore* this section if you like.
 
+<button type="button" class="collapsible">Show / Hide Data Simulation Code</button>
+<div class="content">
+
     clear all 
 
     set obs 100 // 100 observations
@@ -33,6 +36,32 @@ First we simulate some data to work with, and to clean.
 	replace happy = 999 in 10 // simulate a missing value
 	
 	generate somethingelse = rnormal(0, 1) // something else!
+
+</div>
+
+<style>
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
+</style>
+<script>	
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+coll[i].addEventListener("click", function() {
+this.classList.toggle("active");
+var content = this.nextElementSibling;
+if (content.style.display === "block") {
+content.style.display = "none";
+} else {
+content.style.display = "block";
+}
+});
+}
+</script>
 
 # Look At Some Of The Data
 
