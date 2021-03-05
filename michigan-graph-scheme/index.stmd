@@ -11,6 +11,26 @@ geometry: margin=1 in
 
 # Introduction
 
+```{s/}
+
+    clear all
+
+    quietly set obs 10
+
+    generate x = _n
+
+    graph bar (count), ///
+	over(x) asyvars ///
+	ytitle(" ") ylabel(none) ///
+	title(Michigan Graph Scheme Colors) ///
+	scheme(michigan)
+	
+    quietly graph export mycolorbars.png, width(750) replace
+
+```
+
+![Colors in Michigan Graph Scheme](mycolorbars.png)
+
 Stata provides the use of graph schemes that improve the overall look of graphs.
 
 See `help scheme`.
@@ -31,7 +51,9 @@ We are going to use the famous "iris" data collected by Edgar Anderson.
 
 ```{s}
 
-    use "iris.dta", clear
+    clear all
+	
+	use "iris.dta", clear
 
 	summarize
 
@@ -52,6 +74,23 @@ We are going to use the famous "iris" data collected by Edgar Anderson.
 ```
 	
 ![Histogram Using Michigan Scheme](myhistogram.png)
+
+# Bar Graph
+
+```{s}
+
+    graph bar Petal_Length, over(Species) scheme(michigan) asyvars
+
+```
+
+```{s/}
+	
+    quietly graph export mybargraph.png, width(750) replace
+
+```
+	
+![Bar Graph Using Michigan Scheme](mybargraph.png)
+
 
 # Scatterplot
 

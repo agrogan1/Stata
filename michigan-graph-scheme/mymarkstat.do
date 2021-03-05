@@ -2,6 +2,8 @@
 
 clear all
 
+cd "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\michigan-graph-scheme" // Windows
+
 cd "/Users/agrogan/Box Sync/GitHub/Stata/michigan-graph-scheme" // Mac
 
 doedit index.stmd
