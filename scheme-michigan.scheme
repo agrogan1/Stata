@@ -75,6 +75,21 @@ linewidth p3lineplot thick
 color p4lineplot orange
 linewidth p4lineplot thick
 
+color p5lineplot green
+linewidth p5lineplot thick
+
+color p6lineplot teal
+linewidth p6lineplot thick
+
+color p7lineplot edkblue
+linewidth p7lineplot thick
+
+color p8lineplot purple
+linewidth p8lineplot thick
+
+color p9lineplot stone
+linewidth p9lineplot thick
+
 * area chart
 
 color p1area navy
@@ -94,6 +109,12 @@ color p1 navy
 color p2 gold
 color p3 maroon
 color p4 orange
+color p5 green
+color p6 teal
+color p7 edkblue
+color p8 purple
+color p9 stone
+
 
 
 
