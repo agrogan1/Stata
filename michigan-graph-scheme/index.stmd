@@ -22,14 +22,15 @@ geometry: margin=1 in
     graph bar (count), ///
 	over(x) asyvars ///
 	ytitle(" ") ylabel(none) ///
+	yscale(lcolor(none)) ///
 	title(Michigan Graph Scheme Colors) ///
 	scheme(michigan)
 	
-    quietly graph export mycolorbars.png, width(750) replace
+    quietly graph export MichiganColorsStata.png, width(750) replace
 
 ```
 
-![Colors in Michigan Graph Scheme](mycolorbars.png)
+![Colors in Michigan Graph Scheme](MichiganColorsStata.png)
 
 Stata provides the use of graph schemes that improve the overall look of graphs.
 
