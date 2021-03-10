@@ -20,7 +20,7 @@ geometry: margin=1 in
     generate x = _n
 
     graph bar (count), ///
-	over(x) asyvars ///
+	over(x, axis(off)) asyvars ///
 	ytitle(" ") ylabel(none) ///
 	yscale(lcolor(none)) ///
 	title(Michigan Graph Scheme Colors) ///

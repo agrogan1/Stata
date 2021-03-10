@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 7 Mar 2021, 13:54:50
+ {txt}opened on:  {res}10 Mar 2021, 16:51:18
 {txt}
 {com}. //_1
 . display c(current_date)
-{res} 7 Mar 2021
+{res}10 Mar 2021
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}13:54:50
+{res}16:51:18
 {txt}
 {com}. //_3q
 . 
@@ -25,7 +25,7 @@
 {txt}
 {com}. 
 . graph bar (count), ///
-> over(x) asyvars ///
+> over(x, axis(off)) asyvars ///
 > ytitle(" ") ylabel(none) ///
 > yscale(lcolor(none)) ///
 > title(Michigan Graph Scheme Colors) ///
@@ -92,7 +92,7 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 7 Mar 2021, 13:54:56
+ {txt}closed on:  {res}10 Mar 2021, 16:51:24
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
