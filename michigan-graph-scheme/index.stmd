@@ -111,5 +111,25 @@ We are going to use the famous "iris" data collected by Edgar Anderson.
 	
 ![Scatterplot Using Michigan Scheme](myscatter.png)
 
+# Scatterplot With Transparency
+
+```{s}
+
+    twoway (scatter Petal_Length Petal_Width, mcolor(%30)) /// markers have 30% transparency
+	(lfit Petal_Length Petal_Width), ///
+	scheme(michigan)
+
+```
+
+```{s/}
+	
+	quietly graph export myscatter2.png, width(750) replace
+
+```
+	
+![Scatterplot Using Michigan Scheme And Slightly Transparent Markers](myscatter2.png)
+
+
+
 
 

@@ -3,7 +3,7 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}10 Mar 2021, 16:51:18
+ {txt}opened on:  {res}10 Mar 2021, 19:09:58
 {txt}
 {com}. //_1
 . display c(current_date)
@@ -11,7 +11,7 @@
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}16:51:18
+{res}19:09:58
 {txt}
 {com}. //_3q
 . 
@@ -87,12 +87,24 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 . quietly graph export myscatter.png, width(750) replace
 {txt}
 {com}. 
+. //_11
+. 
+. twoway (scatter Petal_Length Petal_Width, mcolor(%30)) /// markers have 30% transparency
+> (lfit Petal_Length Petal_Width), ///
+> scheme(michigan)
+{res}{txt}
+{com}. 
+. //_12q
+.     
+. quietly graph export myscatter2.png, width(750) replace
+{txt}
+{com}. 
 . //_^
 . log close
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}10 Mar 2021, 16:51:24
+ {txt}closed on:  {res}10 Mar 2021, 19:10:05
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

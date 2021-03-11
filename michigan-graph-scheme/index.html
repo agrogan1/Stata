@@ -49,7 +49,7 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 <div id="header">
 <h1 class="title">Installing and Using the Michigan Graph Scheme</h1>
 <h2 class="author">Andy Grogan-Kaylor</h2>
-<h3 class="date">10 Mar 2021 16:51:18</h3>
+<h3 class="date">10 Mar 2021 19:09:58</h3>
 </div>
 <style>h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 <h1 id="introduction">Introduction</h1>
@@ -121,6 +121,19 @@ Petal_Length │        150       3.758    1.765298          1        6.9
 <div class="figure">
 <img src="myscatter.png" alt="Scatterplot Using Michigan Scheme" />
 <p class="caption">Scatterplot Using Michigan Scheme</p>
+</div>
+<h1 id="scatterplot-with-transparency">Scatterplot With Transparency</h1>
+<pre class='stata'>. 
+. twoway (scatter Petal_Length Petal_Width, mcolor(%30)) /// markers have 30% transparency
+> (lfit Petal_Length Petal_Width), ///
+> scheme(michigan)
+
+. 
+</pre>
+
+<div class="figure">
+<img src="myscatter2.png" alt="Scatterplot Using Michigan Scheme And Slightly Transparent Markers" />
+<p class="caption">Scatterplot Using Michigan Scheme And Slightly Transparent Markers</p>
 </div>
 </body>
 </html>
