@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}10 Mar 2021, 19:09:58
+ {txt}opened on:  {res}30 Mar 2021, 15:26:13
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}10 Mar 2021
+{res}30 Mar 2021
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}19:09:58
+{res}15:26:13
 {txt}
 {com}. //_3q
 . 
@@ -99,12 +99,22 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 . quietly graph export myscatter2.png, width(750) replace
 {txt}
 {com}. 
+. //_13
+. 
+. graph bar Petal_Length, over(Species) scheme(michigan) asyvars legend(pos(6) rows(1))
+{res}{txt}
+{com}. 
+. //_14q
+.     
+. quietly graph export mybargraph2.png, width(750) replace
+{txt}
+{com}. 
 . //_^
 . log close
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}10 Mar 2021, 19:10:05
+ {txt}closed on:  {res}30 Mar 2021, 15:26:22
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

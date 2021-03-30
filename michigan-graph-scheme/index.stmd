@@ -129,7 +129,21 @@ We are going to use the famous "iris" data collected by Edgar Anderson.
 	
 ![Scatterplot Using Michigan Scheme And Slightly Transparent Markers](myscatter2.png)
 
+# Legend Placement
 
+Sometimes you may wish to have the legend of the graph placed at the *bottom* of the graph. The `pos(6)` suboption inside the `legend` option will place the legend at the bottom, while you can manually control the number of legend rows with the `rows` suboption.
 
+```{s}
 
+    graph bar Petal_Length, over(Species) scheme(michigan) asyvars legend(pos(6) rows(1))
+
+```
+
+```{s/}
+	
+    quietly graph export mybargraph2.png, width(750) replace
+
+```
+	
+![Bar Graph Using Michigan Scheme and Modified Legend](mybargraph2.png)
 
