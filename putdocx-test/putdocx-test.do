@@ -20,7 +20,11 @@ putdocx image myspaghetti.png // add the image to the Word document
 
 mixed height age_base i.site || tree_ID: // mixed model
 
-putdocx table results = etable(1) // add results from last estimation command
+est store model1 // store the estimates
+
+estimates table model1, b(%9.3f) star // nicely formatted table of results
+
+putdocx table tbl1 = etable // add results from last estimation command
 
 putdocx save report1, replace // close Word document
 

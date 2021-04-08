@@ -35,5 +35,12 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 
 [https://agrogan1.github.io/Stata/indicator-variables/indicator-variables.html](https://agrogan1.github.io/Stata/indicator-variables/indicator-variables.html) [[PDF](https://agrogan1.github.io/Stata/indicator-variables/indicator-variables.pdf)]
 
+## `putdocx`
+
+[`putdocx` Test](https://github.com/agrogan1/Stata/tree/master/putdocx-test)
+
+
+
+
 
 
