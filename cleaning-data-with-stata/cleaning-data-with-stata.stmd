@@ -118,7 +118,7 @@ We could also have said `drop somethingelse`.
 
     label values happy happy // attach VALUE LABEL happy to VARIABLE happy
 
-## Recode Outliers or Values That Are Errors (`recode`)
+## Recode Outliers, Values That Are Errors, Or Values That Should Be Coded As Missing (`recode`)
 
     recode happy (999 = .) // recode values as missing
 

@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\cleaning-data-with-stata\cleaning-data-with-stata.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}27 Feb 2021, 19:31:46
+ {txt}opened on:  {res}15 Apr 2021, 18:26:29
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}27 Feb 2021
+{res}15 Apr 2021
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}19:31:46
+{res}18:26:29
 {txt}
 {com}. //_3
 . clear all 
@@ -49,17 +49,17 @@ now 100
      {c TLC}{hline 4}{c -}{hline 10}{c -}{hline 7}{c -}{hline 11}{c TRC}
      {c |} {res}id        age   happy   somethi~e {txt}{c |}
      {c LT}{hline 4}{c -}{hline 10}{c -}{hline 7}{c -}{hline 11}{c RT}
-  1. {c |} {res} 1        200       5   -1.458761 {txt}{c |}
-  2. {c |} {res} 2   44.62952       1   -.6263652 {txt}{c |}
-  3. {c |} {res} 3   39.00959       5    .0041983 {txt}{c |}
-  4. {c |} {res} 4   56.09353       5   -.7921791 {txt}{c |}
-  5. {c |} {res} 5   47.48186       5   -.3584003 {txt}{c |}
+  1. {c |} {res} 1        200       5   -.0458702 {txt}{c |}
+  2. {c |} {res} 2   52.93858       5    .2232178 {txt}{c |}
+  3. {c |} {res} 3   29.03173       3     .511095 {txt}{c |}
+  4. {c |} {res} 4   49.47338       4    1.892978 {txt}{c |}
+  5. {c |} {res} 5   48.40886       1    1.330781 {txt}{c |}
      {c LT}{hline 4}{c -}{hline 10}{c -}{hline 7}{c -}{hline 11}{c RT}
-  6. {c |} {res} 6   41.74093       3    .2928382 {txt}{c |}
-  7. {c |} {res} 7    47.3314       4   -.7735971 {txt}{c |}
-  8. {c |} {res} 8   46.24969       4   -.3540395 {txt}{c |}
-  9. {c |} {res} 9    46.3789       1   -.1536392 {txt}{c |}
- 10. {c |} {res}10   22.72754     999     .698948 {txt}{c |}
+  6. {c |} {res} 6   62.74471       5    .5322794 {txt}{c |}
+  7. {c |} {res} 7   63.74705       4    .4609152 {txt}{c |}
+  8. {c |} {res} 8   56.72011       5    1.700138 {txt}{c |}
+  9. {c |} {res} 9   51.59889       5   -.1463113 {txt}{c |}
+ 10. {c |} {res}10   52.85644     999     .041096 {txt}{c |}
      {c BLC}{hline 4}{c -}{hline 10}{c -}{hline 7}{c -}{hline 11}{c BRC}
 
 {com}. //_12
@@ -86,20 +86,20 @@ Sorted by:
 {txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
 {hline 13}{c +}{hline 57}
 {space 10}id {c |}{res}        100        50.5    29.01149          1        100
-{txt}{space 9}age {c |}{res}        100    49.70431    18.30524   22.72754        200
-{txt}{space 7}happy {c |}{res}        100       12.85    99.62185          1        999
-{txt}somethinge~e {c |}{res}        100   -.0207823    .8726572  -2.348869   2.685713
+{txt}{space 9}age {c |}{res}        100    51.75058    18.20934   27.31479        200
+{txt}{space 7}happy {c |}{res}        100       13.22    99.58445          1        999
+{txt}somethinge~e {c |}{res}        100   -.0180183    .9371057  -2.768309   1.925369
 {txt}
 {com}. //_14
 . tabulate happy // tabulation of this particular categorical variable
 
       {txt}happy {c |}      Freq.     Percent        Cum.
 {hline 12}{c +}{hline 35}
-          1 {c |}{res}         24       24.00       24.00
-{txt}          2 {c |}{res}         20       20.00       44.00
-{txt}          3 {c |}{res}         18       18.00       62.00
-{txt}          4 {c |}{res}         17       17.00       79.00
-{txt}          5 {c |}{res}         20       20.00       99.00
+          1 {c |}{res}         18       18.00       18.00
+{txt}          2 {c |}{res}         14       14.00       32.00
+{txt}          3 {c |}{res}         19       19.00       51.00
+{txt}          4 {c |}{res}         20       20.00       71.00
+{txt}          5 {c |}{res}         28       28.00       99.00
 {txt}        999 {c |}{res}          1        1.00      100.00
 {txt}{hline 12}{c +}{hline 35}
       Total {c |}{res}        100      100.00
@@ -153,15 +153,15 @@ Sorted by:
 {txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
 {hline 13}{c +}{hline 57}
 {space 10}id {c |}{res}        100        50.5    29.01149          1        100
-{txt}{space 9}age {c |}{res}        100    48.70431    11.46535   22.72754        100
-{txt}{space 7}happy {c |}{res}         99    2.888889    1.470033          1          5
+{txt}{space 9}age {c |}{res}        100    50.75058    11.49288   27.31479        100
+{txt}{space 7}happy {c |}{res}         99    3.262626    1.467928          1          5
 {txt}
 {com}. //_^
 . log close
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\cleaning-data-with-stata\cleaning-data-with-stata.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}27 Feb 2021, 19:31:46
+ {txt}closed on:  {res}15 Apr 2021, 18:26:29
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
