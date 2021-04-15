@@ -150,7 +150,7 @@ graphing schemes.
 
 # Pre-Defined Schemes
 
-Some schemes, e.g. `economist`, `sj` and `s1rcolor` are pre-installed with Stata.
+Some schemes, e.g. `economist`, `sj`, `s1color`, and `s1rcolor` are pre-installed with Stata.
 
 # Economist Scheme
 
@@ -175,6 +175,18 @@ Some schemes, e.g. `economist`, `sj` and `s1rcolor` are pre-installed with Stata
 ```
 	
 ![Scatterplot with *Stata Journal* Scheme](sjscatter.png)	
+
+# `s1color` Scheme
+
+```{s}
+    twoway scatter Petal_Length Petal_Width, scheme(s1color)
+```
+
+```{s/}	
+    quietly graph export s1colorscatter.png, width(500) replace
+```
+	
+![Scatterplot with `s1color` Scheme](s1colorscatter.png)	
 
 # `s1rcolor` Scheme
 

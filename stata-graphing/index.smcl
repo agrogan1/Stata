@@ -1,17 +1,17 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}/Users/agrogan/Box Sync/GitHub/Stata/stata-graphing/index.smcl
+       {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}24 Feb 2021, 08:54:28
+ {txt}opened on:  {res}15 Apr 2021, 18:17:22
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}24 Feb 2021
+{res}15 Apr 2021
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}08:54:28
+{res}18:17:22
 {txt}
 {com}. //_3
 . use "iris.dta", clear
@@ -87,25 +87,31 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 . quietly graph export sjscatter.png, width(500) replace
 {txt}
 {com}. //_20
-. twoway scatter Petal_Length Petal_Width, scheme(s1rcolor)
+. twoway scatter Petal_Length Petal_Width, scheme(s1color)
 {res}{txt}
 {com}. //_21q
-. quietly graph export s1rcolorscatter.png, width(500) replace
+. quietly graph export s1colorscatter.png, width(500) replace
 {txt}
 {com}. //_22
-. twoway scatter Petal_Length Petal_Width, scheme(lean2)
+. twoway scatter Petal_Length Petal_Width, scheme(s1rcolor)
 {res}{txt}
 {com}. //_23q
-. quietly graph export lean2scatter.png, width(500) replace
+. quietly graph export s1rcolorscatter.png, width(500) replace
 {txt}
 {com}. //_24
+. twoway scatter Petal_Length Petal_Width, scheme(lean2)
+{res}{txt}
+{com}. //_25q
+. quietly graph export lean2scatter.png, width(500) replace
+{txt}
+{com}. //_26
 . twoway (scatter Petal_Length Petal_Width) /// 
 > (lfit Petal_Length Petal_Width), scheme(michigan)
 {res}{txt}
-{com}. //_25q
+{com}. //_27q
 . quietly graph export michiganscatter.png, width(500) replace
 {txt}
-{com}. //_26
+{com}. //_28
 . twoway (scatter Petal_Length Petal_Width, msymbol(0) mcolor(red)) ///
 > (lfit Petal_Length Petal_Width), ///
 > scheme(lean2) 
@@ -115,24 +121,24 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 symbol,  default attributes used)
 {p_end}
 {res}{txt}
-{com}. //_27q
+{com}. //_29q
 . quietly graph export lean2Ascatter.png, width(500) replace
 {txt}
-{com}. //_28
+{com}. //_30
 . twoway scatter Sepal_Length Sepal_Width Petal_Width Petal_Length, /// 
 > color(%50 %50 %50) /// transparency 
 > title("Multiple Iris Characteristics") /// title
 > scheme(s1rcolor) // scheme
 {res}{txt}
-{com}. //_29q
+{com}. //_31q
 . quietly graph export s1rcolorAscatter.png, width(500) replace
 {txt}
 {com}. //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}/Users/agrogan/Box Sync/GitHub/Stata/stata-graphing/index.smcl
+       {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\stata-graphing\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}24 Feb 2021, 08:54:44
+ {txt}closed on:  {res}15 Apr 2021, 18:17:36
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
