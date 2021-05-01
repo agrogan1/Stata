@@ -6,5 +6,5 @@ This directory contains a test of Stata's new `putdocx` commands.
 
 The file of commands is [here](./putdocx-test.do).
 
-The generated document is [here](./report1.docx).
+The generated document is [here](https://github.com/agrogan1/Stata/raw/master/putdocx-test/report1.docx).
 
