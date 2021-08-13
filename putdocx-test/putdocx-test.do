@@ -1,8 +1,8 @@
 clear all // clear workspace
 
-cd "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\putdocx-test" // Windows
+* cd "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\putdocx-test" // Windows
 
-cd "/Users/agrogan/Box Sync/GitHub/Stata/putdocx-test" // Mac
+cd "/Users/agrogan/Desktop/GitHub/Stata/putdocx-test" // Mac
 
 use "https://github.com/agrogan1/newstuff/raw/master/mlm-R2-gutten/gutten.dta", clear
 
@@ -19,6 +19,8 @@ putdocx paragraph, halign(center) // need to add a paragraph before adding image
 putdocx image myspaghetti.png // add the image to the Word document
 
 mixed height age_base i.site || tree_ID: // mixed model
+
+estat sd, variance post // post results as variance scale rather than log scale
 
 est store model1 // store the estimates
 
