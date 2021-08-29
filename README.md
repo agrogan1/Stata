@@ -18,12 +18,12 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 
 * [My first, older, tutorial on Stata graphing](https://agrogan1.github.io/Stata/stata-graphing/index.html)
 * Data Visualization With Stata 
-    + [PDF](https://agrogan1.github.io/newstuff/data-visualization-with-Stata/data-visualization-with-Stata.pdf) (*Easiest to read*)
-    + [HTML](https://agrogan1.github.io/newstuff/data-visualization-with-Stata/data-visualization-with-Stata.html)
-    + [HTML Slides](https://agrogan1.github.io/newstuff/data-visualization-with-Stata/data-visualization-with-Stata-slidy.html)
+    + [PDF](https://agrogan1.github.io/Stata/data-visualization-with-Stata/data-visualization-with-Stata.pdf) (*Easiest to read*)
+    + [HTML](https://agrogan1.github.io/Stata/data-visualization-with-Stata/data-visualization-with-Stata.html)
+    + [HTML Slides](https://agrogan1.github.io/Stata/data-visualization-with-Stata/data-visualization-with-Stata-slidy.html)
 * The **Basics**
-    + [HTML](https://agrogan1.github.io/newstuff/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.html)
-    + [PDF](https://agrogan1.github.io/newstuff/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.pdf)
+    + [HTML](https://agrogan1.github.io/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.html)
+    + [PDF](https://agrogan1.github.io/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.pdf)
 
 ## Two Page Stata
 
