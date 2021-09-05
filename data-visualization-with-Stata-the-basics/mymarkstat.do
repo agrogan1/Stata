@@ -4,7 +4,7 @@ clear all
 
 cd "C:\Users\agrogan\Desktop\GitHub\Stata\data-visualization-with-Stata-the-basics" // Windows
 
-cd "/Users/agrogan/Desktop/newstuff/data-visualization-with-Stata-the-basics" // Mac
+cd "/Users/agrogan/Desktop/Github/Stata/data-visualization-with-Stata-the-basics" // Mac
 
 doedit data-visualization-with-Stata-the-basics.stmd
 

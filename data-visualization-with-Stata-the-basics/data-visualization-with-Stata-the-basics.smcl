@@ -1,9 +1,9 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\data-visualization-with-Stata-the-basics\data-visualization-with-Stata-the-basics.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 5 Sep 2021, 08:14:18
+ {txt}opened on:  {res} 5 Sep 2021, 08:33:10
 {txt}
 {com}. //_1
 . display c(current_date)
@@ -46,9 +46,9 @@
 {com}. //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\data-visualization-with-Stata-the-basics\data-visualization-with-Stata-the-basics.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 5 Sep 2021, 08:14:22
+ {txt}closed on:  {res} 5 Sep 2021, 08:33:18
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

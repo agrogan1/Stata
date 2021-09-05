@@ -4,7 +4,7 @@ clear all
 
 cd "C:\Users\agrogan\Desktop\GitHub\Stata\data-visualization-with-Stata" // Windows
 
-cd "/Users/agrogan/Desktop/newstuff/data-visualization-with-Stata" // Mac
+cd "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata" // Mac
 
 doedit data-visualization-with-Stata.stmd
 
@@ -26,7 +26,7 @@ graph close _all
 
 doedit spruceslidy.css
 
-! /Applications/RStudio.app/Contents/MacOS/pandoc/pandoc -s --mathjax -i -t slidy --css "spruceslidy.css" --slide-level=2 "/Users/agrogan/Desktop/newstuff/data-visualization-with-Stata/data-visualization-with-Stata.html" -o "/Users/agrogan/Desktop/newstuff/data-visualization-with-Stata/data-visualization-with-Stata-slidy.html" 
+! /Applications/RStudio.app/Contents/MacOS/pandoc/pandoc -s --mathjax -i -t slidy --css "spruceslidy.css" --slide-level=2 "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata.html" -o "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata-slidy.html" 
 
 
 
