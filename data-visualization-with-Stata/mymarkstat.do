@@ -2,7 +2,9 @@
 
 clear all
 
-cd "/Users/agrogan/Desktop/newstuff/data-visualization-with-Stata"
+cd "C:\Users\agrogan\Desktop\GitHub\Stata\data-visualization-with-Stata" // Windows
+
+cd "/Users/agrogan/Desktop/newstuff/data-visualization-with-Stata" // Mac
 
 doedit data-visualization-with-Stata.stmd
 

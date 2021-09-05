@@ -19,7 +19,7 @@ This is a quick guide to these ideas using the [Palmer Penguins Data](https://gi
 ```s
     clear all
 
-    use "https://github.com/agrogan1/newstuff/raw/master/data-visualization-with-Stata-the-basics/penguins.dta", clear
+    use "https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata-the-basics/penguins.dta", clear
 ```
 
 I am not a particular fan of Stata's default graph schemes, so I am going to make use of the graph scheme entitled `s1color`.

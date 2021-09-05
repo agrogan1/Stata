@@ -60,7 +60,7 @@ The documentation goes on to further note that:
 
 > "The data are measures from 107 trees. The trees were selected as being of average size from healthy and well stocked stands in the Alps."
 
-    use "https://github.com/agrogan1/newstuff/raw/master/data-visualization-with-Stata/gutten.dta", clear
+    use "https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata/gutten.dta", clear
 		
 # Variables
 
@@ -132,7 +132,9 @@ The documentation goes on to further note that:
 
 # Schemes
 
-Stata *graph schemes* can substantially improve the look of a graph. Built in graph schemes include `s1color`, the default scheme `s2color`, `sj`, `economist` and `s1rcolor`. (Notably, as a *quick fix*, the default Stata graph scheme of `s2color` can be substantially improved by adding the option `,graphregion(fcolor(white))` which changes the background color of this scheme to *white*.)
+Stata *graph schemes* can substantially improve the look of a graph. Built in graph schemes include `s1color`, the default scheme `s2color`, `sj`, `economist` and `s1rcolor`. 
+
+> (Notably, as a *quick fix*, the default Stata graph scheme of `s2color` can be substantially improved by adding the option `,graphregion(fcolor(white))` which changes the background fill color of this scheme to *white*.)
 
 `lean2` (type `findit lean2` in the Stata Command Window) is a user written scheme that is very helpful when preparing graphics for publication. I have written a [Stata Michigan graph scheme](https://agrogan1.github.io/Stata/) that can be installed. `cleanplots` and `modern` are excellent graph schemes that can be installed directly into Stata from GitHub. `burd` is another user written graph scheme that *somewhat* replicates the look of `ggplot`. 
 
