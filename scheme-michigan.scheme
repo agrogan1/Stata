@@ -13,107 +13,107 @@
 
 * histogram
 
-color histogram navy
+color histogram "0 39 76"
 
 * bar chart
 
-color p1bar navy
-color p2bar gold
-color p3bar maroon
-color p4bar orange
-color p5bar green
-color p6bar teal
-color p7bar edkblue
-color p8bar purple
-color p9bar stone
+color p1bar "0 39 76"
+color p2bar "255 203 5"
+color p3bar "154 51 36"
+color p4bar "216 96 24"
+color p5bar "165 165 8"
+color p6bar "0 178 169"
+color p7bar "47 101 167"
+color p8bar "112 32 130"
+color p9bar "87 82 148"
 
 * pie chart
 
-color p1pie navy
-color p2pie gold
-color p3pie maroon
-color p4pie orange
-color p5pie green
-color p6pie teal
-color p7pie edkblue
-color p8pie purple
-color p9pie stone
+color p1pie "0 39 76"
+color p2pie "255 203 5"
+color p3pie "154 51 36"
+color p4pie "216 96 24"
+color p5pie "165 165 8"
+color p6pie "0 178 169"
+color p7pie "47 101 167"
+color p8pie "112 32 130"
+color p9pie "87 82 148"
 
 * scatterplot
 
 symbol p1 circle
-color p1markfill navy
-color p1markline navy
+color p1markfill "0 39 76"
+color p1markline "0 39 76"
 
 symbol p2 circle
-color p2markfill gold
-color p2markline gold
+color p2markfill "255 203 5"
+color p2markline "255 203 5"
 
 symbol p3 circle
-color p3markfill maroon
-color p3markline maroon
+color p3markfill "154 51 36"
+color p3markline "154 51 36"
 
 symbol p4 circle
-color p3markfill orange
-color p3markline orange
+color p3markfill "216 96 24"
+color p3markline "216 96 24"
 
 symbol p5 circle
-color p3markfill green
-color p3markline green
+color p3markfill "165 165 8"
+color p3markline "165 165 8"
 
 * line chart
 
-color p1lineplot navy
+color p1lineplot "0 39 76"
 linewidth p1lineplot thick
 
-color p2lineplot gold
+color p2lineplot "255 203 5"
 linewidth p2lineplot thick
 
-color p3lineplot maroon
+color p3lineplot "154 51 36"
 linewidth p3lineplot thick
 
-color p4lineplot orange
+color p4lineplot "216 96 24"
 linewidth p4lineplot thick
 
-color p5lineplot green
+color p5lineplot "165 165 8"
 linewidth p5lineplot thick
 
-color p6lineplot teal
+color p6lineplot "0 178 169"
 linewidth p6lineplot thick
 
-color p7lineplot edkblue
+color p7lineplot "47 101 167"
 linewidth p7lineplot thick
 
-color p8lineplot purple
+color p8lineplot "112 32 130"
 linewidth p8lineplot thick
 
-color p9lineplot stone
+color p9lineplot "87 82 148"
 linewidth p9lineplot thick
 
 * area chart
 
-color p1area navy
-color p2area gold
-color p3area maroon
-color p4area orange
-color p5area green
-color p6area teal
-color p7area edkblue
-color p8area purple
-color p9area stone
+color p1area "0 39 76"
+color p2area "255 203 5"
+color p3area "154 51 36"
+color p4area "216 96 24"
+color p5area "165 165 8"
+color p6area "0 178 169"
+color p7area "47 101 167"
+color p8area "112 32 130"
+color p9area "87 82 148"
 
 * plot elements
 
-color p navy
-color p1 navy
-color p2 gold
-color p3 maroon
-color p4 orange
-color p5 green
-color p6 teal
-color p7 edkblue
-color p8 purple
-color p9 stone
+color p "0 39 76"
+color p1 "0 39 76"
+color p2 "255 203 5"
+color p3 "154 51 36"
+color p4 "216 96 24"
+color p5 "165 165 8"
+color p6 "0 178 169"
+color p7 "47 101 167"
+color p8 "112 32 130"
+color p9 "87 82 148"
 
 
 

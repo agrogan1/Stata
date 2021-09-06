@@ -1,17 +1,17 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\michigan-graph-scheme\index.smcl
+       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}30 Mar 2021, 15:26:13
+ {txt}opened on:  {res} 6 Sep 2021, 10:20:04
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}30 Mar 2021
+{res} 6 Sep 2021
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}15:26:13
+{res}10:20:04
 {txt}
 {com}. //_3q
 . 
@@ -45,7 +45,7 @@
 {com}. 
 . summarize
 
-{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
 {hline 13}{c +}{hline 57}
 Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 {txt}{space 1}Sepal_Width {c |}{res}        150    3.057333    .4358663          2        4.4
@@ -112,9 +112,9 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 . //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\michigan-graph-scheme\index.smcl
+       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}30 Mar 2021, 15:26:22
+ {txt}closed on:  {res} 6 Sep 2021, 10:20:12
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
