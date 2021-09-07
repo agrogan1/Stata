@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 <style>
 /* CSS for Markstat 2.0 using Pandoc 2.0 */
@@ -38,20 +38,160 @@ tbody tr:first-child td {border-top:1px solid black; padding-top:6px}
 tbody tr:last-child  td {padding-bottom:6px;}
 table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 </style>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Andy Grogan-Kaylor" />
   <title>Cleaning Data With Stata</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<div id="header">
+<header id="title-block-header">
 <h1 class="title">Cleaning Data With Stata</h1>
-<h2 class="author">Andy Grogan-Kaylor</h2>
-<h3 class="date">15 Apr 2021 18:26:00</h3>
-</div>
-<style>h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
+<p class="author">Andy Grogan-Kaylor</p>
+<p class="date">7 Sep 2021 17:00:39</p>
+</header>
+<style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 <h1 id="background">Background</h1>
 <blockquote>
 <p>It sometimes seems like 80% of our work as data analysts is cleaning the data, while only 20% is the actual analysis. Here are some Stata commands that are useful in cleaning data.</p>
@@ -68,7 +208,7 @@ Show / Hide Data Simulation Code
 <pre class='stata'>. clear all 
 </pre>
 <pre class='stata'>. set obs 100 // 100 observations
-number of observations (_N) was 0, now 100
+Number of observations (_N) was 0, now 100.
 </pre>
 <pre class='stata'>. generate id = _n // random id 
 </pre>
@@ -129,27 +269,27 @@ content.style.display = "block";
 </pre>
 <h1 id="clean-the-data">Clean The Data!</h1>
 <h2 id="look-at-variables-describe-summarize-tabulate">Look at Variables (<code>describe</code>, <code>summarize</code>, <code>tabulate</code>)</h2>
-<p>When we look at variables we are looking for values that don't make sense, or that are outside the plausible range.</p>
+<p>When we look at variables we are looking for values that don’t make sense, or that are outside the plausible range.</p>
 <pre class='stata'>. describe // describe the data
 
 Contains data
-  obs:           100                          
- vars:             4                          
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-              storage   display    value
-variable name   type    format     label      variable label
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ Observations:           100                  
+    Variables:             4                  
+──────────────────────────────────────────────────────────────────────────────────────────────
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+──────────────────────────────────────────────────────────────────────────────────────────────
 id              float   %9.0g                 
 age             float   %9.0g                 
 happy           float   %9.0g                 
 somethingelse   float   %9.0g                 
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+──────────────────────────────────────────────────────────────────────────────────────────────
 Sorted by: 
      Note: Dataset has changed since last saved.
 </pre>
 <pre class='stata'>. summarize // descriptive statistics
 
-    Variable │        Obs        Mean    Std. Dev.       Min        Max
+    Variable │        Obs        Mean    Std. dev.       Min        Max
 ─────────────┼─────────────────────────────────────────────────────────
           id │        100        50.5    29.01149          1        100
          age │        100    49.85175    17.83505   24.33709        200
@@ -169,7 +309,7 @@ somethinge~e │        100   -.0085413    1.072256  -2.685881   2.794861
 ────────────┼───────────────────────────────────
       Total │        100      100.00
 </pre>
-<p>Notice that...</p>
+<p>Notice that…</p>
 <ul>
 <li>There are variables in which we may not have interest.</li>
 <li>None of the variables are labelled informatively.</li>
@@ -178,7 +318,7 @@ somethinge~e │        100   -.0085413    1.072256  -2.685881   2.794861
 <li>There appear to be missing values in the variable <code>happy</code> that need to be recoded.</li>
 </ul>
 <blockquote>
-<p>Remember that the command <code>lookfor</code> is often very helpful in <em>looking for</em> a particular variable. e.g. <code>lookfor happy</code>.</p>
+<p>Remember that the command <code>lookfor</code> is often very helpful in <em>looking for</em> a particular variable. e.g. <code>lookfor happy</code>.</p>
 </blockquote>
 <h2 id="only-keep-the-variables-of-interest">Only <code>keep</code> The Variables Of Interest</h2>
 <p>We may only be interested in keeping some variables to keep our analytic data set more manageable.</p>
@@ -186,7 +326,7 @@ somethinge~e │        100   -.0085413    1.072256  -2.685881   2.794861
 <pre class='stata'>. keep id age happy // keep only relevant variables
 </pre>
 <p>We could also have said <code>drop somethingelse</code>.</p>
-<h2 id="add-variable-labels-label-variable-...">Add <em>Variable</em> Labels (<code>label variable &quot;...&quot;</code>)</h2>
+<h2 id="add-variable-labels-label-variable-...">Add <em>Variable</em> Labels (<code>label variable "..."</code>)</h2>
 <pre class='stata'>. label variable id "ID" // label variable
 </pre>
 <pre class='stata'>. label variable age "Age in Years" // label variable
@@ -202,31 +342,31 @@ somethinge~e │        100   -.0085413    1.072256  -2.685881   2.794861
 </pre>
 <h2 id="recode-outliers-values-that-are-errors-or-values-that-should-be-coded-as-missing-recode">Recode Outliers, Values That Are Errors, Or Values That Should Be Coded As Missing (<code>recode</code>)</h2>
 <pre class='stata'>. recode happy (999 = .) // recode values as missing
-(happy: 1 changes made)
+(1 changes made to happy)
 </pre>
 <pre class='stata'>. recode age (100/max = 100) // age is topcoded at 100 (may or may not be plausible)
-(age: 1 changes made)
+(1 changes made to age)
 </pre>
 <h1 id="we-describe-and-summarize-the-data-and-see-the-changes-that-have-been-made">We <code>describe</code> and <code>summarize</code> The Data And See The Changes That Have Been Made</h1>
 <pre class='stata'>. describe
 
 Contains data
-  obs:           100                          
- vars:             3                          
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-              storage   display    value
-variable name   type    format     label      variable label
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ Observations:           100                  
+    Variables:             3                  
+──────────────────────────────────────────────────────────────────────────────────────────────
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+──────────────────────────────────────────────────────────────────────────────────────────────
 id              float   %9.0g                 ID
 age             float   %9.0g                 Age in Years
 happy           float   %9.0g      happy      Happiness Scale
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+──────────────────────────────────────────────────────────────────────────────────────────────
 Sorted by: 
      Note: Dataset has changed since last saved.
 </pre>
 <pre class='stata'>. summarize
 
-    Variable │        Obs        Mean    Std. Dev.       Min        Max
+    Variable │        Obs        Mean    Std. dev.       Min        Max
 ─────────────┼─────────────────────────────────────────────────────────
           id │        100        50.5    29.01149          1        100
          age │        100    48.85175    10.71257   24.33709        100

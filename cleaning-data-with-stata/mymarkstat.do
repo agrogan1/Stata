@@ -2,9 +2,9 @@
 
 clear all
 
-cd "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\cleaning-data-with-stata" // Windows
+cd "C:\Users\agrogan\Desktop\GitHub\Stata\cleaning-data-with-stata" // Windows
 
-cd "/Users/agrogan/Box Sync/GitHub/Stata/cleaning-data-with-stata" // Mac
+cd "/Users/agrogan/Desktop/GitHub/Stata/cleaning-data-with-stata" // Mac
 
 doedit "cleaning-data-with-stata.stmd"
 
