@@ -51,62 +51,73 @@ Then type `net from https://agrogan1.github.io/Stata` and click the links to ins
 We are going to use the famous "iris" data collected by Edgar Anderson.
 
 ```{s}
-
     clear all
 	
 	use "iris.dta", clear
 
 	summarize
-
 ```
 
 # Histogram
 
 ```{s}
-
     histogram Petal_Length, scheme(michigan)
-
 ```
 
-```{s/}
-	
+```{s/}	
     quietly graph export myhistogram.png, width(750) replace
-
 ```
 	
 ![Histogram Using Michigan Scheme](myhistogram.png)
 
+# Histogram With Transparency
+
+```{s}
+    histogram Petal_Length, fcolor(%50) scheme(michigan)
+```
+
+```{s/}	
+    quietly graph export myhistogram2.png, width(750) replace
+```
+	
+![Histogram Using Michigan Scheme And Slightly Transparent Bars](myhistogram2.png)
+
+
 # Bar Graph
 
 ```{s}
-
     graph bar Petal_Length, over(Species) scheme(michigan) asyvars
-
 ```
 
-```{s/}
-	
+```{s/}	
     quietly graph export mybargraph.png, width(750) replace
-
 ```
 	
 ![Bar Graph Using Michigan Scheme](mybargraph.png)
+
+# Bar Graph With Transparency
+
+```{s}
+    graph bar Petal_Length, over(Species) intensity(70) scheme(michigan) asyvars
+```
+
+```{s/}
+    quietly graph export mybargraph2.png, width(750) replace
+```
+	
+![Bar Graph Using Michigan Scheme and Slightly Transparent Bars](mybargraph2.png)
 
 
 # Scatterplot
 
 ```{s}
-
     twoway (scatter Petal_Length Petal_Width) ///
 	(lfit Petal_Length Petal_Width), ///
 	scheme(michigan)
-
 ```
 
-```{s/}
-	
+```{s/}	
 	quietly graph export myscatter.png, width(750) replace
-
 ```
 	
 ![Scatterplot Using Michigan Scheme](myscatter.png)
@@ -114,17 +125,13 @@ We are going to use the famous "iris" data collected by Edgar Anderson.
 # Scatterplot With Transparency
 
 ```{s}
-
     twoway (scatter Petal_Length Petal_Width, mcolor(%30)) /// markers have 30% transparency
 	(lfit Petal_Length Petal_Width), ///
 	scheme(michigan)
-
 ```
 
-```{s/}
-	
+```{s/}	
 	quietly graph export myscatter2.png, width(750) replace
-
 ```
 	
 ![Scatterplot Using Michigan Scheme And Slightly Transparent Markers](myscatter2.png)
@@ -134,16 +141,12 @@ We are going to use the famous "iris" data collected by Edgar Anderson.
 Sometimes you may wish to have the legend of the graph placed at the *bottom* of the graph. The `pos(6)` suboption inside the `legend` option will place the legend at the bottom, while you can manually control the number of legend rows with the `rows` suboption.
 
 ```{s}
-
     graph bar Petal_Length, over(Species) scheme(michigan) asyvars legend(pos(6) rows(1))
-
 ```
 
 ```{s/}
-	
-    quietly graph export mybargraph2.png, width(750) replace
-
+    quietly graph export mybargraph3.png, width(750) replace
 ```
 	
-![Bar Graph Using Michigan Scheme and Modified Legend](mybargraph2.png)
+![Bar Graph Using Michigan Scheme and Modified Legend](mybargraph3.png)
 

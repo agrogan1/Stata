@@ -1,17 +1,17 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme/index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 6 Sep 2021, 10:20:04
+ {txt}opened on:  {res} 7 Sep 2021, 15:24:25
 {txt}
 {com}. //_1
 . display c(current_date)
-{res} 6 Sep 2021
+{res} 7 Sep 2021
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}10:20:04
+{res}15:24:25
 {txt}
 {com}. //_3q
 . 
@@ -36,7 +36,6 @@
 {txt}
 {com}. 
 . //_4
-. 
 . clear all
 {res}{txt}
 {com}.     
@@ -53,68 +52,60 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 {txt}{space 1}Petal_Width {c |}{res}        150    1.199333    .7622377         .1        2.5
 {txt}{space 5}Species {c |}{res}        150           2    .8192319          1          3
 {txt}
-{com}. 
-. //_5
-. 
+{com}. //_5
 . histogram Petal_Length, scheme(michigan)
 {txt}(bin={res}12{txt}, start={res}1{txt}, width={res}.49166667{txt})
 {res}{txt}
-{com}. 
-. //_6q
-.     
+{com}. //_6q
 . quietly graph export myhistogram.png, width(750) replace
 {txt}
-{com}. 
-. //_7
-. 
+{com}. //_7
+. histogram Petal_Length, fcolor(%50) scheme(michigan)
+{txt}(bin={res}12{txt}, start={res}1{txt}, width={res}.49166667{txt})
+{res}{txt}
+{com}. //_8q
+. quietly graph export myhistogram2.png, width(750) replace
+{txt}
+{com}. //_9
 . graph bar Petal_Length, over(Species) scheme(michigan) asyvars
 {res}{txt}
-{com}. 
-. //_8q
-.     
+{com}. //_10q
 . quietly graph export mybargraph.png, width(750) replace
 {txt}
-{com}. 
-. //_9
-. 
+{com}. //_11
+. graph bar Petal_Length, over(Species) intensity(70) scheme(michigan) asyvars
+{res}{txt}
+{com}. //_12q
+. quietly graph export mybargraph2.png, width(750) replace
+{txt}
+{com}. //_13
 . twoway (scatter Petal_Length Petal_Width) ///
 > (lfit Petal_Length Petal_Width), ///
 > scheme(michigan)
 {res}{txt}
-{com}. 
-. //_10q
-.     
+{com}. //_14q
 . quietly graph export myscatter.png, width(750) replace
 {txt}
-{com}. 
-. //_11
-. 
+{com}. //_15
 . twoway (scatter Petal_Length Petal_Width, mcolor(%30)) /// markers have 30% transparency
 > (lfit Petal_Length Petal_Width), ///
 > scheme(michigan)
 {res}{txt}
-{com}. 
-. //_12q
-.     
+{com}. //_16q
 . quietly graph export myscatter2.png, width(750) replace
 {txt}
-{com}. 
-. //_13
-. 
+{com}. //_17
 . graph bar Petal_Length, over(Species) scheme(michigan) asyvars legend(pos(6) rows(1))
 {res}{txt}
-{com}. 
-. //_14q
-.     
-. quietly graph export mybargraph2.png, width(750) replace
+{com}. //_18q
+. quietly graph export mybargraph3.png, width(750) replace
 {txt}
-{com}. 
-. //_^
+{com}. //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme/index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 6 Sep 2021, 10:20:12
+ {txt}closed on:  {res} 7 Sep 2021, 15:24:40
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
