@@ -6,14 +6,14 @@ output:
   tint::tintPdf:
     toc: no
     number_sections: yes
-  tufte::tufte_handout:
-    toc: no
-    number_sections: yes
-    latex_engine: xelatex
   tufte::tufte_html:
     number_sections: yes
     toc: yes
     css: mycss.css
+  tufte::tufte_handout:
+    toc: no
+    number_sections: yes
+    latex_engine: xelatex
 fontsize: 11pt
 geometry: margin=.30in
 mainfont: Futura
