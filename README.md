@@ -1,5 +1,9 @@
 # Stata Materials
 
+## Do Files
+
+* [Example Do File](https://github.com/agrogan1/Stata/blob/master/do-files/my_penguins.do)
+
 ## Stata Programs and Stata Graph Scheme
 
 In Stata, type `net from https://agrogan1.github.io/Stata` to install these programs.
