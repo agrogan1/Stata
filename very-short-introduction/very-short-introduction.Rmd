@@ -34,8 +34,11 @@ The general idea of most Stata commands is `command variable(s), options`. Often
 | Frequencies | `tabulate x` |
 | Correlation | `corr x y` |
 | Regression | `regress y x` |
+| Logistic Regression | `logit y x, or` [^logit] |
 | Histogram | `histogram x` |
 | Scatterplot | `twoway scatter y x` |
+
+[^logit]: Here we need to use the `,or` option to ask for *odds ratios* instead of *logit coefficients*.
 
 
 
