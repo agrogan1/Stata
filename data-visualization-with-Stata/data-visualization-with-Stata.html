@@ -1,15 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
-  <meta name="author" content="Andy Grogan-Kaylor" />
-  <title>Data Visualization With Stata</title>
-  <style type="text/css">code{white-space: pre;}</style>
 <style>
 /* CSS for Markstat 2.0 using Pandoc 2.0 */
-body{padding:14px 28px; max-width:45em;}
+body{padding:14px 28px;}
 body, table {font-family: Helvetica, Arial, Sans-serif; font-size: 14px;}
 h1, h2, h3, h4 {font-weight: normal; color: #3366cc}
 h1 {font-size: 200%;}
@@ -37,22 +31,166 @@ p.date, h3.date {text-align:center;margin-top:4px; margin-bottom:0}
 /* Tables*/
 table { margin:auto; border-collapse:collapse; }
 table caption { margin-bottom:1ex;}
-td {padding:0 0 0 0} /* override */
-table:not([class]) th { padding:4px 6px } 
-table:not([class]) td { padding:4px 6px } 
-table:not([class]) thead tr:first-child th {border-top:1px solid black; padding-top:6px}
-table:not([class]) thead tr:last-child  th {padding-bottom:6px}
-table:not([class]) tbody tr:first-child td {border-top:1px solid black; padding-top:6px}
-table:not([class]) tbody tr:last-child  td {padding-bottom:6px;}
-table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid black;}
+th, td { padding:4px 6px;}
+thead tr:first-child th {border-top:1px solid black; padding-top:6px}
+thead tr:last-child  th {padding-bottom:6px}
+tbody tr:first-child td {border-top:1px solid black; padding-top:6px}
+tbody tr:last-child  td {padding-bottom:6px;}
+table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 </style>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Andy Grogan-Kaylor" />
+  <title>Data Visualization With Stata</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<div id="header">
+<header id="title-block-header">
 <h1 class="title">Data Visualization With Stata</h1>
-<h2 class="author">Andy Grogan-Kaylor</h2>
-<h3 class="date">28 Oct 2021</h3>
-</div>
+<p class="author">Andy Grogan-Kaylor</p>
+<p class="date">28 Oct 2021</p>
+</header>
 <h1 id="introduction">Introduction</h1>
 <style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;}</style>
 <ul>
@@ -71,30 +209,30 @@ table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid bl
 <table>
 <thead>
 <tr class="header">
-<th align="left"></th>
-<th align="left">Column 1</th>
-<th align="left">Column 2</th>
-<th align="left">Column 3</th>
+<th></th>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Row 1</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<td>Row 1</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="even">
-<td align="left">Row 2</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<td>Row 2</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td align="left">Row 3</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<td>Row 3</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -106,24 +244,33 @@ table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid bl
 <h1 id="a-data-visualization-strategy">A Data Visualization Strategy</h1>
 <p>Once we have discerned the type of variable that have, there are two followup questions we may ask before deciding upon a graphing strategy:</p>
 <ul>
-<li>Is our graph about <strong>one thing at a time</strong>?</li>
+<li>Is our graph about <strong>one thing at a time</strong>?
+<ul>
 <li>How much of <em>x</em> is there?</li>
 <li>What is the distribution of <em>x</em>?</li>
-<li>Is our graph about <strong>two things at a time</strong>?</li>
+</ul></li>
+<li>Is our graph about <strong>two things at a time</strong>?
+<ul>
 <li>What is the relationship of <em>x</em> and <em>y</em>?</li>
 <li>How are <em>x</em> and <em>y</em> associated?</li>
+</ul></li>
 </ul>
 <h1 id="data-source">Data Source</h1>
-<p><img src="fotolia-small.jpg" alt="Norway Spruce and Larch Forest in Austrian Alps" />{ width=40% }</p>
-<p>Image Source: <a href="https://ec.europa.eu/jrc/en/research-topic/forestry/qr-tree-project/norway-spruce" class="uri">https://ec.europa.eu/jrc/en/research-topic/forestry/qr-tree-project/norway-spruce</a></p>
-<p>The data used in this example are derived from the R package <em>Functions and Datasets for &quot;Forest Analytics with R&quot;</em>.</p>
-<p>According to the documentation, the source of these data are: &quot;von Guttenberg’s Norway spruce (Picea abies [L.] Karst) tree measurement data.&quot;</p>
-<p><img src="Old-Tjikko-Small.jpg" alt="Old Tjikko, a 9,550 Year Old Norway Spruce in Sweden" />{ width=20% }</p>
+<figure>
+<img src="fotolia-small.jpg" style="width:40.0%" alt="Norway Spruce and Larch Forest in Austrian Alps" /><figcaption aria-hidden="true">Norway Spruce and Larch Forest in Austrian Alps</figcaption>
+</figure>
+<p>Image Source: <a href="https://ec.europa.eu/jrc/en/research-topic/forestry/qr-tree-project/norway-spruce">https://ec.europa.eu/jrc/en/research-topic/forestry/qr-tree-project/norway-spruce</a></p>
+<p>The data used in this example are derived from the R package <em>Functions and Datasets for “Forest Analytics with R”</em>.</p>
+<p>According to the documentation, the source of these data are: “von Guttenberg’s Norway spruce (Picea abies [L.] Karst) tree measurement data.”</p>
+<figure>
+<img src="Old-Tjikko-Small.jpg" style="width:20.0%" alt="Old Tjikko, a 9,550 Year Old Norway Spruce in Sweden" /><figcaption aria-hidden="true">Old Tjikko, a 9,550 Year Old Norway Spruce in Sweden</figcaption>
+</figure>
 <p>The documentation goes on to further note that:</p>
 <blockquote>
-<p>&quot;The data are measures from 107 trees. The trees were selected as being of average size from healthy and well stocked stands in the Alps.&quot;</p>
+<p>“The data are measures from 107 trees. The trees were selected as being of average size from healthy and well stocked stands in the Alps.”</p>
 </blockquote>
-<pre class='stata'>. use "https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata/gutten.dta", clear
+<pre class='stata'>. use "https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata/gutt
+> en.dta", clear
 </pre>
 <h1 id="variables">Variables</h1>
 <p><code>site</code> Growth <em>quality</em> class of the tree’s habitat. 5 levels.</p>
@@ -148,37 +295,56 @@ table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid bl
 (bin=30, start=1.5, width=1.4)
 </pre>
 <pre class='stata'>. graph export myhistogram.png, width(1000) replace
-file myhistogram.png saved as PNG format
+file
+    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myhistogram.pn
+    > g saved as PNG format
 </pre>
-<p><img src="myhistogram.png" alt="Histogram Of Tree Height" />{width=50%}</p>
+<figure>
+<img src="myhistogram.png" style="width:50.0%" alt="Histogram Of Tree Height" /><figcaption aria-hidden="true">Histogram Of Tree Height</figcaption>
+</figure>
 <h2 id="one-categorical-thing-at-a-time">One Categorical Thing At A Time</h2>
 <pre class='stata'>. graph bar, over(location) title("Tree Location")
 </pre>
 <pre class='stata'>. graph export mybargraph.png, width(1000) replace
-file mybargraph.png saved as PNG format
+file
+    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybargraph.png
+    saved as PNG format
 </pre>
-<p><img src="mybargraph.png" alt="Bar Graph Of Tree Location" />{width=50%}</p>
+<figure>
+<img src="mybargraph.png" style="width:50.0%" alt="Bar Graph Of Tree Location" /><figcaption aria-hidden="true">Bar Graph Of Tree Location</figcaption>
+</figure>
 <h2 id="continuous-by-continuous">Continuous by Continuous</h2>
 <pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age")
 </pre>
 <pre class='stata'>. graph export myscatter.png, width(1000) replace
-file myscatter.png saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatter.png
+    saved as PNG format
 </pre>
-<p><img src="myscatter.png" alt="Scatterplot Of Tree Height By Age" />{width=50%}</p>
+<figure>
+<img src="myscatter.png" style="width:50.0%" alt="Scatterplot Of Tree Height By Age" /><figcaption aria-hidden="true">Scatterplot Of Tree Height By Age</figcaption>
+</figure>
 <h2 id="categorical-by-categorical">Categorical by Categorical</h2>
 <pre class='stata'>. graph bar, over(site) over(location) title("Tree Site Growth Quality by Location")
 </pre>
 <pre class='stata'>. graph export mybargraph2.png, width(1000) replace
-file mybargraph2.png saved as PNG format
+file
+    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybargraph2.pn
+    > g saved as PNG format
 </pre>
-<p><img src="mybargraph2.png" alt="Bar Graph Of Tree Site By Location" />{width=50%}</p>
+<figure>
+<img src="mybargraph2.png" style="width:50.0%" alt="Bar Graph Of Tree Site By Location" /><figcaption aria-hidden="true">Bar Graph Of Tree Site By Location</figcaption>
+</figure>
 <h2 id="continuous-by-categorical">Continuous by Categorical</h2>
 <pre class='stata'>. graph bar height, over(location) title("Tree Height by Location")
 </pre>
 <pre class='stata'>. graph export mybargraph3.png, width(1000) replace
-file mybargraph3.png saved as PNG format
+file
+    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybargraph3.pn
+    > g saved as PNG format
 </pre>
-<p><img src="mybargraph3.png" alt="Bar Graph Of Mean Tree Height By Location" />{width=50%}</p>
+<figure>
+<img src="mybargraph3.png" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location" /><figcaption aria-hidden="true">Bar Graph Of Mean Tree Height By Location</figcaption>
+</figure>
 <h1 id="schemes">Schemes</h1>
 <p>Stata <em>graph schemes</em> can substantially improve the look of a graph. Built in graph schemes include <code>s1color</code>, the default scheme <code>s2color</code>, <code>sj</code>, <code>economist</code> and <code>s1rcolor</code>.</p>
 <blockquote>
@@ -189,54 +355,87 @@ file mybargraph3.png saved as PNG format
 <pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(michigan)
 </pre>
 <pre class='stata'>. graph export myscatterM.png, width(1000) replace
-file myscatterM.png saved as PNG format
+file
+    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterM.png
+    saved as PNG format
 </pre>
-<p><img src="myscatterM.png" alt="Scatterplot Of Tree Height By Age With Michigan Graph Scheme" />{width=50%}</p>
+<figure>
+<img src="myscatterM.png" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With Michigan Graph Scheme" /><figcaption aria-hidden="true">Scatterplot Of Tree Height By Age With Michigan Graph Scheme</figcaption>
+</figure>
 <pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(lean2) msymbol(o)
 </pre>
 <pre class='stata'>. graph export myscatterL.png, width(1000) replace
-file myscatterL.png saved as PNG format
+file
+    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterL.png
+    saved as PNG format
 </pre>
-<p><img src="myscatterL.png" alt="Scatterplot Of Tree Height By Age With lean2 Graph Scheme" />{width=50%}</p>
+<figure>
+<img src="myscatterL.png" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With lean2 Graph Scheme" /><figcaption aria-hidden="true">Scatterplot Of Tree Height By Age With lean2 Graph Scheme</figcaption>
+</figure>
 <pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(s1color)
 </pre>
 <pre class='stata'>. graph export myscatterS.png, width(1000) replace
-file myscatterS.png saved as PNG format
+file
+    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterS.png
+    saved as PNG format
 </pre>
-<p><img src="myscatterS.png" alt="Scatterplot Of Tree Height By Age With s1color Graph Scheme" />{width=50%}</p>
-<pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(burd) msymbol(o) graphregion(lcolor(none))
+<figure>
+<img src="myscatterS.png" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With s1color Graph Scheme" /><figcaption aria-hidden="true">Scatterplot Of Tree Height By Age With s1color Graph Scheme</figcaption>
+</figure>
+<pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(burd) msymbol(o) 
+> graphregion(lcolor(none))
 </pre>
 <pre class='stata'>. graph export myscatterB.png, width(1000) replace
-file myscatterB.png saved as PNG format
+file
+    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterB.png
+    saved as PNG format
 </pre>
-<p><img src="myscatterB.png" alt="Scatterplot Of Tree Height By Age With burd Graph Scheme" />{width=50%}</p>
+<figure>
+<img src="myscatterB.png" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With burd Graph Scheme" /><figcaption aria-hidden="true">Scatterplot Of Tree Height By Age With burd Graph Scheme</figcaption>
+</figure>
 <h2 id="continuous-by-categorical-1">Continuous by Categorical</h2>
 <blockquote>
 <p>Note that in the graph below, I have used the <code>asyvars</code> option to give different colors to the different bars.</p>
 </blockquote>
-<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(michigan)
+<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(mic
+> higan)
 </pre>
 <pre class='stata'>. graph export mybarM.png, width(1000) replace
-file mybarM.png saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarM.png
+    saved as PNG format
 </pre>
-<p><img src="mybarM.png" alt="Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme" />{width=50%}</p>
-<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(lean2)
+<figure>
+<img src="mybarM.png" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme" /><figcaption aria-hidden="true">Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme</figcaption>
+</figure>
+<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(lea
+> n2)
 </pre>
 <pre class='stata'>. graph export mybarL.png, width(1000) replace
-file mybarL.png saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarL.png
+    saved as PNG format
 </pre>
-<p><img src="mybarL.png" alt="Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme" />{width=50%}</p>
-<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(s1color)
+<figure>
+<img src="mybarL.png" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme" /><figcaption aria-hidden="true">Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme</figcaption>
+</figure>
+<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(s1c
+> olor)
 </pre>
 <pre class='stata'>. graph export mybarS.png, width(1000) replace
-file mybarS.png saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarS.png
+    saved as PNG format
 </pre>
-<p><img src="mybarS.png" alt="Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme" />{width=50%}</p>
-<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(burd) graphregion(lcolor(none))
+<figure>
+<img src="mybarS.png" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme" /><figcaption aria-hidden="true">Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme</figcaption>
+</figure>
+<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(bur
+> d) graphregion(lcolor(none))
 </pre>
 <pre class='stata'>. graph export mybarB.png, width(1000) replace
-file mybarB.png saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarB.png
+    saved as PNG format
 </pre>
-<p><img src="mybarB.png" alt="Bar Graph Of Mean Tree Height By Location With burd Graph Scheme" />{width=50%}</p>
+<figure>
+<img src="mybarB.png" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With burd Graph Scheme" /><figcaption aria-hidden="true">Bar Graph Of Mean Tree Height By Location With burd Graph Scheme</figcaption>
+</figure>
 </body>
 </html>
