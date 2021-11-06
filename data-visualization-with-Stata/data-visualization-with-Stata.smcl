@@ -1,9 +1,13 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\data-visualization-with-Stata\data-visualization-with-Stata.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata.smcl
   {txt}log type:  {res}smcl
+<<<<<<< HEAD
  {txt}opened on:  {res} 6 Nov 2021, 12:24:55
+=======
+ {txt}opened on:  {res}28 Oct 2021, 13:43:07
+>>>>>>> 3a25ed4bc5e45591fc3a3506005ac3216fee459d
 {txt}
 {com}. //_1
 . display c(current_date)
@@ -26,7 +30,7 @@
 . graph export myhistogram.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-myhistogram.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myhistogram.png{rm}
 saved as
 PNG
 format
@@ -39,7 +43,7 @@ format
 . graph export mybargraph.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-mybargraph.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybargraph.png{rm}
 saved as
 PNG
 format
@@ -52,7 +56,7 @@ format
 . graph export myscatter.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-myscatter.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatter.png{rm}
 saved as
 PNG
 format
@@ -65,7 +69,7 @@ format
 . graph export mybargraph2.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-mybargraph2.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybargraph2.png{rm}
 saved as
 PNG
 format
@@ -78,7 +82,7 @@ format
 . graph export mybargraph3.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-mybargraph3.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybargraph3.png{rm}
 saved as
 PNG
 format
@@ -91,7 +95,7 @@ format
 . graph export myscatterM.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-myscatterM.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterM.png{rm}
 saved as
 PNG
 format
@@ -104,7 +108,7 @@ format
 . graph export myscatterL.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-myscatterL.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterL.png{rm}
 saved as
 PNG
 format
@@ -117,7 +121,7 @@ format
 . graph export myscatterS.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-myscatterS.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterS.png{rm}
 saved as
 PNG
 format
@@ -130,7 +134,7 @@ format
 . graph export myscatterB.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-myscatterB.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterB.png{rm}
 saved as
 PNG
 format
@@ -143,7 +147,7 @@ format
 . graph export mybarM.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-mybarM.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarM.png{rm}
 saved as
 PNG
 format
@@ -156,7 +160,7 @@ format
 . graph export mybarL.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-mybarL.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarL.png{rm}
 saved as
 PNG
 format
@@ -169,7 +173,7 @@ format
 . graph export mybarS.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-mybarS.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarS.png{rm}
 saved as
 PNG
 format
@@ -182,7 +186,7 @@ format
 . graph export mybarB.png, width(1000) replace
 {txt}{p 0 4 2}
 file {bf}
-mybarB.png{rm}
+/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarB.png{rm}
 saved as
 PNG
 format
@@ -191,9 +195,13 @@ format
 {com}. //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\data-visualization-with-Stata\data-visualization-with-Stata.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata.smcl
   {txt}log type:  {res}smcl
+<<<<<<< HEAD
  {txt}closed on:  {res} 6 Nov 2021, 12:25:09
+=======
+ {txt}closed on:  {res}28 Oct 2021, 13:43:32
+>>>>>>> 3a25ed4bc5e45591fc3a3506005ac3216fee459d
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
