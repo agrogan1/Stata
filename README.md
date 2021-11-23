@@ -47,8 +47,7 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 
 ## `putdocx`
 
-[`putdocx` Test](https://github.com/agrogan1/Stata/tree/master/putdocx-test)
-
+[`putdocx` Test](https://github.com/agrogan1/Stata/tree/master/putdocx-test):  A test of Stata's new `putdocx` commands to create nicely formatted tables of regression results in Word.
 
 
 
