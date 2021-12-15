@@ -19,7 +19,16 @@ I say what I am doing */
 * get data
 ******************************
 
-clear all
+* a good workflow habit is to
+* always--or at least frequently--
+* work from your raw data.
+
+* i.e. run your script so you are always--
+* or at least often--opening your raw data, 
+* cleaning the data, creating new variables, 
+* and then running analyses.
+
+clear all // clear the workspace
 
 use "https://github.com/agrogan1/newstuff/raw/master/categorical/glm/penguins.dta", clear
 
@@ -50,6 +59,10 @@ oneway body_mass_g species
 ******************************
 
 regress body_mass_g i.species
+
+est store M1 // store regression estimates
+
+est table M1, star // nicely formatted table of regression estimates
 
 ******************************
 * graph 
