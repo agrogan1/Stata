@@ -4,7 +4,7 @@
 
 clear all
 
-cd "C:\Users\agrogan\Desktop\GitHub\Stata\stata-graphing" // Windows
+* cd "C:\Users\agrogan\Desktop\GitHub\Stata\stata-graphing" // Windows
 
 cd "/Users/agrogan/Desktop/GitHub/Stata/stata-graphing" // Mac
 

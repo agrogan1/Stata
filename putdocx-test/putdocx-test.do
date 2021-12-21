@@ -59,7 +59,7 @@ mixed height age_base i.site || tree_ID: // mixed model
 
 estat sd, variance post // post results as variance scale rather than log scale
 
-est store model1 // store the estimates
+est store model1 // store the estimates (this would work with multiple stored estimates)
 
 estimates table model1, b(%9.3f) star // nicely formatted table of results
 

@@ -2,9 +2,9 @@
 
 clear all
 
-cd "C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme" // Windows
+* cd "C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme" // Windows
 
-cd "/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme" // Mac
+cd "/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme" // Mac and bilingual :-0
 
 doedit index.stmd
 

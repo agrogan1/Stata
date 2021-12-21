@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\stata-graphing\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 5 Sep 2021, 08:09:05
+ {txt}opened on:  {res}21 Dec 2021, 10:23:36
 {txt}
 {com}. //_1
 . display c(current_date)
-{res} 5 Sep 2021
+{res}21 Dec 2021
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}08:09:05
+{res}10:23:36
 {txt}
 {com}. //_3
 . use "iris.dta", clear
@@ -138,7 +138,7 @@ symbol,  default attributes used)
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\stata-graphing\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 5 Sep 2021, 08:09:19
+ {txt}closed on:  {res}21 Dec 2021, 10:23:51
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
