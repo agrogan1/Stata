@@ -14,7 +14,7 @@ body {
   color: #000000;
   font-size: 200%;
   font-weight: bold;
-  background-color: #A5A508; 
+  background-color: forestgreen; 
 }
 blockquote {
   background: #FFFFFF;
@@ -31,7 +31,7 @@ pre {
   color: black;
   background-color: white;
   border: 2px solid grey;
-  border-left: 5px solid #A5A508;
+  border-left: 5px solid forestgreen;
 }
 p.caption { 
   display: block;
@@ -39,5 +39,5 @@ p.caption {
   font-weight: bold;
 }
 table, th, td {
-  border: 1px solid #A5A508;
+  border: 1px solid forestgreen;
 }
