@@ -77,3 +77,15 @@ I am not a particular fan of Stata's default graph schemes, so I am going to mak
 ```
 
 ![scatterplot](myscatter.png){width=30%}
+
+# Linear Fit: `twoway lfit y x`
+
+```s
+    twoway lfit culmen_length_mm body_mass_g, title("Penguin Culmen Length by Body Mass")
+```
+
+```s/
+    quietly: graph export mylinear.png, width(1000) replace
+```
+
+![scatterplot](mylinear.png){width=30%}
