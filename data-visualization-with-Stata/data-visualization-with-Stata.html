@@ -189,10 +189,10 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 <header id="title-block-header">
 <h1 class="title">Data Visualization With Stata</h1>
 <p class="author">Andy Grogan-Kaylor</p>
-<p class="date">6 Nov 2021</p>
+<p class="date">28 Jan 2022</p>
 </header>
 <h1 id="introduction">Introduction</h1>
-<style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;}</style>
+<style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 <ul>
 <li>Stata is a powerful and intuitive data analysis program.</li>
 <li>Learning how to graph in Stata is an important part of learning how to use Stata. Yet, the default graphs in Stata can sometimes be less than optimal.</li>
@@ -269,8 +269,8 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 <blockquote>
 <p>“The data are measures from 107 trees. The trees were selected as being of average size from healthy and well stocked stands in the Alps.”</p>
 </blockquote>
-<pre class='stata'>. use "https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata/gutt
-> en.dta", clear
+<pre class='stata'>. use "https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata/gutten.dta", cle
+> ar
 </pre>
 <h1 id="variables">Variables</h1>
 <p><code>site</code> Growth <em>quality</em> class of the tree’s habitat. 5 levels.</p>
@@ -290,74 +290,69 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 <p><code>age_bh</code> Tree age taken at 1.3 m.</p>
 <p><code>tree.ID</code> A factor uniquely identifying the tree.</p>
 <h1 id="graphs">Graphs</h1>
-<h2 id="one-continuous-thing-at-a-time">One Continuous Thing At A Time</h2>
+<h2 id="one-continuous-thing-at-a-time-histogram-x">One Continuous Thing At A Time (<code>histogram x</code>)</h2>
 <pre class='stata'>. histogram height, title("Tree Height")
 (bin=30, start=1.5, width=1.4)
 </pre>
 <pre class='stata'>. graph export myhistogram.png, width(1000) replace
-file
-    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myhistogram.pn
-    > g saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myhistogram.png saved as
+    PNG format
 </pre>
 <figure>
 <img src="myhistogram.png" style="width:50.0%" alt="Histogram Of Tree Height" /><figcaption aria-hidden="true">Histogram Of Tree Height</figcaption>
 </figure>
-<h2 id="one-categorical-thing-at-a-time">One Categorical Thing At A Time</h2>
+<h2 id="one-categorical-thing-at-a-time-graph-bar-overx">One Categorical Thing At A Time (<code>graph bar, over(x)</code>)</h2>
 <pre class='stata'>. graph bar, over(location) title("Tree Location")
 </pre>
 <pre class='stata'>. graph export mybargraph.png, width(1000) replace
-file
-    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybargraph.png
-    saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybargraph.png saved as
+    PNG format
 </pre>
 <figure>
 <img src="mybargraph.png" style="width:50.0%" alt="Bar Graph Of Tree Location" /><figcaption aria-hidden="true">Bar Graph Of Tree Location</figcaption>
 </figure>
-<h2 id="continuous-by-continuous">Continuous by Continuous</h2>
+<h2 id="continuous-by-continuous-twoway-scatter-y-x">Continuous by Continuous (<code>twoway scatter y x</code>)</h2>
 <pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age")
 </pre>
 <pre class='stata'>. graph export myscatter.png, width(1000) replace
-file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatter.png
-    saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatter.png saved as
+    PNG format
 </pre>
 <figure>
 <img src="myscatter.png" style="width:50.0%" alt="Scatterplot Of Tree Height By Age" /><figcaption aria-hidden="true">Scatterplot Of Tree Height By Age</figcaption>
 </figure>
-<h2 id="categorical-by-categorical">Categorical by Categorical</h2>
+<h2 id="categorical-by-categorical-graph-bar-overx-overy">Categorical by Categorical (<code>graph bar, over(x) over(y)</code>)</h2>
 <pre class='stata'>. graph bar, over(site) over(location) title("Tree Site Growth Quality by Location")
 </pre>
 <pre class='stata'>. graph export mybargraph2.png, width(1000) replace
-file
-    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybargraph2.pn
-    > g saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybargraph2.png saved as
+    PNG format
 </pre>
 <figure>
 <img src="mybargraph2.png" style="width:50.0%" alt="Bar Graph Of Tree Site By Location" /><figcaption aria-hidden="true">Bar Graph Of Tree Site By Location</figcaption>
 </figure>
-<h2 id="continuous-by-categorical">Continuous by Categorical</h2>
+<h2 id="continuous-by-categorical-graph-bar-y-overx">Continuous by Categorical (<code>graph bar y, over(x)</code>)</h2>
 <pre class='stata'>. graph bar height, over(location) title("Tree Height by Location")
 </pre>
 <pre class='stata'>. graph export mybargraph3.png, width(1000) replace
-file
-    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybargraph3.pn
-    > g saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybargraph3.png saved as
+    PNG format
 </pre>
 <figure>
 <img src="mybargraph3.png" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location" /><figcaption aria-hidden="true">Bar Graph Of Mean Tree Height By Location</figcaption>
 </figure>
-<h1 id="schemes">Schemes</h1>
+<h1 id="schemes-scheme...">Schemes (<code>,scheme(...)</code>)</h1>
 <p>Stata <em>graph schemes</em> can substantially improve the look of a graph. Built in graph schemes include <code>s1color</code>, the default scheme <code>s2color</code>, <code>sj</code>, <code>economist</code> and <code>s1rcolor</code>.</p>
 <blockquote>
 <p>(Notably, as a <em>quick fix</em>, the default Stata graph scheme of <code>s2color</code> can be substantially improved by adding the option <code>,graphregion(fcolor(white))</code> which changes the background fill color of this scheme to <em>white</em>.)</p>
 </blockquote>
 <p><code>lean2</code> (type <code>findit lean2</code> in the Stata Command Window) is a user written scheme that is very helpful when preparing graphics for publication. I have written a <a href="https://agrogan1.github.io/Stata/">Stata Michigan graph scheme</a> that can be installed. <code>cleanplots</code> and <code>modern</code> are excellent graph schemes that can be installed directly into Stata from GitHub. <code>burd</code> is another user written graph scheme that <em>somewhat</em> replicates the look of <code>ggplot</code>.</p>
-<h2 id="continuous-by-continuous-1">Continuous by Continuous</h2>
+<h2 id="continuous-by-continuous-twoway-scatter-y-x-scheme...">Continuous by Continuous (<code>twoway scatter y x, scheme(...)</code>)</h2>
 <pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(michigan)
 </pre>
 <pre class='stata'>. graph export myscatterM.png, width(1000) replace
-file
-    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterM.png
-    saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterM.png saved as
+    PNG format
 </pre>
 <figure>
 <img src="myscatterM.png" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With Michigan Graph Scheme" /><figcaption aria-hidden="true">Scatterplot Of Tree Height By Age With Michigan Graph Scheme</figcaption>
@@ -365,9 +360,8 @@ file
 <pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(lean2) msymbol(o)
 </pre>
 <pre class='stata'>. graph export myscatterL.png, width(1000) replace
-file
-    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterL.png
-    saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterL.png saved as
+    PNG format
 </pre>
 <figure>
 <img src="myscatterL.png" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With lean2 Graph Scheme" /><figcaption aria-hidden="true">Scatterplot Of Tree Height By Age With lean2 Graph Scheme</figcaption>
@@ -375,64 +369,59 @@ file
 <pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(s1color)
 </pre>
 <pre class='stata'>. graph export myscatterS.png, width(1000) replace
-file
-    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterS.png
-    saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterS.png saved as
+    PNG format
 </pre>
 <figure>
 <img src="myscatterS.png" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With s1color Graph Scheme" /><figcaption aria-hidden="true">Scatterplot Of Tree Height By Age With s1color Graph Scheme</figcaption>
 </figure>
-<pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(burd) msymbol(o) 
-> graphregion(lcolor(none))
+<pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(burd) msymbol(o) graphregion(
+> lcolor(none))
 </pre>
 <pre class='stata'>. graph export myscatterB.png, width(1000) replace
-file
-    /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterB.png
-    saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterB.png saved as
+    PNG format
 </pre>
 <figure>
 <img src="myscatterB.png" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With burd Graph Scheme" /><figcaption aria-hidden="true">Scatterplot Of Tree Height By Age With burd Graph Scheme</figcaption>
 </figure>
-<h2 id="continuous-by-categorical-1">Continuous by Categorical</h2>
+<h2 id="continuous-by-categorical-graph-bar-y-overx-scheme...">Continuous by Categorical (<code>graph bar y, over(x) scheme(...)</code>)</h2>
 <blockquote>
 <p>Note that in the graph below, I have used the <code>asyvars</code> option to give different colors to the different bars.</p>
 </blockquote>
-<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(mic
-> higan)
+<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(michigan)
 </pre>
 <pre class='stata'>. graph export mybarM.png, width(1000) replace
-file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarM.png
-    saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarM.png saved as PNG
+    format
 </pre>
 <figure>
 <img src="mybarM.png" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme" /><figcaption aria-hidden="true">Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme</figcaption>
 </figure>
-<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(lea
-> n2)
+<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(lean2)
 </pre>
 <pre class='stata'>. graph export mybarL.png, width(1000) replace
-file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarL.png
-    saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarL.png saved as PNG
+    format
 </pre>
 <figure>
 <img src="mybarL.png" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme" /><figcaption aria-hidden="true">Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme</figcaption>
 </figure>
-<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(s1c
-> olor)
+<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(s1color)
 </pre>
 <pre class='stata'>. graph export mybarS.png, width(1000) replace
-file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarS.png
-    saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarS.png saved as PNG
+    format
 </pre>
 <figure>
 <img src="mybarS.png" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme" /><figcaption aria-hidden="true">Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme</figcaption>
 </figure>
-<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(bur
-> d) graphregion(lcolor(none))
+<pre class='stata'>. graph bar height, over(location) asyvars title("Tree Height by Location") scheme(burd) graphregi
+> on(lcolor(none))
 </pre>
 <pre class='stata'>. graph export mybarB.png, width(1000) replace
-file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarB.png
-    saved as PNG format
+file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/mybarB.png saved as PNG
+    format
 </pre>
 <figure>
 <img src="mybarB.png" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With burd Graph Scheme" /><figcaption aria-hidden="true">Bar Graph Of Mean Tree Height By Location With burd Graph Scheme</figcaption>

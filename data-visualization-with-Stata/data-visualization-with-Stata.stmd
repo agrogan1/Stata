@@ -8,7 +8,7 @@ geometry: margin=1 in
 
 # Introduction 
 
-<style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;}</style>
+<style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 
 * Stata is a powerful and intuitive data analysis program. 
 * Learning how to graph in Stata is an important part of learning how to use Stata. Yet, the default graphs in Stata can sometimes be less than optimal. 
@@ -90,7 +90,7 @@ The documentation goes on to further note that:
 
 # Graphs
 
-## One Continuous Thing At A Time
+## One Continuous Thing At A Time (`histogram x`)
 
     histogram height, title("Tree Height")
 	
@@ -98,7 +98,7 @@ The documentation goes on to further note that:
 
 ![Histogram Of Tree Height](myhistogram.png){width=50%}
 
-## One Categorical Thing At A Time
+## One Categorical Thing At A Time (`graph bar, over(x)`)
 
     graph bar, over(location) title("Tree Location")
 	
@@ -106,7 +106,7 @@ The documentation goes on to further note that:
 
 ![Bar Graph Of Tree Location](mybargraph.png){width=50%}
 
-## Continuous by Continuous
+## Continuous by Continuous (`twoway scatter y x`)
 
     twoway scatter height age_base, title("Tree Height by Age")
 	
@@ -114,7 +114,7 @@ The documentation goes on to further note that:
 
 ![Scatterplot Of Tree Height By Age](myscatter.png){width=50%}
 
-## Categorical by Categorical
+## Categorical by Categorical (`graph bar, over(x) over(y)`)
 
     graph bar, over(site) over(location) title("Tree Site Growth Quality by Location")
 	
@@ -122,7 +122,7 @@ The documentation goes on to further note that:
 
 ![Bar Graph Of Tree Site By Location](mybargraph2.png){width=50%}
 
-## Continuous by Categorical
+## Continuous by Categorical (`graph bar y, over(x)`)
 
     graph bar height, over(location) title("Tree Height by Location")
 	
@@ -130,7 +130,7 @@ The documentation goes on to further note that:
 
 ![Bar Graph Of Mean Tree Height By Location](mybargraph3.png){width=50%}
 
-# Schemes
+# Schemes (`,scheme(...)`)
 
 Stata *graph schemes* can substantially improve the look of a graph. Built in graph schemes include `s1color`, the default scheme `s2color`, `sj`, `economist` and `s1rcolor`. 
 
@@ -138,7 +138,7 @@ Stata *graph schemes* can substantially improve the look of a graph. Built in gr
 
 `lean2` (type `findit lean2` in the Stata Command Window) is a user written scheme that is very helpful when preparing graphics for publication. I have written a [Stata Michigan graph scheme](https://agrogan1.github.io/Stata/) that can be installed. `cleanplots` and `modern` are excellent graph schemes that can be installed directly into Stata from GitHub. `burd` is another user written graph scheme that *somewhat* replicates the look of `ggplot`. 
 
-## Continuous by Continuous
+## Continuous by Continuous (`twoway scatter y x, scheme(...)`)
 
     twoway scatter height age_base, title("Tree Height by Age") scheme(michigan)
 	
@@ -164,7 +164,7 @@ Stata *graph schemes* can substantially improve the look of a graph. Built in gr
 
 ![Scatterplot Of Tree Height By Age With burd Graph Scheme](myscatterB.png){width=50%}
 
-## Continuous by Categorical 
+## Continuous by Categorical (`graph bar y, over(x) scheme(...)`)
 
 > Note that in the graph below, I have used the `asyvars` option to give different colors to the different bars.
 
