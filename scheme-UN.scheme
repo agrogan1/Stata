@@ -1,0 +1,72 @@
+* Scheme to create Stata graphs
+* with Official UN colors
+
+* Designed by Andy Grogan-Kaylor (agrogan@umich.edu)
+* Questions & comments welcome
+
+* This scheme uses as its foundation, the wonderful lean2 scheme 
+* developed by Svend Juul, University of Aarhus, Denmark
+
+* There are only a limited number of colors in the official UN palette:
+* UN Blue, black, white. I have taken the liberty of substituing grey
+* for white since white does not work well on graphs
+
+#include lean2
+
+* histogram
+
+color histogram "0 158 219"
+
+* bar chart
+
+color p1bar "0 158 219"
+color p2bar black
+color p3bar grey
+
+* pie chart
+
+color p1pie "0 158 219"
+color p2pie black
+color p3pie grey
+
+* scatterplot
+
+symbol p1 circle
+color p1markfill "0 158 219"
+color p1markline "0 158 219"
+
+symbol p2 circle
+color p2markfill black
+color p2markline black
+
+symbol p3 circle
+color p3markfill grey
+color p3markline grey
+
+* line chart
+
+color p1lineplot "0 158 219"
+linewidth p1lineplot thick
+
+color p2lineplot black
+linewidth p2lineplot thick
+
+color p3lineplot grey
+linewidth p3lineplot thick
+
+* area chart
+
+color p1area "0 158 219"
+color p2area black
+color p3area grey
+
+* plot elements
+
+color p "0 158 219"
+color p1 black
+color p2 grey
+
+
+
+
+
