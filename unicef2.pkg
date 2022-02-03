@@ -1,7 +1,7 @@
 v 3
 d scheme-unicef2.scheme  Graph scheme in official UNICEF colors
 d Order of colors slightly switched to improve presentation
-d Andrew Grogan-Kaylor, agrogan@umich.edu, www.umich.edu/~agrogan
+d Andrew Grogan-Kaylor, agrogan@umich.edu, https://agrogan1.github.io/
 
 d
 d This graph scheme depends on Svend Juul's "lean2" graphic scheme.

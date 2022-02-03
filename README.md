@@ -13,6 +13,7 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 * `cohensdi`: A program to calculate Cohen's d (for use in meta-analysis)
 * `michigan`: A graph scheme with University of Michigan colors
 * `unicef`: A graph scheme with official UNICEF colors
+* `unicef2`: A graph scheme with slightly re-ordered official UNICEF colors to improve presentation
 
 ## Installing and Using the Michigan Graph Scheme
 
