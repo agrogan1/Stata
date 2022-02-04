@@ -1,6 +1,6 @@
 % Data Visualization With Stata (The Basics)
 % Andy Grogan-Kaylor
-% `s c(current_date)`
+% {{.1}}
 
 ---
 geometry: margin=.5in
@@ -16,27 +16,25 @@ This is a quick guide to these ideas using the [Palmer Penguins Data](https://gi
 
 ![Palmer Penguins Illustration from @allison_horst](lter_penguins.png){width=20%}  ![Culmen Depth from @allison_horst](culmen_depth.png){width=20%}
 
-```s
-    clear all
 
-    use "https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata-the-basics/penguins.dta", clear
-```
+{{2}}
+
 
 I am not a particular fan of Stata's default graph schemes, so I am going to make use of the graph scheme entitled `s1color`.
 
-```s	
-    set scheme s1color // use s1color scheme
-```    
-	
+
+{{3}}
+
+    
 # Histogram: `histogram x`
 
-```s
-    histogram body_mass_g, title("Body Mass of Penguins") xtitle("Body Mass")
-```
 
-```s/
-    quietly: graph export myhistogram.png, width(1000) replace
-```
+{{4}}
+
+
+
+{{5}}
+
 
 ![histogram](myhistogram.png){width=25%}
 
@@ -45,47 +43,47 @@ I am not a particular fan of Stata's default graph schemes, so I am going to mak
 
 ## Counting Up Numbers In Each Group: `graph bar, over(x)`
 
-```s
-    graph bar, over(species) title("Penguin Species")
-```
 
-```s/
-    quietly: graph export mybar1.png, width(1000) replace
-```
+{{6}}
+
+
+
+{{7}}
+
 ![bar graph](mybar1.png){width=30%}
 
 ## Average Of A Continuous Variable Across Groups: `graph bar y, over(x)`
 
-```s
-    graph bar body_mass_g, over(species) title("Body Mass of Penguin Species")
-```
 
-```s/
-    quietly: graph export mybar2.png, width(1000) replace
-```
+{{8}}
+
+
+
+{{9}}
+
 
 ![bar graph](mybar2.png){width=30%}
 
 # Scatterplot: `twoway scatter y x`
 
-```s
-    twoway scatter culmen_length_mm body_mass_g, title("Penguin Culmen Length by Body Mass") xtitle("Body Mass") ytitle("Culmen Length")
-```
 
-```s/
-    quietly: graph export myscatter.png, width(1000) replace
-```
+{{10}}
+
+
+
+{{11}}
+
 
 ![scatterplot](myscatter.png){width=30%}
 
 # Linear Fit: `twoway lfit y x`
 
-```s
-    twoway lfit culmen_length_mm body_mass_g, title("Penguin Culmen Length by Body Mass") xtitle("Body Mass") ytitle("Culmen Length")
-```
 
-```s/
-    quietly: graph export mylinear.png, width(1000) replace
-```
+{{12}}
+
+
+
+{{13}}
+
 
 ![scatterplot](mylinear.png){width=30%}

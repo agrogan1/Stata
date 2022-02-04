@@ -12,7 +12,7 @@ markstat using data-visualization-with-Stata-the-basics.stmd, mathjax // HTML
 
 graph close _all
 
-markstat using data-visualization-with-Stata-the-basics.stmd, docx // MS Wor
+markstat using data-visualization-with-Stata-the-basics.stmd, docx // MS Word
 
 graph close _all
 
