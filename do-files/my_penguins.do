@@ -58,11 +58,15 @@ oneway body_mass_g species
 * regression
 ******************************
 
-regress body_mass_g i.species
+regress culmen_length_mm body_mass_g 
 
 est store M1 // store regression estimates
 
-est table M1, star // nicely formatted table of regression estimates
+regress culmen_length_mm body_mass_g i.species
+
+est store M2 // store regression estimates
+
+est table M1 M2, b(%7.4f) star // nicely formatted table of regression estimates
 
 ******************************
 * graph 
