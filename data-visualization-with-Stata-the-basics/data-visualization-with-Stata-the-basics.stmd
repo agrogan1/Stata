@@ -12,6 +12,8 @@ geometry: margin=.5in
 
 99% of data visualization work seems to consist of creating bar graphs (`graph bar y, over(x)`) and scatterplots (`twoway scatter y x`). (For the sake of completeness, I am also going to mention histograms (`histogram x`).)  
 
+> Note: In some commands, I use `///` so that Stata commands can be on multiple lines.
+
 This is a quick guide to these ideas using the [Palmer Penguins Data](https://github.com/allisonhorst/palmerpenguins/blob/master/README.md).
 
 ![Palmer Penguins Illustration from @allison_horst](lter_penguins.png){width=20%}  ![Culmen Depth from @allison_horst](culmen_depth.png){width=20%}
@@ -69,7 +71,10 @@ I am not a particular fan of Stata's default graph schemes, so I am going to mak
 # Scatterplot: `twoway scatter y x`
 
 ```s
-    twoway scatter culmen_length_mm body_mass_g, title("Penguin Culmen Length by Body Mass") xtitle("Body Mass") ytitle("Culmen Length")
+    twoway scatter culmen_length_mm body_mass_g, ///
+	title("Penguin Culmen Length by Body Mass") /// 
+	xtitle("Body Mass") ///
+	ytitle("Culmen Length")
 ```
 
 ```s/
@@ -81,7 +86,10 @@ I am not a particular fan of Stata's default graph schemes, so I am going to mak
 # Linear Fit: `twoway lfit y x`
 
 ```s
-    twoway lfit culmen_length_mm body_mass_g, title("Penguin Culmen Length by Body Mass") xtitle("Body Mass") ytitle("Culmen Length")
+    twoway lfit culmen_length_mm body_mass_g, ///
+	title("Penguin Culmen Length by Body Mass") /// 
+	xtitle("Body Mass") ///
+	ytitle("Culmen Length")
 ```
 
 ```s/

@@ -1,9 +1,9 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\data-visualization-with-Stata-the-basics\data-visualization-with-Stata-the-basics.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 4 Feb 2022, 10:20:29
+ {txt}opened on:  {res} 4 Feb 2022, 16:33:19
 {txt}
 {com}. //_1
 . display c(current_date)
@@ -38,13 +38,19 @@
 . quietly: graph export mybar2.png, width(1000) replace
 {txt}
 {com}. //_10
-. twoway scatter culmen_length_mm body_mass_g, title("Penguin Culmen Length by Body Mass") xtitle("Body Mass") ytitle("Culmen Length")
+. twoway scatter culmen_length_mm body_mass_g, ///
+> title("Penguin Culmen Length by Body Mass") /// 
+> xtitle("Body Mass") ///
+> ytitle("Culmen Length")
 {res}{txt}
 {com}. //_11q
 . quietly: graph export myscatter.png, width(1000) replace
 {txt}
 {com}. //_12
-. twoway lfit culmen_length_mm body_mass_g, title("Penguin Culmen Length by Body Mass") xtitle("Body Mass") ytitle("Culmen Length")
+. twoway lfit culmen_length_mm body_mass_g, ///
+> title("Penguin Culmen Length by Body Mass") /// 
+> xtitle("Body Mass") ///
+> ytitle("Culmen Length")
 {res}{txt}
 {com}. //_13q
 . quietly: graph export mylinear.png, width(1000) replace
@@ -52,9 +58,9 @@
 {com}. //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\data-visualization-with-Stata-the-basics\data-visualization-with-Stata-the-basics.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 4 Feb 2022, 10:20:35
+ {txt}closed on:  {res} 4 Feb 2022, 16:33:31
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
