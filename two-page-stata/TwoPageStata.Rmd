@@ -3,20 +3,19 @@ title: "Two Page Stata"
 author: "Andrew Grogan-Kaylor"
 date: '`r format(Sys.Date(), format="%B %d, %Y")`'
 output:
-  tint::tintPdf:
-    toc: no
-    number_sections: yes
   tufte::tufte_html:
     number_sections: yes
     toc: yes
     css: mycss.css
+  tint::tintPdf:
+    toc: no
+    number_sections: yes
   tufte::tufte_handout:
     toc: no
     number_sections: yes
     latex_engine: xelatex
 fontsize: 11pt
 geometry: margin=.30in
-mainfont: Futura
 description: An introduction to Stata
 cover-image: Two-Page-Stata-cover.png
 ---
@@ -48,9 +47,7 @@ options(htmltools.dir.version = FALSE)
 
 ```
 
-An introduction to Stata[^twitter] in 2 pages.[^questions] Commands[^commands] that you actually type[^interface] into Stata[^do-file-editor] are represented  in `monospace font`. x and y refer to variables in your data.  The treatment here is intended to be extremely brief, in order to create a kind of "cheat sheet" that can be presented in 2 pages.  More documentation on any command is available in the printed or PDF Stata manuals, or by typing `help command`.
-
-[^twitter]: [Share on Twitter](https://twitter.com/intent/tweet?url=http%3A%2F%2Fwww-personal.umich.edu%2F%7Eagrogan%2Fstata%2FTwoPageStata.pdf&text=Two%20Page%20%23Stata) 
+An introduction to Stata in 2 pages.[^questions] Commands[^commands] that you actually type[^interface] into Stata[^do-file-editor] are represented  in `monospace font`. x and y refer to variables in your data.  The treatment here is intended to be extremely brief, in order to create a kind of "cheat sheet" that can be presented in 2 pages.  More documentation on any command is available in the printed or PDF Stata manuals, or by typing `help command`.
 
 [^commands]: The general idea of most Stata commands is `command variable(s), options`.  Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults. 
 
@@ -74,7 +71,9 @@ With very large data sets, it may be helpful to use `keep x y z` to only keep th
 
 `recode x (oldvalue = newvalue), generate(z)` will recode a variable into a new variable, often a good idea.
 
-`recode _all (-99/-1 = .)` will recode all negative numbers from -99 to -1 to missing for all variables in your data.  `recode x (7/9 = .)` changes 7 through 9 to be missing for x.  Indeed, `recode` will change specific values in your data to anything you want, not just missing values. 
+`recode _all (-99/-1 = .)` will recode all negative numbers from -99 to -1 to missing for all variables in your data.  `recode x (7/9 = .)` changes 7 through 9 to be missing for x.  Indeed, `recode` will change specific values in your data to anything you want, not just missing values.[^encode] 
+
+[^encode]: `encode x, generate(x_NUMERIC)` is often useful to create a *numeric* version of *string* variables.
 
 It is often convenient to `rename` your variables so that the variables have more intuitively understandable names e.g. `rename x depression`.
 
@@ -113,11 +112,9 @@ Tabulating two categorical variables together gives you a cross-tabulation of th
 
 # Graphing[^graph-options]
 
-`histogram x` will give you a nice display of one variable.  `histogram x, by(y)` may be useful for comparing the distributions of two variables over the categories of y.
+`histogram x` will give you a nice display of one variable.[^histogram-options] 
 
-`histogram x, percent` will scale the y-axis more intuitively in terms of percentages.  `histogram x, discrete`[^histogram-options] gives a nicer display for categorical variables.  
-
-[^histogram-options]: The percent and discrete options can be combined.
+[^histogram-options]: `histogram x, percent` will scale the y-axis more intuitively in terms of percentages.  `histogram x, discrete` gives a nicer display for categorical variables. The `percent` and `discrete` options can be combined.  `histogram x, by(y)` may be useful for comparing the distributions of two variables over the categories of y.
 
 `twoway scatter y x` gives you a scatterplot of your data.  `twoway lfit y x` will give you a linear fit graph.  The two syntaxes may be combined e.g. `twoway (scatter y x) (lfit y x)`.
 
