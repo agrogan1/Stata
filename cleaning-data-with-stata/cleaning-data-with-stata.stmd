@@ -69,7 +69,7 @@ content.style.display = "block";
 
 # Clean The Data!
 
-## Look at Variables (`describe`, `summarize`, `tabulate`)
+## Look at Variables (`describe`, `summarize`, `tabulate`, `codebook`)
 
 When we look at variables we are looking for values that don't make sense, or that are outside the plausible range.
 
@@ -78,6 +78,8 @@ When we look at variables we are looking for values that don't make sense, or th
     summarize // descriptive statistics
 	
 	tabulate happy // tabulation of this particular categorical variable
+	
+	codebook happy // VERY detailed view of this particular categorical variable
 
 Notice that... 
 
