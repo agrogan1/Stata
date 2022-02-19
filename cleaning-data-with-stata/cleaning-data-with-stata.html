@@ -51,7 +51,7 @@ table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid bl
 <div id="header">
 <h1 class="title">Cleaning Data With Stata</h1>
 <h2 class="author">Andy Grogan-Kaylor</h2>
-<h3 class="date">18 Feb 2022 11:28:15</h3>
+<h3 class="date">19 Feb 2022 11:36:27</h3>
 </div>
 <style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 <h1 id="background">Background</h1>
@@ -116,22 +116,24 @@ content.style.display = "block";
      ┌───────────────────────────────────┐
      │ id        age   happy   somethi~e │
      ├───────────────────────────────────┤
-  1. │  1        200       5   -.0458702 │
-  2. │  2   52.93858       5    .2232178 │
-  3. │  3   29.03173       3     .511095 │
-  4. │  4   49.47338       4    1.892978 │
-  5. │  5   48.40886       1    1.330781 │
+  1. │  1        200       5   -.2740025 │
+  2. │  2   41.74908       1    .3407284 │
+  3. │  3   48.99197       1    1.097281 │
+  4. │  4   41.29318       2      .99441 │
+  5. │  5   38.30437       1   -.9095201 │
      ├───────────────────────────────────┤
-  6. │  6   62.74471       5    .5322794 │
-  7. │  7   63.74705       4    .4609152 │
-  8. │  8   56.72011       5    1.700138 │
-  9. │  9   51.59889       5   -.1463113 │
- 10. │ 10   52.85644     999     .041096 │
+  6. │  6   65.80429       3   -.6050416 │
+  7. │  7   44.24375       2    .0133314 │
+  8. │  8   52.14927       5    .4847669 │
+  9. │  9    54.0201       5   -.9933645 │
+ 10. │ 10     67.752     999    .5900007 │
      └───────────────────────────────────┘
 </pre>
 <h1 id="clean-the-data">Clean The Data!</h1>
-<h2 id="look-at-variables-describe-summarize-tabulate-codebook">Look at Variables (<code>describe</code>, <code>summarize</code>, <code>tabulate</code>, <code>codebook</code>)</h2>
-<p>When we look at variables we are looking for values that don't make sense, or that are outside the plausible range.</p>
+<h2 id="look-at-the-data-and-think-about-the-data-describe-summarize-tabulate-codebook">Look at The Data and Think About The Data (<code>describe</code>, <code>summarize</code>, <code>tabulate</code>, <code>codebook</code>)</h2>
+<blockquote>
+<p>When we look at variables we are looking for values that don't make sense, or that are outside the plausible range. As we are working with the data, it may sometimes be helpful to <code>browse</code> the data.</p>
+</blockquote>
 <pre class='stata'>. describe // describe the data
 
 Contains data
@@ -154,19 +156,19 @@ Sorted by:
     Variable │        Obs        Mean    Std. dev.       Min        Max
 ─────────────┼─────────────────────────────────────────────────────────
           id │        100        50.5    29.01149          1        100
-         age │        100    51.75058    18.20934   27.31479        200
-       happy │        100       13.22    99.58445          1        999
-somethinge~e │        100   -.0180183    .9371057  -2.768309   1.925369
+         age │        100    51.58624    18.05763    24.2431        200
+       happy │        100       12.94    99.61267          1        999
+somethinge~e │        100   -.0249813    1.009199  -2.277072   2.547337
 </pre>
 <pre class='stata'>. tabulate happy // tabulation of this particular categorical variable
 
       happy │      Freq.     Percent        Cum.
 ────────────┼───────────────────────────────────
-          1 │         18       18.00       18.00
-          2 │         14       14.00       32.00
-          3 │         19       19.00       51.00
-          4 │         20       20.00       71.00
-          5 │         28       28.00       99.00
+          1 │         20       20.00       20.00
+          2 │         24       24.00       44.00
+          3 │         15       15.00       59.00
+          4 │         18       18.00       77.00
+          5 │         22       22.00       99.00
         999 │          1        1.00      100.00
 ────────────┼───────────────────────────────────
       Total │        100      100.00
@@ -183,11 +185,11 @@ happy                                                                           
          Unique values: 6                         Missing .: 0/100
 
             Tabulation: Freq.  Value
-                           18  1
-                           14  2
-                           19  3
-                           20  4
-                           28  5
+                           20  1
+                           24  2
+                           15  3
+                           18  4
+                           22  5
                             1  999
 </pre>
 <p>Notice that...</p>
@@ -250,8 +252,8 @@ Sorted by:
     Variable │        Obs        Mean    Std. dev.       Min        Max
 ─────────────┼─────────────────────────────────────────────────────────
           id │        100        50.5    29.01149          1        100
-         age │        100    50.75058    11.49288   27.31479        100
-       happy │         99    3.262626    1.467928          1          5
+         age │        100    50.58624     11.2362    24.2431        100
+       happy │         99    2.979798    1.463709          1          5
 </pre>
 </body>
 </html>

@@ -69,9 +69,9 @@ content.style.display = "block";
 
 # Clean The Data!
 
-## Look at Variables (`describe`, `summarize`, `tabulate`, `codebook`)
+## Look at The Data and Think About The Data (`describe`, `summarize`, `tabulate`, `codebook`, `browse`)
 
-When we look at variables we are looking for values that don't make sense, or that are outside the plausible range.
+> When we look at variables we are looking for values that don't make sense, or that are outside the plausible range. As we are working with the data, it may sometimes be helpful to `browse` the data.
 
     describe // describe the data
 
