@@ -24,7 +24,7 @@ This is a quick guide to these ideas using the [Palmer Penguins Data](https://gi
     use "https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata-the-basics/penguins.dta", clear
 ```
 
-I am not a particular fan of Stata's default graph schemes, so I am going to make use of the graph scheme entitled `s1color`.
+I am not a particular fan of Stata's default `s2color` graph scheme, so I am going to make use of the graph scheme entitled `s1color`.
 
 ```s	
     set scheme s1color // use s1color scheme
