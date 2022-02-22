@@ -1,17 +1,17 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\stata-graphing\index.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/stata-graphing/index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}21 Dec 2021, 10:23:36
+ {txt}opened on:  {res}22 Feb 2022, 18:15:59
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}21 Dec 2021
+{res}22 Feb 2022
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}10:23:36
+{res}18:15:59
 {txt}
 {com}. //_3
 . use "iris.dta", clear
@@ -136,9 +136,9 @@ symbol,  default attributes used)
 {com}. //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\stata-graphing\index.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/stata-graphing/index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}21 Dec 2021, 10:23:51
+ {txt}closed on:  {res}22 Feb 2022, 18:16:16
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
