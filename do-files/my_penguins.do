@@ -3,10 +3,17 @@
 * Demonstration Do File
 ******************************
 
+* A great deal of research consists of the following steps:
+* have a question -> get data -> process and clean data ->
+* visualize data -> analyze data -> make conclusions
+
 /* do files are useful to preserve
 a record of your work. They help
 to keep an audit trail of the 
 decisions that you have made. */
+
+/* do files thus serve as a way of documenting your workflow 
+and minimizing errors */
 
 /* this is a longer note where 
 I say what I am doing */
@@ -33,10 +40,19 @@ clear all // clear the workspace
 use "https://github.com/agrogan1/newstuff/raw/master/categorical/glm/penguins.dta", clear
 
 ******************************
-* recode variables
+* data wrangling
 ******************************
 
-generate big_penguin = body_mass_g > 4201.754 
+* find variables of interest
+
+lookfor mass // look for a variable w a particular keyword
+
+* sometimes it is useful to `keep` only the variables in which you have an interest
+* to reduce the size of the data set
+
+* recode variables
+
+generate big_penguin = body_mass_g > 4201.754 // create a big penguin variable
 
 tabulate big_penguin
 
@@ -72,6 +88,6 @@ est table M1 M2, b(%7.4f) star // nicely formatted table of regression estimates
 * graph 
 ******************************
 
-graph bar body_mass_g, over(species)
+graph bar body_mass_g, over(species) scheme(s1color)
 
 
