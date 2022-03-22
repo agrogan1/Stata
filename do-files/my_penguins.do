@@ -12,8 +12,9 @@ a record of your work. They help
 to keep an audit trail of the 
 decisions that you have made. */
 
-/* do files thus serve as a way of documenting your workflow 
-and minimizing errors */
+/* do files thus serve as a way of creating an 
+automated, replicable and documented workflow 
+as well as finding and minimizing errors */
 
 /* this is a longer note where 
 I say what I am doing */
