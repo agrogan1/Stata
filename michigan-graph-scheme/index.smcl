@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}21 Dec 2021, 10:24:47
+ {txt}opened on:  {res}29 Mar 2022, 12:59:13
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}21 Dec 2021
+{res}29 Mar 2022
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}10:24:47
+{res}12:59:13
 {txt}
 {com}. //_3q
 . 
@@ -29,7 +29,8 @@
 > ytitle(" ") ylabel(none) ///
 > yscale(lcolor(none)) ///
 > title(Michigan Graph Scheme Colors) ///
-> scheme(michigan)
+> scheme(michigan) ///
+> ysize(1.5) scale(2)
 {res}{txt}
 {com}.     
 . quietly graph export MichiganColorsStata.png, width(750) replace
@@ -105,7 +106,7 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}21 Dec 2021, 10:24:59
+ {txt}closed on:  {res}29 Mar 2022, 12:59:25
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

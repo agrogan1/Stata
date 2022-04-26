@@ -24,7 +24,8 @@ geometry: margin=1 in
 	ytitle(" ") ylabel(none) ///
 	yscale(lcolor(none)) ///
 	title(Michigan Graph Scheme Colors) ///
-	scheme(michigan)
+	scheme(michigan) ///
+	ysize(1.5) scale(2)
 	
     quietly graph export MichiganColorsStata.png, width(750) replace
 
