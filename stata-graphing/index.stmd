@@ -12,11 +12,8 @@ geometry: margin=1 in
 
 * Stata is a powerful and intuitive data analysis program. 
 * Learning how to graph in Stata is an important part of learning how to use Stata. 
-Yet, the default graphs in Stata can sometimes be less than optimal. 
-* This document is an introduction to (a) basic graphing ideas in Stata;
-and (b) some simple ways to make your Stata graphs look more professional.
-* If this document is presented as slides, navigation links are in the corner of this slide deck.
-* If this document is presented as slides, you can generate a printable version of these slides, by clicking on the "Ø".
+* Yet, the default graphs in Stata can sometimes be less than optimal. 
+* This document is an introduction to (a) basic graphing ideas in Stata; and (b) some simple ways to make your Stata graphs look more professional.
 
 # What are Variables?
 
@@ -55,11 +52,11 @@ We are going to use the famous "iris" data collected by Edgar Anderson in the ea
 
 > Iris species images courtesy [Wikipedia](https://www.wikipedia.org/).
 
-![Iris Species](iris-species.png)
+![Iris Species](iris-species.png){width=50%}
 
 # Petals and Sepals
 
-![Petals and Sepals](petal-sepal.png)
+![Petals and Sepals](petal-sepal.png){width=50%}
 
 # Basic Graphs
 
@@ -220,8 +217,7 @@ Use the `findit` command e.g. `findit lean2` to find these schemes.
 
 # Michigan graph scheme	
 
-I have written a `michigan` graph scheme 
-described [here](https://agrogan1.github.io/Stata/).
+I have written a `michigan` graph scheme described [here](https://agrogan1.github.io/Stata/).
 
 ```{s}
     twoway (scatter Petal_Length Petal_Width) /// 
