@@ -38,7 +38,9 @@ I say what I am doing */
 
 clear all // clear the workspace
 
-use "https://github.com/agrogan1/newstuff/raw/master/categorical/glm/penguins.dta", clear
+* get data from web
+
+use "https://github.com/agrogan1/Stata/raw/master/do-files/penguins.dta", clear 
 
 ******************************
 * data wrangling
