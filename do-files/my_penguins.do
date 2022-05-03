@@ -16,8 +16,7 @@ decisions that you have made. */
 automated, replicable and documented workflow 
 as well as finding and minimizing errors */
 
-/* this is a longer note where 
-I say what I am doing */
+/* this is a longer note where I say what I am doing */
 
 * A `*` character at the beginning of a line makes that line a comment
 
@@ -43,6 +42,17 @@ clear all // clear the workspace
 use "https://github.com/agrogan1/Stata/raw/master/do-files/penguins.dta", clear 
 
 ******************************
+* take a look at the data
+******************************
+
+
+* NB if you have a lot of variables, the commands below will produce a lot of (too much) output
+
+* you may need to describe specific variables
+
+describe
+
+******************************
 * data wrangling
 ******************************
 
@@ -63,7 +73,7 @@ tabulate big_penguin
 * descriptive statistics
 ******************************
 
-summ body_mass_g
+summarize body_mass_g
 
 tabulate species
 
@@ -71,7 +81,7 @@ tabulate species
 * ANOVA
 ******************************
 
-oneway body_mass_g species
+oneway body_mass_g species, tabulate
 
 ******************************
 * regression
@@ -92,5 +102,10 @@ est table M1 M2, b(%7.4f) star // nicely formatted table of regression estimates
 ******************************
 
 graph bar body_mass_g, over(species) scheme(s1color)
+
+
+
+
+
 
 
