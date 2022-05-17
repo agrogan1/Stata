@@ -49,11 +49,13 @@ title("dotplot") ///
 caption("{stMono: dotplot x}", size(large)) ///
 name(mydotplot, replace)
 
+/*
 graph combine myhistogram mydensity mybar mydotplot, ///
 cols(1) ///
 title(Continuous) ///
 name(continuous, replace) ///
 xsize(2)
+*/
 
 * Continuous by Categorical
 
@@ -224,12 +226,9 @@ scale(.6)
 
 graph display combined
 
-graph export how-to-choose-a-chart-a-visual-guide-with-Stata.pdf, ///
-replace ///
-pagesize(letter) ///
-orientation(landscape)
+graph export how-to-choose-a-chart-a-visual-guide-with-Stata.pdf, replace 
 
-
+graph export how-to-choose-a-chart-a-visual-guide-with-Stata.png, replace
 
 
 
