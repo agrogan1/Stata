@@ -224,7 +224,10 @@ scale(.6)
 
 graph display combined
 
-graph export how-to-choose-a-chart-a-visual-guide-with-Stata.pdf, replace
+graph export how-to-choose-a-chart-a-visual-guide-with-Stata.pdf, ///
+replace ///
+pagesize(letter) ///
+orientation(landscape)
 
 
 
