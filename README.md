@@ -22,6 +22,8 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 
 ## Data Visualization With Stata
 
+* [How To Choose A Chart - A Statistically Informed Visual Guide With Stata Commands](https://agrogan1.github.io/Stata/how-to-choose-a-chart-a-visual-guide-with-Stata/how-to-choose-a-chart-a-visual-guide-with-Stata.pdf)
+
 * [My first, older, tutorial on Stata graphing](https://agrogan1.github.io/Stata/stata-graphing/index.html)
 * Data Visualization With Stata 
     + [PDF](https://agrogan1.github.io/Stata/data-visualization-with-Stata/data-visualization-with-Stata.pdf) (*Easiest to read*)
