@@ -211,7 +211,7 @@ myscatter myheatplot myscatter2 myscatter3, ///
 title("How To Choose A Chart - A Statistically Informed Visual Guide With Stata Commands") ///
 subtitle("Continuous                              Continuous by Categorical                    Categorical          Categorical by Categorical      Continuous by Continuous", pos(11)) ///
 note("Stata commands are in {stMono: monospaced font}" ///
-"I do try to present the simplest version of a command, but in fact make use of options like {stMono:fcolor}, {stMono:mcolor}, and {stMono:lcolor} to tweak the color and appearance of graphs." ///
+"I try to present the simplest version of a command, but to make this handout made use of options like {stMono:fcolor}, {stMono:mcolor}, and {stMono:lcolor} to tweak the color and appearance of graphs." ///
 "Option {stMono:asyvars} is not strictly necessary, but means that bar graphs will have bars of different colors.")  ///
 caption("https://agrogan1.github.io/, agrogan@umich.edu", size(vsmall)) ///
 colfirst ///
