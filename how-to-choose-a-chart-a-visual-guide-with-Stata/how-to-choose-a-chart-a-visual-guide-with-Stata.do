@@ -6,6 +6,8 @@ cd "/Users/agrogan/Desktop/GitHub/Stata/how-to-choose-a-chart-a-visual-guide-wit
 
 set obs 100
 
+set seed 1234
+
 generate x = rnormal(100, 10) // standardized normal variable
 
 generate z = rnormal(100, 10) // standardized normal variable
@@ -211,14 +213,16 @@ mybar3 mybar4 mypie myblank ///
 mybar5 mybar6 mypie2 myspineplot ///
 myscatter myheatplot myscatter2 myscatter3, ///
 title("How To Choose A Chart - A Statistically Informed Visual Guide With Stata Commands") ///
-subtitle("Continuous                              Continuous by Categorical                    Categorical          Categorical by Categorical      Continuous by Continuous", pos(11)) ///
+subtitle("Continuous                    Continuous by Categorical       Categorical    Categorical by Categorical    Continuous by Continuous", pos(11)) ///
 note("Stata commands are in {stMono: monospaced font}" ///
-"I try to present the simplest version of a command, but to make this handout made use of options like {stMono:fcolor}, {stMono:mcolor}, and {stMono:lcolor} to tweak the color and appearance of graphs." ///
+"I try to present the simplest version of a command, but to make this handout made use of options like {stMono:fcolor}, {stMono:mcolor}, and {stMono:lcolor}" ///
+"to tweak the color and appearance of graphs." ///
 "Option {stMono:asyvars} is not strictly necessary, but means that bar graphs will have bars of different colors.")  ///
-caption("https://agrogan1.github.io/, agrogan@umich.edu", size(vsmall)) ///
+caption("$S_DATE, https://agrogan1.github.io/, agrogan@umich.edu",  size(vsmall)) ///
 colfirst ///
 cols(5) ///
 scheme(michigan) commonscheme ///
+xsize(11) ysize(8.5) ///
 name(combined, replace) ///
 scale(.6)
 
