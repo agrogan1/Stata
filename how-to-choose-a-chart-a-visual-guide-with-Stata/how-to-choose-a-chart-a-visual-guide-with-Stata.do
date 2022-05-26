@@ -129,12 +129,12 @@ xsize(2)
 
 graph bar, over(w) over(u) asyvars ///
 title("bar graph by group") ///
-caption("{stMono: graph bar, over(w) over(u) asyvars}", size(large)) ///
+caption("{stMono: graph bar, over(w) over(u) ///}" "{stMono: asyvars}", size(large)) ///
 name(mybar5, replace)
 
 graph hbar, over(w) over(u) asyvars ///
 title("horizontal bar graph by group") ///
-caption("{stMono: graph hbar, over(w) over(u) asyvars}", size(large)) ///
+caption("{stMono: graph hbar, over(w) over(u) ///}" "{stMono: asyvars}", size(large)) ///
 name(mybar6, replace)
 
 graph pie, over(w) by(u, ///
@@ -217,7 +217,8 @@ subtitle("Continuous                    Continuous by Categorical       Categori
 note("Stata commands are in {stMono: monospaced font}" ///
 "I try to present the simplest version of a command, but to make this handout made use of options like {stMono:fcolor}, {stMono:mcolor}, and {stMono:lcolor}" ///
 "to tweak the color and appearance of graphs." ///
-"Option {stMono:asyvars} is not strictly necessary, but means that bar graphs will have bars of different colors.")  ///
+"Option {stMono:asyvars} is not strictly necessary, but means that bar graphs will have bars of different colors." ///
+"{stMono:///} represents a line break. On the command line, do not use {stMono:///} and type the command on a single line.")  ///
 caption("$S_DATE, https://agrogan1.github.io/, agrogan@umich.edu",  size(vsmall)) ///
 colfirst ///
 cols(5) ///
