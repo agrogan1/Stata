@@ -146,6 +146,7 @@ name(mypie2, replace)
 spineplot w u, ///
 title("spine plot") ///
 caption("{stMono: spineplot w u}", size(large)) ///
+note("{stMono: spineplot} is a user written command: {stMono: ssc install spineplot}") ///
 name(myspineplot, replace)
 
 /*
