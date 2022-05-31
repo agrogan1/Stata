@@ -215,7 +215,9 @@ mybar5 mybar6 mypie2 myspineplot ///
 myscatter myheatplot myscatter2 myscatter3, ///
 title("How To Choose A Chart - A Statistically Informed Visual Guide With Stata Commands") ///
 subtitle("Continuous                    Continuous by Categorical       Categorical    Categorical by Categorical    Continuous by Continuous", pos(11)) ///
-note("Stata commands are in {stMono: monospaced font}" ///
+note("Stata is usually very intuitive. The general idea of most Stata commands is {stMono:command variable(s), options}." ///
+"Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults." ///
+"Stata commands are in {stMono: monospaced font}" ///
 "I try to present the simplest version of a command, but to make this handout made use of options like {stMono:fcolor}, {stMono:mcolor}, and {stMono:lcolor}" ///
 "to tweak the color and appearance of graphs." ///
 "Option {stMono:asyvars} is not strictly necessary, but means that bar graphs will have bars of different colors." ///
