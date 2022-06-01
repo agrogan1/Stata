@@ -99,7 +99,7 @@ Tabulating two categorical variables together gives you a cross-tabulation of th
 
 In many cases you may want to look at the results of some calculation for x, or x and y over a third variable z.  In such cases the by: syntax will be especially useful.  For example to look at the correlation of x and y over different values of z: `bysort z: pwcorr x y, sig`
 
-[^questions]: Comments, questions and corrections most welcome and may be sent to:  [Andrew Grogan-Kaylor](http://www.umich.edu/~agrogan) @  [agrogan@umich.edu](agrogan@umich.edu).  This document available on the web @ [https://agrogan1.github.io/Stata/](https://agrogan1.github.io/Stata/) 
+[^questions]: Comments, questions and corrections most welcome and may be sent to:  [Andrew Grogan-Kaylor](https://agrogan1.github.io/) @ [agrogan@umich.edu](agrogan@umich.edu). This document available on the web @ [https://agrogan1.github.io/Stata/](https://agrogan1.github.io/Stata/) 
 
 
 
