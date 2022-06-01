@@ -2,22 +2,15 @@
 title: "Two Page Stata"
 author: "Andrew Grogan-Kaylor"
 date: '`r format(Sys.Date(), format="%B %d, %Y")`'
-output:
-  tufte::tufte_html:
-    number_sections: yes
-    toc: yes
-    css: mycss.css
-  tint::tintPdf:
-    toc: no
-    number_sections: yes
-  tufte::tufte_handout:
-    toc: no
-    number_sections: yes
-    latex_engine: xelatex
-fontsize: 11pt
+format:
+  pdf:
+    toc: false
+    number-sections: true
+    colorlinks: true
+    reference-location: document
+    shift-heading-level-by: 1  
 geometry: margin=.30in
 description: An introduction to Stata
-cover-image: Two-Page-Stata-cover.png
 ---
 
 ```{r global_options, echo=FALSE}
