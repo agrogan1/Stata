@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}29 Mar 2022, 12:59:13
+ {txt}opened on:  {res} 2 Jun 2022, 11:46:47
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}29 Mar 2022
+{res} 2 Jun 2022
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}12:59:13
+{res}11:46:47
 {txt}
 {com}. //_3q
 . 
@@ -101,12 +101,20 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 {com}. //_18q
 . quietly graph export mybargraph3.png, width(750) replace
 {txt}
+{com}. //_19
+. twoway (scatter Petal_Length Petal_Width, mcolor("112 32 130 %30")) /// markers are Amethyst with 30% transparency
+> (lfit Petal_Length Petal_Width, lcolor("87 82 148")), /// Violet line
+> scheme(michigan)
+{res}{txt}
+{com}. //_20q
+. quietly graph export myscatter3.png, width(750) replace
+{txt}
 {com}. //_^
 . log close
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}29 Mar 2022, 12:59:25
+ {txt}closed on:  {res} 2 Jun 2022, 11:46:59
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

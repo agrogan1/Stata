@@ -51,7 +51,7 @@ table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid bl
 <div id="header">
 <h1 class="title">Installing and Using the Michigan Graph Scheme</h1>
 <h2 class="author">Andy Grogan-Kaylor</h2>
-<h3 class="date">29 Mar 2022 12:59:13</h3>
+<h3 class="date">2 Jun 2022 11:46:47</h3>
 </div>
 <style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 <h1 id="introduction">Introduction</h1>
@@ -147,6 +147,99 @@ Petal_Length │        150       3.758    1.765298          1        6.9
 <div class="figure">
 <img src="mybargraph3.png" alt="Bar Graph Using Michigan Scheme and Modified Legend" />
 <p class="caption">Bar Graph Using Michigan Scheme and Modified Legend</p>
+</div>
+<h1 id="individual-michigan-colors">Individual Michigan Colors</h1>
+<p>Individual University of Michigan colors are listed below.</p>
+<table>
+<colgroup>
+<col width="29%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Color</th>
+<th align="left">Hex</th>
+<th align="left">RGB</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Blue</td>
+<td align="left">#00274C</td>
+<td align="left">0 39 76</td>
+</tr>
+<tr class="even">
+<td align="left">Maize</td>
+<td align="left">#FFCB05</td>
+<td align="left">255 203 5</td>
+</tr>
+<tr class="odd">
+<td align="left">Tappan Red</td>
+<td align="left">#9A3324</td>
+<td align="left">154 51 36</td>
+</tr>
+<tr class="even">
+<td align="left">Ross School Orange</td>
+<td align="left">#D86018</td>
+<td align="left">216 96 24</td>
+</tr>
+<tr class="odd">
+<td align="left">Wave Field Green</td>
+<td align="left">#A5A508</td>
+<td align="left">165 165 8</td>
+</tr>
+<tr class="even">
+<td align="left">Taubman Teal</td>
+<td align="left">#00B2A9</td>
+<td align="left">0 178 169</td>
+</tr>
+<tr class="odd">
+<td align="left">Arboretum Blue</td>
+<td align="left">#2F65A7</td>
+<td align="left">47 101 167</td>
+</tr>
+<tr class="even">
+<td align="left">Ann Arbor Amethyst</td>
+<td align="left">#702082</td>
+<td align="left">112 32 130</td>
+</tr>
+<tr class="odd">
+<td align="left">Matthaei Violet</td>
+<td align="left">#575294</td>
+<td align="left">87 82 148</td>
+</tr>
+<tr class="even">
+<td align="left">Umma Tan</td>
+<td align="left">#CFC096</td>
+<td align="left">207 192 150</td>
+</tr>
+<tr class="odd">
+<td align="left">Burton Tower Beige</td>
+<td align="left">#9B9A6D</td>
+<td align="left">155 154 109</td>
+</tr>
+<tr class="even">
+<td align="left">Angell Hall Ash</td>
+<td align="left">#989C97</td>
+<td align="left">152 156 151</td>
+</tr>
+<tr class="odd">
+<td align="left">Law Quad Stone</td>
+<td align="left">#655A52</td>
+<td align="left">101 90 82</td>
+</tr>
+</tbody>
+</table>
+<p>Stata can use RGB codes for colors. As an example.</p>
+<pre class='stata'>. twoway (scatter Petal_Length Petal_Width, mcolor("112 32 130 %30")) /// markers are Amethyst with 30% transparency
+> (lfit Petal_Length Petal_Width, lcolor("87 82 148")), /// Violet line
+> scheme(michigan)
+</pre>
+
+<div class="figure">
+<img src="myscatter3.png" alt="Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers" />
+<p class="caption">Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers</p>
 </div>
 </body>
 </html>

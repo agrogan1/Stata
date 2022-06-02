@@ -151,3 +151,57 @@ Sometimes you may wish to have the legend of the graph placed at the *bottom* of
 	
 ![Bar Graph Using Michigan Scheme and Modified Legend](mybargraph3.png)
 
+# Individual Michigan Colors
+
+Individual University of Michigan colors are listed below. 
+
+-------------------------------------------------------------
+Color                Hex        RGB
+-------------------- ---------- ----------
+Blue                 #00274C    0 39 76
+
+Maize                #FFCB05    255 203 5
+
+Tappan Red           #9A3324    154 51 36
+
+Ross School Orange   #D86018    216 96 24
+
+Wave Field Green     #A5A508    165 165 8
+
+Taubman Teal         #00B2A9    0 178 169
+
+Arboretum Blue       #2F65A7    47 101 167
+
+Ann Arbor Amethyst   #702082    112 32 130
+
+Matthaei Violet      #575294    87 82 148
+
+Umma Tan             #CFC096    207 192 150
+
+Burton Tower Beige   #9B9A6D    155 154 109
+
+Angell Hall Ash      #989C97    152 156 151
+
+Law Quad Stone       #655A52    101 90 82
+-------------------------------------------------------------
+
+Stata can use RGB codes for colors. As an example.
+
+```{s}
+    twoway (scatter Petal_Length Petal_Width, mcolor("112 32 130 %30")) /// markers are Amethyst with 30% transparency
+	(lfit Petal_Length Petal_Width, lcolor("87 82 148")), /// Violet line
+	scheme(michigan)
+```
+
+```{s/}	
+	quietly graph export myscatter3.png, width(750) replace
+```
+
+![Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers](myscatter3.png)
+
+
+
+
+
+
+

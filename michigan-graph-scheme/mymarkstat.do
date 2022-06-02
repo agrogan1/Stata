@@ -4,7 +4,7 @@ clear all
 
 * cd "C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme" // Windows
 
-cd "/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme" // Mac and bilingual :-0
+cd "/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme" // bilingual :-0
 
 doedit index.stmd
 
