@@ -217,12 +217,13 @@ title("How To Choose A Chart - A Statistically Informed Visual Guide With Stata 
 subtitle("Continuous                    Continuous by Categorical       Categorical    Categorical by Categorical    Continuous by Continuous", pos(11)) ///
 note("Stata is usually very intuitive. The general idea of most Stata commands is {stMono:command variable(s), options}." ///
 "Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults." ///
-"Stata commands are in {stMono: monospaced font}" ///
-"I try to present the simplest version of a command, but to make this handout made use of options like {stMono:fcolor}, {stMono:mcolor}, and {stMono:lcolor}" ///
-"to tweak the color and appearance of graphs." ///
+"Stata commands are in {stMono:monospaced font}." ///
+"I try to present the simplest version of a command, but to make this handout made use of options like {stMono:fcolor}, {stMono:mcolor}, and {stMono:lcolor} to tweak the color" ///
+"and appearance of graphs. I also use the {stMono:michigan} graph scheme, linked to below. {stMono:set scheme(s1color)} would also work well." ///
 "Option {stMono:asyvars} is not strictly necessary, but means that bar graphs will have bars of different colors." ///
 "{stMono:///} represents a line break. On the command line, do not use {stMono:///} and type the command on a single line.")  ///
-caption("$S_DATE, https://agrogan1.github.io/, agrogan@umich.edu",  size(vsmall)) ///
+caption("$S_DATE, https://agrogan1.github.io/, agrogan@umich.edu, https://agrogan1.github.io/Stata/michigan-graph-scheme/",  ///
+size(vsmall)) ///
 colfirst ///
 cols(5) ///
 scheme(michigan) commonscheme ///
