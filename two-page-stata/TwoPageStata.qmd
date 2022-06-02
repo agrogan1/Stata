@@ -3,6 +3,14 @@ title: "Two Page Stata"
 author: "Andrew Grogan-Kaylor"
 date: '`r format(Sys.Date(), format="%B %d, %Y")`'
 format:
+  html:
+    theme: 
+      light: simplex
+      dark: vapor
+    toc: true
+    number-sections: true
+    anchor-sections: true
+    highlight-style: haddock
   pdf:
     toc: false
     number-sections: true
