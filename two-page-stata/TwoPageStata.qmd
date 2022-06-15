@@ -5,11 +5,12 @@ date: '`r format(Sys.Date(), format="%B %d, %Y")`'
 format:
   html:
     theme: 
-      light: simplex
+      light: united
       dark: vapor
     toc: true
     number-sections: true
     anchor-sections: true
+    reference-location: document
     highlight-style: haddock
   pdf:
     toc: false
