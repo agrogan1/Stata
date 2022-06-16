@@ -83,27 +83,30 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>A Very Short Introduction to Stata</title>
 
+  <meta property="description" itemprop="description" content="The basic *philosophy* of Stata." />
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-06-01" />
-  <meta property="article:created" itemprop="dateCreated" content="2022-06-01" />
+  <meta property="article:published" itemprop="datePublished" content="2022-06-16" />
+  <meta property="article:created" itemprop="dateCreated" content="2022-06-16" />
   <meta name="article:author" content="Andy Grogan-Kaylor" />
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="A Very Short Introduction to Stata" />
   <meta property="og:type" content="article" />
+  <meta property="og:description" content="The basic *philosophy* of Stata." />
   <meta property="og:locale" content="en_US" />
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary" />
   <meta property="twitter:title" content="A Very Short Introduction to Stata" />
+  <meta property="twitter:description" content="The basic *philosophy* of Stata." />
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output","mainfont"]}},"value":[{"type":"character","attributes":{},"value":["A Very Short Introduction to Stata"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andy Grogan-Kaylor"]}]}]},{"type":"character","attributes":{},"value":["2022-06-01"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article","pdf_document","html_document"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight","toc"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","latex_engine"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["xelatex"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]}]}]},{"type":"character","attributes":{},"value":["Futura"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","mainfont"]}},"value":[{"type":"character","attributes":{},"value":["A Very Short Introduction to Stata"]},{"type":"character","attributes":{},"value":["The basic *philosophy* of Stata.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andy Grogan-Kaylor"]}]}]},{"type":"character","attributes":{},"value":["2022-06-16"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article","pdf_document","html_document"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight","toc"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]},{"type":"logical","attributes":{},"value":[false]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","latex_engine"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["xelatex"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]}]}]},{"type":"character","attributes":{},"value":["Futura"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2462,7 +2465,7 @@ distill-header .nav a {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"A Very Short Introduction to Stata","authors":[{"author":"Andy Grogan-Kaylor","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-06-01T00:00:00.000+00:00","citationText":"Grogan-Kaylor, 2022"}
+{"title":"A Very Short Introduction to Stata","description":"The basic *philosophy* of Stata.","authors":[{"author":"Andy Grogan-Kaylor","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-06-16T00:00:00.000+00:00","citationText":"Grogan-Kaylor, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2475,28 +2478,17 @@ distill-header .nav a {
 <h1>A Very Short Introduction to Stata</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>The basic <em>philosophy</em> of Stata.</p></p>
 </div>
 
 <div class="d-byline">
   
   Andy Grogan-Kaylor
   
-<br />2022-06-01
+<br />2022-06-16
 </div>
 
 <div class="d-article">
-<div class="d-contents d-contents-float">
-<nav class="l-text toc figcaption" id="TOC">
-<h3>Contents</h3>
-<ul>
-<li><a href="#a-very-short-introduction-to-stata">A Very Short
-Introduction to Stata</a></li>
-</ul>
-</nav>
-</div>
-<h1 id="a-very-short-introduction-to-stata">A Very Short Introduction to
-Stata</h1>
 <p>The basic philosophy of Stata—“Stata in one sentence”—is:</p>
 <p><code>do_something to_variable(s), options</code></p>
 <p>The general idea of most Stata commands is
@@ -2542,22 +2534,26 @@ represented in <code>monospace</code> font. <code>x</code> and
 <td><code>mixed y x || group:</code></td>
 </tr>
 <tr class="even">
+<td>Structural Equation Modeling</td>
+<td><code>sem (y &lt;- x m) (m &lt;- x)</code></td>
+</tr>
+<tr class="odd">
 <td>Histogram</td>
 <td><code>histogram x</code> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Bar Graph</td>
 <td><code>graph bar, over(x)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Bar Graph (of means)</td>
 <td><code>graph bar y, over(x)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Pie Chart</td>
 <td><code>graph pie, over(x)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Scatterplot</td>
 <td><code>twoway scatter y x</code></td>
 </tr>

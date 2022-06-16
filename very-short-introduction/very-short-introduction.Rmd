@@ -1,13 +1,15 @@
 ---
 title: "A Very Short Introduction to Stata"
+description: |
+  The basic *philosophy* of Stata.
 author: "Andy Grogan-Kaylor"
 date: "`r Sys.Date()`"
 output:
   distill::distill_article:
     highlight: haddock
-    toc: yes
+    toc: no
   pdf_document: 
-    toc: yes
+    toc: no
     latex_engine: xelatex
   html_document:
     highlight: haddock
@@ -19,8 +21,6 @@ mainfont: Futura
 knitr::opts_chunk$set(echo = TRUE)
 
 ```
-
-# A Very Short Introduction to Stata
 
 The basic philosophy of Stata---“Stata in one sentence”---is: 
 
@@ -37,6 +37,7 @@ The general idea of most Stata commands is `command variable(s), options`. Often
 | Regression | `regress y x` |
 | Logistic Regression | `logit y x, or` [^logit] |
 | Multilevel Model | `mixed y x || group:`|
+| Structural Equation Modeling | `sem (y <- x m) (m <- x)` |
 | Histogram | `histogram x` [^graph]|
 | Bar Graph | `graph bar, over(x)` |
 | Bar Graph (of means) | `graph bar y, over(x)` |
