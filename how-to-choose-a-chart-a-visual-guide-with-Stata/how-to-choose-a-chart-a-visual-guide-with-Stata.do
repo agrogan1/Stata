@@ -218,7 +218,7 @@ subtitle("Continuous                    Continuous by Categorical       Categori
 note("Stata is usually very intuitive. The general idea of most Stata commands is {stMono:command variable(s), options}." ///
 "Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults." ///
 "Stata commands are in {stMono:monospaced font}." ///
-"I try to present the simplest version of a command, but to make this handout occasionally makes use of options like {stMono:fcolor()} and {stMono:mcolor()} " ///
+"I try to present the simplest version of a command, but this handout occasionally makes use of options like {stMono:fcolor()} and {stMono:mcolor()} " ///
 "to tweak the colors." ///
 "I also use the {stMono:michigan} graph scheme, linked to below. {stMono:set scheme(s1color)} would also work well." ///
 "Option {stMono:asyvars} is not strictly necessary, but means that bar graphs will have bars of different colors." ///
