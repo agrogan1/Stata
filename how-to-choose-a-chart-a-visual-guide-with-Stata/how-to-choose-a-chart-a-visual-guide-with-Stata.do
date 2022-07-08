@@ -27,12 +27,13 @@ set scheme michigan // use a nice graph scheme
 * Continuous
 
 histogram x, ///
-fcolor(%50) ///
+fcolor("47 101 167") ///
 title("histogram") ///
 caption("{stMono: histogram x}", size(large)) ///
 name(myhistogram, replace)
 
 kdensity x, ///
+lcolor("255 203 5") ///
 title("density") ///
 note(" ") ///
 caption("{stMono: kdensity x}", size(large)) ///
@@ -44,7 +45,7 @@ caption("{stMono: graph bar x}", size(large)) ///
 name(mybar, replace)
 
 dotplot x, ///
-mcolor(%50) ///
+mcolor("165 165 8") ///
 title("dotplot") ///
 caption("{stMono: dotplot x}", size(large)) ///
 name(mydotplot, replace)
@@ -60,14 +61,14 @@ xsize(2)
 * Continuous by Categorical
 
 histogram x, ///
-fcolor(%50) ///
+fcolor("47 101 167") ///
 by(u, ///
 title("histogram") ///
 caption("{stMono: histogram x, by(u)}", size(large)) ///
 note(" ")) ///
 name(myhistogram2, replace)
 
-twoway (kdensity x), ///
+twoway (kdensity x, lcolor("255 203 5")), ///
 by(u, ///
 title("density") ///
 note(" ") ///
@@ -80,7 +81,7 @@ caption("{stMono: graph bar x, over(u) asyvars}", size(large)) ///
 name(mybar2, replace)
 
 dotplot x, over(u) ///
-mcolor(%50) ///
+mcolor("165 165 8") ///
 title("dotplot") ///
 caption("{stMono: dotplot x, over(u)}", size(large)) ///
 name(mydotplot2, replace)
@@ -158,7 +159,7 @@ xsize(2)
 * Continuous by Continuous
 
 twoway scatter y x, ///
-mcolor(%50) ///
+mcolor("112 32 130") ///
 title("scatterplot") ///
 caption("{stMono: twoway scatter y x}", size(large)) ///
 name(myscatter, replace)
@@ -169,12 +170,12 @@ caption("{stMono: heatplot y x}", size(large)) ///
 note("{stMono: heatplot} is a user written command: {stMono: ssc install heatplot}") ///
 name(myheatplot, replace)
 
-twoway (scatter y x, mcolor(%50)) (lfit y x),  ///
+twoway (scatter y x, mcolor("112 32 130")) (lfit y x),  ///
 title("scatterplot with linear fit") ///
 caption("{stMono: twoway (scatter y x) (lfit y x)}", size(large)) ///
 name(myscatter2, replace)
 
-twoway (scatter y x, mcolor(%50)) (lowess y x),  ///
+twoway (scatter y x, mcolor("112 32 130")) (lowess y x),  ///
 title("scatterplot with smoother") ///
 caption("{stMono: twoway (scatter y x) (lowess y x)}", size(large)) ///
 name(myscatter3, replace)
@@ -217,8 +218,8 @@ subtitle("Continuous                    Continuous by Categorical       Categori
 note("Stata is usually very intuitive. The general idea of most Stata commands is {stMono:command variable(s), options}." ///
 "Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults." ///
 "Stata commands are in {stMono:monospaced font}." ///
-"I try to present the simplest version of a command, but to make this handout occasionally makes use of options like {stMono:fcolor(%50)} and {stMono:mcolor(%50)} " ///
-"to tweak the color transparency." ///
+"I try to present the simplest version of a command, but to make this handout occasionally makes use of options like {stMono:fcolor()} and {stMono:mcolor()} " ///
+"to tweak the colors." ///
 "I also use the {stMono:michigan} graph scheme, linked to below. {stMono:set scheme(s1color)} would also work well." ///
 "Option {stMono:asyvars} is not strictly necessary, but means that bar graphs will have bars of different colors." ///
 "{stMono:///} represents a line break. On the command line, do not use {stMono:///} and type the command on a single line.")  ///
