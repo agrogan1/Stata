@@ -2,9 +2,7 @@
 
 clear all
 
-cd "C:\Users\agrogan\Desktop\GitHub\Stata\data-visualization-with-Stata" // Windows
-
-cd "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata" // Mac
+cd "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata" // bilingual!
 
 doedit data-visualization-with-Stata.stmd
 
@@ -22,8 +20,30 @@ markstat using data-visualization-with-Stata.stmd, pdf // PDF
 
 graph close _all
 
+* cleanup
+
+rm data-visualization-with-Stata.do
+
+rm data-visualization-with-Stata.smcl
+
+rm data-visualization-with-Stata.tex
+
+rm data-visualization-with-Stata.pdx
+
+rm data-visualization-with-Stata.log
+
+rm data-visualization-with-Stata.md
+
+rm data-visualization-with-Stata.synctex.gz
+
 * pandoc
 
-doedit spruceslidy.css
+* doedit spruceslidy.css
 
-! /Applications/RStudio.app/Contents/MacOS/pandoc/pandoc -s --mathjax -i -t slidy --css "spruceslidy.css" --slide-level=2 "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata.html" -o "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata-slidy.html" 
+! /Applications/quarto/bin/pandoc -s --mathjax -i -t slidy --css "spruceslidy.css" --slide-level=2 "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata.html" -o "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata-slidy.html" 
+
+
+
+
+
+
