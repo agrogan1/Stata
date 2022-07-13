@@ -22,6 +22,8 @@ egen u = cut(y), group(2) // divide into groups
 
 egen v = cut(y), group(3) // divide into more groups
 
+save "how-to-choose-a-chart-a-visual-guide-with-Stata.dta", replace // save data
+
 set scheme michigan // use a nice graph scheme
 
 * Continuous
