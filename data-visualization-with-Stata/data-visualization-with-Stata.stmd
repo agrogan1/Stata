@@ -136,7 +136,7 @@ Stata *graph schemes* can substantially improve the look of a graph. Built in gr
 
 > (Notably, as a *quick fix*, the default Stata graph scheme of `s2color` can be substantially improved by adding the option `,graphregion(fcolor(white))` which changes the background fill color of this scheme to *white*.)
 
-`lean2` (type `findit lean2` in the Stata Command Window) is a user written scheme that is very helpful when preparing graphics for publication. I have written a [Stata Michigan graph scheme](https://agrogan1.github.io/Stata/) that can be installed. `cleanplots` and `modern` are excellent graph schemes that can be installed directly into Stata from GitHub. `burd` is another user written graph scheme that *somewhat* replicates the look of `ggplot`. 
+`lean2` (type `findit lean2` in the Stata Command Window) is a user written scheme that is very helpful when preparing graphics for publication. I have written a [Stata Michigan graph scheme](https://agrogan1.github.io/Stata/) that can be installed. `cleanplots` and `modern` are excellent graph schemes that can be installed directly into Stata from GitHub. `burd` is another user written graph scheme that *somewhat* replicates the look of `ggplot`. Asjad Naqvi has written [an excellent and comprehensive set of Stata graph schemes](https://github.com/asjadnaqvi/Stata-schemes).
 
 ## Continuous by Continuous (`twoway scatter y x, scheme(...)`)
 
