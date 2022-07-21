@@ -41,7 +41,7 @@ color p9pie "0 178 169"
 
 * scatterplot
 
-symbol p1 circlesymbol 
+symbol p1 circle 
 p1markfill "0 39 76"
 symbol p1markline "0 39 76"
 
