@@ -3,7 +3,7 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}21 Jul 2022, 17:17:32
+ {txt}opened on:  {res}21 Jul 2022, 17:34:03
 {txt}
 {com}. //_1
 . display c(current_date)
@@ -11,7 +11,7 @@
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}17:17:32
+{res}17:34:03
 {txt}
 {com}. //_3q
 . 
@@ -141,11 +141,6 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 > scheme(michigan2) ///
 > ysize(1.5) scale(2) ///
 > name(michigan2, replace)
-{res}{p 0 4 2}
-{txt}(note:  named style
-circlesymbol not found in class
-symbol,  default attributes used)
-{p_end}
 {res}{txt}
 {com}.     
 . quietly graph export MichiganColorsStata2.png, ///
@@ -156,12 +151,7 @@ symbol,  default attributes used)
 > colfirst cols(1) ///
 > scale(.5) scheme(michigan) ///
 > name(michigancombined, replace)
-{p 0 4 2}
-{txt}(note:  named style
-circlesymbol not found in class
-symbol,  default attributes used)
-{p_end}
-
+{txt}
 {com}.     
 . quietly graph export MichiganColorsStata3.png, ///
 > name("michigancombined") width(750) replace
@@ -172,7 +162,7 @@ symbol,  default attributes used)
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}21 Jul 2022, 17:17:49
+ {txt}closed on:  {res}21 Jul 2022, 17:34:19
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

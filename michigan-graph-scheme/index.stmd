@@ -206,7 +206,7 @@ Stata can use RGB codes for colors. As an example.
 
 I have also developed a `michigan2` graph scheme: `, scheme(michigan2)`.
 
-This graph scheme can be installed using the same instructions as above. The `michigan2` scheme slightly reorders the color palette of the original scheme. The scheme begins with blue and maize, but then moves to the *cooler* colors before moving to *Tappan Red* and *Ross Orange*.
+This graph scheme can be installed using the same instructions as above. The `michigan2` scheme slightly reorders the color palette of the original scheme. The scheme begins with blue and maize, but then moves to the *cooler* colors before moving to *Tappan Red* and *Ross Orange*. *Taubman Teal*--a very fluorescent color--is moved to the end of the palette.
 
 ```{s/}	
 
