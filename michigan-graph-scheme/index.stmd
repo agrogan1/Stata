@@ -15,9 +15,11 @@ geometry: margin=1 in
 
     clear all
 
-    quietly set obs 10
+    quietly set obs 9
 
     generate x = _n
+	
+	save "graphdemo.dta", replace
 
     graph bar (count), ///
 	over(x, axis(off)) asyvars ///
@@ -25,9 +27,10 @@ geometry: margin=1 in
 	yscale(lcolor(none)) ///
 	title(Michigan Graph Scheme Colors) ///
 	scheme(michigan) ///
-	ysize(1.5) scale(2)
+	ysize(1.5) scale(2) ///
+	name(michigan, replace)
 	
-    quietly graph export MichiganColorsStata.png, width(750) replace
+    quietly graph export MichiganColorsStata.png, name("michigan") width(750) replace
 
 ```
 
@@ -199,9 +202,47 @@ Stata can use RGB codes for colors. As an example.
 
 ![Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers](myscatter3.png)
 
+# Michigan2 Graph Scheme
 
+I have also developed a `michigan2` graph scheme: `, scheme(michigan2)`.
 
+This graph scheme can be installed using the same instructions as above. The `michigan2` scheme slightly reorders the color palette of the original scheme. The scheme begins with blue and maize, but then moves to the *cooler* colors before moving to *Tappan Red* and *Ross Orange*.
 
+```{s/}	
 
+    use "graphdemo.dta", clear
+	
+	graph bar (count), ///
+	over(x, axis(off)) asyvars ///
+	ytitle(" ") ylabel(none) ///
+	yscale(lcolor(none)) ///
+	title(Michigan Graph Scheme Colors) ///
+	scheme(michigan) ///
+	ysize(1.5) scale(2) ///
+	name(michigan, replace)
+
+    graph bar (count), ///
+	over(x, axis(off)) asyvars ///
+	ytitle(" ") ylabel(none) ///
+	yscale(lcolor(none)) ///
+	title(Michigan2 Graph Scheme Colors) ///
+	scheme(michigan2) ///
+	ysize(1.5) scale(2) ///
+	name(michigan2, replace)
+	
+    quietly graph export MichiganColorsStata2.png, ///
+	name("michigan2") width(750) replace
+	
+	quietly: graph combine michigan michigan2, ///
+	colfirst cols(1) ///
+	scale(.5) scheme(michigan) ///
+	name(michigancombined, replace)
+	
+	quietly graph export MichiganColorsStata3.png, ///
+	name("michigancombined") width(750) replace
+	
+```
+
+![Colors in Michigan Graph Schemes](MichiganColorsStata3.png)
 
 

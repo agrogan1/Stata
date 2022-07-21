@@ -3,26 +3,34 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 2 Jun 2022, 11:46:47
+ {txt}opened on:  {res}21 Jul 2022, 17:11:54
 {txt}
 {com}. //_1
 . display c(current_date)
-{res} 2 Jun 2022
+{res}21 Jul 2022
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}11:46:47
+{res}17:11:54
 {txt}
 {com}. //_3q
 . 
 . clear all
 {res}{txt}
 {com}. 
-. quietly set obs 10
+. quietly set obs 9
 {txt}
 {com}. 
 . generate x = _n
 {txt}
+{com}.     
+. save "graphdemo.dta", replace
+{txt}{p 0 4 2}
+file {bf}
+graphdemo.dta{rm}
+saved
+{p_end}
+
 {com}. 
 . graph bar (count), ///
 > over(x, axis(off)) asyvars ///
@@ -30,10 +38,11 @@
 > yscale(lcolor(none)) ///
 > title(Michigan Graph Scheme Colors) ///
 > scheme(michigan) ///
-> ysize(1.5) scale(2)
+> ysize(1.5) scale(2) ///
+> name(michigan, replace)
 {res}{txt}
 {com}.     
-. quietly graph export MichiganColorsStata.png, width(750) replace
+. quietly graph export MichiganColorsStata.png, name("michigan") width(750) replace
 {txt}
 {com}. 
 . //_4
@@ -109,12 +118,61 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 {com}. //_20q
 . quietly graph export myscatter3.png, width(750) replace
 {txt}
-{com}. //_^
+{com}. //_21q
+. 
+. use "graphdemo.dta", clear
+{txt}
+{com}.     
+. graph bar (count), ///
+> over(x, axis(off)) asyvars ///
+> ytitle(" ") ylabel(none) ///
+> yscale(lcolor(none)) ///
+> title(Michigan Graph Scheme Colors) ///
+> scheme(michigan) ///
+> ysize(1.5) scale(2) ///
+> name(michigan, replace)
+{res}{txt}
+{com}. 
+. graph bar (count), ///
+> over(x, axis(off)) asyvars ///
+> ytitle(" ") ylabel(none) ///
+> yscale(lcolor(none)) ///
+> title(Michigan2 Graph Scheme Colors) ///
+> scheme(michigan2) ///
+> ysize(1.5) scale(2) ///
+> name(michigan2, replace)
+{res}{p 0 4 2}
+{txt}(note:  named style
+circlesymbol not found in class
+symbol,  default attributes used)
+{p_end}
+{res}{txt}
+{com}.     
+. quietly graph export MichiganColorsStata2.png, ///
+> name("michigan2") width(750) replace
+{txt}
+{com}.     
+. quietly: graph combine michigan michigan2, ///
+> colfirst cols(1) ///
+> scale(.5) scheme(michigan) ///
+> name(michigancombined, replace)
+{p 0 4 2}
+{txt}(note:  named style
+circlesymbol not found in class
+symbol,  default attributes used)
+{p_end}
+
+{com}.     
+. quietly graph export MichiganColorsStata3.png, ///
+> name("michigancombined") width(750) replace
+{txt}
+{com}.     
+. //_^
 . log close
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 2 Jun 2022, 11:46:59
+ {txt}closed on:  {res}21 Jul 2022, 17:12:11
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
