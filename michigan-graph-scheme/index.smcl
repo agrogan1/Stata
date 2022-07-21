@@ -3,7 +3,7 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}21 Jul 2022, 17:11:54
+ {txt}opened on:  {res}21 Jul 2022, 17:17:32
 {txt}
 {com}. //_1
 . display c(current_date)
@@ -11,7 +11,7 @@
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}17:11:54
+{res}17:17:32
 {txt}
 {com}. //_3q
 . 
@@ -152,7 +152,7 @@ symbol,  default attributes used)
 > name("michigan2") width(750) replace
 {txt}
 {com}.     
-. quietly: graph combine michigan michigan2, ///
+. quietly graph combine michigan michigan2, ///
 > colfirst cols(1) ///
 > scale(.5) scheme(michigan) ///
 > name(michigancombined, replace)
@@ -172,7 +172,7 @@ symbol,  default attributes used)
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}21 Jul 2022, 17:12:11
+ {txt}closed on:  {res}21 Jul 2022, 17:17:49
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

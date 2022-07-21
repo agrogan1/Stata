@@ -233,7 +233,7 @@ This graph scheme can be installed using the same instructions as above. The `mi
     quietly graph export MichiganColorsStata2.png, ///
 	name("michigan2") width(750) replace
 	
-	quietly: graph combine michigan michigan2, ///
+	quietly graph combine michigan michigan2, ///
 	colfirst cols(1) ///
 	scale(.5) scheme(michigan) ///
 	name(michigancombined, replace)
