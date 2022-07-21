@@ -6,8 +6,8 @@ d
 d This graph scheme depends on Svend Juul's "lean2" graphic scheme.
 d Type {stata findit lean2} and click through on the install links to install lean2.
 d The Michigan2 scheme is a slightly remixed version of the Michigan scheme
-d in that Wave Field Green appears slightly earlier in the palette, while 
-d Tappan Red appears slightly later in the palette.
+d in that Wave Field Green and other "cooler" colors appear slightly earlier in the palette, while 
+d Tappan Red and Ross Orange appear slightly later in the palette.
 d
 d Then install the Michigan2 graph scheme from the link below.
 
