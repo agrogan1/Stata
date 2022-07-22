@@ -19,7 +19,7 @@ geometry: margin=1 in
 
     generate x = _n
 	
-	save "graphdemo.dta", replace
+	quietly save "graphdemo.dta", replace
 
     graph bar (count), ///
 	over(x, axis(off)) asyvars ///
@@ -44,7 +44,7 @@ The *Michigan graph scheme* makes use of official University of Michigan colors.
 
 # Installation
 
-Use of the *Michigan graph scheme* depends on installation of the `lean2' graph scheme developed by Svend Juul.
+Use of the *Michigan graph scheme* depends on installation of the `lean2` graph scheme developed by Svend Juul.
 
 Type `findit lean2` and click through on the install links to install `lean2`.
       

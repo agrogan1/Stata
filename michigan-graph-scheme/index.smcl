@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}21 Jul 2022, 17:34:03
+ {txt}opened on:  {res}22 Jul 2022, 09:15:41
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}21 Jul 2022
+{res}22 Jul 2022
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}17:34:03
+{res}09:15:41
 {txt}
 {com}. //_3q
 . 
@@ -24,13 +24,8 @@
 . generate x = _n
 {txt}
 {com}.     
-. save "graphdemo.dta", replace
-{txt}{p 0 4 2}
-file {bf}
-graphdemo.dta{rm}
-saved
-{p_end}
-
+. quietly save "graphdemo.dta", replace
+{txt}
 {com}. 
 . graph bar (count), ///
 > over(x, axis(off)) asyvars ///
@@ -162,7 +157,7 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}21 Jul 2022, 17:34:19
+ {txt}closed on:  {res}22 Jul 2022, 09:15:59
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
