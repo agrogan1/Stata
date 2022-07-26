@@ -1,5 +1,6 @@
 v 3
 d Materials by Andy Grogan-Kaylor, agrogan@umich.edu
+d For more information on these materials see https://agrogan1.github.io/Stata/
 
 p icc A program to calculate intraclass correlation coefficients after using xtmixed.
 
