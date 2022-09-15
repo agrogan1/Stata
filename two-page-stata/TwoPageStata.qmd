@@ -17,7 +17,6 @@ format:
     number-sections: true
     colorlinks: true
     reference-location: document
-    shift-heading-level-by: 1  
 geometry: margin=.25in
 description: An introduction to Stata
 ---
