@@ -1,61 +1,94 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.178">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <meta name="author" content="Andrew Grogan-Kaylor">
-  <meta name="dcterms.date" content="2022-06-15">
-  <meta name="description" content="An introduction to Stata">
-  <title>Two Page Stata</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
 
-  <script src="TwoPageStata_files/libs/clipboard/clipboard.min.js"></script>
-  <script src="TwoPageStata_files/libs/quarto-html/quarto.js"></script>
-  <script src="TwoPageStata_files/libs/quarto-html/popper.min.js"></script>
-  <script src="TwoPageStata_files/libs/quarto-html/tippy.umd.min.js"></script>
-  <script src="TwoPageStata_files/libs/quarto-html/anchor.min.js"></script>
-  <link href="TwoPageStata_files/libs/quarto-html/tippy.css" rel="stylesheet">
-  <link class="quarto-color-scheme" id="quarto-text-highlighting-styles" href="TwoPageStata_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-  <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" id="quarto-text-highlighting-styles" href="TwoPageStata_files/libs/quarto-html/quarto-syntax-highlighting-dark.css">
-  <script src="TwoPageStata_files/libs/bootstrap/bootstrap.min.js"></script>
-  <link href="TwoPageStata_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-  <link class="quarto-color-scheme" href="TwoPageStata_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="TwoPageStata_files/libs/bootstrap/bootstrap-dark.min.css">
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Andrew Grogan-Kaylor">
+<meta name="dcterms.date" content="2022-10-13">
+<meta name="description" content="An introduction to Stata">
+
+<title>Two Page Stata</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="TwoPageStata_files/libs/clipboard/clipboard.min.js"></script>
+<script src="TwoPageStata_files/libs/quarto-html/quarto.js"></script>
+<script src="TwoPageStata_files/libs/quarto-html/popper.min.js"></script>
+<script src="TwoPageStata_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="TwoPageStata_files/libs/quarto-html/anchor.min.js"></script>
+<link href="TwoPageStata_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="TwoPageStata_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="TwoPageStata_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="TwoPageStata_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="TwoPageStata_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="TwoPageStata_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="TwoPageStata_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+
+
 </head>
+
 <body>
+
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
   <nav id="TOC" role="doc-toc">
-<h2 id="toc-title">Table of contents</h2>
-<ul>
-<li><a href="#get-acquainted-with-your-data" class="nav-link active" data-scroll-target="#get-acquainted-with-your-data"> <span class="header-section-number">1</span> Get Acquainted With Your Data</a></li>
-<li><a href="#process-your-data" class="nav-link" data-scroll-target="#process-your-data"> <span class="header-section-number">2</span> Process Your Data</a></li>
-<li><a href="#descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics"> <span class="header-section-number">3</span> Descriptive Statistics</a></li>
-<li><a href="#bivariate-statistics" class="nav-link" data-scroll-target="#bivariate-statistics"> <span class="header-section-number">4</span> Bivariate Statistics</a></li>
-<li><a href="#multivariate-statistics" class="nav-link" data-scroll-target="#multivariate-statistics"> <span class="header-section-number">5</span> Multivariate Statistics</a></li>
-<li><a href="#graphinggraph-options" class="nav-link" data-scroll-target="#graphinggraph-options"> <span class="header-section-number">6</span> Graphing</a></li>
-<li><a href="#by-and-bysort" class="nav-link" data-scroll-target="#by-and-bysort"> <span class="header-section-number">7</span> <code>by:</code> and <code>bysort:</code></a></li>
-</ul>
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#get-acquainted-with-your-data" id="toc-get-acquainted-with-your-data" class="nav-link active" data-scroll-target="#get-acquainted-with-your-data"> <span class="header-section-number">1</span> Get Acquainted With Your Data</a></li>
+  <li><a href="#process-your-data" id="toc-process-your-data" class="nav-link" data-scroll-target="#process-your-data"> <span class="header-section-number">2</span> Process Your Data</a></li>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics"> <span class="header-section-number">3</span> Descriptive Statistics</a></li>
+  <li><a href="#bivariate-statistics" id="toc-bivariate-statistics" class="nav-link" data-scroll-target="#bivariate-statistics"> <span class="header-section-number">4</span> Bivariate Statistics</a></li>
+  <li><a href="#multivariate-statistics" id="toc-multivariate-statistics" class="nav-link" data-scroll-target="#multivariate-statistics"> <span class="header-section-number">5</span> Multivariate Statistics</a></li>
+  <li><a href="#graphinggraph-options" id="toc-graphinggraph-options" class="nav-link" data-scroll-target="#graphinggraph-options"> <span class="header-section-number">6</span> Graphing</a></li>
+  <li><a href="#by-and-bysort" id="toc-by-and-bysort" class="nav-link" data-scroll-target="#by-and-bysort"> <span class="header-section-number">7</span> <code>by:</code> and <code>bysort:</code></a></li>
+  </ul>
 </nav>
 </div>
 <main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Two Page Stata</h1>
+</div>
+
+<div>
+  <div class="description">
+    An introduction to Stata
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
-<div class="quarto-title"><h1 class="title display-7">Two Page Stata</h1><div class="quarto-description"><p>An introduction to Stata</p></div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Author</div><div class="quarto-title-meta-contents"><div class="quarto-title-authors"><div><div>
-<p>Andrew Grogan-Kaylor</p>
-</div></div></div></div></div><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">June 15, 2022</p></div></div></div></header>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Andrew Grogan-Kaylor </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 13, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
 
 <div class="cell">
 
@@ -104,8 +137,8 @@
 <section id="by-and-bysort" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> <code>by:</code> and <code>bysort:</code></h1>
 <p>In many cases you may want to look at the results of some calculation for x, or x and y over a third variable z. In such cases the by: syntax will be especially useful. For example to look at the correlation of x and y over different values of z: <code>bysort z: pwcorr x y, sig</code></p>
-
 </section>
+
 
 <div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
@@ -121,8 +154,26 @@
 </ol>
 </section></div></main>
 <!-- /main column -->
-<script type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
     for (let i=0; i < stylesheets.length; i++) {
       const stylesheet = stylesheets[i];
@@ -152,8 +203,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     manageTransitions('#quarto-margin-sidebar .nav-link', false);
     if (alternate) {
       enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
     } else {
       disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
     }
     manageTransitions('#quarto-margin-sidebar .nav-link', true);
     // Switch the toggles
@@ -239,7 +296,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.blur();
     // flash "checked"
     button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
     setTimeout(function() {
+      button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection
@@ -295,6 +355,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 </body></html>

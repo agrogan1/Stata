@@ -13,11 +13,10 @@ format:
     reference-location: document
     highlight-style: haddock
   pdf:
-    toc: false
     number-sections: true
     colorlinks: true
     reference-location: document
-    shift-heading-level-by: 1  
+    shift-heading-level-by: 0  
 geometry: margin=.25in
 description: An introduction to Stata
 ---
