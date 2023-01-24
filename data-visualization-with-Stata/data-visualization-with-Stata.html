@@ -186,10 +186,15 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
@@ -199,7 +204,7 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 <header id="title-block-header">
 <h1 class="title">Data Visualization With Stata</h1>
 <p class="author">Andy Grogan-Kaylor</p>
-<p class="date">13 Jul 2022</p>
+<p class="date">24 Jan 2023</p>
 </header>
 <h1 id="introduction">Introduction</h1>
 <style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
@@ -215,7 +220,9 @@ graphs look more professional.</li>
 <blockquote>
 <p>When this document is presented in <em>slide show format</em>, some
 slides may be long, and you may need to <em>scroll down</em> to see the
-full slide.</p>
+full slide. In slide show format use the left and right arrow keys to
+navigate through the slides. <code>b</code> will make the text bigger.
+<code>s</code> will make the text smaller.</p>
 </blockquote>
 <h1 id="what-are-variables">What are Variables?</h1>
 <ul>
@@ -423,7 +430,7 @@ comprehensive set of Stata graph schemes</a>.</p>
 <h2
 id="continuous-by-continuous-twoway-scatter-y-x-scheme...">Continuous by
 Continuous (<code>twoway scatter y x, scheme(...)</code>)</h2>
-<pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(michigan)
+<pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") mcolor(%25) scheme(michigan)
 </pre>
 <pre class='stata'>. graph export myscatterM.png, width(1000) replace
 file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterM.png
@@ -431,9 +438,9 @@ file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatter
 </pre>
 <figure>
 <img src="myscatterM.png" style="width:50.0%"
-alt="Scatterplot Of Tree Height By Age With Michigan Graph Scheme" />
+alt="Scatterplot Of Tree Height By Age With Michigan Graph Scheme and Transparent Color" />
 <figcaption aria-hidden="true">Scatterplot Of Tree Height By Age With
-Michigan Graph Scheme</figcaption>
+Michigan Graph Scheme and Transparent Color</figcaption>
 </figure>
 <pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(lean2) msymbol(o)
 </pre>
@@ -447,7 +454,7 @@ alt="Scatterplot Of Tree Height By Age With lean2 Graph Scheme" />
 <figcaption aria-hidden="true">Scatterplot Of Tree Height By Age With
 lean2 Graph Scheme</figcaption>
 </figure>
-<pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(s1color)
+<pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") mcolor(%25) scheme(s1color)
 </pre>
 <pre class='stata'>. graph export myscatterS.png, width(1000) replace
 file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatterS.png
@@ -455,9 +462,9 @@ file /Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/myscatter
 </pre>
 <figure>
 <img src="myscatterS.png" style="width:50.0%"
-alt="Scatterplot Of Tree Height By Age With s1color Graph Scheme" />
+alt="Scatterplot Of Tree Height By Age With s1color Graph Scheme and Transparent Color" />
 <figcaption aria-hidden="true">Scatterplot Of Tree Height By Age With
-s1color Graph Scheme</figcaption>
+s1color Graph Scheme and Transparent Color</figcaption>
 </figure>
 <pre class='stata'>. twoway scatter height age_base, title("Tree Height by Age") scheme(burd) msymbol(o) grap
 > hregion(lcolor(none))
