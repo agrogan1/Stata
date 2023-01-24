@@ -1,35 +1,23 @@
 ---
 title: "Two Page Stata"
+subtitle: "An Introduction to Stata"
 author: "Andrew Grogan-Kaylor"
-date: '`r format(Sys.Date(), format="%B %d, %Y")`'
+date: "today"
 format:
   html:
-    theme: 
-      light: united
-      dark: vapor
     toc: true
     number-sections: true
-    anchor-sections: true
-    reference-location: document
-    highlight-style: haddock
+    theme:
+      light: united
+      dark: vapor
   pdf:
     number-sections: true
     colorlinks: true
+    shift-heading-level-by: 0 
     reference-location: document
-    shift-heading-level-by: 0  
+    citation-location: document
 geometry: margin=.25in
-description: An introduction to Stata
 ---
-
-```{r global_options, echo=FALSE}
-
-# reference_docx: word-styles-reference-01.docx
-
-knitr::opts_chunk$set(echo=FALSE, 
-                      warning=FALSE, 
-                      message=FALSE)
-
-```
 
 An introduction to Stata in 2 pages.[^questions] Commands that you actually type into Stata are represented  in `monospace font`. x and y refer to variables in your data.  The treatment here is intended to be extremely brief, in order to create a kind of "cheat sheet" that can be presented in 2 pages.  More documentation on any command is available in the printed or PDF Stata manuals, or by typing `help command`.
 
@@ -108,6 +96,8 @@ Tabulating two categorical variables together gives you a cross-tabulation of th
 In many cases you may want to look at the results of some calculation for x, or x and y over a third variable z.  In such cases the by: syntax will be especially useful.  For example to look at the correlation of x and y over different values of z: `bysort z: pwcorr x y, sig`
 
 [^questions]: Comments, questions and corrections most welcome and may be sent to:  [Andrew Grogan-Kaylor](https://agrogan1.github.io/) @ [agrogan@umich.edu](agrogan@umich.edu). This document available on the web @ [https://agrogan1.github.io/Stata/](https://agrogan1.github.io/Stata/) 
+
+
 
 
 
