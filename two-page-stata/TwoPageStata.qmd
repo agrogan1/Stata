@@ -12,12 +12,21 @@ format:
       dark: vapor
   pdf:
     number-sections: true
-    colorlinks: true
     shift-heading-level-by: 0 
     reference-location: document
     citation-location: document
-geometry: margin=.25in
+    geometry: margin=.25in
+  latex:
+    documentclass: report
+    shift-heading-level-by: 1
+    geometry:
+      - top=1in
+      - left=1in
+      - right=1in
+    reference-location: document
 ---
+
+# Introduction
 
 An introduction to Stata in 2 pages.[^questions] Commands that you actually type into Stata are represented  in `monospace font`. x and y refer to variables in your data.  The treatment here is intended to be extremely brief, in order to create a kind of "cheat sheet" that can be presented in 2 pages.  More documentation on any command is available in the printed or PDF Stata manuals, or by typing `help command`.
 
