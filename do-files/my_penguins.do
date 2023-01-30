@@ -16,8 +16,6 @@ decisions that you have made. */
 automated, replicable and documented workflow 
 as well as finding and minimizing errors */
 
-/* this is a longer note where I say what I am doing */
-
 * A `*` character at the beginning of a line makes that line a comment
 
 /* You can also use asterisk slash to denote multiple lines of comment */
@@ -50,7 +48,19 @@ use "https://github.com/agrogan1/Stata/raw/master/do-files/penguins.dta", clear
 
 * you may need to describe specific variables
 
-describe
+describe // describe the variables
+
+codebook // full descriptions of all the variables; produces a lot of output
+
+******************************
+* descriptive statistics
+******************************
+
+summarize // descriptive statistics for all variables
+
+summarize body_mass_g // descriptive statistics for this variable
+
+tabulate species // tabulate this categorical variable
 
 ******************************
 * data wrangling
@@ -68,14 +78,6 @@ lookfor mass // look for a variable w a particular keyword
 generate big_penguin = body_mass_g > 4201.754 // create a big penguin variable
 
 tabulate big_penguin
-
-******************************
-* descriptive statistics
-******************************
-
-summarize body_mass_g
-
-tabulate species
 
 ******************************
 * ANOVA
@@ -101,9 +103,9 @@ est table M1 M2, b(%7.4f) star // nicely formatted table of regression estimates
 * graph 
 ******************************
 
-graph bar body_mass_g, over(species) scheme(s1color)
+graph bar body_mass_g, over(species) scheme(s1color) // bar graph
 
-
+twoway scatter culmen_length_mm body_mass_g, scheme(s1color) // scatterplot
 
 
 
