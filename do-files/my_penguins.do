@@ -75,7 +75,7 @@ lookfor mass // look for a variable w a particular keyword
 
 * recode variables
 
-generate big_penguin = body_mass_g > 4201.754 // create a big penguin variable
+generate big_penguin = body_mass_g > 4000 // create a big penguin variable
 
 tabulate big_penguin
 
