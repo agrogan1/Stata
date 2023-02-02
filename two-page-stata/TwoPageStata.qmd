@@ -52,7 +52,7 @@ Data with missing values, often represented as negative numbers (e.g. -99, -9, -
 
 `recode x (oldvalue = newvalue), generate(z)` will recode a variable into a new variable, often a good idea.
 
-`recode _all (-99/-1 = .)` will recode all negative numbers from -99 to -1 to missing for all variables in your data.  `recode x (7/9 = .)` changes 7 through 9 to be missing for x.  Indeed, `recode` will change specific values in your data to anything you want, not just missing values.[^encode] 
+`recode x y z (-99/-1 = .)` will recode negative numbers from -99 to -1 to missing for x, y and z variables in your data.  `recode x (7/9 = .)` changes 7 through 9 to be missing for x.  Indeed, `recode` will change specific values in your data to anything you want, not just missing values.[^encode] 
 
 [^encode]: `encode x, generate(x_NUMERIC)` is often useful to create a *numeric* version of *string* variables.
 

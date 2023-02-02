@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Grogan-Kaylor">
-<meta name="dcterms.date" content="2023-01-30">
+<meta name="dcterms.date" content="2023-02-02">
 
 <title>Two Page Stata</title>
 <style>
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 30, 2023</p>
+      <p class="date">February 2, 2023</p>
     </div>
   </div>
   
@@ -110,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
 <h1 data-number="3"><span class="header-section-number">3</span> Process Your Data</h1>
 <p>Data with missing values, often represented as negative numbers (e.g.&nbsp;-99, -9, -8) need to be recoded so that the missing values are represented as a missing value character (“.”) that Stata knows to exclude from calculations.</p>
 <p><code>recode x (oldvalue = newvalue), generate(z)</code> will recode a variable into a new variable, often a good idea.</p>
-<p><code>recode _all (-99/-1 = .)</code> will recode all negative numbers from -99 to -1 to missing for all variables in your data. <code>recode x (7/9 = .)</code> changes 7 through 9 to be missing for x. Indeed, <code>recode</code> will change specific values in your data to anything you want, not just missing values.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p><code>recode x y z (-99/-1 = .)</code> will recode negative numbers from -99 to -1 to missing for x, y and z variables in your data. <code>recode x (7/9 = .)</code> changes 7 through 9 to be missing for x. Indeed, <code>recode</code> will change specific values in your data to anything you want, not just missing values.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>It is often convenient to <code>rename</code> your variables so that the variables have more intuitively understandable names e.g.&nbsp;<code>rename x depression</code>.</p>
 <p>You can create new variables out of old variables using <code>generate newvar = expression</code> e.g.&nbsp;<code>generate newvar = oldvar1 + oldvar2</code>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <p>It is sometimes useful to <code>sort</code> your data. <code>sort x</code> will sort your data by the values of x.</p>
