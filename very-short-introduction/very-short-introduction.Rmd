@@ -5,12 +5,12 @@ description: |
 author: "Andy Grogan-Kaylor"
 date: "`r Sys.Date()`"
 output:
-  distill::distill_article:
-    highlight: haddock
-    toc: no
   pdf_document: 
     toc: no
     latex_engine: xelatex
+  distill::distill_article:
+    highlight: haddock
+    toc: no
   html_document:
     highlight: haddock
 mainfont: Futura
@@ -34,17 +34,21 @@ The general idea of most Stata commands is `command variable(s), options`. Often
 | Descriptive statistics | `summarize x y` |
 | Frequencies | `tabulate x` |
 | Correlation | `corr x y` |
-| Regression | `regress y x` |
-| Logistic Regression | `logit y x, or` [^logit] |
-| Multilevel Model | `mixed y x || group:`|
-| Structural Equation Modeling | `sem (y <- x m) (m <- x)` |
+| Regression | `regress y x z` |
+| Logistic Regression | `logit y x z, or` [^logit] |
+| Ordinal Logistic Regression | `ologit y x z, or` [^ologit] |
+| Multinomial Logistic Regression | `mlogit y x z, rr` [^mlogit] |
+| Multilevel Model | `mixed y x z || group: x`|
+| Structural Equation Modeling | `sem (y <- x m z) (m <- x z)` |
 | Histogram | `histogram x` [^graph]|
 | Bar Graph | `graph bar, over(x)` |
 | Bar Graph (of means) | `graph bar y, over(x)` |
 | Pie Chart | `graph pie, over(x)` |
 | Scatterplot | `twoway scatter y x` |
 
-[^logit]: Here we need to use the `,or` option to ask for *odds ratios* instead of *logit coefficients*.
+[^logit]: Here we need to use the `, or` option to ask for *odds ratios* instead of *logit coefficients*.
+[^ologit]: Here again we need to use the `, or` option to ask for *odds ratios* instead of *logit coefficients*.
+[^mlogit]: Here we need to use the `, rr` option to ask for *risk ratios* instead of *logit coefficients*.
 [^graph]: For graphing commands, you can often add options after a `,`. e.g. `title("title of the graph")`, `xtitle("title of the x axis")`, `ytitle("title of the y axis")`.
 
 
