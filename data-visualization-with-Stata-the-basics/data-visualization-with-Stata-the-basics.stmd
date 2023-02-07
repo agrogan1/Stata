@@ -18,11 +18,15 @@ This is a quick guide to these ideas using the [Palmer Penguins Data](https://gi
 
 ![Palmer Penguins Illustration from @allison_horst](lter_penguins.png){width=20%}  ![Culmen Depth from @allison_horst](culmen_depth.png){width=20%}
 
+# Setup
+
 ```s
     clear all
 
     use "https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata-the-basics/penguins.dta", clear
 ```
+
+Or, click [here](https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata-the-basics/penguins.dta) to download the data. 
 
 I am not a particular fan of Stata's default `s2color` graph scheme, so I am going to make use of the graph scheme entitled `s1color`.
 
