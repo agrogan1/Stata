@@ -2,16 +2,14 @@
 
 clear all
 
-* cd "C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme" // Windows
-
 cd "/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme" // bilingual :-0
 
 doedit index.stmd
 
 markstat using index.stmd // HTML
 
-* markstat using index.stmd, pdf // PDF
+graph close _all
 
-* markstat using index.stmd, slides(santiago+) bundle
+markstat using index.stmd, pdf // PDF
 
 graph close _all
