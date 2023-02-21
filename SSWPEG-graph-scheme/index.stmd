@@ -1,0 +1,191 @@
+% Installing and Using the SSWPEG Graph Scheme
+% Andy Grogan-Kaylor
+% `s c(current_date)` `s c(current_time)`
+
+---
+geometry: margin=1 in
+---
+
+<style>body {max-width: 90%;} h1 {color: black;} h2 {color: black;} blockquote {border-left: 5px solid gold; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
+
+# Introduction
+
+```{s/}
+
+    clear all
+
+    quietly set obs 7
+
+    generate x = _n
+	
+  	quietly save "graphdemo.dta", replace
+
+    graph bar (count), ///
+	over(x, axis(off)) asyvars ///
+	ytitle(" ") ylabel(none) ///
+	yscale(lcolor(none)) ///
+	title(SSWPEG Graph Scheme Colors) ///
+	scheme(SSWPEG) ///
+	ysize(1.5) scale(2) ///
+	name(SSWPEG, replace)
+	
+    quietly graph export SSWPEG.png, name("SSWPEG") width(1500) replace
+
+```
+
+![Colors in SSWPEG Scheme](SSWPEG.png){width=75%}
+
+Stata provides the use of graph schemes that improve the overall look of graphs.
+
+See `help scheme`.
+
+The *SSWPEG graph scheme* makes use of colors often used by the School of Social Work Program Evaluation (SSWPEG) group.
+
+# Installation
+
+Use of the *SSWPEG graph scheme* depends on installation of the `lean2` graph scheme developed by Svend Juul.
+
+Type `findit lean2` and click through on the install links to install `lean2`.
+      
+Then type `net from https://agrogan1.github.io/Stata` and click the links to install.
+
+# Example Data
+
+We are going to use the famous "iris" data collected by Edgar Anderson.
+
+```{s}
+    clear all
+	
+	use "iris.dta", clear
+
+	summarize
+```
+
+# Histogram
+
+```{s}
+    histogram Petal_Length, scheme(SSWPEG)
+```
+
+```{s/}	
+    quietly graph export myhistogram.png, width(1000) replace
+```
+	
+![Histogram Using SSWPEG Scheme](myhistogram.png){width=50%}
+
+# Histogram With Transparency
+
+```{s}
+    histogram Petal_Length, fcolor(%50) scheme(SSWPEG)
+```
+
+```{s/}	
+    quietly graph export myhistogram2.png, width(1000) replace
+```
+	
+![Histogram Using SSWPEG Scheme And Slightly Transparent Bars](myhistogram2.png){width=50%}
+
+
+# Bar Graph
+
+We graph `over` species of irises. The unintuitively named `asyvars` option ensures that the bars of the graph are different colors rather than all the same color.
+
+```{s}
+    graph bar Petal_Length, over(Species) scheme(SSWPEG) asyvars
+```
+
+```{s/}	
+    quietly graph export mybargraph.png, width(1000) replace
+```
+	
+![Bar Graph Using SSWPEG Scheme](mybargraph.png){width=50%}
+
+# Bar Graph With Transparency
+
+```{s}
+    graph bar Petal_Length, over(Species) intensity(70) scheme(SSWPEG) asyvars
+```
+
+```{s/}
+    quietly graph export mybargraph2.png, width(1000) replace
+```
+	
+![Bar Graph Using SSWPEG Scheme and Slightly Transparent Bars](mybargraph2.png){width=50%}
+
+
+# Scatterplot
+
+```{s}
+    twoway (scatter Petal_Length Petal_Width) ///
+	(lfit Petal_Length Petal_Width), ///
+	scheme(SSWPEG)
+```
+
+```{s/}	
+	quietly graph export myscatter.png, width(1000) replace
+```
+	
+![Scatterplot Using SSWPEG Scheme](myscatter.png){width=50%}
+
+# Scatterplot With Transparency
+
+```{s}
+    twoway (scatter Petal_Length Petal_Width, mcolor(%30)) /// markers have 30% transparency
+	(lfit Petal_Length Petal_Width), ///
+	scheme(SSWPEG)
+```
+
+```{s/}	
+	quietly graph export myscatter2.png, width(1000) replace
+```
+	
+![Scatterplot Using SSWPEG Scheme And Slightly Transparent Markers](myscatter2.png){width=50%}
+
+# Legend Placement
+
+Sometimes you may wish to have the legend of the graph placed at the *bottom* of the graph. The `pos(6)` suboption inside the `legend` option will place the legend at the bottom, while you can manually control the number of legend rows with the `rows` suboption.
+
+```{s}
+    graph bar Petal_Length, over(Species) scheme(SSWPEG) asyvars legend(pos(6) rows(1))
+```
+
+```{s/}
+    quietly graph export mybargraph3.png, width(1000) replace
+```
+	
+![Bar Graph Using SSWPEG Scheme and Modified Legend](mybargraph3.png){width=50%}
+
+# Individual SSWPEG Colors
+
+Individual University of Michigan colors are listed below. 
+
+
+| Color             |  RGB          |  Hex
+--------------------|---------------|----------
+| Blue              | 0 46 95       | #002e5f
+| Pale Yellow       | 243 205 116   | #f3cd8d
+| Teal              | 120 152 141   | #78988d
+| Light Blue        | 143 196 255   | #8fc4ff
+| Gray              | 191 191 191   |
+| Dark Gold         | 238 178 27    | #EEB21B
+| Dark Teal         | 60 78 72      |
+
+
+Stata can use RGB codes for colors. As an example.
+
+```{s}
+    twoway (scatter Petal_Length Petal_Width, mcolor("120 152 141 %50")) /// markers are Teal with 50% transparency
+	(lfit Petal_Length Petal_Width, lcolor("238 178 27")), /// Dark Gold line
+	scheme(SSWPEG)
+```
+
+```{s/}	
+	quietly graph export myscatter3.png, width(1000) replace
+```
+
+![Scatterplot Using SSWPEG Scheme, Selected Colors, And Slightly Transparent Markers](myscatter3.png){width=50%}
+
+
+
+
+
