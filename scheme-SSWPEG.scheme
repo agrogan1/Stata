@@ -1,0 +1,109 @@
+* Scheme to create Stata graphs
+* with SSW PEG colors
+
+* Designed by Andy Grogan-Kaylor (agrogan@umich.edu)
+* Questions & comments welcome
+
+* This scheme uses as its foundation, the wonderful lean2 scheme 
+* developed by Svend Juul, University of Aarhus, Denmark
+
+* Some inspiration is drawn from https://brand.umich.edu/design-resources/colors/
+
+#include lean2
+
+* histogram
+
+color histogram "0 46 95"
+
+* bar chart
+
+color p1bar "0 46 95"
+color p2bar "243 205 116"
+color p3bar "120 152 141"
+color p4bar "143 196 255"
+color p5bar "191 191 191"
+color p6bar "238 178 27"
+color p7bar "60 78 72"
+
+* pie chart
+
+color p1pie "0 46 95"
+color p2pie "243 205 116"
+color p3pie "120 152 141"
+color p4pie "143 196 255"
+color p5pie "191 191 191"
+color p6pie "238 178 27"
+color p7pie "60 78 72"
+
+* scatterplot
+
+symbol p1 circle
+color p1markfill "0 46 95"
+color p1markline "0 46 95"
+
+symbol p2 circle
+color p2markfill "243 205 116"
+color p2markline "243 205 116"
+
+symbol p3 circle
+color p3markfill "120 152 141"
+color p3markline "120 152 141"
+
+symbol p4 circle
+color p3markfill "143 196 255"
+color p3markline "143 196 255"
+
+symbol p5 circle
+color p3markfill "191 191 191"
+color p3markline "191 191 191"
+
+* line chart
+
+color p1lineplot "0 46 95"
+linewidth p1lineplot thick
+
+color p2lineplot "243 205 116"
+linewidth p2lineplot thick
+
+color p3lineplot "120 152 141"
+linewidth p3lineplot thick
+
+color p4lineplot "143 196 255"
+linewidth p4lineplot thick
+
+color p5lineplot "191 191 191"
+linewidth p5lineplot thick
+
+color p6lineplot "238 178 27"
+linewidth p6lineplot thick
+
+color p7lineplot "60 78 72"
+linewidth p7lineplot thick
+
+* area chart
+
+color p1area "0 46 95"
+color p2area "243 205 116"
+color p3area "120 152 141"
+color p4area "143 196 255"
+color p5area "191 191 191"
+color p6area "238 178 27"
+color p7area "60 78 72"
+
+* plot elements
+
+color p "0 46 95"
+color p1 "0 46 95"
+color p2 "243 205 116"
+color p3 "120 152 141"
+color p4 "143 196 255"
+color p5 "191 191 191"
+color p6 "238 178 27"
+color p7 "60 78 72"
+
+
+
+
+
+
+
