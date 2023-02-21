@@ -18,5 +18,7 @@ p unicef2 A graph scheme with official UNICEF colors (color order switched to im
 
 p UN A graph scheme with official UN colors
 
+p SSWPEG A graph scheme with colors used by SSW-PEG 
+
 
 
