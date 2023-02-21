@@ -30,11 +30,11 @@ geometry: margin=1 in
 	ysize(1.5) scale(2) ///
 	name(michigan, replace)
 	
-    quietly graph export MichiganColorsStata.png, name("michigan") width(750) replace
+    quietly graph export MichiganColorsStata.png, name("michigan") width(1500) replace
 
 ```
 
-![Colors in Michigan Graph Scheme](MichiganColorsStata.png)
+![Colors in Michigan Graph Scheme](MichiganColorsStata.png){width=75%}
 
 Stata provides the use of graph schemes that improve the overall look of graphs.
 
@@ -69,10 +69,10 @@ We are going to use the famous "iris" data collected by Edgar Anderson.
 ```
 
 ```{s/}	
-    quietly graph export myhistogram.png, width(750) replace
+    quietly graph export myhistogram.png, width(1500) replace
 ```
 	
-![Histogram Using Michigan Scheme](myhistogram.png)
+![Histogram Using Michigan Scheme](myhistogram.png){width=50%}
 
 # Histogram With Transparency
 
@@ -81,10 +81,10 @@ We are going to use the famous "iris" data collected by Edgar Anderson.
 ```
 
 ```{s/}	
-    quietly graph export myhistogram2.png, width(750) replace
+    quietly graph export myhistogram2.png, width(1500) replace
 ```
 	
-![Histogram Using Michigan Scheme And Slightly Transparent Bars](myhistogram2.png)
+![Histogram Using Michigan Scheme And Slightly Transparent Bars](myhistogram2.png){width=50%}
 
 
 # Bar Graph
@@ -94,10 +94,10 @@ We are going to use the famous "iris" data collected by Edgar Anderson.
 ```
 
 ```{s/}	
-    quietly graph export mybargraph.png, width(750) replace
+    quietly graph export mybargraph.png, width(1500) replace
 ```
 	
-![Bar Graph Using Michigan Scheme](mybargraph.png)
+![Bar Graph Using Michigan Scheme](mybargraph.png){width=50%}
 
 # Bar Graph With Transparency
 
@@ -106,10 +106,10 @@ We are going to use the famous "iris" data collected by Edgar Anderson.
 ```
 
 ```{s/}
-    quietly graph export mybargraph2.png, width(750) replace
+    quietly graph export mybargraph2.png, width(1500) replace
 ```
 	
-![Bar Graph Using Michigan Scheme and Slightly Transparent Bars](mybargraph2.png)
+![Bar Graph Using Michigan Scheme and Slightly Transparent Bars](mybargraph2.png){width=50%}
 
 
 # Scatterplot
@@ -121,10 +121,10 @@ We are going to use the famous "iris" data collected by Edgar Anderson.
 ```
 
 ```{s/}	
-	quietly graph export myscatter.png, width(750) replace
+	quietly graph export myscatter.png, width(1500) replace
 ```
 	
-![Scatterplot Using Michigan Scheme](myscatter.png)
+![Scatterplot Using Michigan Scheme](myscatter.png){width=50%}
 
 # Scatterplot With Transparency
 
@@ -135,10 +135,10 @@ We are going to use the famous "iris" data collected by Edgar Anderson.
 ```
 
 ```{s/}	
-	quietly graph export myscatter2.png, width(750) replace
+	quietly graph export myscatter2.png, width(1500) replace
 ```
 	
-![Scatterplot Using Michigan Scheme And Slightly Transparent Markers](myscatter2.png)
+![Scatterplot Using Michigan Scheme And Slightly Transparent Markers](myscatter2.png){width=50%}
 
 # Legend Placement
 
@@ -149,10 +149,10 @@ Sometimes you may wish to have the legend of the graph placed at the *bottom* of
 ```
 
 ```{s/}
-    quietly graph export mybargraph3.png, width(750) replace
+    quietly graph export mybargraph3.png, width(1500) replace
 ```
 	
-![Bar Graph Using Michigan Scheme and Modified Legend](mybargraph3.png)
+![Bar Graph Using Michigan Scheme and Modified Legend](mybargraph3.png){width=50%}
 
 # Individual Michigan Colors
 
@@ -197,10 +197,10 @@ Stata can use RGB codes for colors. As an example.
 ```
 
 ```{s/}	
-	quietly graph export myscatter3.png, width(750) replace
+	quietly graph export myscatter3.png, width(1500) replace
 ```
 
-![Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers](myscatter3.png)
+![Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers](myscatter3.png){width=50%}
 
 # Michigan2 Graph Scheme
 
@@ -231,7 +231,7 @@ This graph scheme can be installed using the same instructions as above. The `mi
 	name(michigan2, replace)
 	
     quietly graph export MichiganColorsStata2.png, ///
-	name("michigan2") width(750) replace
+	name("michigan2") width(1500) replace
 	
 	quietly graph combine michigan michigan2, ///
 	colfirst cols(1) ///
@@ -239,10 +239,10 @@ This graph scheme can be installed using the same instructions as above. The `mi
 	name(michigancombined, replace)
 	
 	quietly graph export MichiganColorsStata3.png, ///
-	name("michigancombined") width(750) replace
+	name("michigancombined") width(1500) replace
 	
 ```
 
-![Colors in Michigan Graph Schemes](MichiganColorsStata3.png)
+![Colors in Michigan Graph Schemes](MichiganColorsStata3.png){width=50%}
 
 

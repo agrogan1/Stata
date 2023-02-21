@@ -1,17 +1,17 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme/index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}22 Jul 2022, 09:15:41
+ {txt}opened on:  {res}21 Feb 2023, 16:13:53
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}22 Jul 2022
+{res}21 Feb 2023
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}09:15:41
+{res}16:13:53
 {txt}
 {com}. //_3q
 . 
@@ -37,7 +37,7 @@
 > name(michigan, replace)
 {res}{txt}
 {com}.     
-. quietly graph export MichiganColorsStata.png, name("michigan") width(750) replace
+. quietly graph export MichiganColorsStata.png, name("michigan") width(1500) replace
 {txt}
 {com}. 
 . //_4
@@ -62,26 +62,26 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 {txt}(bin={res}12{txt}, start={res}1{txt}, width={res}.49166667{txt})
 {res}{txt}
 {com}. //_6q
-. quietly graph export myhistogram.png, width(750) replace
+. quietly graph export myhistogram.png, width(1500) replace
 {txt}
 {com}. //_7
 . histogram Petal_Length, fcolor(%50) scheme(michigan)
 {txt}(bin={res}12{txt}, start={res}1{txt}, width={res}.49166667{txt})
 {res}{txt}
 {com}. //_8q
-. quietly graph export myhistogram2.png, width(750) replace
+. quietly graph export myhistogram2.png, width(1500) replace
 {txt}
 {com}. //_9
 . graph bar Petal_Length, over(Species) scheme(michigan) asyvars
 {res}{txt}
 {com}. //_10q
-. quietly graph export mybargraph.png, width(750) replace
+. quietly graph export mybargraph.png, width(1500) replace
 {txt}
 {com}. //_11
 . graph bar Petal_Length, over(Species) intensity(70) scheme(michigan) asyvars
 {res}{txt}
 {com}. //_12q
-. quietly graph export mybargraph2.png, width(750) replace
+. quietly graph export mybargraph2.png, width(1500) replace
 {txt}
 {com}. //_13
 . twoway (scatter Petal_Length Petal_Width) ///
@@ -89,7 +89,7 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 > scheme(michigan)
 {res}{txt}
 {com}. //_14q
-. quietly graph export myscatter.png, width(750) replace
+. quietly graph export myscatter.png, width(1500) replace
 {txt}
 {com}. //_15
 . twoway (scatter Petal_Length Petal_Width, mcolor(%30)) /// markers have 30% transparency
@@ -97,13 +97,13 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 > scheme(michigan)
 {res}{txt}
 {com}. //_16q
-. quietly graph export myscatter2.png, width(750) replace
+. quietly graph export myscatter2.png, width(1500) replace
 {txt}
 {com}. //_17
 . graph bar Petal_Length, over(Species) scheme(michigan) asyvars legend(pos(6) rows(1))
 {res}{txt}
 {com}. //_18q
-. quietly graph export mybargraph3.png, width(750) replace
+. quietly graph export mybargraph3.png, width(1500) replace
 {txt}
 {com}. //_19
 . twoway (scatter Petal_Length Petal_Width, mcolor("112 32 130 %30")) /// markers are Amethyst with 30% transparency
@@ -111,7 +111,7 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 > scheme(michigan)
 {res}{txt}
 {com}. //_20q
-. quietly graph export myscatter3.png, width(750) replace
+. quietly graph export myscatter3.png, width(1500) replace
 {txt}
 {com}. //_21q
 . 
@@ -139,7 +139,7 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 {res}{txt}
 {com}.     
 . quietly graph export MichiganColorsStata2.png, ///
-> name("michigan2") width(750) replace
+> name("michigan2") width(1500) replace
 {txt}
 {com}.     
 . quietly graph combine michigan michigan2, ///
@@ -149,15 +149,15 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 {txt}
 {com}.     
 . quietly graph export MichiganColorsStata3.png, ///
-> name("michigancombined") width(750) replace
+> name("michigancombined") width(1500) replace
 {txt}
 {com}.     
 . //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme/index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}22 Jul 2022, 09:15:59
+ {txt}closed on:  {res}21 Feb 2023, 16:14:24
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
