@@ -3,11 +3,11 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 7 Feb 2023, 09:07:49
+ {txt}opened on:  {res}26 Feb 2023, 13:31:23
 {txt}
 {com}. //_1
 . display c(current_date)
-{res} 7 Feb 2023
+{res}26 Feb 2023
 {txt}
 {com}. //_2
 . clear all
@@ -60,7 +60,7 @@
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 7 Feb 2023, 09:08:00
+ {txt}closed on:  {res}26 Feb 2023, 13:31:33
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

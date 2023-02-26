@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/SSWPEG-graph-scheme/index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}21 Feb 2023, 13:22:50
+ {txt}opened on:  {res}26 Feb 2023, 13:35:15
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}21 Feb 2023
+{res}26 Feb 2023
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}13:22:50
+{res}13:35:15
 {txt}
 {com}. //_3q
 . 
@@ -118,7 +118,7 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/SSWPEG-graph-scheme/index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}21 Feb 2023, 13:23:10
+ {txt}closed on:  {res}26 Feb 2023, 13:35:35
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
