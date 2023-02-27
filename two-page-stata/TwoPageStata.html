@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Grogan-Kaylor">
-<meta name="dcterms.date" content="2023-02-09">
+<meta name="dcterms.date" content="2023-02-27">
 
 <title>Two Page Stata</title>
 <style>
@@ -38,6 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="TwoPageStata_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="TwoPageStata_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -56,7 +57,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#bivariate-statistics" id="toc-bivariate-statistics" class="nav-link" data-scroll-target="#bivariate-statistics"><span class="toc-section-number">5</span>  Bivariate Statistics</a></li>
   <li><a href="#multivariate-statistics" id="toc-multivariate-statistics" class="nav-link" data-scroll-target="#multivariate-statistics"><span class="toc-section-number">6</span>  Multivariate Statistics</a></li>
   <li><a href="#graphinggraph-options" id="toc-graphinggraph-options" class="nav-link" data-scroll-target="#graphinggraph-options"><span class="toc-section-number">7</span>  Graphing</a></li>
-  <li><a href="#by-and-bysort" id="toc-by-and-bysort" class="nav-link" data-scroll-target="#by-and-bysort"><span class="toc-section-number">8</span>  <code>by:</code> and <code>bysort:</code></a></li>
   </ul>
 </nav>
 </div>
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 9, 2023</p>
+      <p class="date">February 27, 2023</p>
     </div>
   </div>
   
@@ -95,6 +95,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>An introduction to Stata in 2 pages.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Commands that you actually type into Stata are represented in <code>monospace font</code>. x and y refer to variables in your data. The treatment here is intended to be extremely brief, in order to create a kind of “cheat sheet” that can be presented in 2 pages. More documentation on any command is available in the printed or PDF Stata manuals, or by typing <code>help command</code>.</p>
+<p>So many projects have the same, or similar, workflow.</p>
+<p><span class="math display">\[\text{have a question} \rightarrow \text{get data} \rightarrow \text{process and clean data} \rightarrow\]</span> <span class="math display">\[\text{analyze data}  \rightarrow \text{visualize data} \rightarrow \text{make conclusions}\]</span></p>
+<blockquote class="blockquote">
+<p>A little bit of Stata can go a long way.</p>
+</blockquote>
 <p>The general idea of most Stata commands is <code>command variable(s), options</code>. Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults.</p>
 <p>The Stata interface makes it extremely easy to do rapid interactive data analysis. Hit <strong>PAGE-UP</strong> to recall the most recent command, which you can then quickly edit and resubmit.</p>
 <p>Use the <strong>DO FILE EDITOR</strong> to save Stata commands that you want to use again, and to create an <em>audit trail</em> of your work so that your workflow is <em>documented</em> and <em>replicable.</em> <code>log using filename, replace</code> will save a log file of your results. <code>log close</code> closes the log file.</p>
@@ -109,22 +114,18 @@ ul.task-list li input[type="checkbox"] {
 <section id="process-your-data" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Process Your Data</h1>
 <p>Data with missing values, often represented as negative numbers (e.g.&nbsp;-99, -9, -8) need to be recoded so that the missing values are represented as a missing value character (“.”) that Stata knows to exclude from calculations.</p>
-<p><code>recode x (oldvalue = newvalue), generate(z)</code> will recode a variable into a <em>new</em> variable, <strong>often a good idea</strong>.</p>
-<p><code>recode x y z (-99/-1 = .)</code> will recode negative numbers from -99 to -1 to missing for x, y and z variables in your data. <code>recode x (7/9 = .)</code> changes 7 through 9 to be missing for x. Indeed, <code>recode</code> will change specific values in your data to anything you want, not just missing values.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p><code>recode x (oldvalue = newvalue), generate(z)</code> will recode a variable into a <em>new</em> variable, <strong>often a good idea</strong>. <code>recode x y z (-99/-1 = .)</code> will recode negative numbers from -99 to -1 to missing for x, y and z variables in your data. <code>recode x (7/9 = .)</code> changes 7 through 9 to be missing for x. Indeed, <code>recode</code> will change specific values in your data to anything you want, not just missing values.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>It is often convenient to <code>rename</code> your variables so that the variables have more intuitively understandable names e.g.&nbsp;<code>rename x depression</code>.</p>
 <p>You can create new variables out of old variables using <code>generate newvar = expression</code> e.g.&nbsp;<code>generate newvar = oldvar1 + oldvar2</code>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <p>It is sometimes useful to <code>sort</code> your data. <code>sort x</code> will sort your data by the values of x.</p>
 </section>
 <section id="descriptive-statistics" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Descriptive Statistics</h1>
-<p><code>summarize</code> gives you basic descriptive statistics for a variable, such as the mean (average). Especially useful for continuous variables. E.g. <code>summarize x y</code> or <code>summarize x y, detail</code>.</p>
-<p><code>tabulate</code> gives you a frequency distribution for your variable. Especially useful for categorical variables. e.g.&nbsp;<code>tabulate x</code>.</p>
+<p><code>summarize</code> gives you basic descriptive statistics for a variable, such as the mean (average). Especially useful for continuous variables. E.g. <code>summarize x y</code> or <code>summarize x y, detail</code>. <code>tabulate</code> gives you a frequency distribution for your variable. Especially useful for categorical variables. e.g.&nbsp;<code>tabulate x</code>.</p>
 </section>
 <section id="bivariate-statistics" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Bivariate Statistics</h1>
-<p>Tabulating two categorical variables together gives you a cross-tabulation of those variables, e.g <code>tabulate x y, row col chi2</code></p>
-<p><code>pwcorr x y, sig</code> gives you the pairwise correlation of two continuous variables.</p>
-<p><code>oneway x z, tabulate</code> gives you a oneway ANOVA of continuous variable x over categorical variable z.</p>
+<p>Tabulating two categorical variables together gives you a cross-tabulation of those variables, e.g <code>tabulate x y, row col chi2</code>. <code>pwcorr x y, sig</code> gives you the pairwise correlation of two continuous variables. <code>oneway x z, tabulate</code> gives you a oneway ANOVA of continuous variable x over categorical variable z.</p>
 </section>
 <section id="multivariate-statistics" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Multivariate Statistics</h1>
@@ -135,10 +136,6 @@ ul.task-list li input[type="checkbox"] {
 <p><code>histogram x</code> will give you a nice display of one variable.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
 <p><code>twoway scatter y x</code> gives you a scatterplot of your data. <code>twoway lfit y x</code> will give you a linear fit graph. The two syntaxes may be combined e.g.&nbsp;<code>twoway (scatter y x) (lfit y x)</code>.</p>
 <p><code>graph bar, over(x)</code> is useful for creating a bar graph of the counts of a categorical variable x. <code>graph bar y, over(x)</code> will create a bar graph of the means of y over categories of x.</p>
-</section>
-<section id="by-and-bysort" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> <code>by:</code> and <code>bysort:</code></h1>
-<p>In many cases you may want to look at the results of some calculation for x, or x and y over a third variable z. In such cases the by: syntax will be especially useful. For example to look at the correlation of x and y over different values of z: <code>bysort z: pwcorr x y, sig</code></p>
 </section>
 
 
