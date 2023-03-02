@@ -1,10 +1,14 @@
+* test of putdocx for saving Stata tables in Word format
+
+* setup
+
 clear all // clear workspace
 
-* cd "C:\Users\agrogan\Box Sync\Box Sync\GitHub\Stata\putdocx-test" // Windows
+cd "/Users/agrogan/Desktop/GitHub/Stata/putdocx-test" // change directory
 
-cd "/Users/agrogan/Desktop/GitHub/Stata/putdocx-test" // Mac
+use "https://github.com/agrogan1/multilevel/raw/master/mlm-R2-gutten/gutten.dta", clear // use tree data as example
 
-use "https://github.com/agrogan1/multilevel/raw/master/mlm-R2-gutten/gutten.dta", clear
+describe // dscribe the data
 
 * start the Word document
 
