@@ -1,7 +1,7 @@
 v 3
 d scheme-Mtransparent.scheme  Graph scheme in University of Michigan colors
 d with some built in transparency for histograms and scatterplots
-d Andrew Grogan-Kaylor, agrogan@umich.edu, www.umich.edu/~agrogan
+d Andrew Grogan-Kaylor, agrogan@umich.edu, https://agrogan1.github.io/
 
 d
 d This graph scheme depends on Svend Juul's "lean2" graphic scheme.
