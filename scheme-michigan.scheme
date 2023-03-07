@@ -42,7 +42,7 @@ color p9pie "87 82 148"
 * scatterplot
 
 symbol p1 circle
-color p1markfill "0 39 76"
+color p1markfill "0 39 76 %30"
 color p1markline "0 39 76"
 
 symbol p2 circle
