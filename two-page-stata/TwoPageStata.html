@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Grogan-Kaylor">
-<meta name="dcterms.date" content="2023-02-27">
+<meta name="dcterms.date" content="2023-03-14">
 
 <title>Two Page Stata</title>
 <style>
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 27, 2023</p>
+      <p class="date">March 14, 2023</p>
     </div>
   </div>
   
@@ -107,6 +107,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="get-acquainted-with-your-data" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Get Acquainted With Your Data</h1>
 <p>Once you are in the right directory, <code>use "mydata.dta"</code> will open your data. <code>save "mydata.dta", replace</code> will save your data.</p>
+<p>It is good practice to start by <em>looking at</em> your data. <code>browse x y z</code> will open a data window with variables <code>x</code>, <code>y</code> and <code>z</code>.</p>
 <p><code>codebook x y</code> will produce a nicely formatted codebook of selected variables, which is especially useful if you have added variable labels and value labels. <code>codebook</code> is especially useful for seeing how numerical values are associated with value labels. <code>codebook</code> by itself will list every variable in your data and generate a lot of [probably too much] output.</p>
 <p><code>lookfor</code> allows you to find variables that contain a specified keyword. This is especially useful in large data sets with many variables. Often abbreviated keywords are the most helpful. e.g.&nbsp;to find a poverty variable, type <code>lookfor pov</code>.</p>
 <p>With very large data sets, it may be helpful to use <code>keep x y z</code> to only keep the variables with which you are working.</p>

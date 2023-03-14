@@ -47,6 +47,8 @@ Use the **DO FILE EDITOR** to save Stata commands that you want to use again, an
 
 Once you are in the right directory, `use "mydata.dta"` will open your data. `save "mydata.dta", replace` will save your data. 
 
+It is good practice to start by *looking at* your data. `browse x y z` will open a data window with variables `x`, `y` and `z`.
+
 `codebook x y` will produce a nicely formatted codebook of selected variables, which is especially useful if you have added variable labels and value labels. `codebook` is especially useful for seeing how numerical values are associated with value labels.  `codebook` by itself will list every variable in your data and generate a lot of [probably too much] output.
 
 `lookfor` allows you to find variables that contain a specified keyword.  This is especially useful in large data sets with many variables. Often abbreviated keywords are the most helpful.  e.g. to find a poverty variable, type `lookfor pov`.
