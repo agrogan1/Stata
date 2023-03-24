@@ -11,10 +11,8 @@ format:
       light: united
       dark: vapor
   pdf:
+    toc: false
     number-sections: true
-    shift-heading-level-by: 0 
-    reference-location: document
-    citation-location: document
     geometry: margin=.25in
   latex:
     documentclass: report
