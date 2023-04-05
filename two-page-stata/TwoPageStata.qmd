@@ -13,8 +13,8 @@ format:
   pdf:
     toc: false
     number-sections: true
-    geometry: margin=.25in
     fontfamily: libertinus
+    geometry: margin=.25in
   latex:
     documentclass: report
     shift-heading-level-by: 1
