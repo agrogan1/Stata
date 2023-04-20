@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Grogan-Kaylor">
-<meta name="dcterms.date" content="2023-03-24">
+<meta name="dcterms.date" content="2023-04-20">
 
 <title>Two Page Stata</title>
 <style>
@@ -56,7 +56,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics"><span class="toc-section-number">4</span>  Descriptive Statistics</a></li>
   <li><a href="#bivariate-statistics" id="toc-bivariate-statistics" class="nav-link" data-scroll-target="#bivariate-statistics"><span class="toc-section-number">5</span>  Bivariate Statistics</a></li>
   <li><a href="#multivariate-statistics" id="toc-multivariate-statistics" class="nav-link" data-scroll-target="#multivariate-statistics"><span class="toc-section-number">6</span>  Multivariate Statistics</a></li>
-  <li><a href="#graphinggraph-options" id="toc-graphinggraph-options" class="nav-link" data-scroll-target="#graphinggraph-options"><span class="toc-section-number">7</span>  Graphing</a></li>
+  <li><a href="#graphinggraph-options-schemes" id="toc-graphinggraph-options-schemes" class="nav-link" data-scroll-target="#graphinggraph-options-schemes"><span class="toc-section-number">7</span>  Graphing </a></li>
   </ul>
 </nav>
 </div>
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 24, 2023</p>
+      <p class="date">April 20, 2023</p>
     </div>
   </div>
   
@@ -133,9 +133,9 @@ ul.task-list li input[type="checkbox"] {
 <h1 data-number="6"><span class="header-section-number">6</span> Multivariate Statistics</h1>
 <p><code>regress y x</code> regresses y on x.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <code>regress y x z</code> regresses y on x and z.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> <code>regress y x i.z</code> regresses y on x and z, treating x as continuous and z as a set of categorical indicator variables.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> <code>regress y c.x##i.z</code> regresses y on continuous x and categorical z, providing both main effects for x and z and the interaction of x and z.</p>
 </section>
-<section id="graphinggraph-options" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Graphing<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></h1>
-<p><code>histogram x</code> will give you a nice display of one variable.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
+<section id="graphinggraph-options-schemes" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Graphing<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></h1>
+<p><code>histogram x</code> will give you a nice display of one variable.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
 <p><code>twoway scatter y x</code> gives you a scatterplot of your data. <code>twoway lfit y x</code> will give you a linear fit graph. The two syntaxes may be combined e.g.&nbsp;<code>twoway (scatter y x) (lfit y x)</code>.</p>
 <p><code>graph bar, over(x)</code> is useful for creating a bar graph of the counts of a categorical variable x. <code>graph bar y, over(x)</code> will create a bar graph of the means of y over categories of x.</p>
 </section>
@@ -151,7 +151,8 @@ ul.task-list li input[type="checkbox"] {
 <li id="fn5"><p>Other regression commands follow a very similar format: <code>command y x z</code> but are beyond the purview of this 2 page guide.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p><code>i.x</code> is Stata’s notation for treating independent variables as <em>categorical</em> or <em>indicator</em> variables.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn7"><p>For all graphs, options after a “,” will be helpful in titling your graph e.g.&nbsp;<code>twoway lfit y x, title("...") xtitle("...") ytitle("...")</code><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8"><p><code>histogram x, percent</code> will scale the y-axis more intuitively in terms of percentages. <code>histogram x, discrete</code> gives a nicer display for categorical variables. The <code>percent</code> and <code>discrete</code> options can be combined.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Graph schemes can change the overall look of a graph. <code>, scheme(s1color)</code> is often a good choice.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><code>histogram x, percent</code> will scale the y-axis more intuitively in terms of percentages. <code>histogram x, discrete</code> gives a nicer display for categorical variables. The <code>percent</code> and <code>discrete</code> options can be combined.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->

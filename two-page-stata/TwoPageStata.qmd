@@ -15,14 +15,6 @@ format:
     number-sections: true
     fontfamily: libertinus
     geometry: margin=.25in
-  latex:
-    documentclass: report
-    shift-heading-level-by: 1
-    geometry:
-      - top=1in
-      - left=1in
-      - right=1in
-    reference-location: document
 ---
 
 # Introduction
@@ -90,7 +82,7 @@ Tabulating two categorical variables together gives you a cross-tabulation of th
 
 [^idot]: `i.x` is Stata's notation for treating independent variables as *categorical* or *indicator* variables.
 
-# Graphing[^graph-options]
+# Graphing[^graph-options] [^schemes]
 
 `histogram x` will give you a nice display of one variable.[^histogram-options] 
 
@@ -101,6 +93,8 @@ Tabulating two categorical variables together gives you a cross-tabulation of th
 `graph bar, over(x)` is useful for creating a bar graph of the counts of a categorical variable x. `graph bar y, over(x)` will create a bar graph of the means of y over categories of x.
 
 [^graph-options]: For all graphs, options after a "," will be helpful in titling your graph  e.g. `twoway lfit y x, title("...") xtitle("...") ytitle("...")`
+
+[^schemes]: Graph schemes can change the overall look of a graph. `, scheme(s1color)` is often a good choice.
 
 [^questions]: Comments, questions and corrections most welcome and may be sent to:  [Andrew Grogan-Kaylor](https://agrogan1.github.io/) @ [agrogan@umich.edu](agrogan@umich.edu). This document available on the web @ [https://agrogan1.github.io/Stata/](https://agrogan1.github.io/Stata/) 
 
