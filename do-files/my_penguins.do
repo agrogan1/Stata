@@ -43,10 +43,9 @@ use "https://github.com/agrogan1/Stata/raw/master/do-files/penguins.dta", clear
 * take a look at the data
 ******************************
 
-
 * NB if you have a lot of variables, the commands below will produce a lot of (too much) output
 
-* you may need to describe specific variables
+* you may need to `describe` or `codebook` specific variables
 
 describe // describe the variables
 
