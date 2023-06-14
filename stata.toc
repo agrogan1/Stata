@@ -16,8 +16,6 @@ p Mtransparent A graph scheme with University of Michigan colors and some color 
 
 p unicef A graph scheme with official UNICEF colors
 
-p unicef2 A graph scheme with official UNICEF colors (color order switched to improve presentation)
-
 p UN A graph scheme with official UN colors
 
 p SSWPEG A graph scheme with colors used by SSW-PEG 

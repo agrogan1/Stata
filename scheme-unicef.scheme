@@ -11,88 +11,87 @@
 
 * histogram
 
-color histogram cyan
+color histogram "0 174 239"
 
 * bar chart
 
-color p1bar cyan
-color p2bar magenta
-color p3bar yellow
-color p4bar blue
-color p5bar black
-color p6bar red
-color p7bar orange
-color p8bar midgreen
-color p9bar lime
+color p1bar "0 174 239"
+color p2bar "0 131 62"
+color p3bar "128 189 65"
+color p4bar "255 194 14"
+color p5bar "242 106 33"
+color p6bar "226 35 26"
+color p7bar "150 26 73"
+color p8bar "107 30 116"
+color p9bar "216 209 202"
 
 * pie chart
 
-color p1pie cyan
-color p2pie magenta
-color p3pie yellow
-color p4pie blue
-color p5pie black
-color p6pie red
-color p7pie orange
-color p8pie midgreen
-color p9pie lime
+color p1pie "0 174 239"
+color p2pie "0 131 62"
+color p3pie "128 189 65"
+color p4pie "255 194 14"
+color p5pie "242 106 33"
+color p6pie "226 35 26"
+color p7pie "150 26 73"
+color p8pie "107 30 116"
+color p9pie "216 209 202"
 
 * scatterplot
 
 symbol p1 circle
-color p1markfill cyan
-color p1markline cyan
+color p1markfill "0 174 239"
+color p1markline "0 174 239"
 
 symbol p2 circle
-color p2markfill magenta
-color p2markline magenta
+color p2markfill "0 131 62"
+color p2markline "0 131 62"
 
 symbol p3 circle
-color p3markfill yellow
-color p3markline yellow
+color p3markfill "128 189 65"
+color p3markline "128 189 65"
 
 symbol p4 circle
-color p3markfill blue
-color p3markline blue
+color p3markfill "255 194 14"
+color p3markline "255 194 14"
 
 symbol p5 circle
-color p3markfill black
-color p3markline black
+color p3markfill "242 106 33"
+color p3markline "242 106 33"
 
 * line chart
 
-color p1lineplot cyan
+color p1lineplot "0 174 239"
 linewidth p1lineplot thick
 
-color p2lineplot magenta
+color p2lineplot "0 131 62"
 linewidth p2lineplot thick
 
-color p3lineplot yellow
+color p3lineplot "128 189 65"
 linewidth p3lineplot thick
 
-color p4lineplot blue
+color p4lineplot "255 194 14"
 linewidth p4lineplot thick
 
 * area chart
 
-color p1area cyan
-color p2area magenta
-color p3area yellow
-color p4area blue
-color p5area black
-color p6area red
-color p7area orange
-color p8area midgreen
-color p9area lime
+color p1area "0 174 239"
+color p2area "0 131 62"
+color p3area "128 189 65"
+color p4area "255 194 14"
+color p5area "242 106 33"
+color p6area "226 35 26"
+color p7area "150 26 73"
+color p8area "107 30 116"
+color p9area "216 209 202"
 
 * plot elements
 
-color p cyan
-color p1 cyan
-color p2 magenta
-color p3 yellow
-color p4 blue
-
+color p "0 174 239"
+color p1 "0 174 239"
+color p2 "0 131 62"
+color p3 "128 189 65"
+color p4 "255 194 14"
 
 
 
