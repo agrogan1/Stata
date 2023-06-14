@@ -1,6 +1,7 @@
 v 3
 d scheme-SSWPEG.scheme  Graph scheme in official SSW-PEG colors
 d Andrew Grogan-Kaylor, agrogan@umich.edu, https://agrogan1.github.io/
+d Distribution-Date:  14jun2023
 
 d
 d This graph scheme depends on Svend Juul's "lean2" graphic scheme.
