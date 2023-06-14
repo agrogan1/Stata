@@ -14,7 +14,6 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 * `michigan`: A graph scheme with University of Michigan colors
 * `michigan2`: A *re-mixed* graph scheme with University of Michigan colors; starts with blue and maize, then moves to cooler, then warmer, colors, before ending with *Taubman Teal*
 * `unicef`: A graph scheme with official UNICEF colors
-* `unicef2`: A graph scheme with slightly re-ordered official UNICEF colors to improve presentation
 * `UN`: A graph scheme with official UN colors
 
 ## Installing and Using the Michigan Graph Scheme
