@@ -2,7 +2,7 @@
 
 clear all
 
-cd "/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme" // bilingual :-0
+cd "/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme" 
 
 doedit index.stmd
 

@@ -201,6 +201,8 @@ Stata can use RGB codes for colors. As an example.
 
 ![Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers](myscatter3.png){width=50%}
 
+\newpage
+
 # Michigan2 Graph Scheme
 
 I have also developed a `michigan2` graph scheme: `, scheme(michigan2)`.
