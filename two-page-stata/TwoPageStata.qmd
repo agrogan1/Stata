@@ -10,6 +10,7 @@ format:
     theme:
       light: united
       dark: vapor
+    css: styles.css
   pdf:
     toc: false
     number-sections: true
@@ -24,7 +25,7 @@ An introduction to Stata in 2 pages.[^questions] Commands that you actually type
 So many projects have the same, or similar, workflow.
 
 $$\text{have a question} \rightarrow \text{get data} \rightarrow \text{process and clean data} \rightarrow$$ 
-$$\text{analyze data}  \rightarrow \text{visualize data} \rightarrow \text{make conclusions}$$
+$$\text{analyze data} \rightarrow \text{visualize data} \rightarrow \text{make conclusions}$$
 
 > A little bit of Stata can go a long way.
 
