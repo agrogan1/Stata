@@ -1,6 +1,7 @@
 v 3
 d rtodi.  Package to calculate Cohen's d from r for use in meta-analysis
 d Andrew Grogan-Kaylor, agrogan@umich.edu
+d Distribution-Date:  14jun2023
 
 f rtodi.ado
 f rtodi.sthlp
