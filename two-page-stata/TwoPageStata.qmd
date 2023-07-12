@@ -12,9 +12,12 @@ format:
       dark: vapor
     css: styles.css
   pdf:
+    include-in-header:
+      - text: | 
+          \usepackage[sfdefault]{roboto}
+    fontsize: 10pt
     toc: false
     number-sections: true
-    fontfamily: libertinus
     geometry: margin=.25in
 ---
 
