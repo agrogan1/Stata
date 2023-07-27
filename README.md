@@ -34,7 +34,8 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 
 ## Two Page Stata
 
-[https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf) [[HTML](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.html)]
+* PDF: [https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf)
+* HTML: [https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.html](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.html)
 
 ## A *Very* Short Introduction to Stata
 
