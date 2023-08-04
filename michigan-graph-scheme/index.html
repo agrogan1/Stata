@@ -8,9 +8,6 @@
   <title>Installing and Using the Michigan Graph Scheme</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -29,13 +26,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -85,9 +85,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -207,7 +208,7 @@ table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid bl
 <header id="title-block-header">
 <h1 class="title">Installing and Using the Michigan Graph Scheme</h1>
 <p class="author">Andy Grogan-Kaylor</p>
-<p class="date">14 Jun 2023 16:50:56</p>
+<p class="date">4 Aug 2023 17:58:28</p>
 </header>
 <style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} p {font-size: 110%;} pre.stata {font-size: 110%;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 <h1 id="introduction">Introduction</h1>
@@ -415,8 +416,8 @@ Modified Legend</figcaption>
 </tbody>
 </table>
 <p>Stata can use RGB codes for colors. As an example.</p>
-<pre class='stata'>. twoway (scatter Petal_Length Petal_Width, mcolor("112 32 130 %30")) /// markers are Amethyst with
->  30% transparency
+<pre class='stata'>. twoway (scatter Petal_Length Petal_Width, mcolor("112 32 130 %30")) /// markers are Amethy
+> st with 30% transparency
 > (lfit Petal_Length Petal_Width, lcolor("87 82 148")), /// Violet line
 > scheme(michigan)
 </pre>

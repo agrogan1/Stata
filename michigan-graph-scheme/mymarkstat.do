@@ -13,3 +13,4 @@ graph close _all
 markstat using index.stmd, pdf // PDF
 
 graph close _all
+

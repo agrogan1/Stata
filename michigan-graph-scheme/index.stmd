@@ -29,7 +29,7 @@ geometry: margin=1 in
 	ysize(1.5) scale(2) ///
 	name(michigan, replace)
 	
-    quietly graph export MichiganColorsStata.png, name("michigan") width(1500) replace
+    quietly graph export MichiganColorsStata.png, name("michigan") width(2000) replace
 
 ```
 
