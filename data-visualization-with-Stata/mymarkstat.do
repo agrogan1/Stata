@@ -38,9 +38,7 @@ rm data-visualization-with-Stata.synctex.gz
 
 * pandoc
 
-* doedit spruceslidy.css
-
-! /Applications/quarto/bin/pandoc -s --mathjax -i -t slidy --css "spruceslidy.css" --slide-level=2 "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata.html" -o "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata-slidy.html" 
+! /Applications/quarto/bin/tools/pandoc -s --mathjax -i -t slidy --css "spruceslidy.css" --slide-level=2 "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata.html" -o "/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata-slidy.html" 
 
 
 

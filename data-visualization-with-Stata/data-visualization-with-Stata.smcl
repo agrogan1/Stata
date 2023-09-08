@@ -3,14 +3,14 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}24 Jan 2023, 18:50:20
+ {txt}opened on:  {res} 8 Sep 2023, 15:31:31
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}24 Jan 2023
+{res} 8 Sep 2023
 {txt}
 {com}. //_2
-. use "https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata/gutten.dta", clear
+. use "https://github.com/agrogan1/Stata/raw/main/data-visualization-with-Stata/gutten.dta", clear
 {txt}
 {com}. //_3
 . egen ageMEAN = mean(age_base)
@@ -85,7 +85,7 @@ format
 {p_end}
 
 {com}. //_15
-. twoway scatter height age_base, title("Tree Height by Age") mcolor(%25) scheme(michigan)
+. twoway scatter height age_base, title("Tree Height by Age") scheme(michigan)
 {res}{txt}
 {com}. //_16
 . graph export myscatterM.png, width(1000) replace
@@ -111,7 +111,7 @@ format
 {p_end}
 
 {com}. //_19
-. twoway scatter height age_base, title("Tree Height by Age") mcolor(%25) scheme(s1color)
+. twoway scatter height age_base, title("Tree Height by Age") scheme(s1color)
 {res}{txt}
 {com}. //_20
 . graph export myscatterS.png, width(1000) replace
@@ -193,7 +193,7 @@ format
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata/data-visualization-with-Stata.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}24 Jan 2023, 18:50:49
+ {txt}closed on:  {res} 8 Sep 2023, 15:31:56
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
