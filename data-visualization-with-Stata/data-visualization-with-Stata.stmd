@@ -14,7 +14,7 @@ geometry: margin=1 in
 * Learning how to graph in Stata is an important part of learning how to use Stata. Yet, the default graphs in Stata can sometimes be less than optimal. 
 * This document is an introduction to (a) basic graphing ideas in Stata; and (b) a quick note on the use of schemes to make your Stata graphs look more professional.
 
-> When this document is presented in *slide show format*, some slides may be long, and you may need to *scroll down* to see the full slide. In slide show format use the left and right arrow keys to navigate through the slides. `b` will make the text bigger. `s` will make the text smaller.
+> When this document is presented in *slide show format*, some slides may be long, and you may need to *scroll down* to see the full slide.
 
 # What are Variables?
 
@@ -60,7 +60,7 @@ The documentation goes on to further note that:
 
 > "The data are measures from 107 trees. The trees were selected as being of average size from healthy and well stocked stands in the Alps."
 
-    use "https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata/gutten.dta", clear
+    use "https://github.com/agrogan1/Stata/raw/main/data-visualization-with-Stata/gutten.dta", clear
 		
 # Variables
 
@@ -140,11 +140,11 @@ Stata *graph schemes* can substantially improve the look of a graph. Built in gr
 
 ## Continuous by Continuous (`twoway scatter y x, scheme(...)`)
 
-    twoway scatter height age_base, title("Tree Height by Age") mcolor(%25) scheme(michigan)
+    twoway scatter height age_base, title("Tree Height by Age") scheme(michigan)
 	
 	graph export myscatterM.png, width(1000) replace
 
-![Scatterplot Of Tree Height By Age With Michigan Graph Scheme and Transparent Color](myscatterM.png){width=50%}
+![Scatterplot Of Tree Height By Age With Michigan Graph Scheme](myscatterM.png){width=50%}
 
     twoway scatter height age_base, title("Tree Height by Age") scheme(lean2) msymbol(o)
 
@@ -152,11 +152,11 @@ Stata *graph schemes* can substantially improve the look of a graph. Built in gr
 
 ![Scatterplot Of Tree Height By Age With lean2 Graph Scheme](myscatterL.png){width=50%}
 
-    twoway scatter height age_base, title("Tree Height by Age") mcolor(%25) scheme(s1color)
+    twoway scatter height age_base, title("Tree Height by Age") scheme(s1color)
 
 	graph export myscatterS.png, width(1000) replace
 
-![Scatterplot Of Tree Height By Age With s1color Graph Scheme and Transparent Color](myscatterS.png){width=50%}
+![Scatterplot Of Tree Height By Age With s1color Graph Scheme](myscatterS.png){width=50%}
 
     twoway scatter height age_base, title("Tree Height by Age") scheme(burd) msymbol(o) graphregion(lcolor(none))
 
