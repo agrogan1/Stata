@@ -36,7 +36,7 @@ The general idea of most Stata commands is `command variable(s), options`.  Ofte
 
 The Stata interface makes it extremely easy to do rapid interactive data analysis.  Hit **PAGE-UP** to recall the most recent command, which you can then quickly edit and resubmit.  
 
-Use the **DO FILE EDITOR** to save Stata commands that you want to use again, and to create an *audit trail* of your work so that your workflow is *documented* and *replicable.*  `log using filename, replace` will save a log file of your results.  `log close` closes the log file.
+Use the **DO FILE EDITOR** to save Stata commands that you want to use again in a `.do` file, and to create an *audit trail* of your work so that your workflow is *documented* and *replicable.*  `log using filename, replace` will save a log file of your results.  `log close` closes the log file.
 
 # Get Acquainted With Your Data
 
