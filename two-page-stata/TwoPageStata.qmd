@@ -56,7 +56,9 @@ With very large data sets, it may be helpful to use `keep x y z` to only keep th
 
 Data with missing values, often represented as negative numbers (e.g. -99, -9, -8) need to be recoded so that the missing values are represented as a missing value character (".") that Stata knows to exclude from calculations.
 
-`recode x (oldvalue = newvalue), generate(z)` will recode a variable into a *new* variable, **often a good idea**. `recode x y z (-99/-1 = .)` will recode negative numbers from -99 to -1 to missing for x, y and z variables in your data.  `recode x (7/9 = .)` changes 7 through 9 to be missing for x.  Indeed, `recode` will change specific values in your data to anything you want, not just missing values.[^encode] 
+`recode x (oldvalue = newvalue), generate(xR)`[^generate] will recode a variable into a *new* variable. `recode x (-99/-1 = .), generate(xR)` will recode negative numbers from -99 to -1 to missing for x. `recode x (7/9 = .), generate(xR)` changes 7 through 9 to be missing for x.  Indeed, `recode` will change specific values in your data to anything you want, not just missing values.[^encode] Reverse coding often looks something like `recode x (1=3) (2=2) (3=1), generate(xR)`.
+
+[^generate]: While generating a new variable is optional, it is almost always a good idea.
 
 [^encode]: `encode x, generate(x_NUMERIC)` is often useful to create a *numeric* version of *string* variables.
 
