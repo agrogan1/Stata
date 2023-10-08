@@ -15,10 +15,11 @@ format:
     include-in-header:
       - text: | 
           \usepackage[sfdefault]{roboto}
+          \KOMAoptions{headings=small}
     fontsize: 10pt
     toc: false
     number-sections: true
-    geometry: margin=.3in
+    geometry: margin=.5in
 ---
 
 # Introduction
