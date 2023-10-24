@@ -222,7 +222,7 @@ note("Stata is usually very intuitive. The general idea of most Stata commands i
 "Stata commands are in {stMono:monospaced font}." ///
 "I try to present the simplest version of a command, but this handout occasionally makes use of options like {stMono:fcolor()} and {stMono:mcolor()} " ///
 "to tweak the colors." ///
-"I also use the {stMono:michigan} graph scheme, linked to below. {stMono:set scheme s1color} would also work well." ///
+"I use the {stMono:michigan} graph scheme, linked to below. {stMono:set scheme s1color} would also work well. In the newest version of Stata, try the new default scheme {stMono:stcolor}." ///
 "Option {stMono:asyvars} is not strictly necessary, but means that bar graphs will have bars of different colors." ///
 "{stMono:///} represents a line break. On the command line, do not use {stMono:///} and type the command on a single line.")  ///
 caption("$S_DATE, https://agrogan1.github.io/, agrogan@umich.edu, https://agrogan1.github.io/Stata/michigan-graph-scheme/",  ///
