@@ -1,5 +1,10 @@
 # Stata Materials
 
+## Two Page Stata
+
+* PDF: [https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf)
+* HTML: [https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.html](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.html)
+
 ## Do Files
 
 * [Example do File](https://github.com/agrogan1/Stata/blob/master/do-files/my_penguins.do) using the [Palmer Penguin Data](https://allisonhorst.github.io/palmerpenguins/)
@@ -31,11 +36,6 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 * The **Basics**
     + [HTML](https://agrogan1.github.io/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.html)
     + [PDF](https://agrogan1.github.io/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.pdf)
-
-## Two Page Stata
-
-* PDF: [https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf)
-* HTML: [https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.html](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.html)
 
 ## A *Very* Short Introduction to Stata
 
