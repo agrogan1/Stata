@@ -61,7 +61,7 @@ Data with missing values, often represented as negative numbers (e.g. -99, -9, -
 
 [^generate]: While generating a new variable is optional, it is almost always a good idea.
 
-Like many other statistical programs, Stata makes a large distinction between variables that are coded as *numeric*, and variables that are coded as *strings*. `describe x` will help you to ascertain the variable type. `encode x, generate(x_NUMERIC)` is often useful to create a *numeric* version of *string* variables. In the special case where the values of your variables are actually *numbers* but stored as *strings*, `destring x, generate(x_NUMERIC)` may be the more helpful command. The differences between the two commands are subtle so consult Stata help on each command.
+Like many other statistical programs, Stata makes a large distinction between variables that are coded as *numeric*, and variables that are coded as *strings*. `describe x` will help you to ascertain the variable type. `encode x, generate(x_NUMERIC)` is often useful to create a *numeric* version of *string* variables. In the special case where the values of your variables are actually *numbers* but stored as *strings*, `destring x, generate(x_NUMERIC)` may be the more helpful command. The differences between the two commands are subtle, so consult Stata help on each command.
 
 It is often convenient to `rename` your variables so that the variables have more intuitively understandable names e.g. `rename x depression`.
 
