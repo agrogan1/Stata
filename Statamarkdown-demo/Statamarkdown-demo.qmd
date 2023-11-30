@@ -1,0 +1,49 @@
+---
+title: "Statamarkdown Demo"
+author: "Andy Grogan-Kaylor"
+date: "today"
+format:
+  html:
+    toc: true
+    number-sections: true
+    theme:
+      light: cosmo
+      dark: vapor
+editor: source
+---
+
+# Call Statamarkdown
+
+```{r}
+
+library(Statamarkdown)
+
+```
+
+# Demo Example
+
+## Get Built In Auto Data Set
+
+This chunk uses the `collectcode=TRUE` option.
+
+```{stata, collectcode=TRUE}
+
+sysuse auto
+
+```
+
+## Describe The Data
+
+```{stata}
+
+describe
+
+```
+
+## Summarize
+
+```{stata}
+
+summarize
+
+```
