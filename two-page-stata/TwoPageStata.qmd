@@ -19,7 +19,7 @@ format:
     fontsize: 10pt
     toc: false
     number-sections: true
-    geometry: margin=.3in
+    geometry: margin=.25in
 ---
 
 # Introduction
@@ -89,7 +89,7 @@ Tabulating two categorical variables together gives you a cross-tabulation of th
 
 [^idot]: `i.x` is Stata's notation for treating independent variables as *categorical* or *indicator* variables.
 
-# Graphing[^graph-options] [^schemes]
+# Graphing [^graph-options] [^schemes] 
 
 `histogram x` will give you a nice display of one variable.[^histogram-options] 
 

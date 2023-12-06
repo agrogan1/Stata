@@ -58,7 +58,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics"><span class="header-section-number">4</span> Descriptive Statistics</a></li>
   <li><a href="#bivariate-statistics" id="toc-bivariate-statistics" class="nav-link" data-scroll-target="#bivariate-statistics"><span class="header-section-number">5</span> Bivariate Statistics</a></li>
   <li><a href="#multivariate-statistics" id="toc-multivariate-statistics" class="nav-link" data-scroll-target="#multivariate-statistics"><span class="header-section-number">6</span> Multivariate Statistics</a></li>
-  <li><a href="#graphinggraph-options-schemes" id="toc-graphinggraph-options-schemes" class="nav-link" data-scroll-target="#graphinggraph-options-schemes"><span class="header-section-number">7</span> Graphing </a></li>
+  <li><a href="#graphing-graph-options-schemes" id="toc-graphing-graph-options-schemes" class="nav-link" data-scroll-target="#graphing-graph-options-schemes"><span class="header-section-number">7</span> Graphing </a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="TwoPageStata.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
@@ -136,8 +136,8 @@ ul.task-list li input[type="checkbox"] {
 <h1 data-number="6"><span class="header-section-number">6</span> Multivariate Statistics</h1>
 <p><code>regress y x</code> regresses y on x.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <code>regress y x z</code> regresses y on x and z.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> <code>regress y x i.z</code> regresses y on x and z, treating x as continuous and z as a set of categorical indicator variables.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> <code>regress y c.x##i.z</code> regresses y on continuous x and categorical z, providing both main effects for x and z and the interaction of x and z.</p>
 </section>
-<section id="graphinggraph-options-schemes" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Graphing<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></h1>
+<section id="graphing-graph-options-schemes" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Graphing <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></h1>
 <p><code>histogram x</code> will give you a nice display of one variable.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
 <p><code>twoway scatter y x</code> gives you a scatterplot of your data. <code>twoway lfit y x</code> will give you a linear fit graph. The two syntaxes may be combined e.g.&nbsp;<code>twoway (scatter y x) (lfit y x)</code>.</p>
 <p><code>graph bar, over(x)</code> is useful for creating a bar graph of the counts of a categorical variable x. <code>graph bar y, over(x)</code> will create a bar graph of the means of y over categories of x.</p>
