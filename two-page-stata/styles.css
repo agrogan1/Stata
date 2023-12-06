@@ -3,5 +3,7 @@ blockquote {
   border-left: 2px solid #e95420; 
   padding: 0.5em 10px;
 }
-
+code {
+  color: #007bff;
+}
 
