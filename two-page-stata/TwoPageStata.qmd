@@ -101,7 +101,7 @@ Tabulating two categorical variables together gives you a cross-tabulation of th
 
 [^graph-options]: For all graphs, options after a "," will be helpful in titling your graph  e.g. `twoway lfit y x, title("...") xtitle("...") ytitle("...")`
 
-[^schemes]: Graph schemes can change the overall look of a graph. `, scheme(s1color)` is often a good choice.
+[^schemes]: Graph schemes can change the overall look of a graph. `, scheme(s1color)` is often a good choice. In newer versions of Stata, `, scheme(stcolor)` works well.
 
 [^questions]: Comments, questions and corrections most welcome and may be sent to:  [Andrew Grogan-Kaylor](https://agrogan1.github.io/) @ [agrogan@umich.edu](agrogan@umich.edu). This document available on the web @ [https://agrogan1.github.io/Stata/](https://agrogan1.github.io/Stata/) 
 
