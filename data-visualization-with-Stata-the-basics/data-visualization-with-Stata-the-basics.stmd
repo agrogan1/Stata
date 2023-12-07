@@ -23,17 +23,13 @@ This is a quick guide to these ideas using the [Palmer Penguins Data](https://gi
 ```s
     clear all
 
-    use "https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata-the-basics/penguins.dta", clear
+    use "penguins.dta", clear
 ```
 
 Or, click [here](https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata-the-basics/penguins.dta) to download the data. 
 
-I am not a particular fan of Stata's default `s2color` graph scheme, so I am going to make use of the graph scheme entitled `s1color`.
+> I am not a particular fan of the default `s2color` graph scheme in earlier versions of Stata.  In earlier versions of Stata, I might use the `s1color` scheme by typing `set scheme s1color`. This handout makes use of the `stcolor` graph scheme which is the default in newer versions of Stata.
 
-```s	
-    set scheme s1color // use s1color scheme
-```    
-	
 # Histogram: `histogram x`
 
 ```s
