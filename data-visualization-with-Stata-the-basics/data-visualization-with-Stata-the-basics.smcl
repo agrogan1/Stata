@@ -1,9 +1,9 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\Github\Stata\data-visualization-with-Stata-the-basics\data-visualization-with-Stata-the-basics.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 7 Dec 2023, 11:41:38
+ {txt}opened on:  {res} 7 Dec 2023, 11:46:32
 {txt}
 {com}. //_1
 . display c(current_date)
@@ -55,9 +55,9 @@
 {com}. //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\Github\Stata\data-visualization-with-Stata-the-basics\data-visualization-with-Stata-the-basics.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 7 Dec 2023, 11:41:45
+ {txt}closed on:  {res} 7 Dec 2023, 11:46:39
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
