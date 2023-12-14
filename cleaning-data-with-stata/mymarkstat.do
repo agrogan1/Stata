@@ -2,9 +2,7 @@
 
 clear all
 
-cd "C:\Users\agrogan\Desktop\GitHub\Stata\cleaning-data-with-stata" // Windows
-
-cd "/Users/agrogan/Desktop/GitHub/Stata/cleaning-data-with-stata" // Mac
+cd "/Users/agrogan/Desktop/GitHub/Stata/cleaning-data-with-stata" // bilingual!
 
 doedit "cleaning-data-with-stata.stmd"
 
