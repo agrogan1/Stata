@@ -11,15 +11,13 @@ format:
       light: united
       dark: vapor
     css: styles.css
-  pdf:
-    include-in-header:
-      - text: | 
-          \usepackage[sfdefault]{roboto}
-          \KOMAoptions{headings=small}
-    fontsize: 10pt
+  typst: 
     toc: false
     number-sections: true
-    geometry: margin=.25in
+    columns: 1
+    margin:
+      x: .25in
+      y: .25in
 ---
 
 # Introduction
