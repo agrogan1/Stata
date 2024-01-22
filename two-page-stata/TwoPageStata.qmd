@@ -11,13 +11,17 @@ format:
       light: united
       dark: vapor
     css: styles.css
+    mermaid: 
+      theme: neutral
   typst: 
     toc: false
     number-sections: true
     columns: 1
     margin:
-      x: .25in
-      y: .25in
+      x: .3in
+      y: .3in
+    mermaid:
+      theme: forest
 ---
 
 # Introduction
@@ -26,8 +30,16 @@ An introduction to Stata in 2 pages.[^questions] Commands that you actually type
 
 So many projects have the same, or similar, workflow.
 
-$$\text{have a question} \rightarrow \text{get data} \rightarrow \text{process and clean data} \rightarrow$$ 
-$$\text{analyze data} \rightarrow \text{visualize data} \rightarrow \text{make conclusions}$$
+```{mermaid}
+%%| fig-width: 7
+
+flowchart LR
+  A(have a question) --> B(get data)
+  B --> C(process and clean data) 
+  C --> D(analyze data)
+  D --> E(visualize data)
+  E --> F(make conclusions)
+```
 
 > A little bit of Stata can go a long way.
 
@@ -37,7 +49,7 @@ The Stata interface makes it extremely easy to do rapid interactive data analysi
 
 Use the **DO FILE EDITOR** to save Stata commands that you want to use again in a `.do` file, and to create an *audit trail* of your work so that your workflow is *documented* and *replicable.*  
 
-# Get Acquainted With Your Data
+# Get (And Get Acquainted With) Data
 
 Once you are in the right directory, `use "mydata.dta"` will open your data. `save "mydata.dta", replace` will save your data. 
 
@@ -51,7 +63,7 @@ With very large data sets, it may be helpful to use `keep x y z` to only keep th
 
 `describe` tells you about the contents of a specific variable. E.g. `describe x y`. `describe, short` will tell you very basic things about your data, including the number of observations in the data set, and the size of your data file.
 
-# Process Your Data
+# Process And Clean Data
 
 Data with missing values, often represented as negative numbers (e.g. -99, -9, -8) need to be recoded so that the missing values are represented as a missing value character (".") that Stata knows to exclude from calculations.
 
@@ -69,15 +81,17 @@ You can create new variables out of old variables using `generate newvar = expre
 
 It is sometimes useful to `sort` your data. `sort x` will sort your data by the values of x.
 
-# Descriptive Statistics
+# Analyze Data
+
+## Descriptive Statistics
 
 `summarize` gives you basic descriptive statistics for a variable, such as the mean (average), especially useful for continuous variables. E.g. `summarize x y` or `summarize x y, detail`. `tabulate` gives you a frequency distribution for your variable, especially useful for categorical variables. e.g. `tabulate x`.
 
-# Bivariate Statistics
+## Bivariate Statistics
 
 Tabulating two categorical variables together gives you a cross-tabulation of those variables, e.g `tabulate x y, row col chi2`. `pwcorr x y, sig` gives you the pairwise correlation of two continuous variables. `oneway x z, tabulate` gives you a oneway ANOVA of continuous variable x over categorical variable z.
 
-# Multivariate Statistics
+## Multivariate Statistics
 
 `regress y x` regresses y on x.[^estat-summarize] `regress y x z` regresses y on x and z.[^other-regressions] `regress y x i.z` regresses y on x and z, treating x as continuous and z as a set of categorical indicator variables.[^idot] `regress y c.x##i.z` regresses y on continuous x and categorical z, providing both main effects for x and z and the interaction of x and z.
 
@@ -87,7 +101,7 @@ Tabulating two categorical variables together gives you a cross-tabulation of th
 
 [^idot]: `i.x` is Stata's notation for treating independent variables as *categorical* or *indicator* variables.
 
-# Graphing [^graph-options] [^schemes] 
+# Visualize Data [^graph-options] [^schemes] 
 
 `histogram x` will give you a nice display of one variable.[^histogram-options] 
 
