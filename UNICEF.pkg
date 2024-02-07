@@ -1,7 +1,7 @@
 v 3
-d scheme-unicef.scheme  Graph scheme in official UNICEF colors
+d scheme-UNICEF.scheme  Graph scheme in official UNICEF colors
 d Andrew Grogan-Kaylor, agrogan@umich.edu, https://agrogan1.github.io/
-d Distribution-Date:  14jun2023
+d Distribution-Date:  7feb2024
 
 d
 d This graph scheme depends on Svend Juul's "lean2" graphic scheme.
@@ -9,4 +9,4 @@ d Type {stata findit lean2} and click through on the install links to install le
 d
 d Then install the UNICEF graph scheme from the link below.
 
-f scheme-unicef.scheme
+f scheme-UNICEF.scheme
