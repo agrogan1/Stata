@@ -8,20 +8,18 @@ format:
     toc: true
     number-sections: true
     theme:
-      light: united
+      light: cosmo
       dark: vapor
     css: styles.css
-    mermaid: 
-      theme: neutral
   typst: 
     toc: false
     number-sections: true
     columns: 1
+    mermaid:
+      theme: neutral
     margin:
       x: .3in
       y: .3in
-    mermaid:
-      theme: forest
 ---
 
 # Introduction
