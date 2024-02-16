@@ -1,9 +1,5 @@
 blockquote {
   color: black;
-  border-left: 2px solid #ff7518; 
+  border-left: 3px solid #FFC20E; 
   padding: 0.5em 10px;
 }
-code {
-  color: #2780e3;
-}
-
