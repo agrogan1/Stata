@@ -3,9 +3,14 @@
 * Demonstration Do File
 ******************************
 
-* A great deal of research consists of the following steps:
-* have a question -> get data -> process and clean data ->
-* visualize data -> analyze data -> make conclusions
+* So many projects have the same, or similar, workflow.
+
+* have a question -> 
+* get data ->
+* process and clean data ->
+* analyze data ->
+* visualize data ->
+* make conclusions
 
 /* do files are useful to preserve
 a record of your work. They help
