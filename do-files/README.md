@@ -4,7 +4,7 @@ Click on `my_penguins.do` to see an example `.do` file that creates such an *aud
 
 So many projects have the same, or similar, workflow.
 
-```{mermaid}
+```mermaid
 flowchart LR
   A(have a question) --> B(get data)
   B --> C(process and clean data) 
