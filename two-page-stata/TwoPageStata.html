@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Grogan-Kaylor">
-<meta name="dcterms.date" content="2024-02-27">
+<meta name="dcterms.date" content="2024-03-14">
 
 <title>Two Page Stata</title>
 <style>
@@ -37,6 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="TwoPageStata_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="TwoPageStata_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="TwoPageStata_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<meta name="mermaid-theme" content="default">
 <script src="TwoPageStata_files/libs/quarto-diagram/mermaid.min.js"></script>
 <script src="TwoPageStata_files/libs/quarto-diagram/mermaid-init.js"></script>
 <link href="TwoPageStata_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -88,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 27, 2024</p>
+      <p class="date">March 14, 2024</p>
     </div>
   </div>
   
@@ -109,7 +110,23 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#FFCB05',
+      'primaryTextColor': '#000000',
+      'primaryBorderColor': '#00274C',
+      'lineColor': '#00274C',
+      'secondaryColor': '#00274C',
+      'secondaryTextColor': '#000000',
+      'tertiaryColor': '#F2F2F2',
+      'tertiaryBorderColor': '#00274C'
+    }
+  }
+}%%
+
+flowchart LR
   A(have a question) --&gt; B(get data)
   B --&gt; C(process and clean data) 
   C --&gt; D(analyze data)

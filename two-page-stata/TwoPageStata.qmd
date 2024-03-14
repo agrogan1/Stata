@@ -11,12 +11,12 @@ format:
       light: cosmo
       dark: vapor
     css: styles.css
+    mermaid: 
+      theme: default
   typst: 
     toc: false
     number-sections: true
     columns: 1
-    mermaid:
-      theme: neutral
     margin:
       x: .3in
       y: .3in
@@ -30,6 +30,21 @@ So many projects have the same, or similar, workflow.
 
 ```{mermaid}
 %%| fig-width: 7
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#FFCB05',
+      'primaryTextColor': '#000000',
+      'primaryBorderColor': '#00274C',
+      'lineColor': '#00274C',
+      'secondaryColor': '#00274C',
+      'secondaryTextColor': '#000000',
+      'tertiaryColor': '#F2F2F2',
+      'tertiaryBorderColor': '#00274C'
+    }
+  }
+}%%
 
 flowchart LR
   A(have a question) --> B(get data)
