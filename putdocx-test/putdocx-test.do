@@ -8,7 +8,7 @@ cd "/Users/agrogan/Desktop/GitHub/Stata/putdocx-test" // change directory
 
 use "https://github.com/agrogan1/multilevel/raw/master/mlm-R2-gutten/gutten.dta", clear // use tree data as example
 
-describe // dscribe the data
+describe // describe the data
 
 * start the Word document
 
