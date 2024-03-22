@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme/index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 5 Dec 2023, 15:51:32
+ {txt}opened on:  {res}22 Mar 2024, 11:28:23
 {txt}
 {com}. //_1
 . display c(current_date)
-{res} 5 Dec 2023
+{res}22 Mar 2024
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}15:51:32
+{res}11:28:23
 {txt}
 {com}. //_3q
 . 
@@ -157,7 +157,7 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme/index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 5 Dec 2023, 15:52:03
+ {txt}closed on:  {res}22 Mar 2024, 11:28:58
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
