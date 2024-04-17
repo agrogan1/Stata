@@ -162,9 +162,9 @@ name(myscatter, replace)
 
 heatplot y x, ///
 title("heatplot") ///
-caption("{stMono:heatplot y x}", size(large)) ///
+caption("{stMono:heatplot y x, colors(hcl bluered)}", size(large)) ///
 note("{stMono:heatplot} is a user written command: {stMono:ssc install heatplot}") ///
-name(myheatplot, replace)
+name(myheatplot, replace) colors(hcl bluered)
 
 twoway (scatter y x) (lfit y x, lwidth(thick)),  ///
 title("scatterplot with linear fit") ///
