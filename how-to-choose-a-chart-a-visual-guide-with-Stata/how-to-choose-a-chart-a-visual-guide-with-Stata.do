@@ -62,7 +62,7 @@ xsize(2)
 histogram x, ///
 by(u, rows(2) ///
 title("histogram") ///
-caption("{stMono:histogram x, by(u) rows(2)}", size(large)) ///
+caption("{stMono:histogram x, by(u, rows(2))}", size(large)) ///
 note(" ")) ///
 name(myhistogram2, replace)
 
