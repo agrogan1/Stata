@@ -1,43 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-<style>
-/* CSS for Markstat 2.0 using Pandoc 2.0 */
-body{padding:14px 28px;}
-body, table {font-family: Helvetica, Arial, Sans-serif; font-size: 14px;}
-h1, h2, h3, h4 {font-weight: normal; color: #3366cc}
-h1 {font-size: 200%;}
-h2 {font-size: 150%;}
-h3 {font-size: 120%;}
-h4 {font-size: 100%; font-weight:bold}
-img.center {display:block; margin-left:auto; margin-right:auto}
-.small{font-size:8pt;}
-a {color: black;}
-a:visited {color: #808080;}
-a.plain {text-decoration:none;}
-a.plain:hover {text-decoration:underline;}
-.em {font-weight:bold;}
-pre, code {font-family: "lucida console", monospace;}
-pre.stata {font-size:13px; line-height:13px;}
-pre {padding:8px; border:1px solid #c0c0c0; border-radius:8px; background-color:#fdfdfd;}
-code {color:#3366cc; background-color:#fafafa;}
-pre code { color:black; background-color:white}
-/* Added for Pandoc */
-figure > img, div.figure > img {display:block; margin:auto}
-figcaption, p.caption {text-align:center; font-weight:bold; color:#3366cc;}
-h1.title {text-align:center; margin-bottom:0}
-p.author, h2.author {font-style:italic; text-align:center;margin-top:4px;margin-bottom:0}
-p.date, h3.date {text-align:center;margin-top:4px; margin-bottom:0}
-/* Tables*/
-table { margin:auto; border-collapse:collapse; }
-table caption { margin-bottom:1ex;}
-th, td { padding:4px 6px;}
-thead tr:first-child th {border-top:1px solid black; padding-top:6px}
-thead tr:last-child  th {padding-bottom:6px}
-tbody tr:first-child td {border-top:1px solid black; padding-top:6px}
-tbody tr:last-child  td {padding-bottom:6px;}
-table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
-</style>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
@@ -45,9 +8,6 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
   <title>Data Visualization With Stata</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -66,13 +26,16 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -96,6 +59,10 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
       color: #1a1a1a;
     }
     img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
       max-width: 100%;
     }
     h1, h2, h3, h4, h5, h6 {
@@ -122,9 +89,10 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -186,21 +154,68 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
+<style>
+/* CSS for Markstat 2.0 using Pandoc 2.0 */
+body{padding:14px 28px; max-width:45em;}
+body, table {font-family: Helvetica, Arial, Sans-serif; font-size: 14px;}
+h1, h2, h3, h4 {font-weight: normal; color: #3366cc}
+h1 {font-size: 200%;}
+h2 {font-size: 150%;}
+h3 {font-size: 120%;}
+h4 {font-size: 100%; font-weight:bold}
+img.center {display:block; margin-left:auto; margin-right:auto}
+.small{font-size:8pt;}
+a {color: black;}
+a:visited {color: #808080;}
+a.plain {text-decoration:none;}
+a.plain:hover {text-decoration:underline;}
+.em {font-weight:bold;}
+pre, code {font-family: "lucida console", monospace;}
+pre.stata {font-size:13px; line-height:13px;}
+pre {padding:8px; border:1px solid #c0c0c0; border-radius:8px; background-color:#fdfdfd;}
+code {color:#3366cc; background-color:#fafafa;}
+pre code { color:black; background-color:white}
+/* Added for Pandoc */
+figure > img, div.figure > img {display:block; margin:auto}
+figcaption, p.caption {text-align:center; font-weight:bold; color:#3366cc;}
+h1.title {text-align:center; margin-bottom:0}
+p.author, h2.author {font-style:italic; text-align:center;margin-top:4px;margin-bottom:0}
+p.date, h3.date {text-align:center;margin-top:4px; margin-bottom:0}
+/* Tables*/
+table { margin:auto; border-collapse:collapse; }
+table caption { margin-bottom:1ex;}
+td {padding:0 0 0 0} /* override */
+table:not([class]) th { padding:4px 6px } 
+table:not([class]) td { padding:4px 6px } 
+table:not([class]) thead tr:first-child th {border-top:1px solid black; padding-top:6px}
+table:not([class]) thead tr:last-child  th {padding-bottom:6px}
+table:not([class]) tbody tr:first-child td {border-top:1px solid black; padding-top:6px}
+table:not([class]) tbody tr:last-child  td {padding-bottom:6px;}
+table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid black;}
+</style>
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">Data Visualization With Stata</h1>
 <p class="author">Andy Grogan-Kaylor</p>
-<p class="date">26 Apr 2022 09:54:18</p>
+<p class="date">10 May 2024 14:15:35</p>
 </header>
 <h1 id="introduction">Introduction</h1>
 <style>body {max-width: 90%} h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>

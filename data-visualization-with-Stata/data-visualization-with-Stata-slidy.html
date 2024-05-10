@@ -14,15 +14,18 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -104,7 +107,7 @@ Andy Grogan-Kaylor
 class="title-slide slide section level1 title">
 <h1 class="title">Data Visualization With Stata</h1>
 <p>Andy Grogan-Kaylor</p>
-<p>8 Sep 2023</p>
+<p>10 May 2024</p>
 </div>
 
 </div>
@@ -138,7 +141,7 @@ questionnaire items, or columns of data.</li>
 </ul>
 <table>
 <thead>
-<tr class="header header">
+<tr class="header">
 <th></th>
 <th>Column 1</th>
 <th>Column 2</th>
@@ -146,19 +149,19 @@ questionnaire items, or columns of data.</li>
 </tr>
 </thead>
 <tbody>
-<tr class="odd odd">
+<tr class="odd">
 <td>Row 1</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even even">
+<tr class="even">
 <td>Row 2</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd odd">
+<tr class="odd">
 <td>Row 3</td>
 <td></td>
 <td></td>
@@ -228,8 +231,8 @@ being of average size from healthy and well stocked stands in the
 Alps.”</p>
 </blockquote>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>. <span class="kw">use</span> <span class="st">&quot;https://github.com/agrogan1/Stata/raw/main/data-visualization-with-Stata/gutten.dta&quot;</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>&gt;  <span class="kw">clear</span></span></code></pre></div>
+class="sourceCode stata"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>. <span class="kw">use</span> <span class="st">&quot;https://github.com/agrogan1/Stata/raw/main/data-visualization-with-Stata/gutten.dta&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>&gt; , <span class="kw">clear</span></span></code></pre></div>
 </div>
 
 <div id="variables" class="title-slide slide section level1">
@@ -298,8 +301,8 @@ class="slide section level2">
 class="sourceCode stata"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>. <span class="kw">twoway</span> <span class="kw">scatter</span> height age_base, <span class="bn">title</span>(<span class="st">&quot;Tree Height by Age&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre
 class="sourceCode stata"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>. <span class="kw">graph</span> <span class="kw">export</span> myscatter.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/Stata/<span class="kw">data</span>-visualization-with-Stata/myscatter.png saved</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>    <span class="kw">as</span> PNG <span class="kw">format</span></span></code></pre></div>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/Stata/<span class="kw">data</span>-visualization-with-Stata/myscatter.png</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>    saved <span class="kw">as</span> PNG <span class="kw">format</span></span></code></pre></div>
 <div class="float">
 <img src="myscatter.png" style="width:50.0%"
 alt="Scatterplot Of Tree Height By Age" />
@@ -342,7 +345,7 @@ alt="Bar Graph Of Mean Tree Height By Location" />
 <h1>Schemes (<code>,scheme(...)</code>)</h1>
 <p>Stata <em>graph schemes</em> can substantially change the look of a
 graph. Built in graph schemes include <code>s1color</code>, the new
-default scheme <code>stcolor</code> the older default scheme
+default scheme <code>stcolor</code>, the older default scheme
 <code>s2color</code>, <code>sj</code>, <code>economist</code> and
 <code>s1rcolor</code>.</p>
 <p><code>lean2</code> (type <code>findit lean2</code> in the Stata
@@ -398,8 +401,8 @@ alt="Scatterplot Of Tree Height By Age With s1color Graph Scheme" />
 Graph Scheme</div>
 </div>
 <div class="sourceCode" id="cb20"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>. <span class="kw">twoway</span> <span class="kw">scatter</span> height age_base, <span class="bn">title</span>(<span class="st">&quot;Tree Height by Age&quot;</span>) <span class="dv">scheme</span>(burd) <span class="bn">msymbol</span>(o) graphr</span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>&gt; egion(lcolor(<span class="kw">none</span>))</span></code></pre></div>
+class="sourceCode stata"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>. <span class="kw">twoway</span> <span class="kw">scatter</span> height age_base, <span class="bn">title</span>(<span class="st">&quot;Tree Height by Age&quot;</span>) <span class="dv">scheme</span>(burd) <span class="bn">msymbol</span>(o) <span class="kw">graph</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>&gt; region(lcolor(<span class="kw">none</span>))</span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre
 class="sourceCode stata"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>. <span class="kw">graph</span> <span class="kw">export</span> myscatterB.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span>
 <span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/Stata/<span class="kw">data</span>-visualization-with-Stata/myscatterB.png</span>
@@ -420,11 +423,12 @@ class="slide section level2">
 option to give different colors to the different bars.</p>
 </blockquote>
 <div class="sourceCode" id="cb22"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>. <span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) asyvars <span class="bn">title</span>(<span class="st">&quot;Tree Height by Location&quot;</span>) <span class="dv">scheme</span>(michigan)</span></code></pre></div>
+class="sourceCode stata"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>. <span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) asyvars <span class="bn">title</span>(<span class="st">&quot;Tree Height by Location&quot;</span>) <span class="dv">scheme</span>(michigan</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>&gt; )</span></code></pre></div>
 <div class="sourceCode" id="cb23"><pre
 class="sourceCode stata"><code class="sourceCode stata"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>. <span class="kw">graph</span> <span class="kw">export</span> mybarM.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/Stata/<span class="kw">data</span>-visualization-with-Stata/mybarM.png saved <span class="kw">as</span></span>
-<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>    PNG <span class="kw">format</span></span></code></pre></div>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/Stata/<span class="kw">data</span>-visualization-with-Stata/mybarM.png saved</span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>    <span class="kw">as</span> PNG <span class="kw">format</span></span></code></pre></div>
 <div class="float">
 <img src="mybarM.png" style="width:50.0%"
 alt="Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme" />
@@ -435,8 +439,8 @@ Michigan Graph Scheme</div>
 class="sourceCode stata"><code class="sourceCode stata"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>. <span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) asyvars <span class="bn">title</span>(<span class="st">&quot;Tree Height by Location&quot;</span>) <span class="dv">scheme</span>(lean2)</span></code></pre></div>
 <div class="sourceCode" id="cb25"><pre
 class="sourceCode stata"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>. <span class="kw">graph</span> <span class="kw">export</span> mybarL.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/Stata/<span class="kw">data</span>-visualization-with-Stata/mybarL.png saved <span class="kw">as</span></span>
-<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>    PNG <span class="kw">format</span></span></code></pre></div>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/Stata/<span class="kw">data</span>-visualization-with-Stata/mybarL.png saved</span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>    <span class="kw">as</span> PNG <span class="kw">format</span></span></code></pre></div>
 <div class="float">
 <img src="mybarL.png" style="width:50.0%"
 alt="Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme" />
@@ -447,8 +451,8 @@ lean2 Graph Scheme</div>
 class="sourceCode stata"><code class="sourceCode stata"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a>. <span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) asyvars <span class="bn">title</span>(<span class="st">&quot;Tree Height by Location&quot;</span>) <span class="dv">scheme</span>(s1color)</span></code></pre></div>
 <div class="sourceCode" id="cb27"><pre
 class="sourceCode stata"><code class="sourceCode stata"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>. <span class="kw">graph</span> <span class="kw">export</span> mybarS.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span>
-<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/Stata/<span class="kw">data</span>-visualization-with-Stata/mybarS.png saved <span class="kw">as</span></span>
-<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>    PNG <span class="kw">format</span></span></code></pre></div>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/Stata/<span class="kw">data</span>-visualization-with-Stata/mybarS.png saved</span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>    <span class="kw">as</span> PNG <span class="kw">format</span></span></code></pre></div>
 <div class="float">
 <img src="mybarS.png" style="width:50.0%"
 alt="Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme" />
@@ -456,12 +460,12 @@ alt="Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme" />
 s1color Graph Scheme</div>
 </div>
 <div class="sourceCode" id="cb28"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>. <span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) asyvars <span class="bn">title</span>(<span class="st">&quot;Tree Height by Location&quot;</span>) <span class="dv">scheme</span>(burd) gra</span>
-<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>&gt; phregion(lcolor(<span class="kw">none</span>))</span></code></pre></div>
+class="sourceCode stata"><code class="sourceCode stata"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>. <span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) asyvars <span class="bn">title</span>(<span class="st">&quot;Tree Height by Location&quot;</span>) <span class="dv">scheme</span>(burd) <span class="kw">gr</span></span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>&gt; aphregion(lcolor(<span class="kw">none</span>))</span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre
 class="sourceCode stata"><code class="sourceCode stata"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a>. <span class="kw">graph</span> <span class="kw">export</span> mybarB.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span>
-<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/Stata/<span class="kw">data</span>-visualization-with-Stata/mybarB.png saved <span class="kw">as</span></span>
-<span id="cb29-3"><a href="#cb29-3" tabindex="-1"></a>    PNG <span class="kw">format</span></span></code></pre></div>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/Stata/<span class="kw">data</span>-visualization-with-Stata/mybarB.png saved</span>
+<span id="cb29-3"><a href="#cb29-3" tabindex="-1"></a>    <span class="kw">as</span> PNG <span class="kw">format</span></span></code></pre></div>
 <div class="float">
 <img src="mybarB.png" style="width:50.0%"
 alt="Bar Graph Of Mean Tree Height By Location With burd Graph Scheme" />
