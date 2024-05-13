@@ -141,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="setup" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Setup</h1>
-<div class="cell">
+<div class="cell" data-collectcode="true">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span> <span class="ot">all</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -154,25 +154,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="histogram-histogram-x" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Histogram: <code>histogram x</code></h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">histogram</span> body_mass_g, <span class="bn">title</span>(<span class="st">"Body Mass of Penguins"</span>) <span class="bn">xtitle</span>(<span class="st">"Body Mass"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>no variables defined
-r(111);
-
-end of do-file
-r(111);</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>could not find Graph window
-r(693);
-
-end of do-file
-r(693);</code></pre>
-</div>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">histogram</span> body_mass_g, <span class="bn">title</span>(<span class="st">"Body Mass of Penguins"</span>) <span class="bn">xtitle</span>(<span class="st">"Body Mass"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -185,25 +168,8 @@ r(693);</code></pre>
 <h1 data-number="4"><span class="header-section-number">4</span> Bar Graph: <code>graph bar</code></h1>
 <section id="counting-up-numbers-in-each-group-graph-bar-overx" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="counting-up-numbers-in-each-group-graph-bar-overx"><span class="header-section-number">4.1</span> Counting Up Numbers In Each Group: <code>graph bar, over(x)</code></h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(species) <span class="bn">title</span>(<span class="st">"Penguin Species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>variable species not found
-r(111);
-
-end of do-file
-r(111);</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>could not find Graph window
-r(693);
-
-end of do-file
-r(693);</code></pre>
-</div>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(species) <span class="bn">title</span>(<span class="st">"Penguin Species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -214,25 +180,8 @@ r(693);</code></pre>
 </section>
 <section id="average-of-a-continuous-variable-across-groups-graph-bar-y-overx" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="average-of-a-continuous-variable-across-groups-graph-bar-y-overx"><span class="header-section-number">4.2</span> Average Of A Continuous Variable Across Groups: <code>graph bar y, over(x)</code></h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> body_mass_g, <span class="bn">over</span>(species) <span class="bn">title</span>(<span class="st">"Body Mass of Penguin Species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>variable species not found
-r(111);
-
-end of do-file
-r(111);</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>could not find Graph window
-r(693);
-
-end of do-file
-r(693);</code></pre>
-</div>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> body_mass_g, <span class="bn">over</span>(species) <span class="bn">title</span>(<span class="st">"Body Mass of Penguin Species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -244,28 +193,11 @@ r(693);</code></pre>
 </section>
 <section id="scatterplot-twoway-scatter-y-x" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Scatterplot: <code>twoway scatter y x</code></h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> culmen_length_mm body_mass_g, <span class="co">///</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bn">title</span>(<span class="st">"Penguin Culmen Length by Body Mass"</span>) <span class="co">/// </span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bn">xtitle</span>(<span class="st">"Body Mass"</span>) <span class="co">///</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bn">ytitle</span>(<span class="st">"Culmen Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>variable culmen_length_mm not found
-r(111);
-
-end of do-file
-r(111);</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>could not find Graph window
-r(693);
-
-end of do-file
-r(693);</code></pre>
-</div>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> culmen_length_mm body_mass_g, <span class="co">///</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bn">title</span>(<span class="st">"Penguin Culmen Length by Body Mass"</span>) <span class="co">/// </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bn">xtitle</span>(<span class="st">"Body Mass"</span>) <span class="co">///</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bn">ytitle</span>(<span class="st">"Culmen Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -276,28 +208,11 @@ r(693);</code></pre>
 </section>
 <section id="linear-fit-twoway-lfit-y-x" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Linear Fit: <code>twoway lfit y x</code></h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">lfit</span> culmen_length_mm body_mass_g, <span class="co">///</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bn">title</span>(<span class="st">"Penguin Culmen Length by Body Mass"</span>) <span class="co">/// </span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bn">xtitle</span>(<span class="st">"Body Mass"</span>) <span class="co">///</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bn">ytitle</span>(<span class="st">"Culmen Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>variable culmen_length_mm not found
-r(111);
-
-end of do-file
-r(111);</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>could not find Graph window
-r(693);
-
-end of do-file
-r(693);</code></pre>
-</div>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">lfit</span> culmen_length_mm body_mass_g, <span class="co">///</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bn">title</span>(<span class="st">"Penguin Culmen Length by Body Mass"</span>) <span class="co">/// </span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bn">xtitle</span>(<span class="st">"Body Mass"</span>) <span class="co">///</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bn">ytitle</span>(<span class="st">"Culmen Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -726,7 +641,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

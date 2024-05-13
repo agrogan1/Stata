@@ -50,7 +50,8 @@ Or, click [here](https://github.com/agrogan1/Stata/raw/master/data-visualization
 
 # Histogram: `histogram x`
 
-```{stata}
+```{stata, collectcode=TRUE}
+#| output: false
 
 histogram body_mass_g, title("Body Mass of Penguins") xtitle("Body Mass")
 
@@ -58,6 +59,7 @@ histogram body_mass_g, title("Body Mass of Penguins") xtitle("Body Mass")
 
 ```{stata}
 #| echo: false
+#| output: false
 
 quietly: graph export myhistogram.png, width(1000) replace
 
@@ -69,7 +71,8 @@ quietly: graph export myhistogram.png, width(1000) replace
 
 ## Counting Up Numbers In Each Group: `graph bar, over(x)`
 
-```{stata}
+```{stata, collectcode=TRUE}
+#| output: false
 
 graph bar, over(species) title("Penguin Species")
 
@@ -77,6 +80,7 @@ graph bar, over(species) title("Penguin Species")
 
 ```{stata}
 #| echo: false
+#| output: false
 
 quietly: graph export mybar1.png, width(1000) replace
 
@@ -86,7 +90,8 @@ quietly: graph export mybar1.png, width(1000) replace
 
 ## Average Of A Continuous Variable Across Groups: `graph bar y, over(x)`
 
-```{stata}
+```{stata, collectcode=TRUE}
+#| output: false
 
 graph bar body_mass_g, over(species) title("Body Mass of Penguin Species")
 
@@ -94,6 +99,7 @@ graph bar body_mass_g, over(species) title("Body Mass of Penguin Species")
 
 ```{stata}
 #| echo: false
+#| output: false
 
 quietly: graph export mybar2.png, width(1000) replace
 
@@ -104,7 +110,8 @@ quietly: graph export mybar2.png, width(1000) replace
 
 # Scatterplot: `twoway scatter y x`
 
-```{stata}
+```{stata, collectcode=TRUE}
+#| output: false
 
 twoway scatter culmen_length_mm body_mass_g, ///
 title("Penguin Culmen Length by Body Mass") /// 
@@ -115,6 +122,7 @@ ytitle("Culmen Length")
 
 ```{stata}
 #| echo: false
+#| output: false
 
 quietly: graph export myscatter.png, width(1000) replace
 
@@ -124,7 +132,8 @@ quietly: graph export myscatter.png, width(1000) replace
 
 # Linear Fit: `twoway lfit y x`
 
-```{stata}
+```{stata, collectcode=TRUE}
+#| output: false
 
 twoway lfit culmen_length_mm body_mass_g, ///
 title("Penguin Culmen Length by Body Mass") /// 
@@ -135,6 +144,7 @@ ytitle("Culmen Length")
 
 ```{stata}
 #| echo: false
+#| output: false
 
 quietly: graph export mylinear.png, width(1000) replace
 
