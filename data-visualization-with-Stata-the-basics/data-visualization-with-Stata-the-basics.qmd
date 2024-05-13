@@ -1,0 +1,143 @@
+---
+title: "Data Visualization With Stata (The Basics)"
+author: "Andy Grogan-Kaylor"
+date: today
+format:
+  html:
+    toc: true
+    number-sections: true
+    theme: yeti
+    lightbox: true
+  pdf:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    colorlinks: true
+---
+
+# Introduction 
+
+99% of data visualization work seems to consist of creating bar graphs (`graph bar y, over(x)`) and scatterplots (`twoway scatter y x`). (For the sake of completeness, I am also going to mention histograms (`histogram x`).)  
+
+> Note: In some commands, I use `///` so that Stata commands can be on multiple lines.
+
+This is a quick guide to these ideas using the [Palmer Penguins Data](https://github.com/allisonhorst/palmerpenguins/blob/master/README.md).
+
+![Palmer Penguins Illustration from @allison_horst](lter_penguins.png){width=20%}  ![Culmen Depth from @allison_horst](culmen_depth.png){width=20%}
+
+# Setup
+
+```{r}
+#| echo: false
+#| output: false
+
+library(Statamarkdown)
+
+```
+
+
+```{stata, collectcode=TRUE}
+
+clear all
+
+use "penguins.dta", clear
+
+```
+
+Or, click [here](https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata-the-basics/penguins.dta) to download the data. 
+
+> I am not a particular fan of the default `s2color` graph scheme in earlier versions of Stata.  In earlier versions of Stata, I might use the `s1color` scheme by typing `set scheme s1color`. This handout makes use of the `stcolor` graph scheme which is the default in newer versions of Stata.
+
+# Histogram: `histogram x`
+
+```{stata}
+
+histogram body_mass_g, title("Body Mass of Penguins") xtitle("Body Mass")
+
+```
+
+```{stata}
+#| echo: false
+
+quietly: graph export myhistogram.png, width(1000) replace
+
+```
+
+![histogram](myhistogram.png){width=25%}
+
+# Bar Graph: `graph bar`
+
+## Counting Up Numbers In Each Group: `graph bar, over(x)`
+
+```{stata}
+
+graph bar, over(species) title("Penguin Species")
+
+```
+
+```{stata}
+#| echo: false
+
+quietly: graph export mybar1.png, width(1000) replace
+
+```
+
+![bar graph](mybar1.png){width=30%}
+
+## Average Of A Continuous Variable Across Groups: `graph bar y, over(x)`
+
+```{stata}
+
+graph bar body_mass_g, over(species) title("Body Mass of Penguin Species")
+
+```
+
+```{stata}
+#| echo: false
+
+quietly: graph export mybar2.png, width(1000) replace
+
+```
+
+![bar graph](mybar2.png){width=30%}
+
+
+# Scatterplot: `twoway scatter y x`
+
+```{stata}
+
+twoway scatter culmen_length_mm body_mass_g, ///
+title("Penguin Culmen Length by Body Mass") /// 
+xtitle("Body Mass") ///
+ytitle("Culmen Length")
+
+```
+
+```{stata}
+#| echo: false
+
+quietly: graph export myscatter.png, width(1000) replace
+
+```
+
+![scatterplot](myscatter.png){width=30%}
+
+# Linear Fit: `twoway lfit y x`
+
+```{stata}
+
+twoway lfit culmen_length_mm body_mass_g, ///
+title("Penguin Culmen Length by Body Mass") /// 
+xtitle("Body Mass") ///
+ytitle("Culmen Length")
+
+```
+
+```{stata}
+#| echo: false
+
+quietly: graph export mylinear.png, width(1000) replace
+
+```
+
+![scatterplot](mylinear.png){width=30%}

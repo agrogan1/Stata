@@ -1,301 +1,758 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Andy Grogan-Kaylor" />
-  <title>Data Visualization With Stata (The Basics)</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Andy Grogan-Kaylor">
+<meta name="dcterms.date" content="2024-05-13">
+
+<title>Data Visualization With Stata (The Basics)</title>
 <style>
-/* CSS for Markstat 2.0 using Pandoc 2.0 */
-body{padding:14px 28px; max-width:45em;}
-body, table {font-family: Helvetica, Arial, Sans-serif; font-size: 14px;}
-h1, h2, h3, h4 {font-weight: normal; color: #3366cc}
-h1 {font-size: 200%;}
-h2 {font-size: 150%;}
-h3 {font-size: 120%;}
-h4 {font-size: 100%; font-weight:bold}
-img.center {display:block; margin-left:auto; margin-right:auto}
-.small{font-size:8pt;}
-a {color: black;}
-a:visited {color: #808080;}
-a.plain {text-decoration:none;}
-a.plain:hover {text-decoration:underline;}
-.em {font-weight:bold;}
-pre, code {font-family: "lucida console", monospace;}
-pre.stata {font-size:13px; line-height:13px;}
-pre {padding:8px; border:1px solid #c0c0c0; border-radius:8px; background-color:#fdfdfd;}
-code {color:#3366cc; background-color:#fafafa;}
-pre code { color:black; background-color:white}
-/* Added for Pandoc */
-figure > img, div.figure > img {display:block; margin:auto}
-figcaption, p.caption {text-align:center; font-weight:bold; color:#3366cc;}
-h1.title {text-align:center; margin-bottom:0}
-p.author, h2.author {font-style:italic; text-align:center;margin-top:4px;margin-bottom:0}
-p.date, h3.date {text-align:center;margin-top:4px; margin-bottom:0}
-/* Tables*/
-table { margin:auto; border-collapse:collapse; }
-table caption { margin-bottom:1ex;}
-td {padding:0 0 0 0} /* override */
-table:not([class]) th { padding:4px 6px } 
-table:not([class]) td { padding:4px 6px } 
-table:not([class]) thead tr:first-child th {border-top:1px solid black; padding-top:6px}
-table:not([class]) thead tr:last-child  th {padding-bottom:6px}
-table:not([class]) tbody tr:first-child td {border-top:1px solid black; padding-top:6px}
-table:not([class]) tbody tr:last-child  td {padding-bottom:6px;}
-table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid black;}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
+
+
+<script src="data-visualization-with-Stata-the-basics_files/libs/clipboard/clipboard.min.js"></script>
+<script src="data-visualization-with-Stata-the-basics_files/libs/quarto-html/quarto.js"></script>
+<script src="data-visualization-with-Stata-the-basics_files/libs/quarto-html/popper.min.js"></script>
+<script src="data-visualization-with-Stata-the-basics_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="data-visualization-with-Stata-the-basics_files/libs/quarto-html/anchor.min.js"></script>
+<link href="data-visualization-with-Stata-the-basics_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="data-visualization-with-Stata-the-basics_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="data-visualization-with-Stata-the-basics_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="data-visualization-with-Stata-the-basics_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="data-visualization-with-Stata-the-basics_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="data-visualization-with-Stata-the-basics_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="data-visualization-with-Stata-the-basics_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="data-visualization-with-Stata-the-basics_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+
+
 </head>
+
 <body>
-<header id="title-block-header">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">2</span> Setup</a></li>
+  <li><a href="#histogram-histogram-x" id="toc-histogram-histogram-x" class="nav-link" data-scroll-target="#histogram-histogram-x"><span class="header-section-number">3</span> Histogram: <code>histogram x</code></a></li>
+  <li><a href="#bar-graph-graph-bar" id="toc-bar-graph-graph-bar" class="nav-link" data-scroll-target="#bar-graph-graph-bar"><span class="header-section-number">4</span> Bar Graph: <code>graph bar</code></a>
+  <ul class="collapse">
+  <li><a href="#counting-up-numbers-in-each-group-graph-bar-overx" id="toc-counting-up-numbers-in-each-group-graph-bar-overx" class="nav-link" data-scroll-target="#counting-up-numbers-in-each-group-graph-bar-overx"><span class="header-section-number">4.1</span> Counting Up Numbers In Each Group: <code>graph bar, over(x)</code></a></li>
+  <li><a href="#average-of-a-continuous-variable-across-groups-graph-bar-y-overx" id="toc-average-of-a-continuous-variable-across-groups-graph-bar-y-overx" class="nav-link" data-scroll-target="#average-of-a-continuous-variable-across-groups-graph-bar-y-overx"><span class="header-section-number">4.2</span> Average Of A Continuous Variable Across Groups: <code>graph bar y, over(x)</code></a></li>
+  </ul></li>
+  <li><a href="#scatterplot-twoway-scatter-y-x" id="toc-scatterplot-twoway-scatter-y-x" class="nav-link" data-scroll-target="#scatterplot-twoway-scatter-y-x"><span class="header-section-number">5</span> Scatterplot: <code>twoway scatter y x</code></a></li>
+  <li><a href="#linear-fit-twoway-lfit-y-x" id="toc-linear-fit-twoway-lfit-y-x" class="nav-link" data-scroll-target="#linear-fit-twoway-lfit-y-x"><span class="header-section-number">6</span> Linear Fit: <code>twoway lfit y x</code></a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="data-visualization-with-Stata-the-basics.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title">Data Visualization With Stata (The Basics)</h1>
-<p class="author">Andy Grogan-Kaylor</p>
-<p class="date">7 Dec 2023</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Andy Grogan-Kaylor </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 13, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
 </header>
-<h1 id="introduction">Introduction</h1>
-<style>body {max-width: 90%} h1 {color: #00274C;} h2 {color: #2F65A7;} p {font-size: 110%;} pre.stata {font-size: 110%; line-height: 115%;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
-<p>99% of data visualization work seems to consist of creating bar
-graphs (<code>graph bar y, over(x)</code>) and scatterplots
-(<code>twoway scatter y x</code>). (For the sake of completeness, I am
-also going to mention histograms (<code>histogram x</code>).)</p>
-<blockquote>
-<p>Note: In some commands, I use <code>///</code> so that Stata commands
-can be on multiple lines.</p>
+
+
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>99% of data visualization work seems to consist of creating bar graphs (<code>graph bar y, over(x)</code>) and scatterplots (<code>twoway scatter y x</code>). (For the sake of completeness, I am also going to mention histograms (<code>histogram x</code>).)</p>
+<blockquote class="blockquote">
+<p>Note: In some commands, I use <code>///</code> so that Stata commands can be on multiple lines.</p>
 </blockquote>
-<p>This is a quick guide to these ideas using the <a
-href="https://github.com/allisonhorst/palmerpenguins/blob/master/README.md">Palmer
-Penguins Data</a>.</p>
-<p><img src="lter_penguins.png" style="width:20.0%"
-alt="Palmer Penguins Illustration from @allison_horst" /> <img
-src="culmen_depth.png" style="width:20.0%"
-alt="Culmen Depth from @allison_horst" /></p>
-<h1 id="setup">Setup</h1>
-<pre class='stata'>. clear all
-
-. 
-. use "penguins.dta", clear
-</pre>
-<p>Or, click <a
-href="https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata-the-basics/penguins.dta">here</a>
-to download the data.</p>
-<blockquote>
-<p>I am not a particular fan of the default <code>s2color</code> graph
-scheme in earlier versions of Stata. In earlier versions of Stata, I
-might use the <code>s1color</code> scheme by typing
-<code>set scheme s1color</code>. This handout makes use of the
-<code>stcolor</code> graph scheme which is the default in newer versions
-of Stata.</p>
+<p>This is a quick guide to these ideas using the <a href="https://github.com/allisonhorst/palmerpenguins/blob/master/README.md">Palmer Penguins Data</a>.</p>
+<p><img src="lter_penguins.png" class="img-fluid" style="width:20.0%" alt="Palmer Penguins Illustration from @allison_horst"> <img src="culmen_depth.png" class="img-fluid" style="width:20.0%" alt="Culmen Depth from @allison_horst"></p>
+</section>
+<section id="setup" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Setup</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span> <span class="ot">all</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"penguins.dta"</span>, <span class="kw">clear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Or, click <a href="https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata-the-basics/penguins.dta">here</a> to download the data.</p>
+<blockquote class="blockquote">
+<p>I am not a particular fan of the default <code>s2color</code> graph scheme in earlier versions of Stata. In earlier versions of Stata, I might use the <code>s1color</code> scheme by typing <code>set scheme s1color</code>. This handout makes use of the <code>stcolor</code> graph scheme which is the default in newer versions of Stata.</p>
 </blockquote>
-<h1 id="histogram-histogram-x">Histogram: <code>histogram x</code></h1>
-<pre class='stata'>. histogram body_mass_g, title("Body Mass of Penguins") xtitle("Body Mass")
-(bin=18, start=2700, width=200)
-</pre>
+</section>
+<section id="histogram-histogram-x" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Histogram: <code>histogram x</code></h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">histogram</span> body_mass_g, <span class="bn">title</span>(<span class="st">"Body Mass of Penguins"</span>) <span class="bn">xtitle</span>(<span class="st">"Body Mass"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>no variables defined
+r(111);
 
-<figure>
-<img src="myhistogram.png" style="width:25.0%" alt="histogram" />
-<figcaption aria-hidden="true">histogram</figcaption>
-</figure>
-<h1 id="bar-graph-graph-bar">Bar Graph: <code>graph bar</code></h1>
-<h2 id="counting-up-numbers-in-each-group-graph-bar-overx">Counting Up
-Numbers In Each Group: <code>graph bar, over(x)</code></h2>
-<pre class='stata'>. graph bar, over(species) title("Penguin Species")
-</pre>
+end of do-file
+r(111);</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>could not find Graph window
+r(693);
 
-<figure>
-<img src="mybar1.png" style="width:30.0%" alt="bar graph" />
-<figcaption aria-hidden="true">bar graph</figcaption>
+end of do-file
+r(693);</code></pre>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="myhistogram.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="histogram"><img src="myhistogram.png" class="img-fluid figure-img" style="width:25.0%" alt="histogram"></a></p>
+<figcaption>histogram</figcaption>
 </figure>
-<h2
-id="average-of-a-continuous-variable-across-groups-graph-bar-y-overx">Average
-Of A Continuous Variable Across Groups:
-<code>graph bar y, over(x)</code></h2>
-<pre class='stata'>. graph bar body_mass_g, over(species) title("Body Mass of Penguin Species")
-</pre>
+</div>
+</section>
+<section id="bar-graph-graph-bar" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Bar Graph: <code>graph bar</code></h1>
+<section id="counting-up-numbers-in-each-group-graph-bar-overx" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="counting-up-numbers-in-each-group-graph-bar-overx"><span class="header-section-number">4.1</span> Counting Up Numbers In Each Group: <code>graph bar, over(x)</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(species) <span class="bn">title</span>(<span class="st">"Penguin Species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variable species not found
+r(111);
 
-<figure>
-<img src="mybar2.png" style="width:30.0%" alt="bar graph" />
-<figcaption aria-hidden="true">bar graph</figcaption>
-</figure>
-<h1 id="scatterplot-twoway-scatter-y-x">Scatterplot:
-<code>twoway scatter y x</code></h1>
-<pre class='stata'>. twoway scatter culmen_length_mm body_mass_g, ///
-> title("Penguin Culmen Length by Body Mass") /// 
-> xtitle("Body Mass") ///
-> ytitle("Culmen Length")
-</pre>
+end of do-file
+r(111);</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>could not find Graph window
+r(693);
 
-<figure>
-<img src="myscatter.png" style="width:30.0%" alt="scatterplot" />
-<figcaption aria-hidden="true">scatterplot</figcaption>
+end of do-file
+r(693);</code></pre>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="mybar1.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="bar graph"><img src="mybar1.png" class="img-fluid figure-img" style="width:30.0%" alt="bar graph"></a></p>
+<figcaption>bar graph</figcaption>
 </figure>
-<h1 id="linear-fit-twoway-lfit-y-x">Linear Fit:
-<code>twoway lfit y x</code></h1>
-<pre class='stata'>. twoway lfit culmen_length_mm body_mass_g, ///
-> title("Penguin Culmen Length by Body Mass") /// 
-> xtitle("Body Mass") ///
-> ytitle("Culmen Length")
-</pre>
+</div>
+</section>
+<section id="average-of-a-continuous-variable-across-groups-graph-bar-y-overx" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="average-of-a-continuous-variable-across-groups-graph-bar-y-overx"><span class="header-section-number">4.2</span> Average Of A Continuous Variable Across Groups: <code>graph bar y, over(x)</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> body_mass_g, <span class="bn">over</span>(species) <span class="bn">title</span>(<span class="st">"Body Mass of Penguin Species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variable species not found
+r(111);
 
-<figure>
-<img src="mylinear.png" style="width:30.0%" alt="scatterplot" />
-<figcaption aria-hidden="true">scatterplot</figcaption>
+end of do-file
+r(111);</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>could not find Graph window
+r(693);
+
+end of do-file
+r(693);</code></pre>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="mybar2.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="bar graph"><img src="mybar2.png" class="img-fluid figure-img" style="width:30.0%" alt="bar graph"></a></p>
+<figcaption>bar graph</figcaption>
 </figure>
-</body>
-</html>
+</div>
+</section>
+</section>
+<section id="scatterplot-twoway-scatter-y-x" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Scatterplot: <code>twoway scatter y x</code></h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> culmen_length_mm body_mass_g, <span class="co">///</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bn">title</span>(<span class="st">"Penguin Culmen Length by Body Mass"</span>) <span class="co">/// </span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bn">xtitle</span>(<span class="st">"Body Mass"</span>) <span class="co">///</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bn">ytitle</span>(<span class="st">"Culmen Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variable culmen_length_mm not found
+r(111);
+
+end of do-file
+r(111);</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>could not find Graph window
+r(693);
+
+end of do-file
+r(693);</code></pre>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="myscatter.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="scatterplot"><img src="myscatter.png" class="img-fluid figure-img" style="width:30.0%" alt="scatterplot"></a></p>
+<figcaption>scatterplot</figcaption>
+</figure>
+</div>
+</section>
+<section id="linear-fit-twoway-lfit-y-x" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Linear Fit: <code>twoway lfit y x</code></h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">lfit</span> culmen_length_mm body_mass_g, <span class="co">///</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bn">title</span>(<span class="st">"Penguin Culmen Length by Body Mass"</span>) <span class="co">/// </span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bn">xtitle</span>(<span class="st">"Body Mass"</span>) <span class="co">///</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bn">ytitle</span>(<span class="st">"Culmen Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variable culmen_length_mm not found
+r(111);
+
+end of do-file
+r(111);</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>could not find Graph window
+r(693);
+
+end of do-file
+r(693);</code></pre>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="mylinear.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="scatterplot"><img src="mylinear.png" class="img-fluid figure-img" style="width:30.0%" alt="scatterplot"></a></p>
+<figcaption>scatterplot</figcaption>
+</figure>
+</div>
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">histogram</span>
+<span class="glightbox-desc lightbox-desc-2">bar graph</span>
+<span class="glightbox-desc lightbox-desc-3">bar graph</span>
+<span class="glightbox-desc lightbox-desc-4">scatterplot</span>
+<span class="glightbox-desc lightbox-desc-5">scatterplot</span>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>
