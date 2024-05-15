@@ -1,7 +1,7 @@
 ---
 title: "Two Page Stata"
 subtitle: "An Introduction to Stata"
-author: "Andrew Grogan-Kaylor"
+authors: "Andy Grogan-Kaylor"
 date: "today"
 format:
   html:
