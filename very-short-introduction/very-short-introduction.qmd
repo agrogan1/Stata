@@ -8,15 +8,11 @@ format:
     toc: true
     number-sections: true
     theme:
-      light: united
+      light: yeti
       dark: vapor
-  typst: 
+  pdf: 
     toc: false
     number-sections: true
-    columns: 1
-    margin:
-      x: .5in
-      y: .5in
 ---
 
 The basic philosophy of Stata---“Stata in one sentence”---is: 
