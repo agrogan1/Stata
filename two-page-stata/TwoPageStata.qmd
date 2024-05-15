@@ -8,7 +8,7 @@ format:
     toc: true
     number-sections: true
     theme:
-      light: cosmo
+      light: yeti
       dark: vapor
     css: styles.css
     mermaid: 
