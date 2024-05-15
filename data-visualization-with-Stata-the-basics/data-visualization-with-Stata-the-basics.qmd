@@ -65,7 +65,7 @@ quietly: graph export myhistogram.png, width(1000) replace
 
 ```
 
-![histogram](myhistogram.png){width=25%}
+![histogram](myhistogram.png){width=33%}
 
 # Bar Graph: `graph bar`
 
@@ -86,7 +86,7 @@ quietly: graph export mybar1.png, width(1000) replace
 
 ```
 
-![bar graph](mybar1.png){width=30%}
+![bar graph](mybar1.png){width=33%}
 
 ## Average Of A Continuous Variable Across Groups: `graph bar y, over(x)`
 
@@ -105,7 +105,7 @@ quietly: graph export mybar2.png, width(1000) replace
 
 ```
 
-![bar graph](mybar2.png){width=30%}
+![bar graph](mybar2.png){width=33%}
 
 
 # Scatterplot: `twoway scatter y x`
@@ -128,7 +128,7 @@ quietly: graph export myscatter.png, width(1000) replace
 
 ```
 
-![scatterplot](myscatter.png){width=30%}
+![scatterplot](myscatter.png){width=33%}
 
 # Linear Fit: `twoway lfit y x`
 
@@ -150,4 +150,4 @@ quietly: graph export mylinear.png, width(1000) replace
 
 ```
 
-![scatterplot](mylinear.png){width=30%}
+![scatterplot](mylinear.png){width=33%}
