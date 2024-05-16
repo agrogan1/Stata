@@ -1,20 +1,36 @@
-% Data Visualization With Stata
-% Andy Grogan-Kaylor
-% `s c(current_date)`
-
 ---
-geometry: margin=1 in
+title: "Data Visualization With Stata"
+authors: "Andy Grogan-Kaylor"
+date: "today"
+format:
+  html:
+    toc: true
+    number-sections: true
+    theme:
+      light: yeti
+      dark: vapor
+    mermaid: 
+      theme: default
+    css: styles.css
+  typst: 
+    toc: true
+    number-sections: true
 ---
 
 # Introduction 
 
-<style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} p {font-size: 110%;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
+```{r}
+#| output: false
+#| echo: false
+
+library(Statamarkdown)
+
+```
+
 
 > Stata is a powerful and intuitive data analysis program. Learning how to graph in Stata is an important part of learning how to use Stata. Yet, until recently, the default graphs in Stata have been less than optimal. However, recent versions of Stata have a very professional looking and aesthetically appealing default graph scheme.
 
 > This document is an introduction to (a) basic graphing ideas in Stata; and (b) a quick note on the use of schemes to customize your Stata graphs.
-
-> When this document is presented in *slide show format*, some slides may be long, and you may need to *scroll down* to see the full slide.
 
 # What are Variables?
 
@@ -60,8 +76,12 @@ The documentation goes on to further note that:
 
 > "The data are measures from 107 trees. The trees were selected as being of average size from healthy and well stocked stands in the Alps."
 
-    use "https://github.com/agrogan1/Stata/raw/main/data-visualization-with-Stata/gutten.dta", clear
-		
+```{stata, collectcode=TRUE}
+
+use "https://github.com/agrogan1/Stata/raw/main/data-visualization-with-Stata/gutten.dta", clear
+
+```
+
 # Variables
 
 `site` Growth *quality* class of the tree’s habitat. 5 levels.
@@ -71,12 +91,6 @@ The documentation goes on to further note that:
 `tree` An identifier for the tree within location.
 
 `age_base` The tree age taken at ground level.
-
-> For some purposes, it might be best to use a centered age variable, centered at the grand mean of tree age: 
-
-    egen ageMEAN = mean(age_base)
-	
-	generate ageCENTERED = age_base - ageMEAN
 	
 `height` Tree height, m.
 
@@ -92,41 +106,66 @@ The documentation goes on to further note that:
 
 ## One Continuous Thing At A Time (`histogram x`)
 
-    histogram height, title("Tree Height")
+```{stata}
+#| output: false
+
+histogram height, title("Tree Height")
 	
-    graph export myhistogram.png, width(1000) replace
+graph export myhistogram.png, width(1000) replace
+
+```
 
 ![Histogram Of Tree Height](myhistogram.png){width=50%}
 
 ## One Categorical Thing At A Time (`graph bar, over(x)`)
 
-    graph bar, over(location) title("Tree Location")
+```{stata}
+#| output: false
+
+graph bar, over(location) title("Tree Location")
 	
-	graph export mybargraph.png, width(1000) replace
+graph export mybargraph.png, width(1000) replace
+
+```
 
 ![Bar Graph Of Tree Location](mybargraph.png){width=50%}
 
 ## Continuous by Continuous (`twoway scatter y x`)
 
-    twoway scatter height age_base, title("Tree Height by Age")
+```{stata}
+#| output: false
+
+twoway scatter height age_base, title("Tree Height by Age")
 	
-	graph export myscatter.png, width(1000) replace
+graph export myscatter.png, width(1000) replace
+
+```
 
 ![Scatterplot Of Tree Height By Age](myscatter.png){width=50%}
 
 ## Categorical by Categorical (`graph bar, over(x) over(y)`)
 
-    graph bar, over(site) over(location) title("Tree Site Growth Quality by Location")
+```{stata}
+#| output: false
+
+graph bar, over(site) over(location) title("Tree Site Growth Quality by Location")
 	
-	graph export mybargraph2.png, width(1000) replace
+graph export mybargraph2.png, width(1000) replace
+
+```
 
 ![Bar Graph Of Tree Site By Location](mybargraph2.png){width=50%}
 
 ## Continuous by Categorical (`graph bar y, over(x)`)
 
-    graph bar height, over(location) title("Tree Height by Location")
+```{stata}
+#| output: false
+
+graph bar height, over(location) title("Tree Height by Location")
 	
-	graph export mybargraph3.png, width(1000) replace
+graph export mybargraph3.png, width(1000) replace
+
+```
 
 ![Bar Graph Of Mean Tree Height By Location](mybargraph3.png){width=50%}
 
@@ -138,27 +177,46 @@ Stata *graph schemes* can substantially change the look of a graph. Built in gra
 
 ## Continuous by Continuous (`twoway scatter y x, scheme(...)`)
 
-    twoway scatter height age_base, title("Tree Height by Age") scheme(michigan)
+```{stata}
+#| output: false
+
+twoway scatter height age_base, title("Tree Height by Age") scheme(michigan)
 	
-	graph export myscatterM.png, width(1000) replace
+graph export myscatterM.png, width(1000) replace
+
+```
 
 ![Scatterplot Of Tree Height By Age With Michigan Graph Scheme](myscatterM.png){width=50%}
+```{stata}
+#| output: false
 
-    twoway scatter height age_base, title("Tree Height by Age") scheme(lean2) msymbol(o)
+twoway scatter height age_base, title("Tree Height by Age") scheme(lean2) msymbol(o)
 
-	graph export myscatterL.png, width(1000) replace
+graph export myscatterL.png, width(1000) replace
+
+```
 
 ![Scatterplot Of Tree Height By Age With lean2 Graph Scheme](myscatterL.png){width=50%}
 
-    twoway scatter height age_base, title("Tree Height by Age") scheme(s1color)
+```{stata}
+#| output: false
 
-	graph export myscatterS.png, width(1000) replace
+twoway scatter height age_base, title("Tree Height by Age") scheme(s1color)
+
+graph export myscatterS.png, width(1000) replace
+
+```
 
 ![Scatterplot Of Tree Height By Age With s1color Graph Scheme](myscatterS.png){width=50%}
+```{stata}
+#| output: false
 
-    twoway scatter height age_base, title("Tree Height by Age") scheme(burd) msymbol(o) graphregion(lcolor(none))
+twoway scatter height age_base, title("Tree Height by Age") scheme(burd) ///
+  msymbol(o) graphregion(lcolor(none))
 
-	graph export myscatterB.png, width(1000) replace
+graph export myscatterB.png, width(1000) replace
+
+```
 
 ![Scatterplot Of Tree Height By Age With burd Graph Scheme](myscatterB.png){width=50%}
 
@@ -166,27 +224,45 @@ Stata *graph schemes* can substantially change the look of a graph. Built in gra
 
 > Note that in the graph below, I have used the `asyvars` option to give different colors to the different bars.
 
-	graph bar height, over(location) asyvars title("Tree Height by Location") scheme(michigan)
+```{stata}
+#| output: false
+
+graph bar height, over(location) asyvars title("Tree Height by Location") scheme(michigan)
 	
-	graph export mybarM.png, width(1000) replace
+graph export mybarM.png, width(1000) replace
+
+```
 
 ![Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme](mybarM.png){width=50%}
+```{stata}
+#| output: false
 
-	graph bar height, over(location) asyvars title("Tree Height by Location") scheme(lean2)
+graph bar height, over(location) asyvars title("Tree Height by Location") scheme(lean2)
 	
-	graph export mybarL.png, width(1000) replace
+graph export mybarL.png, width(1000) replace
+
+```
 
 ![Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme](mybarL.png){width=50%}
+```{stata}
+#| output: false
 
-	graph bar height, over(location) asyvars title("Tree Height by Location") scheme(s1color)
+graph bar height, over(location) asyvars title("Tree Height by Location") scheme(s1color)
 	
-	graph export mybarS.png, width(1000) replace
+graph export mybarS.png, width(1000) replace
+
+```
 
 ![Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme](mybarS.png){width=50%}
 
-    graph bar height, over(location) asyvars title("Tree Height by Location") scheme(burd) graphregion(lcolor(none))
+```{stata}
+#| output: false
 
-	graph export mybarB.png, width(1000) replace
+graph bar height, over(location) asyvars title("Tree Height by Location") scheme(burd) graphregion(lcolor(none))
+
+graph export mybarB.png, width(1000) replace
+
+```
 
 ![Bar Graph Of Mean Tree Height By Location With burd Graph Scheme](mybarB.png){width=50%}
 

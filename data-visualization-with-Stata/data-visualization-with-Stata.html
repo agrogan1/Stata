@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-05-16">
+
+<title>Data Visualization With Stata</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="data-visualization-with-Stata_files/libs/clipboard/clipboard.min.js"></script>
+<script src="data-visualization-with-Stata_files/libs/quarto-html/quarto.js"></script>
+<script src="data-visualization-with-Stata_files/libs/quarto-html/popper.min.js"></script>
+<script src="data-visualization-with-Stata_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="data-visualization-with-Stata_files/libs/quarto-html/anchor.min.js"></script>
+<link href="data-visualization-with-Stata_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="data-visualization-with-Stata_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="data-visualization-with-Stata_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="data-visualization-with-Stata_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="data-visualization-with-Stata_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="data-visualization-with-Stata_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="data-visualization-with-Stata_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#what-are-variables" id="toc-what-are-variables" class="nav-link" data-scroll-target="#what-are-variables"><span class="header-section-number">2</span> What are Variables?</a></li>
+  <li><a href="#variable-types" id="toc-variable-types" class="nav-link" data-scroll-target="#variable-types"><span class="header-section-number">3</span> Variable Types</a></li>
+  <li><a href="#a-data-visualization-strategy" id="toc-a-data-visualization-strategy" class="nav-link" data-scroll-target="#a-data-visualization-strategy"><span class="header-section-number">4</span> A Data Visualization Strategy</a></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source"><span class="header-section-number">5</span> Data Source</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">6</span> Variables</a></li>
+  <li><a href="#graphs" id="toc-graphs" class="nav-link" data-scroll-target="#graphs"><span class="header-section-number">7</span> Graphs</a>
+  <ul class="collapse">
+  <li><a href="#one-continuous-thing-at-a-time-histogram-x" id="toc-one-continuous-thing-at-a-time-histogram-x" class="nav-link" data-scroll-target="#one-continuous-thing-at-a-time-histogram-x"><span class="header-section-number">7.1</span> One Continuous Thing At A Time (<code>histogram x</code>)</a></li>
+  <li><a href="#one-categorical-thing-at-a-time-graph-bar-overx" id="toc-one-categorical-thing-at-a-time-graph-bar-overx" class="nav-link" data-scroll-target="#one-categorical-thing-at-a-time-graph-bar-overx"><span class="header-section-number">7.2</span> One Categorical Thing At A Time (<code>graph bar, over(x)</code>)</a></li>
+  <li><a href="#continuous-by-continuous-twoway-scatter-y-x" id="toc-continuous-by-continuous-twoway-scatter-y-x" class="nav-link" data-scroll-target="#continuous-by-continuous-twoway-scatter-y-x"><span class="header-section-number">7.3</span> Continuous by Continuous (<code>twoway scatter y x</code>)</a></li>
+  <li><a href="#categorical-by-categorical-graph-bar-overx-overy" id="toc-categorical-by-categorical-graph-bar-overx-overy" class="nav-link" data-scroll-target="#categorical-by-categorical-graph-bar-overx-overy"><span class="header-section-number">7.4</span> Categorical by Categorical (<code>graph bar, over(x) over(y)</code>)</a></li>
+  <li><a href="#continuous-by-categorical-graph-bar-y-overx" id="toc-continuous-by-categorical-graph-bar-y-overx" class="nav-link" data-scroll-target="#continuous-by-categorical-graph-bar-y-overx"><span class="header-section-number">7.5</span> Continuous by Categorical (<code>graph bar y, over(x)</code>)</a></li>
+  </ul></li>
+  <li><a href="#schemes-scheme..." id="toc-schemes-scheme..." class="nav-link" data-scroll-target="#schemes-scheme..."><span class="header-section-number">8</span> Schemes (<code>,scheme(...)</code>)</a>
+  <ul class="collapse">
+  <li><a href="#continuous-by-continuous-twoway-scatter-y-x-scheme..." id="toc-continuous-by-continuous-twoway-scatter-y-x-scheme..." class="nav-link" data-scroll-target="#continuous-by-continuous-twoway-scatter-y-x-scheme..."><span class="header-section-number">8.1</span> Continuous by Continuous (<code>twoway scatter y x, scheme(...)</code>)</a></li>
+  <li><a href="#continuous-by-categorical-graph-bar-y-overx-scheme..." id="toc-continuous-by-categorical-graph-bar-y-overx-scheme..." class="nav-link" data-scroll-target="#continuous-by-categorical-graph-bar-y-overx-scheme..."><span class="header-section-number">8.2</span> Continuous by Categorical (<code>graph bar y, over(x) scheme(...)</code>)</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="data-visualization-with-Stata.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Visualization With Stata</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Andy Grogan-Kaylor </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 16, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<blockquote class="blockquote">
+<p>Stata is a powerful and intuitive data analysis program. Learning how to graph in Stata is an important part of learning how to use Stata. Yet, until recently, the default graphs in Stata have been less than optimal. However, recent versions of Stata have a very professional looking and aesthetically appealing default graph scheme.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>This document is an introduction to (a) basic graphing ideas in Stata; and (b) a quick note on the use of schemes to customize your Stata graphs.</p>
+</blockquote>
+</section>
+<section id="what-are-variables" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> What are Variables?</h1>
+<ul>
+<li>By variables, I simply mean the columns of data that you have.</li>
+<li>For our purposes, you may think of variables as synonymous with questionnaire items, or columns of data.</li>
+</ul>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Row 1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Row 2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Row 3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="variable-types" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Variable Types</h1>
+<ul>
+<li><em>Categorical variables</em> represent unordered categories like <em>race</em>, <em>ethnicity</em>, <em>neighborhood</em>, <em>religious affiliation</em>, or <em>place of residence</em>.</li>
+<li><em>Continuous variables</em> represent a continuous scale like <em>income</em>, a <em>mental health scale</em>, or a <em>measure of life expectancy</em>.</li>
+</ul>
+</section>
+<section id="a-data-visualization-strategy" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> A Data Visualization Strategy</h1>
+<p>Once we have discerned the type of variable that have, there are two followup questions we may ask before deciding upon a graphing strategy:</p>
+<ul>
+<li>Is our graph about <strong>one thing at a time</strong>?
+<ul>
+<li>How much of <em>x</em> is there?</li>
+<li>What is the distribution of <em>x</em>?</li>
+</ul></li>
+<li>Is our graph about <strong>two things at a time</strong>?
+<ul>
+<li>What is the relationship of <em>x</em> and <em>y</em>?</li>
+<li>How are <em>x</em> and <em>y</em> associated?</li>
+</ul></li>
+</ul>
+</section>
+<section id="data-source" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Data Source</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fotolia-small.jpg" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Norway Spruce and Larch Forest in Austrian Alps</figcaption>
+</figure>
+</div>
+<p>Image Source: <a href="https://ec.europa.eu/jrc/en/research-topic/forestry/qr-tree-project/norway-spruce">https://ec.europa.eu/jrc/en/research-topic/forestry/qr-tree-project/norway-spruce</a></p>
+<p>The data used in this example are derived from the R package <em>Functions and Datasets for “Forest Analytics with R”</em>.</p>
+<p>According to the documentation, the source of these data are: “von Guttenberg’s Norway spruce (Picea abies [L.] Karst) tree measurement data.”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Old-Tjikko-Small.jpg" class="img-fluid figure-img" style="width:20.0%"></p>
+<figcaption>Old Tjikko, a 9,550 Year Old Norway Spruce in Sweden</figcaption>
+</figure>
+</div>
+<p>The documentation goes on to further note that:</p>
+<blockquote class="blockquote">
+<p>“The data are measures from 107 trees. The trees were selected as being of average size from healthy and well stocked stands in the Alps.”</p>
+</blockquote>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"https://github.com/agrogan1/Stata/raw/main/data-visualization-with-Stata/gutten.dta"</span>, <span class="kw">clear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="variables" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Variables</h1>
+<p><code>site</code> Growth <em>quality</em> class of the tree’s habitat. 5 levels.</p>
+<p><code>location</code> Distinguishes tree <em>location</em>. 7 levels.</p>
+<p><code>tree</code> An identifier for the tree within location.</p>
+<p><code>age_base</code> The tree age taken at ground level.</p>
+<p><code>height</code> Tree height, m.</p>
+<p><code>dbh_cm</code> Tree diameter, cm.</p>
+<p><code>volume</code> Tree volume.</p>
+<p><code>age_bh</code> Tree age taken at 1.3 m.</p>
+<p><code>tree.ID</code> A factor uniquely identifying the tree.</p>
+</section>
+<section id="graphs" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Graphs</h1>
+<section id="one-continuous-thing-at-a-time-histogram-x" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="one-continuous-thing-at-a-time-histogram-x"><span class="header-section-number">7.1</span> One Continuous Thing At A Time (<code>histogram x</code>)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">histogram</span> height, <span class="bn">title</span>(<span class="st">"Tree Height"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> myhistogram.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="myhistogram.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Histogram Of Tree Height</figcaption>
+</figure>
+</div>
+</section>
+<section id="one-categorical-thing-at-a-time-graph-bar-overx" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="one-categorical-thing-at-a-time-graph-bar-overx"><span class="header-section-number">7.2</span> One Categorical Thing At A Time (<code>graph bar, over(x)</code>)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(location) <span class="bn">title</span>(<span class="st">"Tree Location"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> mybargraph.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mybargraph.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Bar Graph Of Tree Location</figcaption>
+</figure>
+</div>
+</section>
+<section id="continuous-by-continuous-twoway-scatter-y-x" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="continuous-by-continuous-twoway-scatter-y-x"><span class="header-section-number">7.3</span> Continuous by Continuous (<code>twoway scatter y x</code>)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> height age_base, <span class="bn">title</span>(<span class="st">"Tree Height by Age"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> myscatter.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="myscatter.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Scatterplot Of Tree Height By Age</figcaption>
+</figure>
+</div>
+</section>
+<section id="categorical-by-categorical-graph-bar-overx-overy" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="categorical-by-categorical-graph-bar-overx-overy"><span class="header-section-number">7.4</span> Categorical by Categorical (<code>graph bar, over(x) over(y)</code>)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(site) <span class="bn">over</span>(location) <span class="bn">title</span>(<span class="st">"Tree Site Growth Quality by Location"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> mybargraph2.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mybargraph2.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Bar Graph Of Tree Site By Location</figcaption>
+</figure>
+</div>
+</section>
+<section id="continuous-by-categorical-graph-bar-y-overx" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="continuous-by-categorical-graph-bar-y-overx"><span class="header-section-number">7.5</span> Continuous by Categorical (<code>graph bar y, over(x)</code>)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) <span class="bn">title</span>(<span class="st">"Tree Height by Location"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> mybargraph3.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mybargraph3.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Bar Graph Of Mean Tree Height By Location</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="schemes-scheme..." class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Schemes (<code>,scheme(...)</code>)</h1>
+<p>Stata <em>graph schemes</em> can substantially change the look of a graph. Built in graph schemes include <code>s1color</code>, the new default scheme <code>stcolor</code>, the older default scheme <code>s2color</code>, <code>sj</code>, <code>economist</code> and <code>s1rcolor</code>.</p>
+<p><code>lean2</code> (type <code>findit lean2</code> in the Stata Command Window) is a user written scheme that is very helpful when preparing graphics for publication. I have written a <a href="https://agrogan1.github.io/Stata/">Stata Michigan graph scheme</a> that can be installed. <code>cleanplots</code> and <code>modern</code> are excellent graph schemes that can be installed directly into Stata from GitHub. <code>burd</code> is another user written graph scheme that <em>somewhat</em> replicates the look of <code>ggplot</code>. Asjad Naqvi has written <a href="https://github.com/asjadnaqvi/Stata-schemes">an excellent and comprehensive set of Stata graph schemes</a>.</p>
+<section id="continuous-by-continuous-twoway-scatter-y-x-scheme..." class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="continuous-by-continuous-twoway-scatter-y-x-scheme..."><span class="header-section-number">8.1</span> Continuous by Continuous (<code>twoway scatter y x, scheme(...)</code>)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> height age_base, <span class="bn">title</span>(<span class="st">"Tree Height by Age"</span>) <span class="dv">scheme</span>(michigan)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> myscatterM.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="myscatterM.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Scatterplot Of Tree Height By Age With Michigan Graph Scheme</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> height age_base, <span class="bn">title</span>(<span class="st">"Tree Height by Age"</span>) <span class="dv">scheme</span>(lean2) <span class="bn">msymbol</span>(o)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> myscatterL.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="myscatterL.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Scatterplot Of Tree Height By Age With lean2 Graph Scheme</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> height age_base, <span class="bn">title</span>(<span class="st">"Tree Height by Age"</span>) <span class="dv">scheme</span>(s1color)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> myscatterS.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="myscatterS.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Scatterplot Of Tree Height By Age With s1color Graph Scheme</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> height age_base, <span class="bn">title</span>(<span class="st">"Tree Height by Age"</span>) <span class="dv">scheme</span>(burd) <span class="co">///</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="bn">msymbol</span>(o) graphregion(lcolor(<span class="kw">none</span>))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> myscatterB.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="myscatterB.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Scatterplot Of Tree Height By Age With burd Graph Scheme</figcaption>
+</figure>
+</div>
+</section>
+<section id="continuous-by-categorical-graph-bar-y-overx-scheme..." class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="continuous-by-categorical-graph-bar-y-overx-scheme..."><span class="header-section-number">8.2</span> Continuous by Categorical (<code>graph bar y, over(x) scheme(...)</code>)</h2>
+<blockquote class="blockquote">
+<p>Note that in the graph below, I have used the <code>asyvars</code> option to give different colors to the different bars.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) asyvars <span class="bn">title</span>(<span class="st">"Tree Height by Location"</span>) <span class="dv">scheme</span>(michigan)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> mybarM.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mybarM.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) asyvars <span class="bn">title</span>(<span class="st">"Tree Height by Location"</span>) <span class="dv">scheme</span>(lean2)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> mybarL.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mybarL.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) asyvars <span class="bn">title</span>(<span class="st">"Tree Height by Location"</span>) <span class="dv">scheme</span>(s1color)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> mybarS.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mybarS.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) asyvars <span class="bn">title</span>(<span class="st">"Tree Height by Location"</span>) <span class="dv">scheme</span>(burd) graphregion(lcolor(<span class="kw">none</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> mybarB.png, <span class="kw">width</span>(1000) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mybarB.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Bar Graph Of Mean Tree Height By Location With burd Graph Scheme</figcaption>
+</figure>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
