@@ -1,0 +1,66 @@
+---
+title: "Tables for `sem` in Stata"
+date: "today"
+author: "Andy Grogan-Kaylor"
+format:
+  html:
+    toc: true
+    number-sections: true
+    theme:
+      light: yeti
+      dark: vapor
+editor: source
+---
+
+# Introduction 
+
+A quick demo of making tables with `sem` in Stata.
+
+```{r}
+#| echo: false
+#| output: false
+
+library(Statamarkdown)
+
+```
+
+# Get Data
+
+Data from [Multilevel Thinking](https://agrogan1.github.io/multilevel-thinking/simulated-multi-country-data.html)
+
+```{stata, collectcode=TRUE}
+
+use "https://github.com/agrogan1/multilevel-thinking/raw/main/simulate-and-analyze-multilevel-data/simulated_multilevel_data.dta", clear
+
+```
+
+
+# Run `sem` Model
+
+Outcome is a function of physical punishment, parental warmth and the intervention. Physical punishment is potentially an outcome of the intervention.
+
+```{stata, collectcode=TRUE}
+
+sem (outcome <- physical_punishment warmth intervention) ///
+(physical_punishment <- intervention) // sem model
+
+est store M1 // store estimates from this model
+
+```
+
+
+# Make Table With `etable`
+
+As long as the variables have variable labels, `etable` (with a few options) will automatically make a nice regression table. 
+
+```{stata, collectcode=TRUE}
+
+etable, ///
+estimates(M1) /// using these estimates 
+showstars showstarsnote /// show significance stars & note
+showeq // show equations
+
+```
+
+
+
