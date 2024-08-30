@@ -10,10 +10,10 @@ format:
     theme:
       light: yeti
       dark: vapor
-    css: styles.css
     mermaid: 
       theme: default
-  typst: 
+    css: styles.css
+  pdf: 
     toc: true
     number-sections: true
 ---
