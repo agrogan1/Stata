@@ -13,9 +13,10 @@ format:
     css: styles.css
     mermaid: 
       theme: default
-  pdf: 
-    toc: false
-    number-sections: true
+  typst:
+    margin:
+      x: .3in
+      y: .3in
 ---
 
 # Introduction
