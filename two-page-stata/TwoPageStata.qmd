@@ -13,8 +13,8 @@ format:
     css: styles.css
     mermaid: 
       theme: default
-  pdf: 
-    toc: false
+  typst: 
+    toc: true
     number-sections: true
 ---
 
