@@ -9,6 +9,7 @@ format:
     theme:
       light: yeti
       dark: vapor
+    lightbox: true
     mermaid: 
       theme: default
     css: styles.css
