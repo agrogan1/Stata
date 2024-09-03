@@ -36,6 +36,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="TwoPageStata_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="TwoPageStata_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="TwoPageStata_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="TwoPageStata_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="TwoPageStata_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="TwoPageStata_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -102,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 <p>So many projects have the same, or similar, workflow.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="workflow.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p><a href="workflow.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="A common data workflow"><img src="workflow.png" class="img-fluid figure-img" style="width:80.0%" alt="A common data workflow"></a></p>
 <figcaption>A common data workflow</figcaption>
 </figure>
 </div>
@@ -151,6 +154,9 @@ ul.task-list li input[type="checkbox"] {
 <p><code>histogram x</code> will give you a nice display of one variable.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
 <p><code>twoway scatter y x</code> gives you a scatterplot of your data. <code>twoway lfit y x</code> will give you a linear fit graph. The two syntaxes may be combined e.g.&nbsp;<code>twoway (scatter y x) (lfit y x)</code>.</p>
 <p><code>graph bar, over(x)</code> is useful for creating a bar graph of the counts of a categorical variable x. <code>graph bar y, over(x)</code> will create a bar graph of the means of y over categories of x.</p>
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">A common data workflow</span>
+</div>
 </section>
 
 
@@ -701,6 +707,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","descPosition":"bottom","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 
