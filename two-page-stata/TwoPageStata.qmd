@@ -13,15 +13,10 @@ format:
     mermaid: 
       theme: default
     css: styles.css
-  pdf: 
-    toc: false
-    number-sections: true
-    fontsize: 10pt
-    geometry:
-      - top=.25in
-      - bottom=.25in
-      - left=.25in
-      - right=.25in
+  typst:
+    margin:
+      x: .3in
+      y: .3in
 ---
 
 # Introduction
@@ -30,7 +25,7 @@ An introduction to Stata in 2 pages.[^questions] Commands that you actually type
 
 So many projects have the same, or similar, workflow.
 
-![A common data workflow](workflow.png)
+![A common data workflow](workflow.png){width=80%}
 
 > A little bit of Stata can go a long way.
 
