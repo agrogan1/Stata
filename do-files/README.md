@@ -29,5 +29,5 @@ Use the **DO FILE EDITOR** to save Stata commands that you want to use again in 
 
 Click on `my_penguins.do` to see an example `.do` file that creates such an *audit trail*.
 
-* [raw text](https://github.com/agrogan1/Stata/blob/main/do-files/my_penguins.do)
-* [PDF with colorful syntax](https://agrogan1.github.com/Stata/do-files/my_penguins.pdf)
+* [mypenguins.do - raw text](https://github.com/agrogan1/Stata/blob/main/do-files/my_penguins.do)
+* [mypenguins.pdf - PDF with colorful syntax](https://agrogan1.github.com/Stata/do-files/my_penguins.pdf)
