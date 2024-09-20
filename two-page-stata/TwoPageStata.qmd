@@ -16,8 +16,9 @@ format:
     css: styles.css
   typst:
     margin:
-      x: .3in
-      y: .3in
+      x: .7in
+      y: .7in
+    columns: 2
 ---
 
 # Introduction
@@ -28,7 +29,9 @@ So many projects have the same, or similar, workflow.
 
 ![A common data workflow](workflow.png){width=80%}
 
-> A little bit of Stata can go a long way.
+::: {.callout-tip}
+A little bit of Stata can go a long way.
+:::
 
 The general idea of most Stata commands is `command variable(s), options`.  Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults. 
 

@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-09-18">
+<meta name="dcterms.date" content="2024-09-20">
 
 <title>Two Page Stata</title>
 <style>
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 18, 2024</p>
+      <p class="date">September 20, 2024</p>
     </div>
   </div>
   
@@ -105,13 +105,23 @@ ul.task-list li input[type="checkbox"] {
 <p>So many projects have the same, or similar, workflow.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="workflow.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="A common data workflow"><img src="workflow.png" class="img-fluid figure-img" style="width:80.0%" alt="A common data workflow"></a></p>
+<p><a href="workflow.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="A common data workflow"><img src="workflow.png" class="img-fluid figure-img" style="width:80.0%" alt="A common data workflow"></a></p>
 <figcaption>A common data workflow</figcaption>
 </figure>
 </div>
-<blockquote class="blockquote">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>A little bit of Stata can go a long way.</p>
-</blockquote>
+</div>
+</div>
 <p>The general idea of most Stata commands is <code>command variable(s), options</code>. Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults.</p>
 <p>The Stata interface makes it extremely easy to do rapid interactive data analysis. Hit <strong>PAGE-UP</strong> to recall the most recent command, which you can then quickly edit and resubmit.</p>
 <p>Use the <strong>DO FILE EDITOR</strong> to save Stata commands that you want to use again in a <code>.do</code> file, and to create an <em>audit trail</em> of your work so that your workflow is <em>documented</em> and <em>replicable.</em></p>
@@ -707,7 +717,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","loop":false,"selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
