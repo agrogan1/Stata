@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/cleaning-data-with-stata/cleaning-data-with-stata.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}14 Dec 2023, 11:17:04
+ {txt}opened on:  {res}25 Sep 2024, 10:34:12
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}14 Dec 2023
+{res}25 Sep 2024
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}11:17:04
+{res}10:34:12
 {txt}
 {com}. //_3
 . clear all 
@@ -181,7 +181,7 @@ Sorted by:
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/cleaning-data-with-stata/cleaning-data-with-stata.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}14 Dec 2023, 11:17:05
+ {txt}closed on:  {res}25 Sep 2024, 10:34:12
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

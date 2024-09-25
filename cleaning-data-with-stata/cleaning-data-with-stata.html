@@ -61,6 +61,10 @@
     img {
       max-width: 100%;
     }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
     h1, h2, h3, h4, h5, h6 {
       margin-top: 1.4em;
     }
@@ -153,16 +157,16 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
   </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 <style>
 /* CSS for Markstat 2.0 using Pandoc 2.0 */
 body{padding:14px 28px; max-width:45em;}
@@ -207,7 +211,7 @@ table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid bl
 <header id="title-block-header">
 <h1 class="title">Cleaning Data With Stata</h1>
 <p class="author">Andy Grogan-Kaylor</p>
-<p class="date">14 Dec 2023 11:16:49</p>
+<p class="date">25 Sep 2024 10:34:07</p>
 </header>
 <style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} p {font-size: 110%;} pre.stata {font-size: 110%; line-height: 115%;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 <h1 id="background">Background</h1>
@@ -307,15 +311,15 @@ data.</p>
 Contains data
  Observations:           100                  
     Variables:             4                  
-───────────────────────────────────────────────────────────────────────────────────────
+───────────────────────────────────────────────────────────────────────────────────────────
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
-───────────────────────────────────────────────────────────────────────────────────────
+───────────────────────────────────────────────────────────────────────────────────────────
 id              float   %9.0g                 
 age             float   %9.0g                 
 happy           float   %9.0g                 
 somethingelse   float   %9.0g                 
-───────────────────────────────────────────────────────────────────────────────────────
+───────────────────────────────────────────────────────────────────────────────────────────
 Sorted by: 
      Note: Dataset has changed since last saved.
 </pre>
@@ -343,9 +347,9 @@ somethinge~e │        100   -.0085413    1.072256  -2.685881   2.794861
 </pre>
 <pre class='stata'>. codebook happy // VERY detailed view of this particular categorical variable
 
-───────────────────────────────────────────────────────────────────────────────────────
-happy                                                                       (unlabeled)
-───────────────────────────────────────────────────────────────────────────────────────
+───────────────────────────────────────────────────────────────────────────────────────────
+happy                                                                           (unlabeled)
+───────────────────────────────────────────────────────────────────────────────────────────
 
                   Type: Numeric (float)
 
@@ -393,8 +397,7 @@ Labels (<code>label variable "..."</code>)</h2>
 </pre>
 <h2 id="create-value-labels-label-define-...">Create <em>Value</em>
 Labels (<code>label define ...</code>)</h2>
-<pre class='stata'>. label define happy 1 "Rarely" 2 "Sometimes" 3 "Often" 4 "Always" // create value labe
-> l
+<pre class='stata'>. label define happy 1 "Rarely" 2 "Sometimes" 3 "Often" 4 "Always" // create value label
 </pre>
 <h2 id="attach-value-labels-to-variables-label-values-...">Attach
 <em>Value</em> Labels To <em>Variables</em>
@@ -423,14 +426,14 @@ Changes That Have Been Made</h1>
 Contains data
  Observations:           100                  
     Variables:             3                  
-───────────────────────────────────────────────────────────────────────────────────────
+───────────────────────────────────────────────────────────────────────────────────────────
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
-───────────────────────────────────────────────────────────────────────────────────────
+───────────────────────────────────────────────────────────────────────────────────────────
 id              float   %9.0g                 ID
 age             float   %9.0g                 Age in Years
 happy           float   %9.0g      happy      Happiness Scale
-───────────────────────────────────────────────────────────────────────────────────────
+───────────────────────────────────────────────────────────────────────────────────────────
 Sorted by: 
      Note: Dataset has changed since last saved.
 </pre>
