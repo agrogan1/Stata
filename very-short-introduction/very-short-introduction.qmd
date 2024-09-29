@@ -24,8 +24,13 @@ The general idea of most Stata commands is `command variable(s), options`. Often
 | Task                            | Command                       | 
 |---------------------------------|-------------------------------|
 | Open data                       | `use mydata.dta`              |
+| Look for or find                | `lookfor thing` [^lookfor]    |
 | Descriptive statistics          | `summarize x y`               |
 | Frequencies                     | `tabulate x`                  |
+| Recode                          | `recode x, (old = new)(...), generate(xR)`[^recode] |
+| Rename                          | `rename x z`                  |
+| Keep                            | `keep x y z`                  |
+| Drop                            | `drop x y z`                  |
 | Correlation                     | `corr x y`                    |
 | Regression                      | `regress y x z`               |
 | Logistic Regression             | `logit y x z, or` [^logit]    |
@@ -39,6 +44,8 @@ The general idea of most Stata commands is `command variable(s), options`. Often
 | Pie Chart                       | `graph pie, over(x)`          |
 | Scatterplot                     | `twoway scatter y x`          |
 
+[^recode]: It is usually best practice, but not required, to `recode` values of a variable into a *new* variable, leaving the original variable untouched. 
+[^lookfor]: `lookfor thing` looks for any variable with `thing` in the variable name or variable label. `lookfor somethingelse` looks for any variable with `something else` in the variable name or variable label. It is often useful to `lookfor` abbrevations e.g. `lookfor anx` instead of `lookfor anxiety`.
 [^logit]: Here we need to use the `, or` option to ask for *odds ratios* instead of *logit coefficients*.
 [^ologit]: Here again we need to use the `, or` option to ask for *odds ratios* instead of *logit coefficients*.
 [^mlogit]: Here we need to use the `, rr` option to ask for *risk ratios* instead of *logit coefficients*.
