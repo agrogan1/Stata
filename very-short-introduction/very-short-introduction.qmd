@@ -5,7 +5,7 @@ author: "Andrew Grogan-Kaylor"
 date: "today"
 format:
   html:
-    toc: true
+    toc: false
     number-sections: true
     theme:
       light: yeti
