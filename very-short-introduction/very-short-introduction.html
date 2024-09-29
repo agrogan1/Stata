@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Grogan-Kaylor">
-<meta name="dcterms.date" content="2024-09-18">
+<meta name="dcterms.date" content="2024-09-29">
 
 <title>A Very Short Introduction to Stata</title>
 <style>
@@ -45,7 +45,6 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="very-short-introduction.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <main class="content" id="quarto-document-content">
 
@@ -69,7 +68,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 18, 2024</p>
+      <p class="date">September 29, 2024</p>
     </div>
   </div>
   
@@ -84,7 +83,11 @@ ul.task-list li input[type="checkbox"] {
 <p>The basic philosophy of Stata—“Stata in one sentence”—is:</p>
 <p><code>do_something to_variable(s), options</code></p>
 <p>The general idea of most Stata commands is <code>command variable(s), options</code>. Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults. Commands that you actually type are represented in <code>monospace</code> font. <code>x</code> and <code>y</code> refer to variables in your data.</p>
-<table class="table">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 51%">
+<col style="width: 48%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Task</th>
@@ -97,58 +100,78 @@ ul.task-list li input[type="checkbox"] {
 <td><code>use mydata.dta</code></td>
 </tr>
 <tr class="even">
+<td>Look for or find</td>
+<td><code>lookfor thing</code> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+</tr>
+<tr class="odd">
 <td>Descriptive statistics</td>
 <td><code>summarize x y</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Frequencies</td>
 <td><code>tabulate x</code></td>
 </tr>
+<tr class="odd">
+<td>Recode</td>
+<td><code>recode x (old = new)(...), generate(xR)</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
+</tr>
 <tr class="even">
+<td>Rename</td>
+<td><code>rename x z</code></td>
+</tr>
+<tr class="odd">
+<td>Keep</td>
+<td><code>keep x y z</code></td>
+</tr>
+<tr class="even">
+<td>Drop</td>
+<td><code>drop x y z</code></td>
+</tr>
+<tr class="odd">
 <td>Correlation</td>
 <td><code>corr x y</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Regression</td>
 <td><code>regress y x z</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Logistic Regression</td>
-<td><code>logit y x z, or</code> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
-</tr>
-<tr class="odd">
-<td>Ordinal Logistic Regression</td>
-<td><code>ologit y x z, or</code> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
+<td><code>logit y x z, or</code> <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></td>
 </tr>
 <tr class="even">
-<td>Multinomial Logistic Regression</td>
-<td><code>mlogit y x z, rr</code> <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></td>
+<td>Ordinal Logistic Regression</td>
+<td><code>ologit y x z, or</code> <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></td>
 </tr>
 <tr class="odd">
+<td>Multinomial Logistic Regression</td>
+<td><code>mlogit y x z, rr</code> <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></td>
+</tr>
+<tr class="even">
 <td>Multilevel Model</td>
 <td><code>mixed y x z || group: x</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Structural Equation Modeling</td>
 <td><code>sem (y &lt;- x m z) (m &lt;- x z)</code></td>
 </tr>
-<tr class="odd">
-<td>Histogram</td>
-<td><code>histogram x</code> <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></td>
-</tr>
 <tr class="even">
+<td>Histogram</td>
+<td><code>histogram x</code> <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></td>
+</tr>
+<tr class="odd">
 <td>Bar Graph</td>
 <td><code>graph bar, over(x)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Bar Graph (of means)</td>
 <td><code>graph bar y, over(x)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Pie Chart</td>
 <td><code>graph pie, over(x)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Scatterplot</td>
 <td><code>twoway scatter y x</code></td>
 </tr>
@@ -159,10 +182,12 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Here we need to use the <code>, or</code> option to ask for <em>odds ratios</em> instead of <em>logit coefficients</em>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Here again we need to use the <code>, or</code> option to ask for <em>odds ratios</em> instead of <em>logit coefficients</em>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Here we need to use the <code>, rr</code> option to ask for <em>risk ratios</em> instead of <em>logit coefficients</em>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>For graphing commands, you can often add options after a <code>,</code>. e.g.&nbsp;<code>title("title of the graph")</code>, <code>xtitle("title of the x axis")</code>, <code>ytitle("title of the y axis")</code>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p><code>lookfor thing</code> looks for any variable with <code>thing</code> in the variable name or variable label. <code>lookfor somethingelse</code> looks for any variable with <code>something else</code> in the variable name or variable label. It is often useful to <code>lookfor</code> abbrevations e.g.&nbsp;<code>lookfor anx</code> instead of <code>lookfor anxiety</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>It is usually best practice, but not required, to <code>recode</code> values of a variable into a <em>new</em> variable, leaving the original variable untouched.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Here we need to use the <code>, or</code> option to ask for <em>odds ratios</em> instead of <em>logit coefficients</em>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Here again we need to use the <code>, or</code> option to ask for <em>odds ratios</em> instead of <em>logit coefficients</em>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Here we need to use the <code>, rr</code> option to ask for <em>risk ratios</em> instead of <em>logit coefficients</em>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>For graphing commands, you can often add options after a <code>,</code>. e.g.&nbsp;<code>title("title of the graph")</code>, <code>xtitle("title of the x axis")</code>, <code>ytitle("title of the y axis")</code>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->
@@ -345,18 +370,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -388,7 +402,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -423,7 +477,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

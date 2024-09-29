@@ -10,9 +10,8 @@ format:
     theme:
       light: yeti
       dark: vapor
-  pdf: 
+  pdf:
     toc: false
-    number-sections: true
 ---
 
 The basic philosophy of Stata---“Stata in one sentence”---is: 
@@ -27,7 +26,7 @@ The general idea of most Stata commands is `command variable(s), options`. Often
 | Look for or find                | `lookfor thing` [^lookfor]    |
 | Descriptive statistics          | `summarize x y`               |
 | Frequencies                     | `tabulate x`                  |
-| Recode                          | `recode x, (old = new)(...), generate(xR)`[^recode] |
+| Recode                          | `recode x (old = new)(...), generate(xR)`[^recode] |
 | Rename                          | `rename x z`                  |
 | Keep                            | `keep x y z`                  |
 | Drop                            | `drop x y z`                  |
