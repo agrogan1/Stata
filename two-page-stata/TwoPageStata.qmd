@@ -15,6 +15,7 @@ format:
       theme: default
     css: styles.css
   typst:
+    number-sections: true
     margin:
       x: .7in
       y: .7in
