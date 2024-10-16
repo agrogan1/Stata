@@ -217,7 +217,7 @@ note("Stata is often incredibly intuitive. The general idea of most Stata comman
 "I try to present the simplest version of a command, but this handout occasionally makes use of the option {stMono:lwidth(thick)} " ///
 "to tweak the line width. I use {stMono:imargin(zero)} to tweak the placement of the pie graph." ///
 "I use the {stMono:stcolor} graph scheme, available in the newest version of Stata." /// 
-"{stMono:set scheme s1color} would also work well. " ///
+"Asjad Naqvi has provided many beautiful graph schemes in {stMono:schemepack}: https://github.com/asjadnaqvi/stata-schemepack" ///
 "Option {stMono:asyvars} is not strictly necessary, but means that bar graphs will have bars of different colors." ///
 "{stMono:///} represents a line break. On the command line, do not use {stMono:///} and type the command on a single line.")  ///
 caption("$S_DATE, https://agrogan1.github.io/, agrogan@umich.edu",  ///
