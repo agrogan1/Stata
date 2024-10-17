@@ -42,7 +42,7 @@ clear all // clear the workspace
 
 * get data from web
 
-use "https://github.com/agrogan1/Stata/raw/master/do-files/penguins.dta", clear 
+use "penguins.dta", clear 
 
 ******************************
 * take a look at the data
@@ -65,6 +65,12 @@ summarize // descriptive statistics for all variables
 summarize body_mass_g // descriptive statistics for this variable
 
 tabulate species // tabulate this categorical variable
+
+* dtable is a useful new command
+* for producing tables of descriptive statistics
+* be sure to denote indicator variables with an `i.`
+
+dtable culmen_length_mm body_mass_g i.species 
 
 ******************************
 * data wrangling
@@ -101,15 +107,19 @@ regress culmen_length_mm body_mass_g i.species
 
 est store M2 // store regression estimates
 
-est table M1 M2, b(%7.4f) star // nicely formatted table of regression estimates
+* /// indicates that a command spans multiple lines
+
+etable, estimates(M1 M2) /// nicely formatted table of regression estimates
+cstat(_r_b) /// beta's only
+showstars showstarsnote // show stars and note
 
 ******************************
 * graph 
 ******************************
 
-graph bar body_mass_g, over(species) scheme(s1color) // bar graph
+graph bar body_mass_g, over(species) // bar graph
 
-twoway scatter culmen_length_mm body_mass_g, scheme(s1color) // scatterplot
+twoway scatter culmen_length_mm body_mass_g // scatterplot
 
 
 
