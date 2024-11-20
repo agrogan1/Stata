@@ -16,7 +16,7 @@ icc
 
 {pstd}
 {cmd:icc} calculates the intraclass correlation coefficient following 
-the use of xtmixed with a single nesting.
+the use of {cmd: xtmixed} with a single nesting. This command has been superseded in more recent versions of Stata by the use of {cmd: estat icc} after {cmd: mixed}.
 
 {title:Remarks}
 
