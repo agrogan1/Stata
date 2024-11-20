@@ -1,7 +1,7 @@
 v 3
 d icc.  Package to calculate intraclass correlation coefficients
 d Andrew Grogan-Kaylor, agrogan@umich.edu
-d Distribution-Date:  14jun2023
+d Distribution-Date:  20nov2024
 f icc.ado
 f icc.hlp
 
