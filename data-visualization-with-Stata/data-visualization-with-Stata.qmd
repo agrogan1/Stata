@@ -13,7 +13,7 @@ format:
     mermaid: 
       theme: default
     css: styles.css
-  typst: 
+  pdf: 
     toc: true
     number-sections: true
 ---
@@ -28,10 +28,13 @@ library(Statamarkdown)
 
 ```
 
+::: {.callout-tip}
+## Stata Is A Powerful And Intuitive Data Analysis Program
 
-> Stata is a powerful and intuitive data analysis program. Learning how to graph in Stata is an important part of learning how to use Stata. Yet, until recently, the default graphs in Stata have been less than optimal. However, recent versions of Stata have a very professional looking and aesthetically appealing default graph scheme.
+Learning how to graph in Stata is an important part of learning how to use Stata. Yet, until recently, the default graphs in Stata have been less than optimal. However, recent versions of Stata have a very professional looking and aesthetically appealing default graph scheme.
 
-> This document is an introduction to (a) basic graphing ideas in Stata; and (b) a quick note on the use of schemes to customize your Stata graphs.
+This document is an introduction to (a) basic graphing ideas in Stata; and (b) a quick note on the use of schemes to customize your Stata graphs.
+:::
 
 # What are Variables?
 
@@ -131,6 +134,24 @@ graph export mybargraph.png, width(1000) replace
 
 ![Bar Graph Of Tree Location](mybargraph.png){width=50%}
 
+
+::: {.callout-tip}
+## `asyvars`
+
+The `asyvars` option is especially helpful with bar graphs to create bar graphs with different color bars.
+
+```{stata}
+#| output: false
+
+graph bar, over(location) title("Tree Location") asyvars
+	
+graph export mybargraph_asyvars.png, width(1000) replace
+
+```
+
+![Bar Graph Of Tree Location Using `asyvars`](mybargraph_asyvars.png){width=50%}
+:::
+
 ## Continuous by Continuous (`twoway scatter y x`)
 
 ```{stata}
@@ -144,7 +165,9 @@ graph export myscatter.png, width(1000) replace
 
 ![Scatterplot Of Tree Height By Age](myscatter.png){width=50%}
 
-## Categorical by Categorical (`graph bar, over(x) over(y)`)
+## Categorical by Categorical (`graph bar, over(x) over(y)`) [^asyvars1]
+
+[^asyvars1]: You can also use `asyvars` with categorical by categorical bar graphs
 
 ```{stata}
 #| output: false
@@ -156,6 +179,9 @@ graph export mybargraph2.png, width(1000) replace
 ```
 
 ![Bar Graph Of Tree Site By Location](mybargraph2.png){width=50%}
+
+
+
 
 ## Continuous by Categorical (`graph bar y, over(x)`)
 
@@ -174,7 +200,7 @@ graph export mybargraph3.png, width(1000) replace
 
 Stata *graph schemes* can substantially change the look of a graph. Built in graph schemes include `s1color`, the new default scheme `stcolor`, the older default scheme `s2color`, `sj`, `economist` and `s1rcolor`. 
 
-`lean2` (type `findit lean2` in the Stata Command Window) is a user written scheme that is very helpful when preparing graphics for publication. I have written a [Stata Michigan graph scheme](https://agrogan1.github.io/Stata/) that can be installed. `cleanplots` and `modern` are excellent graph schemes that can be installed directly into Stata from GitHub. `burd` is another user written graph scheme that *somewhat* replicates the look of `ggplot`. Asjad Naqvi has written [an excellent and comprehensive set of Stata graph schemes](https://github.com/asjadnaqvi/Stata-schemes).
+`lean2` (type `findit lean2` in the Stata Command Window) is a user written scheme that is very helpful when preparing graphics for publication. I have written a [Stata Michigan graph scheme](https://agrogan1.github.io/Stata/) that can be installed. Asjad Naqvi has written [an excellent and comprehensive set of Stata graph schemes](https://github.com/asjadnaqvi/Stata-schemes).
 
 ## Continuous by Continuous (`twoway scatter y x, scheme(...)`)
 
@@ -209,21 +235,11 @@ graph export myscatterS.png, width(1000) replace
 ```
 
 ![Scatterplot Of Tree Height By Age With s1color Graph Scheme](myscatterS.png){width=50%}
-```{stata}
-#| output: false
 
-twoway scatter height age_base, title("Tree Height by Age") scheme(burd) ///
-  msymbol(o) graphregion(lcolor(none))
+## Continuous by Categorical (`graph bar y, over(x) scheme(...)`)[^asyvars2]
 
-graph export myscatterB.png, width(1000) replace
+[^asyvars2]: In these graphs I again use `asyvars` to give different colors to the bars on the graph.
 
-```
-
-![Scatterplot Of Tree Height By Age With burd Graph Scheme](myscatterB.png){width=50%}
-
-## Continuous by Categorical (`graph bar y, over(x) scheme(...)`)
-
-> Note that in the graph below, I have used the `asyvars` option to give different colors to the different bars.
 
 ```{stata}
 #| output: false
@@ -256,14 +272,8 @@ graph export mybarS.png, width(1000) replace
 
 ![Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme](mybarS.png){width=50%}
 
-```{stata}
-#| output: false
 
-graph bar height, over(location) asyvars title("Tree Height by Location") scheme(burd) graphregion(lcolor(none))
 
-graph export mybarB.png, width(1000) replace
 
-```
 
-![Bar Graph Of Mean Tree Height By Location With burd Graph Scheme](mybarB.png){width=50%}
 
