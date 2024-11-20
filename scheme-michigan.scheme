@@ -4,12 +4,9 @@
 * Designed by Andy Grogan-Kaylor (agrogan@umich.edu)
 * Questions & comments welcome
 
-* This scheme uses as its foundation, the wonderful lean2 scheme 
-* developed by Svend Juul, University of Aarhus, Denmark
+* Inspiration is drawn from https://brand.umich.edu/design-resources/colors/
 
-* Some inspiration is drawn from https://brand.umich.edu/design-resources/colors/
-
-#include lean2
+#include stcolor
 
 * histogram
 
