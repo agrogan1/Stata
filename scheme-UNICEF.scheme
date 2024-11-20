@@ -4,6 +4,8 @@
 * Designed by Andy Grogan-Kaylor (agrogan@umich.edu)
 * Questions & comments welcome
 
+#include stcolor
+
 * histogram
 
 color histogram "0 174 239"
