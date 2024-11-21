@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-11-20">
+<meta name="dcterms.date" content="2024-11-21">
 
 <title>Data Visualization With Stata</title>
 <style>
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -97,13 +97,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#one-continuous-thing-at-a-time-histogram-x" id="toc-one-continuous-thing-at-a-time-histogram-x" class="nav-link" data-scroll-target="#one-continuous-thing-at-a-time-histogram-x"><span class="header-section-number">7.1</span> One Continuous Thing At A Time (<code>histogram x</code>)</a></li>
   <li><a href="#one-categorical-thing-at-a-time-graph-bar-overx" id="toc-one-categorical-thing-at-a-time-graph-bar-overx" class="nav-link" data-scroll-target="#one-categorical-thing-at-a-time-graph-bar-overx"><span class="header-section-number">7.2</span> One Categorical Thing At A Time (<code>graph bar, over(x)</code>)</a></li>
   <li><a href="#continuous-by-continuous-twoway-scatter-y-x" id="toc-continuous-by-continuous-twoway-scatter-y-x" class="nav-link" data-scroll-target="#continuous-by-continuous-twoway-scatter-y-x"><span class="header-section-number">7.3</span> Continuous by Continuous (<code>twoway scatter y x</code>)</a></li>
-  <li><a href="#categorical-by-categorical-graph-bar-overx-overy-asyvars1" id="toc-categorical-by-categorical-graph-bar-overx-overy-asyvars1" class="nav-link" data-scroll-target="#categorical-by-categorical-graph-bar-overx-overy-asyvars1"><span class="header-section-number">7.4</span> Categorical by Categorical (<code>graph bar, over(x) over(y)</code>) </a></li>
-  <li><a href="#continuous-by-categorical-graph-bar-y-overx" id="toc-continuous-by-categorical-graph-bar-y-overx" class="nav-link" data-scroll-target="#continuous-by-categorical-graph-bar-y-overx"><span class="header-section-number">7.5</span> Continuous by Categorical (<code>graph bar y, over(x)</code>)</a></li>
+  <li><a href="#categorical-by-categorical-graph-bar-overx-overy-asyvars2" id="toc-categorical-by-categorical-graph-bar-overx-overy-asyvars2" class="nav-link" data-scroll-target="#categorical-by-categorical-graph-bar-overx-overy-asyvars2"><span class="header-section-number">7.4</span> Categorical by Categorical (<code>graph bar, over(x) over(y)</code>) </a></li>
+  <li><a href="#continuous-by-categorical-graph-bar-y-overx-asyvars1" id="toc-continuous-by-categorical-graph-bar-y-overx-asyvars1" class="nav-link" data-scroll-target="#continuous-by-categorical-graph-bar-y-overx-asyvars1"><span class="header-section-number">7.5</span> Continuous by Categorical (<code>graph bar y, over(x)</code>) </a></li>
   </ul></li>
   <li><a href="#schemes-scheme..." id="toc-schemes-scheme..." class="nav-link" data-scroll-target="#schemes-scheme..."><span class="header-section-number">8</span> Schemes (<code>,scheme(...)</code>)</a>
   <ul class="collapse">
   <li><a href="#continuous-by-continuous-twoway-scatter-y-x-scheme..." id="toc-continuous-by-continuous-twoway-scatter-y-x-scheme..." class="nav-link" data-scroll-target="#continuous-by-continuous-twoway-scatter-y-x-scheme..."><span class="header-section-number">8.1</span> Continuous by Continuous (<code>twoway scatter y x, scheme(...)</code>)</a></li>
-  <li><a href="#continuous-by-categorical-graph-bar-y-overx-scheme...asyvars2" id="toc-continuous-by-categorical-graph-bar-y-overx-scheme...asyvars2" class="nav-link" data-scroll-target="#continuous-by-categorical-graph-bar-y-overx-scheme...asyvars2"><span class="header-section-number">8.2</span> Continuous by Categorical (<code>graph bar y, over(x) scheme(...)</code>)</a></li>
+  <li><a href="#continuous-by-categorical-graph-bar-y-overx-scheme...asyvars1" id="toc-continuous-by-categorical-graph-bar-y-overx-scheme...asyvars1" class="nav-link" data-scroll-target="#continuous-by-categorical-graph-bar-y-overx-scheme...asyvars1"><span class="header-section-number">8.2</span> Continuous by Categorical (<code>graph bar y, over(x) scheme(...)</code>)</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="data-visualization-with-Stata.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -129,7 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 20, 2024</p>
+      <p class="date">November 21, 2024</p>
     </div>
   </div>
   
@@ -164,7 +164,7 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 <li>By variables, I simply mean the columns of data that you have.</li>
 <li>For our purposes, you may think of variables as synonymous with questionnaire items, or columns of data.</li>
 </ul>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th></th>
@@ -222,7 +222,7 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 <h1 data-number="5"><span class="header-section-number">5</span> Data Source</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="fotolia-small.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Norway Spruce and Larch Forest in Austrian Alps"><img src="fotolia-small.jpg" class="img-fluid figure-img" style="width:40.0%" alt="Norway Spruce and Larch Forest in Austrian Alps"></a></p>
+<p><a href="fotolia-small.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Norway Spruce and Larch Forest in Austrian Alps"><img src="fotolia-small.jpg" class="img-fluid figure-img" style="width:40.0%" alt="Norway Spruce and Larch Forest in Austrian Alps"></a></p>
 <figcaption>Norway Spruce and Larch Forest in Austrian Alps</figcaption>
 </figure>
 </div>
@@ -231,7 +231,7 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 <p>According to the documentation, the source of these data are: “von Guttenberg’s Norway spruce (Picea abies [L.] Karst) tree measurement data.”</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Old-Tjikko-Small.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Old Tjikko, a 9,550 Year Old Norway Spruce in Sweden"><img src="Old-Tjikko-Small.jpg" class="img-fluid figure-img" style="width:20.0%" alt="Old Tjikko, a 9,550 Year Old Norway Spruce in Sweden"></a></p>
+<p><a href="Old-Tjikko-Small.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Old Tjikko, a 9,550 Year Old Norway Spruce in Sweden"><img src="Old-Tjikko-Small.jpg" class="img-fluid figure-img" style="width:20.0%" alt="Old Tjikko, a 9,550 Year Old Norway Spruce in Sweden"></a></p>
 <figcaption>Old Tjikko, a 9,550 Year Old Norway Spruce in Sweden</figcaption>
 </figure>
 </div>
@@ -267,7 +267,7 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="myhistogram.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Histogram Of Tree Height"><img src="myhistogram.png" class="img-fluid figure-img" style="width:50.0%" alt="Histogram Of Tree Height"></a></p>
+<p><a href="myhistogram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Histogram Of Tree Height"><img src="myhistogram.png" class="img-fluid figure-img" style="width:50.0%" alt="Histogram Of Tree Height"></a></p>
 <figcaption>Histogram Of Tree Height</figcaption>
 </figure>
 </div>
@@ -281,7 +281,7 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="mybargraph.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Bar Graph Of Tree Location"><img src="mybargraph.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Tree Location"></a></p>
+<p><a href="mybargraph.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Bar Graph Of Tree Location"><img src="mybargraph.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Tree Location"></a></p>
 <figcaption>Bar Graph Of Tree Location</figcaption>
 </figure>
 </div>
@@ -303,7 +303,7 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="mybargraph_asyvars.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="Bar Graph Of Tree Location Using asyvars"><img src="mybargraph_asyvars.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Tree Location Using asyvars"></a></p>
+<p><a href="mybargraph_asyvars.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Bar Graph Of Tree Location Using asyvars"><img src="mybargraph_asyvars.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Tree Location Using asyvars"></a></p>
 <figcaption>Bar Graph Of Tree Location Using <code>asyvars</code></figcaption>
 </figure>
 </div>
@@ -319,13 +319,13 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="myscatter.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="Scatterplot Of Tree Height By Age"><img src="myscatter.png" class="img-fluid figure-img" style="width:50.0%" alt="Scatterplot Of Tree Height By Age"></a></p>
+<p><a href="myscatter.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Scatterplot Of Tree Height By Age"><img src="myscatter.png" class="img-fluid figure-img" style="width:50.0%" alt="Scatterplot Of Tree Height By Age"></a></p>
 <figcaption>Scatterplot Of Tree Height By Age</figcaption>
 </figure>
 </div>
 </section>
-<section id="categorical-by-categorical-graph-bar-overx-overy-asyvars1" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="categorical-by-categorical-graph-bar-overx-overy-asyvars1"><span class="header-section-number">7.4</span> Categorical by Categorical (<code>graph bar, over(x) over(y)</code>) <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></h2>
+<section id="categorical-by-categorical-graph-bar-overx-overy-asyvars2" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="categorical-by-categorical-graph-bar-overx-overy-asyvars2"><span class="header-section-number">7.4</span> Categorical by Categorical (<code>graph bar, over(x) over(y)</code>) <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(site) <span class="bn">over</span>(location) <span class="bn">title</span>(<span class="st">"Tree Site Growth Quality by Location"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -333,13 +333,13 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="mybargraph2.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7" title="Bar Graph Of Tree Site By Location"><img src="mybargraph2.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Tree Site By Location"></a></p>
+<p><a href="mybargraph2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Bar Graph Of Tree Site By Location"><img src="mybargraph2.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Tree Site By Location"></a></p>
 <figcaption>Bar Graph Of Tree Site By Location</figcaption>
 </figure>
 </div>
 </section>
-<section id="continuous-by-categorical-graph-bar-y-overx" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="continuous-by-categorical-graph-bar-y-overx"><span class="header-section-number">7.5</span> Continuous by Categorical (<code>graph bar y, over(x)</code>)</h2>
+<section id="continuous-by-categorical-graph-bar-y-overx-asyvars1" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="continuous-by-categorical-graph-bar-y-overx-asyvars1"><span class="header-section-number">7.5</span> Continuous by Categorical (<code>graph bar y, over(x)</code>) <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) <span class="bn">title</span>(<span class="st">"Tree Height by Location"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -347,7 +347,7 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="mybargraph3.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8" title="Bar Graph Of Mean Tree Height By Location"><img src="mybargraph3.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location"></a></p>
+<p><a href="mybargraph3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Bar Graph Of Mean Tree Height By Location"><img src="mybargraph3.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location"></a></p>
 <figcaption>Bar Graph Of Mean Tree Height By Location</figcaption>
 </figure>
 </div>
@@ -366,7 +366,7 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="myscatterM.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9" title="Scatterplot Of Tree Height By Age With Michigan Graph Scheme"><img src="myscatterM.png" class="img-fluid figure-img" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With Michigan Graph Scheme"></a></p>
+<p><a href="myscatterM.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Scatterplot Of Tree Height By Age With Michigan Graph Scheme"><img src="myscatterM.png" class="img-fluid figure-img" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With Michigan Graph Scheme"></a></p>
 <figcaption>Scatterplot Of Tree Height By Age With Michigan Graph Scheme</figcaption>
 </figure>
 </div>
@@ -377,7 +377,7 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="myscatterL.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10" title="Scatterplot Of Tree Height By Age With lean2 Graph Scheme"><img src="myscatterL.png" class="img-fluid figure-img" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With lean2 Graph Scheme"></a></p>
+<p><a href="myscatterL.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Scatterplot Of Tree Height By Age With lean2 Graph Scheme"><img src="myscatterL.png" class="img-fluid figure-img" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With lean2 Graph Scheme"></a></p>
 <figcaption>Scatterplot Of Tree Height By Age With lean2 Graph Scheme</figcaption>
 </figure>
 </div>
@@ -388,13 +388,13 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="myscatterS.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="quarto-lightbox-gallery-11" title="Scatterplot Of Tree Height By Age With s1color Graph Scheme"><img src="myscatterS.png" class="img-fluid figure-img" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With s1color Graph Scheme"></a></p>
+<p><a href="myscatterS.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Scatterplot Of Tree Height By Age With s1color Graph Scheme"><img src="myscatterS.png" class="img-fluid figure-img" style="width:50.0%" alt="Scatterplot Of Tree Height By Age With s1color Graph Scheme"></a></p>
 <figcaption>Scatterplot Of Tree Height By Age With s1color Graph Scheme</figcaption>
 </figure>
 </div>
 </section>
-<section id="continuous-by-categorical-graph-bar-y-overx-scheme...asyvars2" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="continuous-by-categorical-graph-bar-y-overx-scheme...asyvars2"><span class="header-section-number">8.2</span> Continuous by Categorical (<code>graph bar y, over(x) scheme(...)</code>)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></h2>
+<section id="continuous-by-categorical-graph-bar-y-overx-scheme...asyvars1" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="continuous-by-categorical-graph-bar-y-overx-scheme...asyvars1"><span class="header-section-number">8.2</span> Continuous by Categorical (<code>graph bar y, over(x) scheme(...)</code>)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> height, <span class="bn">over</span>(location) asyvars <span class="bn">title</span>(<span class="st">"Tree Height by Location"</span>) <span class="dv">scheme</span>(michigan)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -402,7 +402,7 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="mybarM.png" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="quarto-lightbox-gallery-12" title="Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme"><img src="mybarM.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme"></a></p>
+<p><a href="mybarM.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme"><img src="mybarM.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme"></a></p>
 <figcaption>Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme</figcaption>
 </figure>
 </div>
@@ -413,7 +413,7 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="mybarL.png" class="lightbox" data-glightbox="description: .lightbox-desc-13" data-gallery="quarto-lightbox-gallery-13" title="Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme"><img src="mybarL.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme"></a></p>
+<p><a href="mybarL.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme"><img src="mybarL.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme"></a></p>
 <figcaption>Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme</figcaption>
 </figure>
 </div>
@@ -424,25 +424,9 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="mybarS.png" class="lightbox" data-glightbox="description: .lightbox-desc-14" data-gallery="quarto-lightbox-gallery-14" title="Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme"><img src="mybarS.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme"></a></p>
+<p><a href="mybarS.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme"><img src="mybarS.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme"></a></p>
 <figcaption>Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme</figcaption>
 </figure>
-</div>
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Norway Spruce and Larch Forest in Austrian Alps</span>
-<span class="glightbox-desc lightbox-desc-2">Old Tjikko, a 9,550 Year Old Norway Spruce in Sweden</span>
-<span class="glightbox-desc lightbox-desc-3">Histogram Of Tree Height</span>
-<span class="glightbox-desc lightbox-desc-4">Bar Graph Of Tree Location</span>
-<span class="glightbox-desc lightbox-desc-5">Bar Graph Of Tree Location Using <code>asyvars</code></span>
-<span class="glightbox-desc lightbox-desc-6">Scatterplot Of Tree Height By Age</span>
-<span class="glightbox-desc lightbox-desc-7">Bar Graph Of Tree Site By Location</span>
-<span class="glightbox-desc lightbox-desc-8">Bar Graph Of Mean Tree Height By Location</span>
-<span class="glightbox-desc lightbox-desc-9">Scatterplot Of Tree Height By Age With Michigan Graph Scheme</span>
-<span class="glightbox-desc lightbox-desc-10">Scatterplot Of Tree Height By Age With lean2 Graph Scheme</span>
-<span class="glightbox-desc lightbox-desc-11">Scatterplot Of Tree Height By Age With s1color Graph Scheme</span>
-<span class="glightbox-desc lightbox-desc-12">Bar Graph Of Mean Tree Height By Location With Michigan Graph Scheme</span>
-<span class="glightbox-desc lightbox-desc-13">Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme</span>
-<span class="glightbox-desc lightbox-desc-14">Bar Graph Of Mean Tree Height By Location With s1color Graph Scheme</span>
 </div>
 </section>
 </section>
@@ -451,8 +435,9 @@ Stata Is A Powerful And Intuitive Data Analysis Program
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>You can also use <code>asyvars</code> with categorical by categorical bar graphs<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>In these graphs I again use <code>asyvars</code> to give different colors to the bars on the graph.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>You can also use <code>asyvars</code> here, but it may be confusing to understand which categorical variable is being used to color code the data.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>You can also use <code>asyvars</code> here.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>You can also use <code>asyvars</code> here.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->
@@ -635,18 +620,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -678,7 +652,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -686,7 +682,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1010,30 +1006,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
 
 

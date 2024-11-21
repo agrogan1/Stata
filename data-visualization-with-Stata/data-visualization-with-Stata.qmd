@@ -165,9 +165,10 @@ graph export myscatter.png, width(1000) replace
 
 ![Scatterplot Of Tree Height By Age](myscatter.png){width=50%}
 
-## Categorical by Categorical (`graph bar, over(x) over(y)`) [^asyvars1]
+## Categorical by Categorical (`graph bar, over(x) over(y)`) [^asyvars2]
 
-[^asyvars1]: You can also use `asyvars` with categorical by categorical bar graphs
+[^asyvars2]: You can also use `asyvars` here, but it may be confusing to understand which categorical variable is being used to color code the data.
+
 
 ```{stata}
 #| output: false
@@ -183,7 +184,9 @@ graph export mybargraph2.png, width(1000) replace
 
 
 
-## Continuous by Categorical (`graph bar y, over(x)`)
+## Continuous by Categorical (`graph bar y, over(x)`) [^asyvars1]
+
+[^asyvars1]: You can also use `asyvars` here.
 
 ```{stata}
 #| output: false
@@ -236,10 +239,7 @@ graph export myscatterS.png, width(1000) replace
 
 ![Scatterplot Of Tree Height By Age With s1color Graph Scheme](myscatterS.png){width=50%}
 
-## Continuous by Categorical (`graph bar y, over(x) scheme(...)`)[^asyvars2]
-
-[^asyvars2]: In these graphs I again use `asyvars` to give different colors to the bars on the graph.
-
+## Continuous by Categorical (`graph bar y, over(x) scheme(...)`)[^asyvars1]
 
 ```{stata}
 #| output: false
