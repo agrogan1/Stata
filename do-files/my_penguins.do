@@ -4,6 +4,7 @@
 ******************************
 
 * So many projects have the same, or similar, workflow.
+* DO YOUR THINKING IN CODE!!!
 
 * have a question -> 
 * get data ->
