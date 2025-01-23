@@ -4,7 +4,6 @@ So many projects have the same, or similar, workflow.
 %%{
   init: {
     'theme': 'base',
-    'look': 'handDrawn',
     'themeVariables': {
       'primaryColor': '#FFCB05',
       'primaryTextColor': '#000000',
