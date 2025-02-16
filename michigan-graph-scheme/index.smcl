@@ -1,17 +1,17 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme/index.smcl
+       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}22 Mar 2024, 11:28:23
+ {txt}opened on:  {res}16 Feb 2025, 12:46:36
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}22 Mar 2024
+{res}16 Feb 2025
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}11:28:23
+{res}12:46:36
 {txt}
 {com}. //_3q
 . 
@@ -136,6 +136,7 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 > scheme(michigan2) ///
 > ysize(1.5) scale(2) ///
 > name(michigan2, replace)
+{txt}(note: scheme michigan2 not found, using s2color)
 {res}{txt}
 {com}.     
 . quietly graph export MichiganColorsStata2.png, ///
@@ -155,9 +156,9 @@ Sepal_Length {c |}{res}        150    5.843333    .8280661        4.3        7.9
 . //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme/index.smcl
+       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\Stata\michigan-graph-scheme\index.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}22 Mar 2024, 11:28:58
+ {txt}closed on:  {res}16 Feb 2025, 12:46:45
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
