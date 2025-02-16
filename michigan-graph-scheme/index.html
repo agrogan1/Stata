@@ -168,9 +168,6 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 <style>
 /* CSS for Markstat 2.0 using Pandoc 2.0 */
 body{padding:14px 28px; max-width:45em;}
@@ -215,7 +212,7 @@ table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid bl
 <header id="title-block-header">
 <h1 class="title">Installing and Using the Michigan Graph Scheme</h1>
 <p class="author">Andy Grogan-Kaylor</p>
-<p class="date">22 Mar 2024 11:27:46</p>
+<p class="date">16 Feb 2025 13:03:03</p>
 </header>
 <style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} p {font-size: 110%;} pre.stata {font-size: 110%; line-height: 115%;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 <h1 id="introduction">Introduction</h1>
@@ -313,8 +310,7 @@ Scheme</figcaption>
 </figure>
 <h1 id="scatterplot-with-transparency">Scatterplot With
 Transparency</h1>
-<pre class='stata'>. twoway (scatter Petal_Length Petal_Width, mcolor(%30)) /// markers have 30% transpare
-> ncy
+<pre class='stata'>. twoway (scatter Petal_Length Petal_Width, mcolor(%30)) /// markers have 30% transparency
 > (lfit Petal_Length Petal_Width), ///
 > scheme(michigan)
 </pre>
@@ -424,8 +420,8 @@ Modified Legend</figcaption>
 </tbody>
 </table>
 <p>Stata can use RGB codes for colors. As an example.</p>
-<pre class='stata'>. twoway (scatter Petal_Length Petal_Width, mcolor("112 32 130 %30")) /// markers are A
-> methyst with 30% transparency
+<pre class='stata'>. twoway (scatter Petal_Length Petal_Width, mcolor("112 32 130 %30")) /// markers are Amethyst with 30%
+>  transparency
 > (lfit Petal_Length Petal_Width, lcolor("87 82 148")), /// Violet line
 > scheme(michigan)
 </pre>
