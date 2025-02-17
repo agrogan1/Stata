@@ -1,348 +1,271 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Andy Grogan-Kaylor" />
-  <title>Installing and Using the Michigan Graph Scheme</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-02-17">
+
+<title>Michigan Graph Scheme for Stata</title>
 <style>
-/* CSS for Markstat 2.0 using Pandoc 2.0 */
-body{padding:14px 28px; max-width:45em;}
-body, table {font-family: Helvetica, Arial, Sans-serif; font-size: 14px;}
-h1, h2, h3, h4 {font-weight: normal; color: #3366cc}
-h1 {font-size: 200%;}
-h2 {font-size: 150%;}
-h3 {font-size: 120%;}
-h4 {font-size: 100%; font-weight:bold}
-img.center {display:block; margin-left:auto; margin-right:auto}
-.small{font-size:8pt;}
-a {color: black;}
-a:visited {color: #808080;}
-a.plain {text-decoration:none;}
-a.plain:hover {text-decoration:underline;}
-.em {font-weight:bold;}
-pre, code {font-family: "lucida console", monospace;}
-pre.stata {font-size:13px; line-height:13px;}
-pre {padding:8px; border:1px solid #c0c0c0; border-radius:8px; background-color:#fdfdfd;}
-code {color:#3366cc; background-color:#fafafa;}
-pre code { color:black; background-color:white}
-/* Added for Pandoc */
-figure > img, div.figure > img {display:block; margin:auto}
-figcaption, p.caption {text-align:center; font-weight:bold; color:#3366cc;}
-h1.title {text-align:center; margin-bottom:0}
-p.author, h2.author {font-style:italic; text-align:center;margin-top:4px;margin-bottom:0}
-p.date, h3.date {text-align:center;margin-top:4px; margin-bottom:0}
-/* Tables*/
-table { margin:auto; border-collapse:collapse; }
-table caption { margin-bottom:1ex;}
-td {padding:0 0 0 0} /* override */
-table:not([class]) th { padding:4px 6px } 
-table:not([class]) td { padding:4px 6px } 
-table:not([class]) thead tr:first-child th {border-top:1px solid black; padding-top:6px}
-table:not([class]) thead tr:last-child  th {padding-bottom:6px}
-table:not([class]) tbody tr:first-child td {border-top:1px solid black; padding-top:6px}
-table:not([class]) tbody tr:last-child  td {padding-bottom:6px;}
-table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid black;}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="index_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="index_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="index_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+
+
 </head>
+
 <body>
-<header id="title-block-header">
-<h1 class="title">Installing and Using the Michigan Graph Scheme</h1>
-<p class="author">Andy Grogan-Kaylor</p>
-<p class="date">16 Feb 2025 13:03:03</p>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation"><span class="header-section-number">2</span> Installation</a></li>
+  <li><a href="#example-data" id="toc-example-data" class="nav-link" data-scroll-target="#example-data"><span class="header-section-number">3</span> Example Data</a></li>
+  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram"><span class="header-section-number">4</span> Histogram</a></li>
+  <li><a href="#histogram-with-transparency" id="toc-histogram-with-transparency" class="nav-link" data-scroll-target="#histogram-with-transparency"><span class="header-section-number">5</span> Histogram With Transparency</a></li>
+  <li><a href="#bar-graph" id="toc-bar-graph" class="nav-link" data-scroll-target="#bar-graph"><span class="header-section-number">6</span> Bar Graph</a></li>
+  <li><a href="#bar-graph-with-transparency" id="toc-bar-graph-with-transparency" class="nav-link" data-scroll-target="#bar-graph-with-transparency"><span class="header-section-number">7</span> Bar Graph With Transparency</a></li>
+  <li><a href="#scatterplot" id="toc-scatterplot" class="nav-link" data-scroll-target="#scatterplot"><span class="header-section-number">8</span> Scatterplot</a></li>
+  <li><a href="#scatterplot-with-transparency" id="toc-scatterplot-with-transparency" class="nav-link" data-scroll-target="#scatterplot-with-transparency"><span class="header-section-number">9</span> Scatterplot With Transparency</a></li>
+  <li><a href="#legend-placement" id="toc-legend-placement" class="nav-link" data-scroll-target="#legend-placement"><span class="header-section-number">10</span> Legend Placement</a></li>
+  <li><a href="#individual-michigan-colors" id="toc-individual-michigan-colors" class="nav-link" data-scroll-target="#individual-michigan-colors"><span class="header-section-number">11</span> Individual Michigan Colors</a></li>
+  <li><a href="#michigan2-graph-scheme" id="toc-michigan2-graph-scheme" class="nav-link" data-scroll-target="#michigan2-graph-scheme"><span class="header-section-number">12</span> Michigan2 Graph Scheme</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Michigan Graph Scheme for Stata</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Andy Grogan-Kaylor </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 17, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
 </header>
-<style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} p {font-size: 110%;} pre.stata {font-size: 110%; line-height: 115%;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
-<h1 id="introduction">Introduction</h1>
 
-<figure>
-<img src="MichiganColorsStata.png" style="width:75.0%"
-alt="Colors in Michigan Graph Scheme" />
-<figcaption aria-hidden="true">Colors in Michigan Graph
-Scheme</figcaption>
+
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="MichiganColorsStata.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Colors in Michigan Graph Scheme"><img src="MichiganColorsStata.png" class="img-fluid figure-img" style="width:75.0%" alt="Colors in Michigan Graph Scheme"></a></p>
+<figcaption>Colors in Michigan Graph Scheme</figcaption>
 </figure>
-<p>Stata provides the use of graph schemes that improve the overall look
-of graphs.</p>
+</div>
+<p>Stata provides the use of graph schemes that improve the overall look of graphs.</p>
 <p>See <code>help scheme</code>.</p>
-<p>The <em>Michigan graph scheme</em> makes use of official University
-of Michigan colors.</p>
-<h1 id="installation">Installation</h1>
-<p>Use of the <em>Michigan graph scheme</em> depends on installation of
-the <code>lean2</code> graph scheme developed by Svend Juul.</p>
-<p>Type <code>findit lean2</code> and click through on the install links
-to install <code>lean2</code>.</p>
-<p>Then type <code>net from https://agrogan1.github.io/Stata</code> and
-click the links to install.</p>
-<h1 id="example-data">Example Data</h1>
-<p>We are going to use the famous “iris” data collected by Edgar
-Anderson.</p>
-<pre class='stata'>. clear all
-
-.     
-. use "iris.dta", clear
-
-. 
-. summarize
-
-    Variable │        Obs        Mean    Std. dev.       Min        Max
-─────────────┼─────────────────────────────────────────────────────────
-Sepal_Length │        150    5.843333    .8280661        4.3        7.9
- Sepal_Width │        150    3.057333    .4358663          2        4.4
-Petal_Length │        150       3.758    1.765298          1        6.9
- Petal_Width │        150    1.199333    .7622377         .1        2.5
-     Species │        150           2    .8192319          1          3
-</pre>
-<h1 id="histogram">Histogram</h1>
-<pre class='stata'>. histogram Petal_Length, scheme(michigan)
-(bin=12, start=1, width=.49166667)
-</pre>
-
-<figure>
-<img src="myhistogram.png" style="width:50.0%"
-alt="Histogram Using Michigan Scheme" />
-<figcaption aria-hidden="true">Histogram Using Michigan
-Scheme</figcaption>
+<p>The <em>Michigan graph scheme</em> makes use of official University of Michigan colors.</p>
+</section>
+<section id="installation" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Installation</h1>
+<p>Type <code>net from https://agrogan1.github.io/Stata</code> and click the links to install.</p>
+</section>
+<section id="example-data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Example Data</h1>
+<p>We are going to use the famous “iris” data collected by Edgar Anderson.</p>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span> <span class="ot">all</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"iris.dta"</span>, <span class="kw">clear</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+Sepal_Length |        150    5.843333    .8280661        4.3        7.9
+ Sepal_Width |        150    3.057333    .4358663          2        4.4
+Petal_Length |        150       3.758    1.765298          1        6.9
+ Petal_Width |        150    1.199333    .7622377         .1        2.5
+     Species |        150           2    .8192319          1          3</code></pre>
+</div>
+</div>
+</section>
+<section id="histogram" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Histogram</h1>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">histogram</span> Petal_Length, <span class="dv">scheme</span>(michigan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="myhistogram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Histogram Using Michigan Scheme"><img src="myhistogram.png" class="img-fluid figure-img" style="width:50.0%" alt="Histogram Using Michigan Scheme"></a></p>
+<figcaption>Histogram Using Michigan Scheme</figcaption>
 </figure>
-<h1 id="histogram-with-transparency">Histogram With Transparency</h1>
-<pre class='stata'>. histogram Petal_Length, fcolor(%50) scheme(michigan)
-(bin=12, start=1, width=.49166667)
-</pre>
-
-<figure>
-<img src="myhistogram2.png" style="width:50.0%"
-alt="Histogram Using Michigan Scheme And Slightly Transparent Bars" />
-<figcaption aria-hidden="true">Histogram Using Michigan Scheme And
-Slightly Transparent Bars</figcaption>
+</div>
+</section>
+<section id="histogram-with-transparency" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Histogram With Transparency</h1>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">histogram</span> Petal_Length, fcolor(%50) <span class="dv">scheme</span>(michigan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="myhistogram2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Histogram Using Michigan Scheme And Slightly Transparent Bars"><img src="myhistogram2.png" class="img-fluid figure-img" style="width:50.0%" alt="Histogram Using Michigan Scheme And Slightly Transparent Bars"></a></p>
+<figcaption>Histogram Using Michigan Scheme And Slightly Transparent Bars</figcaption>
 </figure>
-<h1 id="bar-graph">Bar Graph</h1>
-<pre class='stata'>. graph bar Petal_Length, over(Species) scheme(michigan) asyvars
-</pre>
-
-<figure>
-<img src="mybargraph.png" style="width:50.0%"
-alt="Bar Graph Using Michigan Scheme" />
-<figcaption aria-hidden="true">Bar Graph Using Michigan
-Scheme</figcaption>
+</div>
+</section>
+<section id="bar-graph" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Bar Graph</h1>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> Petal_Length, <span class="bn">over</span>(Species) <span class="dv">scheme</span>(michigan) asyvars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="mybargraph.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Bar Graph Using Michigan Scheme"><img src="mybargraph.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Using Michigan Scheme"></a></p>
+<figcaption>Bar Graph Using Michigan Scheme</figcaption>
 </figure>
-<h1 id="bar-graph-with-transparency">Bar Graph With Transparency</h1>
-<pre class='stata'>. graph bar Petal_Length, over(Species) intensity(70) scheme(michigan) asyvars
-</pre>
-
-<figure>
-<img src="mybargraph2.png" style="width:50.0%"
-alt="Bar Graph Using Michigan Scheme and Slightly Transparent Bars" />
-<figcaption aria-hidden="true">Bar Graph Using Michigan Scheme and
-Slightly Transparent Bars</figcaption>
+</div>
+</section>
+<section id="bar-graph-with-transparency" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Bar Graph With Transparency</h1>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> Petal_Length, <span class="bn">over</span>(Species) intensity(70) <span class="dv">scheme</span>(michigan) asyvars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="mybargraph2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Bar Graph Using Michigan Scheme and Slightly Transparent Bars"><img src="mybargraph2.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Using Michigan Scheme and Slightly Transparent Bars"></a></p>
+<figcaption>Bar Graph Using Michigan Scheme and Slightly Transparent Bars</figcaption>
 </figure>
-<h1 id="scatterplot">Scatterplot</h1>
-<pre class='stata'>. twoway (scatter Petal_Length Petal_Width) ///
-> (lfit Petal_Length Petal_Width), ///
-> scheme(michigan)
-</pre>
-
-<figure>
-<img src="myscatter.png" style="width:50.0%"
-alt="Scatterplot Using Michigan Scheme" />
-<figcaption aria-hidden="true">Scatterplot Using Michigan
-Scheme</figcaption>
+</div>
+</section>
+<section id="scatterplot" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Scatterplot</h1>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> (<span class="kw">scatter</span> Petal_Length Petal_Width) <span class="co">///</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>(<span class="kw">lfit</span> Petal_Length Petal_Width), <span class="co">///</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dv">scheme</span>(michigan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="myscatter.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Scatterplot Using Michigan Scheme"><img src="myscatter.png" class="img-fluid figure-img" style="width:50.0%" alt="Scatterplot Using Michigan Scheme"></a></p>
+<figcaption>Scatterplot Using Michigan Scheme</figcaption>
 </figure>
-<h1 id="scatterplot-with-transparency">Scatterplot With
-Transparency</h1>
-<pre class='stata'>. twoway (scatter Petal_Length Petal_Width, mcolor(%30)) /// markers have 30% transparency
-> (lfit Petal_Length Petal_Width), ///
-> scheme(michigan)
-</pre>
-
-<figure>
-<img src="myscatter2.png" style="width:50.0%"
-alt="Scatterplot Using Michigan Scheme And Slightly Transparent Markers" />
-<figcaption aria-hidden="true">Scatterplot Using Michigan Scheme And
-Slightly Transparent Markers</figcaption>
+</div>
+</section>
+<section id="scatterplot-with-transparency" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Scatterplot With Transparency</h1>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> (<span class="kw">scatter</span> Petal_Length Petal_Width, mcolor(%30)) <span class="co">/// markers have 30% transparency</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>(<span class="kw">lfit</span> Petal_Length Petal_Width), <span class="co">///</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="dv">scheme</span>(michigan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="myscatter2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Scatterplot Using Michigan Scheme And Slightly Transparent Markers"><img src="myscatter2.png" class="img-fluid figure-img" style="width:50.0%" alt="Scatterplot Using Michigan Scheme And Slightly Transparent Markers"></a></p>
+<figcaption>Scatterplot Using Michigan Scheme And Slightly Transparent Markers</figcaption>
 </figure>
-<h1 id="legend-placement">Legend Placement</h1>
-<p>Sometimes you may wish to have the legend of the graph placed at the
-<em>bottom</em> of the graph. The <code>pos(6)</code> suboption inside
-the <code>legend</code> option will place the legend at the bottom,
-while you can manually control the number of legend rows with the
-<code>rows</code> suboption.</p>
-<pre class='stata'>. graph bar Petal_Length, over(Species) scheme(michigan) asyvars legend(pos(6) rows(1))
-</pre>
-
-<figure>
-<img src="mybargraph3.png" style="width:50.0%"
-alt="Bar Graph Using Michigan Scheme and Modified Legend" />
-<figcaption aria-hidden="true">Bar Graph Using Michigan Scheme and
-Modified Legend</figcaption>
+</div>
+</section>
+<section id="legend-placement" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Legend Placement</h1>
+<p>Sometimes you may wish to have the legend of the graph placed at the <em>bottom</em> of the graph. The <code>pos(6)</code> suboption inside the <code>legend</code> option will place the legend at the bottom, while you can manually control the number of legend rows with the <code>rows</code> suboption.</p>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> Petal_Length, <span class="bn">over</span>(Species) <span class="dv">scheme</span>(michigan) asyvars <span class="bn">legend</span>(pos(6) <span class="bn">rows</span>(1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="mybargraph3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Bar Graph Using Michigan Scheme and Modified Legend"><img src="mybargraph3.png" class="img-fluid figure-img" style="width:50.0%" alt="Bar Graph Using Michigan Scheme and Modified Legend"></a></p>
+<figcaption>Bar Graph Using Michigan Scheme and Modified Legend</figcaption>
 </figure>
-<h1 id="individual-michigan-colors">Individual Michigan Colors</h1>
+</div>
+</section>
+<section id="individual-michigan-colors" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Individual Michigan Colors</h1>
 <p>Individual University of Michigan colors are listed below.</p>
-<table style="width:60%;">
+<table class="caption-top table">
 <colgroup>
-<col style="width: 29%" />
-<col style="width: 15%" />
-<col style="width: 15%" />
+<col style="width: 29%">
+<col style="width: 15%">
+<col style="width: 15%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -420,33 +343,631 @@ Modified Legend</figcaption>
 </tbody>
 </table>
 <p>Stata can use RGB codes for colors. As an example.</p>
-<pre class='stata'>. twoway (scatter Petal_Length Petal_Width, mcolor("112 32 130 %30")) /// markers are Amethyst with 30%
->  transparency
-> (lfit Petal_Length Petal_Width, lcolor("87 82 148")), /// Violet line
-> scheme(michigan)
-</pre>
-
-<figure>
-<img src="myscatter3.png" style="width:50.0%"
-alt="Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers" />
-<figcaption aria-hidden="true">Scatterplot Using Michigan Scheme,
-Selected Colors, And Slightly Transparent Markers</figcaption>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> (<span class="kw">scatter</span> Petal_Length Petal_Width, mcolor(<span class="st">"112 32 130 %30"</span>)) <span class="co">/// markers are Amethyst with 30% transparency</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>(<span class="kw">lfit</span> Petal_Length Petal_Width, lcolor(<span class="st">"87 82 148"</span>)), <span class="co">/// Violet line</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dv">scheme</span>(michigan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="myscatter3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers"><img src="myscatter3.png" class="img-fluid figure-img" style="width:50.0%" alt="Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers"></a></p>
+<figcaption>Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers</figcaption>
 </figure>
-<h1 id="michigan2-graph-scheme">Michigan2 Graph Scheme</h1>
-<p>I have also developed a <code>michigan2</code> graph scheme:
-<code>, scheme(michigan2)</code>.</p>
-<p>This graph scheme can be installed using the same instructions as
-above. The <code>michigan2</code> scheme slightly reorders the color
-palette of the original scheme. The scheme begins with blue and maize,
-but then moves to the <em>cooler</em> colors before moving to <em>Tappan
-Red</em> and <em>Ross Orange</em>. <em>Taubman Teal</em>–a very
-fluorescent color–is moved to the end of the palette.</p>
-
-<figure>
-<img src="MichiganColorsStata3.png" style="width:50.0%"
-alt="Colors in Michigan Graph Schemes" />
-<figcaption aria-hidden="true">Colors in Michigan Graph
-Schemes</figcaption>
+</div>
+</section>
+<section id="michigan2-graph-scheme" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Michigan2 Graph Scheme</h1>
+<p>I have also developed a <code>michigan2</code> graph scheme: <code>, scheme(michigan2)</code>.</p>
+<p>This graph scheme can be installed using the same instructions as above. The <code>michigan2</code> scheme slightly reorders the color palette of the original scheme. The scheme begins with blue and maize, but then moves to the <em>cooler</em> colors before moving to <em>Tappan Red</em> and <em>Ross Orange</em>. <em>Taubman Teal</em>–a very fluorescent color–is moved to the end of the palette.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="MichiganColorsStata3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Colors in Michigan Graph Schemes"><img src="MichiganColorsStata3.png" class="img-fluid figure-img" style="width:50.0%" alt="Colors in Michigan Graph Schemes"></a></p>
+<figcaption>Colors in Michigan Graph Schemes</figcaption>
 </figure>
-</body>
-</html>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
