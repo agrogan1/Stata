@@ -3,7 +3,7 @@ So many projects have the same, or similar, workflow.
 ```mermaid
 %%{
   init: {
-    'theme': 'neo',
+    'theme': 'base',
     'themeVariables': {
       'primaryColor': '#FFCB05',
       'primaryTextColor': '#000000',
