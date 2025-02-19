@@ -10,10 +10,10 @@ format:
       light: yeti
       dark: vapor
     lightbox: true
-  pdf: 
-    toc: true
-    number-sections: true
+filters:
+  - highlight-text
 ---
+
 # Introduction
 
 ```{r}
@@ -223,33 +223,33 @@ quietly graph export mybargraph3.png, width(1500) replace
 Individual University of Michigan colors are listed below. 
 
 -------------------------------------------------------------
-Color                Hex        RGB
--------------------- ---------- ----------
-Blue                 #00274C    0 39 76
+Color                                           Hex        RGB
+----------------------------------------------  ---------- ----------
+[Blue]{fg="white" bg="#00274C"}                 #00274C    0 39 76
 
-Maize                #FFCB05    255 203 5
+[Maize]{bg="#FFCB05"}                           #FFCB05    255 203 5
 
-Tappan Red           #9A3324    154 51 36
+[Tappan Red]{fg="white" bg="#9A3324"}           #9A3324    154 51 36
 
-Ross School Orange   #D86018    216 96 24
+[Ross School Orange]{bg="#D86018"}              #D86018    216 96 24
 
-Wave Field Green     #A5A508    165 165 8
+[Wave Field Green]{bg="#A5A508"}                #A5A508    165 165 8
 
-Taubman Teal         #00B2A9    0 178 169
+[Taubman Teal]{bg="#00B2A9"}                    #00B2A9    0 178 169
 
-Arboretum Blue       #2F65A7    47 101 167
+[Arboretum Blue]{fg="white" bg="#2F65A7"}       #2F65A7    47 101 167
 
-Ann Arbor Amethyst   #702082    112 32 130
+[Ann Arbor Amethyst]{fg="white" bg="#702082"}   #702082    112 32 130
 
-Matthaei Violet      #575294    87 82 148
+[Matthaei Violet]{fg="white" bg="#575294"}      #575294    87 82 148
 
-Umma Tan             #CFC096    207 192 150
+[UMMA Tan]{bg="#CFC096"}                        #CFC096    207 192 150
 
-Burton Tower Beige   #9B9A6D    155 154 109
+[Burton Tower Beige]{bg="#9B9A6D"}              #9B9A6D    155 154 109
 
-Angell Hall Ash      #989C97    152 156 151
+[Angell Hall Ash]{bg="#989C97"}                 #989C97    152 156 151
 
-Law Quad Stone       #655A52    101 90 82
+[Law Quad Stone]{fg="white" bg="#655A52"}       #655A52    101 90 82
 -------------------------------------------------------------
 
 Stata can use RGB codes for colors. As an example.
