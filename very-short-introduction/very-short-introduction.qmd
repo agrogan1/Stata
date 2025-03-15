@@ -39,8 +39,8 @@ Often it is not necessary to use any options since the authors of Stata have don
 | Multilevel Model                | `mixed y x z || group: x`     |
 | Structural Equation Modeling    | `sem (y <- x m z) (m <- x z)` |
 | Histogram                       | `histogram x` [^graph]        |
-| Bar Graph                       | `graph bar, over(x)`          |
-| Bar Graph (of means)            | `graph bar y, over(x)`        |
+| Bar Graph (of categories)       | `graph bar, over(x)`          |
+| Bar Graph (of means over categories) | `graph bar y, over(x)`   |
 | Pie Chart                       | `graph pie, over(x)`          |
 | Scatterplot                     | `twoway scatter y x`          |
 
