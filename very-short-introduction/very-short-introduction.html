@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Grogan-Kaylor">
-<meta name="dcterms.date" content="2024-10-25">
+<meta name="dcterms.date" content="2025-03-15">
 
 <title>A Very Short Introduction to Stata</title>
 <style>
@@ -31,15 +31,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="very-short-introduction_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="very-short-introduction_files/libs/quarto-html/anchor.min.js"></script>
 <link href="very-short-introduction_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="very-short-introduction_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="very-short-introduction_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="very-short-introduction_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="very-short-introduction_files/libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="very-short-introduction_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="very-short-introduction_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="very-short-introduction_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="very-short-introduction_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="very-short-introduction_files/libs/bootstrap/bootstrap-abede80c7697ea2dc5d9f2eead8571a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="very-short-introduction_files/libs/bootstrap/bootstrap-dark-a251517d39fa0722c09756dc51bd4032.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -69,7 +68,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 25, 2024</p>
+      <p class="date">March 15, 2025</p>
     </div>
   </div>
   
@@ -113,66 +112,70 @@ ul.task-list li input[type="checkbox"] {
 <td><code>tabulate x</code></td>
 </tr>
 <tr class="odd">
-<td>Recode</td>
-<td><code>recode x (old = new)(...), generate(xR)</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
+<td>Cross-Tabulation.</td>
+<td><code>tabulate x y</code> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
 </tr>
 <tr class="even">
+<td>Recode</td>
+<td><code>recode x (old = new)(...), generate(xR)</code><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></td>
+</tr>
+<tr class="odd">
 <td>Rename</td>
 <td><code>rename x z</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Keep</td>
 <td><code>keep x y z</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Drop</td>
 <td><code>drop x y z</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Correlation</td>
 <td><code>corr x y</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Regression</td>
 <td><code>regress y x z</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Logistic Regression</td>
-<td><code>logit y x z, or</code> <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></td>
-</tr>
-<tr class="even">
-<td>Ordinal Logistic Regression</td>
-<td><code>ologit y x z, or</code> <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></td>
+<td><code>logit y x z, or</code> <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></td>
 </tr>
 <tr class="odd">
-<td>Multinomial Logistic Regression</td>
-<td><code>mlogit y x z, rr</code> <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></td>
+<td>Ordinal Logistic Regression</td>
+<td><code>ologit y x z, or</code> <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></td>
 </tr>
 <tr class="even">
+<td>Multinomial Logistic Regression</td>
+<td><code>mlogit y x z, rr</code> <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></td>
+</tr>
+<tr class="odd">
 <td>Multilevel Model</td>
 <td><code>mixed y x z || group: x</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Structural Equation Modeling</td>
 <td><code>sem (y &lt;- x m z) (m &lt;- x z)</code></td>
 </tr>
-<tr class="even">
-<td>Histogram</td>
-<td><code>histogram x</code> <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></td>
-</tr>
 <tr class="odd">
+<td>Histogram</td>
+<td><code>histogram x</code> <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></td>
+</tr>
+<tr class="even">
 <td>Bar Graph</td>
 <td><code>graph bar, over(x)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Bar Graph (of means)</td>
 <td><code>graph bar y, over(x)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Pie Chart</td>
 <td><code>graph pie, over(x)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Scatterplot</td>
 <td><code>twoway scatter y x</code></td>
 </tr>
@@ -184,11 +187,12 @@ ul.task-list li input[type="checkbox"] {
 
 <ol>
 <li id="fn1"><p><code>lookfor thing</code> looks for any variable with <code>thing</code> in the variable name or variable label. <code>lookfor somethingelse</code> looks for any variable with <code>somethingelse</code> in the variable name or variable label. It is often useful to <code>lookfor</code> abbreviations e.g.&nbsp;<code>lookfor anx</code> instead of <code>lookfor anxiety</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>It is usually best practice, but not required, to <code>recode</code> values of a variable into a <em>new</em> variable, leaving the original variable untouched.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Here we need to use the <code>, or</code> option to ask for <em>odds ratios</em> instead of <em>logit coefficients</em>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Here again we need to use the <code>, or</code> option to ask for <em>odds ratios</em> instead of <em>logit coefficients</em>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Here we need to use the <code>, rr</code> option to ask for <em>risk ratios</em> instead of <em>logit coefficients</em>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>For graphing commands, you can often add options after a <code>,</code>. e.g.&nbsp;<code>title("title of the graph")</code>, <code>xtitle("title of the x axis")</code>, <code>ytitle("title of the y axis")</code>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>After the <code>,</code> the <code>row</code> and <code>col</code> options can be helpful to generate <em>row</em> and <em>column</em> percentages.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>It is usually best practice, but not required, to <code>recode</code> values of a variable (e.g.&nbsp;<code>x</code>) into a <em>new</em> variable (e.g.&nbsp;<code>xR</code>), leaving the original variable untouched.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Here we need to use the <code>, or</code> option to ask for <em>odds ratios</em> instead of <em>logit coefficients</em>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Here again we need to use the <code>, or</code> option to ask for <em>odds ratios</em> instead of <em>logit coefficients</em>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Here we need to use the <code>, rr</code> option to ask for <em>risk ratios</em> instead of <em>logit coefficients</em>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>For graphing commands, you can often add options after a <code>,</code>. e.g.&nbsp;<code>title("title of the graph")</code>, <code>xtitle("title of the x axis")</code>, <code>ytitle("title of the y axis")</code>.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->
@@ -418,8 +422,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -530,7 +532,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
