@@ -52,6 +52,7 @@ use "penguins.dta", clear
 * NB if you have a lot of variables, the commands below will produce a lot of (too much) output
 
 * you may need to `describe` or `codebook` specific variables
+* you might want to only `keep` certain variables so that you have a smaller working data set
 
 describe // describe the variables
 
