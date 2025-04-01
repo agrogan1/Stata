@@ -21,7 +21,7 @@ So many projects have the same, or similar, workflow.
 flowchart LR
   A(have a question) --> B(get raw data)
   B --> B2(select or <br>keep variables)
-  B2 --> C(process and clean data) 
+  B2 --> C(process and <br>clean data) 
   C --> D(analyze data)
   D --> E(visualize data)
   E --> F(make conclusions)
