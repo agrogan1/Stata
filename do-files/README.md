@@ -18,13 +18,13 @@ So many projects have the same, or similar, workflow.
   }
 }%%
 
-flowchart TB
-  A(have a question) --> B(get raw data)
+flowchart LR
+  A(have a <br>question) --> B(get <br>raw data)
   B --> B2(select or <br>keep variables)
   B2 --> C(process and <br>clean data) 
-  C --> D(analyze data)
-  D --> E(visualize data)
-  E --> F(make conclusions)
+  C --> D(analyze <br>data)
+  D --> E(visualize <br>data)
+  E --> F(make <br>conclusions)
 ```
 
 Use the **DO FILE EDITOR** to save Stata commands that you want to use again in a `.do` file, and to create an *audit trail* of your work so that your workflow is *documented* and *replicable.* **DO YOUR THINKING IN CODE!!!**
