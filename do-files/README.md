@@ -18,7 +18,7 @@ So many projects have the same, or similar, workflow.
   }
 }%%
 
-flowchart LR
+flowchart TB
   A(have a question) --> B(get raw data)
   B --> B2(select or <br>keep variables)
   B2 --> C(process and <br>clean data) 
