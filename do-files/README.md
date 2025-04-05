@@ -18,12 +18,14 @@ So many projects have the same, or similar, workflow.
   }
 }%%
 block-beta
-   columns 5
-   A["have a <br>question"] space B["get <br> raw data"] space C["select or <br>keep variables"]
-   space space space space space
-   F["visualize <br>data"] space E["analyze <br>data"] space D["process and <br>clean data"]
-   space space space space space
-   G["make <br>conclusions"] space space space space
+   columns 3
+   A["have a <br>question"] space B["get <br> raw data"]
+   space space space 
+   C["select or <br>keep variables"] space D["process and <br>clean data"]
+   space space space 
+   F["visualize <br>data"] space E["analyze <br>data"]  
+   space space space 
+   G["make <br>conclusions"] space space 
 
    A --> B
    B --> C
