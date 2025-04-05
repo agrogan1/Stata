@@ -26,6 +26,19 @@ flowchart LR
   D --> E(visualize <br>data)
   E --> F(make <br>conclusions)
 ```
+```mermaid
+block-beta
+   columns 5
+   A space B space C
+   space space space space space
+   F space E space D
+
+   A --> B
+   B --> C
+   C --> D
+   D --> E
+   E --> F
+```
 
 Use the **DO FILE EDITOR** to save Stata commands that you want to use again in a `.do` file, and to create an *audit trail* of your work so that your workflow is *documented* and *replicable.* **DO YOUR THINKING IN CODE!!!**
 
