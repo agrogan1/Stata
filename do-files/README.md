@@ -29,13 +29,13 @@ flowchart LR
 ```mermaid
 block-beta
    columns 5
-   A space B space C
+   A(have a <br>question) space B space C
    space space space space space
    F space E space D
    space space space space space
    G space space space space
 
-   A(have a <br>question) --> B
+   A --> B
    B --> C
    C --> D
    D --> E
