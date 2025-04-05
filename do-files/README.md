@@ -32,6 +32,7 @@ block-beta
    A space B space C
    space space space space space
    F space E space D
+   space space space space space
    G space space space space
 
    A --> B
