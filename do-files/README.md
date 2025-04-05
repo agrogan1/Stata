@@ -47,9 +47,9 @@ block-beta
    columns 5
    A["have a <br>question"] space B["get <br> raw data"] space C["select or <br>keep variables"]
    space space space space space
-   F space E space D
+   F["visualize <br>data"] space E["analyze <br>data"] space D["process and <br>clean data"]
    space space space space space
-   G space space space space
+   G["make <br>conclusions"] space space space space
 
    A --> B
    B --> C
