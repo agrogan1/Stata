@@ -29,7 +29,7 @@ flowchart LR
 ```mermaid
 block-beta
    columns 5
-   A["have a <br>question"] space B["get <br> raw data"] space C[select or <br>keep variables"]
+   A["have a <br>question"] space B["get <br> raw data"] space C["select or <br>keep variables"]
    space space space space space
    F space E space D
    space space space space space
