@@ -21,7 +21,7 @@ block-beta
    columns 3
    A["have a <br>question"] space B["get <br> raw data"]
    space space space 
-   C["select or <br>keep variables"] space D["process and <br>clean data"]
+   D["process and <br>clean data"] space  C["select or <br>keep variables"]
    space space space 
    F["visualize <br>data"] space E["analyze <br>data"]  
    space space space 
