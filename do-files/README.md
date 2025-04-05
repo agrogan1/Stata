@@ -25,7 +25,7 @@ block-beta
    space space space 
    E["analyze <br>data"] space F["visualize <br>data"] 
    space space space 
-   G["make <br>conclusions"] space space 
+   space space G["make <br>conclusions"]  
 
    A --> B
    B --> C
