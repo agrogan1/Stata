@@ -23,7 +23,7 @@ block-beta
    space space space 
    D["process and <br>clean data"] space  C["select or <br>keep variables"]
    space space space 
-   F["visualize <br>data"] space E["analyze <br>data"]  
+   E["analyze <br>data"] space F["visualize <br>data"] 
    space space space 
    G["make <br>conclusions"] space space 
 
