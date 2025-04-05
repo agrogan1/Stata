@@ -32,12 +32,14 @@ block-beta
    A space B space C
    space space space space space
    F space E space D
+   G
 
    A --> B
    B --> C
    C --> D
    D --> E
    E --> F
+   F --> G
 ```
 
 Use the **DO FILE EDITOR** to save Stata commands that you want to use again in a `.do` file, and to create an *audit trail* of your work so that your workflow is *documented* and *replicable.* **DO YOUR THINKING IN CODE!!!**
