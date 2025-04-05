@@ -29,7 +29,7 @@ flowchart LR
 ```mermaid
 block-beta
    columns 5
-   A(have a <br>question) space B space C
+   A["A label"] space B space C
    space space space space space
    F space E space D
    space space space space space
