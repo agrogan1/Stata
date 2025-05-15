@@ -1,4 +1,4 @@
-So many projects have the same, or similar, workflow.
+# So many projects have the same, or similar, workflow.
 
 ```mermaid
 %%{
