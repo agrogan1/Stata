@@ -37,7 +37,7 @@ block-beta
 
 Use the **DO FILE EDITOR** to save Stata commands that you want to use again in a `.do` file, and to create an *audit trail* of your work so that your workflow is *documented* and *replicable.* **DO YOUR THINKING IN CODE!!!**
 
-Click on `my_penguins.do` to see an example `.do` file that creates such an *audit trail* using the [Palmer Penguin Data](https://allisonhorst.github.io/palmerpenguins/)
+Click on `my_penguins.do` to see an example `.do` file that creates such an *audit trail* using the [Palmer Penguins Data](https://allisonhorst.github.io/palmerpenguins/)
 
 
 * [mypenguins.do - raw text](https://github.com/agrogan1/Stata/blob/main/do-files/my_penguins.do)
