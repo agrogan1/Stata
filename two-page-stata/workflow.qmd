@@ -1,0 +1,36 @@
+---
+title: "workflow"
+format:
+  html:
+    toc: false
+  docx: 
+    toc: false
+    fig-dpi: 600
+  pptx: 
+    fig-dpi: 1200
+---
+
+```{mermaid}
+
+flowchart LR
+
+  classDef maize fill:#FFCB05,stroke:#000000,stroke-width:2px,color:#000000;
+
+  question(have a <br>question):::maize
+  getdata(get data):::maize
+  selectvariables(select and <br>keep variables):::maize
+  processandclean(process and <br>clean data):::maize
+  analyze(analyze <br>data):::maize
+  visualize(visualize <br>data):::maize
+  conclusions(make <br>conclusions):::maize
+
+  question --> getdata
+  getdata --> selectvariables
+  selectvariables --> processandclean
+  processandclean --> analyze
+  analyze --> visualize
+  visualize --> conclusions
+  
+  linkStyle 0,1,2,3,4,5 stroke:black,stroke-width:4px,color:red;
+
+```
