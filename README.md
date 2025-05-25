@@ -7,7 +7,7 @@
 
 ## Do Files
 
-* [Example do File](https://github.com/agrogan1/Stata/blob/master/do-files) using the [Palmer Penguins Data](https://allisonhorst.github.io/palmerpenguins/)
+* [Example do File](https://github.com/agrogan1/Stata/blob/main/do-files/README.md) using the [Palmer Penguins Data](https://allisonhorst.github.io/palmerpenguins/)
 
 ## Stata Programs and Stata Graph Scheme
 
