@@ -24,6 +24,7 @@ Often it is not necessary to use any options since the authors of Stata have don
 |---------------------------------|-------------------------------|
 | Open data                       | `use mydata.dta`              |
 | Look for or find                | `lookfor thing` [^lookfor]    |
+| Describe the data               | `describe x` [^describe]      |
 | Descriptive statistics          | `summarize x y`               |
 | Frequencies                     | `tabulate x`                  |
 | Cross-Tabulation.               | `tabulate x y` [^rowcol]      |
@@ -45,6 +46,7 @@ Often it is not necessary to use any options since the authors of Stata have don
 | Scatterplot                     | `twoway scatter y x`          |
 
 [^lookfor]: `lookfor thing` looks for any variable with `thing` in the variable name or variable label. `lookfor somethingelse` looks for any variable with `somethingelse` in the variable name or variable label. It is often useful to `lookfor` abbreviations e.g. `lookfor anx` instead of `lookfor anxiety`.
+[^describe]: `describe, short` will give you quick summary information about the data including *sample size*.
 [^rowcol]: After the `,` the `row` and `col` options can be helpful to generate *row* and *column* percentages.
 [^recode]: It is usually best practice, but not required, to `recode` values of a variable (e.g. `x`) into a *new* variable (e.g. `xR`), leaving the original variable untouched. 
 [^logit]: Here we need to use the `, or` option to ask for *odds ratios* instead of *logit coefficients*.
