@@ -9,6 +9,7 @@ format:
     theme:
       light: yeti
       dark: vapor
+    lightbox: true
 editor: source
 ---
 
@@ -26,11 +27,13 @@ library(Statamarkdown)
 
 # Get Data
 
-Data from [Multilevel Thinking](https://agrogan1.github.io/multilevel-thinking/simulated-multi-country-data.html)
+Data from [Multilevel Thinking](https://agrogan1.github.io/posts/multilevel-thinking/)
 
 ```{stata, collectcode=TRUE}
 
-use "https://github.com/agrogan1/multilevel-thinking/raw/main/simulate-and-analyze-multilevel-data/simulated_multilevel_data.dta", clear
+use "simulated_multilevel_data.dta", clear
+
+set linesize 96 // set linesize for Quarto
 
 ```
 
