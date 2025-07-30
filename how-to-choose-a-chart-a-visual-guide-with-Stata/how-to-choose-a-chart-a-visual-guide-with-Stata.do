@@ -70,7 +70,7 @@ twoway (kdensity x, lwidth(thick)), ///
 by(u, rows(2) ///
 title("density") ///
 note(" ") ///
-caption("{stMono:twoway (kdensity x), by(u) ///}" "{stMono:rows(2)}", size(large))) ///
+caption("{stMono:twoway (kdensity x), ///}" "{stMono:by(u, rows(2))}", size(large))) ///
 name(mydensity2, replace)
 
 graph bar x, over(u) asyvars ///
