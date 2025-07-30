@@ -8,6 +8,10 @@ format:
     fig-dpi: 1200
   pptx: 
     fig-dpi: 3000
+  pdf: 
+    fig-dpi: 500
+    classoption: [landscape]
+    fig-width: 9
 ---
 
 ```{mermaid}
