@@ -7,7 +7,7 @@ format:
     toc: false
     fig-dpi: 1200
   pptx: 
-    fig-dpi: 1200
+    fig-dpi: 3000
 ---
 
 ```{mermaid}
