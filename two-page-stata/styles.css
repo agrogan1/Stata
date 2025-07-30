@@ -3,6 +3,11 @@ blockquote {
   border-left: 3px solid #FFC20E; 
   padding: 0.5em 10px;
 }
+
 code {
   color: #007bff;
+}
+
+a {
+  color: #2F65A7;
 }
