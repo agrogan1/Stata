@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-02-18">
+<meta name="dcterms.date" content="2025-08-01">
 
 <title>Michigan Graph Scheme for Stata</title>
 <style>
@@ -64,12 +64,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="index_files/libs/quarto-html/anchor.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-49b8e94740e001a83ae21307f502e232.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="index_files/libs/bootstrap/bootstrap-dark-bb63f1b5f9c8c3a4758ffaa05fe24278.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="index_files/libs/bootstrap/bootstrap-abede80c7697ea2dc5d9f2eead8571a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-dark-a251517d39fa0722c09756dc51bd4032.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="index_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="index_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="index_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -96,7 +96,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#scatterplot-with-transparency" id="toc-scatterplot-with-transparency" class="nav-link" data-scroll-target="#scatterplot-with-transparency"><span class="header-section-number">9</span> Scatterplot With Transparency</a></li>
   <li><a href="#legend-placement" id="toc-legend-placement" class="nav-link" data-scroll-target="#legend-placement"><span class="header-section-number">10</span> Legend Placement</a></li>
   <li><a href="#individual-michigan-colors" id="toc-individual-michigan-colors" class="nav-link" data-scroll-target="#individual-michigan-colors"><span class="header-section-number">11</span> Individual Michigan Colors</a></li>
-  <li><a href="#michigan2-graph-scheme" id="toc-michigan2-graph-scheme" class="nav-link" data-scroll-target="#michigan2-graph-scheme"><span class="header-section-number">12</span> Michigan2 Graph Scheme</a></li>
   </ul>
 </nav>
 </div>
@@ -121,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 18, 2025</p>
+      <p class="date">August 1, 2025</p>
     </div>
   </div>
   
@@ -159,11 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Running /Users/agrogan/Desktop/GitHub/Stata/michigan-graph-scheme/profile.do 
-
-&gt; ...
-
-    Variable |        Obs        Mean    Std. dev.       Min        Max
+<pre><code>    Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
 Sepal_Length |        150    5.843333    .8280661        4.3        7.9
  Sepal_Width |        150    3.057333    .4358663          2        4.4
@@ -300,46 +295,51 @@ Petal_Length |        150       3.758    1.765298          1        6.9
 <td style="text-align: left;">216 96 24</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"><span data-bg="#75988d" style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #75988d;">Rackham Green</span></td>
+<td style="text-align: left;">#75988d</td>
+<td style="text-align: left;">117 152 141</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;"><span data-bg="#A5A508" style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #A5A508;">Wave Field Green</span></td>
 <td style="text-align: left;">#A5A508</td>
 <td style="text-align: left;">165 165 8</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><span data-bg="#00B2A9" style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #00B2A9;">Taubman Teal</span></td>
 <td style="text-align: left;">#00B2A9</td>
 <td style="text-align: left;">0 178 169</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><span data-fg="white" data-bg="#2F65A7" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #2F65A7;">Arboretum Blue</span></td>
 <td style="text-align: left;">#2F65A7</td>
 <td style="text-align: left;">47 101 167</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><span data-fg="white" data-bg="#702082" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #702082;">Ann Arbor Amethyst</span></td>
 <td style="text-align: left;">#702082</td>
 <td style="text-align: left;">112 32 130</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><span data-fg="white" data-bg="#575294" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #575294;">Matthaei Violet</span></td>
 <td style="text-align: left;">#575294</td>
 <td style="text-align: left;">87 82 148</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><span data-bg="#CFC096" style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #CFC096;">UMMA Tan</span></td>
 <td style="text-align: left;">#CFC096</td>
 <td style="text-align: left;">207 192 150</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><span data-bg="#9B9A6D" style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #9B9A6D;">Burton Tower Beige</span></td>
 <td style="text-align: left;">#9B9A6D</td>
 <td style="text-align: left;">155 154 109</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><span data-bg="#989C97" style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #989C97;">Angell Hall Ash</span></td>
 <td style="text-align: left;">#989C97</td>
 <td style="text-align: left;">152 156 151</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><span data-fg="white" data-bg="#655A52" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #655A52;">Law Quad Stone</span></td>
 <td style="text-align: left;">#655A52</td>
 <td style="text-align: left;">101 90 82</td>
@@ -356,17 +356,6 @@ Petal_Length |        150       3.758    1.765298          1        6.9
 <figure class="figure">
 <p><a href="myscatter3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers"><img src="myscatter3.png" class="img-fluid figure-img" style="width:50.0%" alt="Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers"></a></p>
 <figcaption>Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers</figcaption>
-</figure>
-</div>
-</section>
-<section id="michigan2-graph-scheme" class="level1" data-number="12">
-<h1 data-number="12"><span class="header-section-number">12</span> Michigan2 Graph Scheme</h1>
-<p>I have also developed a <code>michigan2</code> graph scheme: <code>, scheme(michigan2)</code>.</p>
-<p>This graph scheme can be installed using the same instructions as above. The <code>michigan2</code> scheme slightly reorders the color palette of the original scheme. The scheme begins with blue and maize, but then moves to the <em>cooler</em> colors before moving to <em>Tappan Red</em> and <em>Ross Orange</em>. <em>Taubman Teal</em>–a very fluorescent color–is moved to the end of the palette.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="MichiganColorsStata3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Colors in Michigan Graph Schemes"><img src="MichiganColorsStata3.png" class="img-fluid figure-img" style="width:50.0%" alt="Colors in Michigan Graph Schemes"></a></p>
-<figcaption>Colors in Michigan Graph Schemes</figcaption>
 </figure>
 </div>
 </section>

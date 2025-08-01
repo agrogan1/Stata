@@ -233,6 +233,8 @@ Color                                           Hex        RGB
 
 [Ross School Orange]{bg="#D86018"}              #D86018    216 96 24
 
+[Rackham Green]{bg="#75988d"}                   #75988d    117 152 141 
+
 [Wave Field Green]{bg="#A5A508"}                #A5A508    165 165 8
 
 [Taubman Teal]{bg="#00B2A9"}                    #00B2A9    0 178 169
@@ -272,49 +274,6 @@ quietly graph export myscatter3.png, width(1500) replace
 
 ![Scatterplot Using Michigan Scheme, Selected Colors, And Slightly Transparent Markers](myscatter3.png){width=50%}
 
-# Michigan2 Graph Scheme
 
-I have also developed a `michigan2` graph scheme: `, scheme(michigan2)`.
-
-This graph scheme can be installed using the same instructions as above. The `michigan2` scheme slightly reorders the color palette of the original scheme. The scheme begins with blue and maize, but then moves to the *cooler* colors before moving to *Tappan Red* and *Ross Orange*. *Taubman Teal*--a very fluorescent color--is moved to the end of the palette.
-
-```{stata}
-#| echo: false
-#| output: false
-
-use "graphdemo.dta", clear
-	
-graph bar (count), ///
-over(x, axis(off)) asyvars ///
-ytitle(" ") ylabel(none) ///
-yscale(lcolor(none)) ///
-title(Michigan Graph Scheme Colors) ///
-scheme(michigan) ///
-ysize(1.5) scale(2) ///
-name(michigan, replace)
-
-graph bar (count), ///
-over(x, axis(off)) asyvars ///
-ytitle(" ") ylabel(none) ///
-yscale(lcolor(none)) ///
-title(Michigan2 Graph Scheme Colors) ///
-scheme(michigan2) ///
-ysize(1.5) scale(2) ///
-name(michigan2, replace)
-	
-quietly graph export MichiganColorsStata2.png, ///
-name("michigan2") width(1500) replace
-	
-quietly graph combine michigan michigan2, ///
-colfirst cols(1) ///
-scale(.5) scheme(michigan) ///
-name(michigancombined, replace)
-	
-quietly graph export MichiganColorsStata3.png, ///
-name("michigancombined") width(1500) replace
-	
-```
-
-![Colors in Michigan Graph Schemes](MichiganColorsStata3.png){width=50%}
 
 
