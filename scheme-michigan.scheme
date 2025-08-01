@@ -18,11 +18,12 @@ color p1bar "0 39 76"
 color p2bar "255 203 5"
 color p3bar "154 51 36"
 color p4bar "216 96 24"
-color p5bar "165 165 8"
-color p6bar "0 178 169"
-color p7bar "47 101 167"
-color p8bar "112 32 130"
-color p9bar "87 82 148"
+color p5bar "117 152 141"
+color p6bar "165 165 8"
+color p7bar "0 178 169"
+color p8bar "47 101 167"
+color p9bar "112 32 130"
+color p10bar "87 82 148"
 
 * pie chart
 
@@ -30,11 +31,12 @@ color p1pie "0 39 76"
 color p2pie "255 203 5"
 color p3pie "154 51 36"
 color p4pie "216 96 24"
-color p5pie "165 165 8"
-color p6pie "0 178 169"
-color p7pie "47 101 167"
-color p8pie "112 32 130"
-color p9pie "87 82 148"
+color p5pie "117 152 141"
+color p6pie "165 165 8"
+color p7pie "0 178 169"
+color p8pie "47 101 167"
+color p9pie "112 32 130"
+color p10pie "87 82 148"
 
 * scatterplot
 
@@ -51,12 +53,16 @@ color p3markfill "154 51 36"
 color p3markline "154 51 36"
 
 symbol p4 circle
-color p3markfill "216 96 24"
-color p3markline "216 96 24"
+color p4markfill "216 96 24"
+color p4markline "216 96 24"
 
 symbol p5 circle
-color p3markfill "165 165 8"
-color p3markline "165 165 8"
+color p5markfill "117 152 141"
+color p5markline "117 152 141"
+
+symbol p6 circle
+color p6fill "165 165 8"
+color p6markline "165 165 8"
 
 * line chart
 
@@ -72,20 +78,23 @@ linewidth p3lineplot thick
 color p4lineplot "216 96 24"
 linewidth p4lineplot thick
 
-color p5lineplot "165 165 8"
-linewidth p5lineplot thick
+color p5lineplot "117 152 141"
+linewidth p4lineplot thick
 
-color p6lineplot "0 178 169"
+color p6lineplot "165 165 8"
 linewidth p6lineplot thick
 
-color p7lineplot "47 101 167"
+color p7lineplot "0 178 169"
 linewidth p7lineplot thick
 
-color p8lineplot "112 32 130"
+color p8lineplot "47 101 167"
 linewidth p8lineplot thick
 
-color p9lineplot "87 82 148"
+color p9lineplot "112 32 130"
 linewidth p9lineplot thick
+
+color p10lineplot "87 82 148"
+linewidth p10lineplot thick
 
 * area chart
 
@@ -93,11 +102,12 @@ color p1area "0 39 76"
 color p2area "255 203 5"
 color p3area "154 51 36"
 color p4area "216 96 24"
-color p5area "165 165 8"
-color p6area "0 178 169"
-color p7area "47 101 167"
-color p8area "112 32 130"
-color p9area "87 82 148"
+color p5area "117 152 141"
+color p6area "165 165 8"
+color p7area "0 178 169"
+color p8area "47 101 167"
+color p9area "112 32 130"
+color p10area "87 82 148"
 
 * plot elements
 
@@ -106,11 +116,12 @@ color p1 "0 39 76"
 color p2 "255 203 5"
 color p3 "154 51 36"
 color p4 "216 96 24"
-color p5 "165 165 8"
-color p6 "0 178 169"
-color p7 "47 101 167"
-color p8 "112 32 130"
-color p9 "87 82 148"
+color p5 "117 152 141"
+color p6 "165 165 8"
+color p7 "0 178 169"
+color p8 "47 101 167"
+color p9 "112 32 130"
+color p10 "87 82 148"
 
 
 
