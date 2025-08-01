@@ -10,10 +10,6 @@ p cohensdi A program to calculate Cohen's d  (for use in meta-analysis)
 
 p michigan A graph scheme with University of Michigan colors
 
-p michigan2 A graph scheme with slightly remixed University of Michigan colors
-
-p Mtransparent A graph scheme with University of Michigan colors and some color transparency for histograms and scatterplots
-
 p UNICEF A graph scheme with official UNICEF colors
 
 p UN A graph scheme with official UN colors
