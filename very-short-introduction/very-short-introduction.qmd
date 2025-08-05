@@ -10,6 +10,7 @@ format:
     theme:
       light: yeti
       dark: vapor
+    css: styles.c
   pdf:
     toc: false
 ---
