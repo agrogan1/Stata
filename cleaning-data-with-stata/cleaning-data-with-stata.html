@@ -108,8 +108,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -211,7 +211,7 @@ table:not([class]) tbody:last-child tr:last-child td {border-bottom:1px solid bl
 <header id="title-block-header">
 <h1 class="title">Cleaning Data With Stata</h1>
 <p class="author">Andy Grogan-Kaylor</p>
-<p class="date">25 Sep 2024 10:34:07</p>
+<p class="date">2 Sep 2025 11:53:46</p>
 </header>
 <style>body {max-width: 90%;} h1 {color: #00274C;} h2 {color: #2F65A7;} p {font-size: 110%;} pre.stata {font-size: 110%; line-height: 115%;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color: red;}</style>
 <h1 id="background">Background</h1>
@@ -311,15 +311,15 @@ data.</p>
 Contains data
  Observations:           100                  
     Variables:             4                  
-───────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
-───────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────
 id              float   %9.0g                 
 age             float   %9.0g                 
 happy           float   %9.0g                 
 somethingelse   float   %9.0g                 
-───────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────
 Sorted by: 
      Note: Dataset has changed since last saved.
 </pre>
@@ -347,9 +347,9 @@ somethinge~e │        100   -.0085413    1.072256  -2.685881   2.794861
 </pre>
 <pre class='stata'>. codebook happy // VERY detailed view of this particular categorical variable
 
-───────────────────────────────────────────────────────────────────────────────────────────
-happy                                                                           (unlabeled)
-───────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────
+happy                                                                     (unlabeled)
+─────────────────────────────────────────────────────────────────────────────────────
 
                   Type: Numeric (float)
 
@@ -397,7 +397,8 @@ Labels (<code>label variable "..."</code>)</h2>
 </pre>
 <h2 id="create-value-labels-label-define-...">Create <em>Value</em>
 Labels (<code>label define ...</code>)</h2>
-<pre class='stata'>. label define happy 1 "Rarely" 2 "Sometimes" 3 "Often" 4 "Always" // create value label
+<pre class='stata'>. label define happy 1 "Rarely" 2 "Sometimes" 3 "Often" 4 "Always" // create value la
+> bel
 </pre>
 <h2 id="attach-value-labels-to-variables-label-values-...">Attach
 <em>Value</em> Labels To <em>Variables</em>
@@ -426,14 +427,14 @@ Changes That Have Been Made</h1>
 Contains data
  Observations:           100                  
     Variables:             3                  
-───────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
-───────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────
 id              float   %9.0g                 ID
 age             float   %9.0g                 Age in Years
 happy           float   %9.0g      happy      Happiness Scale
-───────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────
 Sorted by: 
      Note: Dataset has changed since last saved.
 </pre>

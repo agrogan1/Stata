@@ -1,0 +1,335 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{stata}
+\usepackage[margin=1 in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Cleaning Data With Stata},
+  pdfauthor={Andy Grogan-Kaylor},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Cleaning Data With Stata}
+\author{Andy Grogan-Kaylor}
+\date{2 Sep 2025 11:54:32}
+
+\begin{document}
+\maketitle
+
+\section{Background}\label{background}
+
+\begin{quote}
+It sometimes seems like 80\% of our work as data analysts is cleaning
+the data, while only 20\% is the actual analysis. Here are some Stata
+commands that are useful in cleaning data.
+\end{quote}
+
+First we simulate some data to work with, and to clean.
+
+\section{Simulate Some Data}\label{simulate-some-data}
+
+\begin{quote}
+This section is provided for illustration only, as it may be helpful to
+see \emph{how} the data was simulated, and the decisions that went into
+simulating the data. You may also \emph{safely ignore} this section if
+you like.
+\end{quote}
+
+Show / Hide Data Simulation Code
+
+\begin{stlog}
+. clear all 
+\end{stlog}
+
+\begin{stlog}
+. set obs 100 // 100 observations
+Number of observations ({\bftt{_N}}) was 0, now 100.
+\end{stlog}
+
+\begin{stlog}
+. generate id = _n // random id 
+\end{stlog}
+
+\begin{stlog}
+. generate age = rnormal(50,10) // random generated age
+\end{stlog}
+
+\begin{stlog}
+. replace age = 200 in 1 // someone is 200 years old!
+(1 real change made)
+\end{stlog}
+
+\begin{stlog}
+. generate happy = runiformint(1,5) // randomly generated happiness
+\end{stlog}
+
+\begin{stlog}
+. replace happy = 999 in 10 // simulate a missing value
+(1 real change made)
+\end{stlog}
+
+\begin{stlog}
+. generate somethingelse = rnormal(0, 1) // something else!
+\end{stlog}
+
+\section{Look At Some Of The Data}\label{look-at-some-of-the-data}
+
+\begin{stlog}
+. list in 1/10 // list first 10 observations
+{\smallskip}
+     {\TLC}\HLI{35}{\TRC}
+     {\VBAR} id        age   happy   somethi{\tytilde}e {\VBAR}
+     {\LFTT}\HLI{35}{\RGTT}
+  1. {\VBAR}  1        200       1      .06784 {\VBAR}
+  2. {\VBAR}  2   60.42631       3    1.459888 {\VBAR}
+  3. {\VBAR}  3   52.97712       4   -.7060056 {\VBAR}
+  4. {\VBAR}  4   32.77868       5    .0529082 {\VBAR}
+  5. {\VBAR}  5     42.708       1   -.2976007 {\VBAR}
+     {\LFTT}\HLI{35}{\RGTT}
+  6. {\VBAR}  6   58.61826       3   -.2165111 {\VBAR}
+  7. {\VBAR}  7   47.60646       2    1.299809 {\VBAR}
+  8. {\VBAR}  8   55.16549       5    .1418742 {\VBAR}
+  9. {\VBAR}  9   31.87984       3    1.550615 {\VBAR}
+ 10. {\VBAR} 10   39.84875     999    .2515597 {\VBAR}
+     {\BLC}\HLI{35}{\BRC}
+\end{stlog}
+
+\section{Clean The Data!}\label{clean-the-data}
+
+\subsection{\texorpdfstring{Look at The Data and Think About The Data
+(\texttt{describe}, \texttt{summarize}, \texttt{tabulate},
+\texttt{codebook},
+\texttt{browse})}{Look at The Data and Think About The Data (describe, summarize, tabulate, codebook, browse)}}\label{look-at-the-data-and-think-about-the-data-describe-summarize-tabulate-codebook-browse}
+
+\begin{quote}
+When we look at variables we are looking for values that don't make
+sense, or that are outside the plausible range. As we are working with
+the data, it may sometimes be helpful to \texttt{browse} the data.
+\end{quote}
+
+\begin{stlog}
+. describe // describe the data
+{\smallskip}
+Contains data
+ Observations:           100                  
+    Variables:             4                  
+\HLI{85}
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+\HLI{85}
+id              float   \%9.0g                 
+age             float   \%9.0g                 
+happy           float   \%9.0g                 
+somethingelse   float   \%9.0g                 
+\HLI{85}
+Sorted by: 
+     Note: Dataset has changed since last saved.
+\end{stlog}
+
+\begin{stlog}
+. summarize // descriptive statistics
+{\smallskip}
+    Variable {\VBAR}        Obs        Mean    Std. dev.       Min        Max
+\HLI{13}{\PLUS}\HLI{57}
+          id {\VBAR}        100        50.5    29.01149          1        100
+         age {\VBAR}        100    49.85175    17.83505   24.33709        200
+       happy {\VBAR}        100        12.9    99.61598          1        999
+somethinge{\tytilde}e {\VBAR}        100   -.0085413    1.072256  -2.685881   2.794861
+\end{stlog}
+
+\begin{stlog}
+. tabulate happy // tabulation of this particular categorical variable
+{\smallskip}
+      happy {\VBAR}      Freq.     Percent        Cum.
+\HLI{12}{\PLUS}\HLI{35}
+          1 {\VBAR}         21       21.00       21.00
+          2 {\VBAR}         19       19.00       40.00
+          3 {\VBAR}         23       23.00       63.00
+          4 {\VBAR}         17       17.00       80.00
+          5 {\VBAR}         19       19.00       99.00
+        999 {\VBAR}          1        1.00      100.00
+\HLI{12}{\PLUS}\HLI{35}
+      Total {\VBAR}        100      100.00
+\end{stlog}
+
+\begin{stlog}
+. codebook happy // VERY detailed view of this particular categorical variable
+{\smallskip}
+\HLI{85}
+happy                                                                     (unlabeled)
+\HLI{85}
+{\smallskip}
+                  Type: Numeric (float)
+{\smallskip}
+                 Range: [1,999]                       Units: 1
+         Unique values: 6                         Missing .: 0/100
+{\smallskip}
+            Tabulation: Freq.  Value
+                           21  1
+                           19  2
+                           23  3
+                           17  4
+                           19  5
+                            1  999
+\end{stlog}
+
+Notice that\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  There are variables in which we may not have interest.
+\item
+  None of the variables are labelled informatively.
+\item
+  Variables do not seem to have informative value labels.
+\item
+  Someone appears to 200 years old.
+\item
+  There appear to be missing values in the variable \texttt{happy} that
+  need to be recoded.
+\end{itemize}
+
+\begin{quote}
+Remember that the command \texttt{lookfor} is often very helpful in
+\emph{looking for} a particular variable. e.g.~\texttt{lookfor\ happy}.
+\end{quote}
+
+\subsection{\texorpdfstring{Only \texttt{keep} The Variables Of
+Interest}{Only keep The Variables Of Interest}}\label{only-keep-the-variables-of-interest}
+
+We may only be interested in keeping some variables to keep our analytic
+data set more manageable.
+
+For this particular analysis we may wish to drop the variable called
+\texttt{somethingelse}.
+
+\begin{stlog}
+. keep id age happy // keep only relevant variables
+\end{stlog}
+
+We could also have said \texttt{drop\ somethingelse}.
+
+\subsection{\texorpdfstring{Add \emph{Variable} Labels
+(\texttt{label\ variable\ "..."})}{Add Variable Labels (label variable "...")}}\label{add-variable-labels-label-variable-...}
+
+\begin{stlog}
+. label variable id "ID" // label variable
+\end{stlog}
+
+\begin{stlog}
+. label variable age "Age in Years" // label variable
+\end{stlog}
+
+\begin{stlog}
+. label variable happy "Happiness Scale" // label variable
+\end{stlog}
+
+\subsection{\texorpdfstring{Create \emph{Value} Labels
+(\texttt{label\ define\ ...})}{Create Value Labels (label define ...)}}\label{create-value-labels-label-define-...}
+
+\begin{stlog}
+. label define happy 1 "Rarely" 2 "Sometimes" 3 "Often" 4 "Always" // create value la
+> bel
+\end{stlog}
+
+\subsection{\texorpdfstring{Attach \emph{Value} Labels To
+\emph{Variables}
+(\texttt{label\ values\ ...})}{Attach Value Labels To Variables (label values ...)}}\label{attach-value-labels-to-variables-label-values-...}
+
+\emph{Variables} and \emph{value labels} can have the same names but are
+different things. We add the variable label \texttt{happy} to the
+variable named \texttt{happy}.
+
+\begin{stlog}
+. label values happy happy // attach VALUE LABEL happy to VARIABLE happy
+\end{stlog}
+
+\subsection{\texorpdfstring{Recode Outliers, Values That Are Errors, Or
+Values That Should Be Coded As Missing
+(\texttt{recode})}{Recode Outliers, Values That Are Errors, Or Values That Should Be Coded As Missing (recode)}}\label{recode-outliers-values-that-are-errors-or-values-that-should-be-coded-as-missing-recode}
+
+\begin{stlog}
+. recode happy (999 = .) // recode values as missing
+(1 changes made to {\bftt{happy}})
+\end{stlog}
+
+\begin{stlog}
+. recode age (100/max = 100) // age is topcoded at 100 (may or may not be plausible)
+(1 changes made to {\bftt{age}})
+\end{stlog}
+
+\section{\texorpdfstring{We \texttt{describe} and \texttt{summarize} The
+Data And See The Changes That Have Been
+Made}{We describe and summarize The Data And See The Changes That Have Been Made}}\label{we-describe-and-summarize-the-data-and-see-the-changes-that-have-been-made}
+
+\begin{stlog}
+. describe
+{\smallskip}
+Contains data
+ Observations:           100                  
+    Variables:             3                  
+\HLI{85}
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+\HLI{85}
+id              float   \%9.0g                 ID
+age             float   \%9.0g                 Age in Years
+happy           float   \%9.0g      happy      Happiness Scale
+\HLI{85}
+Sorted by: 
+     Note: Dataset has changed since last saved.
+\end{stlog}
+
+\begin{stlog}
+. summarize
+{\smallskip}
+    Variable {\VBAR}        Obs        Mean    Std. dev.       Min        Max
+\HLI{13}{\PLUS}\HLI{57}
+          id {\VBAR}        100        50.5    29.01149          1        100
+         age {\VBAR}        100    48.85175    10.71257   24.33709        100
+       happy {\VBAR}         99    2.939394    1.412901          1          5
+\end{stlog}
+
+\end{document}

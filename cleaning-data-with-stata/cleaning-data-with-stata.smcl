@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/cleaning-data-with-stata/cleaning-data-with-stata.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}25 Sep 2024, 10:34:12
+ {txt}opened on:  {res} 2 Sep 2025, 11:54:32
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}25 Sep 2024
+{res} 2 Sep 2025
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}10:34:12
+{res}11:54:32
 {txt}
 {com}. //_3
 . clear all 
@@ -49,17 +49,17 @@ now 100.
      {c TLC}{hline 4}{c -}{hline 10}{c -}{hline 7}{c -}{hline 11}{c TRC}
      {c |} {res}id        age   happy   somethi~e {txt}{c |}
      {c LT}{hline 4}{c -}{hline 10}{c -}{hline 7}{c -}{hline 11}{c RT}
-  1. {c |} {res} 1        200       5   -.2740025 {txt}{c |}
-  2. {c |} {res} 2   41.74908       1    .3407284 {txt}{c |}
-  3. {c |} {res} 3   48.99197       1    1.097281 {txt}{c |}
-  4. {c |} {res} 4   41.29318       2      .99441 {txt}{c |}
-  5. {c |} {res} 5   38.30437       1   -.9095201 {txt}{c |}
+  1. {c |} {res} 1        200       1      .06784 {txt}{c |}
+  2. {c |} {res} 2   60.42631       3    1.459888 {txt}{c |}
+  3. {c |} {res} 3   52.97712       4   -.7060056 {txt}{c |}
+  4. {c |} {res} 4   32.77868       5    .0529082 {txt}{c |}
+  5. {c |} {res} 5     42.708       1   -.2976007 {txt}{c |}
      {c LT}{hline 4}{c -}{hline 10}{c -}{hline 7}{c -}{hline 11}{c RT}
-  6. {c |} {res} 6   65.80429       3   -.6050416 {txt}{c |}
-  7. {c |} {res} 7   44.24375       2    .0133314 {txt}{c |}
-  8. {c |} {res} 8   52.14927       5    .4847669 {txt}{c |}
-  9. {c |} {res} 9    54.0201       5   -.9933645 {txt}{c |}
- 10. {c |} {res}10     67.752     999    .5900007 {txt}{c |}
+  6. {c |} {res} 6   58.61826       3   -.2165111 {txt}{c |}
+  7. {c |} {res} 7   47.60646       2    1.299809 {txt}{c |}
+  8. {c |} {res} 8   55.16549       5    .1418742 {txt}{c |}
+  9. {c |} {res} 9   31.87984       3    1.550615 {txt}{c |}
+ 10. {c |} {res}10   39.84875     999    .2515597 {txt}{c |}
      {c BLC}{hline 4}{c -}{hline 10}{c -}{hline 7}{c -}{hline 11}{c BRC}
 
 {com}. //_12
@@ -86,20 +86,20 @@ Sorted by:
 {txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
 {hline 13}{c +}{hline 57}
 {space 10}id {c |}{res}        100        50.5    29.01149          1        100
-{txt}{space 9}age {c |}{res}        100    51.58624    18.05763    24.2431        200
-{txt}{space 7}happy {c |}{res}        100       12.94    99.61267          1        999
-{txt}somethinge~e {c |}{res}        100   -.0249813    1.009199  -2.277072   2.547337
+{txt}{space 9}age {c |}{res}        100    49.85175    17.83505   24.33709        200
+{txt}{space 7}happy {c |}{res}        100        12.9    99.61598          1        999
+{txt}somethinge~e {c |}{res}        100   -.0085413    1.072256  -2.685881   2.794861
 {txt}
 {com}. //_14
 . tabulate happy // tabulation of this particular categorical variable
 
       {txt}happy {c |}      Freq.     Percent        Cum.
 {hline 12}{c +}{hline 35}
-          1 {c |}{res}         20       20.00       20.00
-{txt}          2 {c |}{res}         24       24.00       44.00
-{txt}          3 {c |}{res}         15       15.00       59.00
-{txt}          4 {c |}{res}         18       18.00       77.00
-{txt}          5 {c |}{res}         22       22.00       99.00
+          1 {c |}{res}         21       21.00       21.00
+{txt}          2 {c |}{res}         19       19.00       40.00
+{txt}          3 {c |}{res}         23       23.00       63.00
+{txt}          4 {c |}{res}         17       17.00       80.00
+{txt}          5 {c |}{res}         19       19.00       99.00
 {txt}        999 {c |}{res}          1        1.00      100.00
 {txt}{hline 12}{c +}{hline 35}
       Total {c |}{res}        100      100.00
@@ -117,11 +117,11 @@ Sorted by:
 {col 10}{txt}Unique values: {res}6{col 51}{txt}Missing .: {res}0{txt}/{res}100
 
 {txt}{col 13}Tabulation: Freq.  Value
-{col 20}{res}        20{col 32}1
-{col 20}        24{col 32}2
-{col 20}        15{col 32}3
-{col 20}        18{col 32}4
-{col 20}        22{col 32}5
+{col 20}{res}        21{col 32}1
+{col 20}        19{col 32}2
+{col 20}        23{col 32}3
+{col 20}        17{col 32}4
+{col 20}        19{col 32}5
 {col 20}         1{col 32}999
 {txt}
 {com}. //_16
@@ -173,15 +173,15 @@ Sorted by:
 {txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
 {hline 13}{c +}{hline 57}
 {space 10}id {c |}{res}        100        50.5    29.01149          1        100
-{txt}{space 9}age {c |}{res}        100    50.58624     11.2362    24.2431        100
-{txt}{space 7}happy {c |}{res}         99    2.979798    1.463709          1          5
+{txt}{space 9}age {c |}{res}        100    48.85175    10.71257   24.33709        100
+{txt}{space 7}happy {c |}{res}         99    2.939394    1.412901          1          5
 {txt}
 {com}. //_^
 . log close
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/Stata/cleaning-data-with-stata/cleaning-data-with-stata.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}25 Sep 2024, 10:34:12
+ {txt}closed on:  {res} 2 Sep 2025, 11:54:32
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

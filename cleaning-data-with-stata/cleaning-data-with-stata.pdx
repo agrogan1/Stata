@@ -1,0 +1,196 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1 in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Cleaning Data With Stata},
+  pdfauthor={Andy Grogan-Kaylor},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Cleaning Data With Stata}
+\author{Andy Grogan-Kaylor}
+\date{\{\{.1\}\} \{\{.2\}\}}
+
+\begin{document}
+\maketitle
+
+\section{Background}\label{background}
+
+\begin{quote}
+It sometimes seems like 80\% of our work as data analysts is cleaning
+the data, while only 20\% is the actual analysis. Here are some Stata
+commands that are useful in cleaning data.
+\end{quote}
+
+First we simulate some data to work with, and to clean.
+
+\section{Simulate Some Data}\label{simulate-some-data}
+
+\begin{quote}
+This section is provided for illustration only, as it may be helpful to
+see \emph{how} the data was simulated, and the decisions that went into
+simulating the data. You may also \emph{safely ignore} this section if
+you like.
+\end{quote}
+
+Show / Hide Data Simulation Code
+
+\{\{3\}\}
+
+\{\{4\}\}
+
+\{\{5\}\}
+
+\{\{6\}\}
+
+\{\{7\}\}
+
+\{\{8\}\}
+
+\{\{9\}\}
+
+\{\{10\}\}
+
+\section{Look At Some Of The Data}\label{look-at-some-of-the-data}
+
+\{\{11\}\}
+
+\section{Clean The Data!}\label{clean-the-data}
+
+\subsection{\texorpdfstring{Look at The Data and Think About The Data
+(\texttt{describe}, \texttt{summarize}, \texttt{tabulate},
+\texttt{codebook},
+\texttt{browse})}{Look at The Data and Think About The Data (describe, summarize, tabulate, codebook, browse)}}\label{look-at-the-data-and-think-about-the-data-describe-summarize-tabulate-codebook-browse}
+
+\begin{quote}
+When we look at variables we are looking for values that don't make
+sense, or that are outside the plausible range. As we are working with
+the data, it may sometimes be helpful to \texttt{browse} the data.
+\end{quote}
+
+\{\{12\}\}
+
+\{\{13\}\}
+
+\{\{14\}\}
+
+\{\{15\}\}
+
+Notice that\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  There are variables in which we may not have interest.
+\item
+  None of the variables are labelled informatively.
+\item
+  Variables do not seem to have informative value labels.
+\item
+  Someone appears to 200 years old.
+\item
+  There appear to be missing values in the variable \texttt{happy} that
+  need to be recoded.
+\end{itemize}
+
+\begin{quote}
+Remember that the command \texttt{lookfor} is often very helpful in
+\emph{looking for} a particular variable. e.g.~\texttt{lookfor\ happy}.
+\end{quote}
+
+\subsection{\texorpdfstring{Only \texttt{keep} The Variables Of
+Interest}{Only keep The Variables Of Interest}}\label{only-keep-the-variables-of-interest}
+
+We may only be interested in keeping some variables to keep our analytic
+data set more manageable.
+
+For this particular analysis we may wish to drop the variable called
+\texttt{somethingelse}.
+
+\{\{16\}\}
+
+We could also have said \texttt{drop\ somethingelse}.
+
+\subsection{\texorpdfstring{Add \emph{Variable} Labels
+(\texttt{label\ variable\ "..."})}{Add Variable Labels (label variable "...")}}\label{add-variable-labels-label-variable-...}
+
+\{\{17\}\}
+
+\{\{18\}\}
+
+\{\{19\}\}
+
+\subsection{\texorpdfstring{Create \emph{Value} Labels
+(\texttt{label\ define\ ...})}{Create Value Labels (label define ...)}}\label{create-value-labels-label-define-...}
+
+\{\{20\}\}
+
+\subsection{\texorpdfstring{Attach \emph{Value} Labels To
+\emph{Variables}
+(\texttt{label\ values\ ...})}{Attach Value Labels To Variables (label values ...)}}\label{attach-value-labels-to-variables-label-values-...}
+
+\emph{Variables} and \emph{value labels} can have the same names but are
+different things. We add the variable label \texttt{happy} to the
+variable named \texttt{happy}.
+
+\{\{21\}\}
+
+\subsection{\texorpdfstring{Recode Outliers, Values That Are Errors, Or
+Values That Should Be Coded As Missing
+(\texttt{recode})}{Recode Outliers, Values That Are Errors, Or Values That Should Be Coded As Missing (recode)}}\label{recode-outliers-values-that-are-errors-or-values-that-should-be-coded-as-missing-recode}
+
+\{\{22\}\}
+
+\{\{23\}\}
+
+\section{\texorpdfstring{We \texttt{describe} and \texttt{summarize} The
+Data And See The Changes That Have Been
+Made}{We describe and summarize The Data And See The Changes That Have Been Made}}\label{we-describe-and-summarize-the-data-and-see-the-changes-that-have-been-made}
+
+\{\{24\}\}
+
+\{\{25\}\}
+
+\end{document}
