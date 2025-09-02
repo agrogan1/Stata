@@ -19,7 +19,11 @@ format:
 
 99% of data visualization work seems to consist of creating bar graphs (`graph bar y, over(x)`) and scatterplots (`twoway scatter y x`). (For the sake of completeness, I am also going to mention histograms (`histogram x`).)  
 
-> Note: In some commands, I use `///` so that Stata commands can be on multiple lines.
+::: {.callout-tip}
+## Multiline Commands With `///`
+
+In some commands, I use `///` so that Stata commands can be on multiple lines.
+:::
 
 This is a quick guide to these ideas using the [Palmer Penguins Data](https://github.com/allisonhorst/palmerpenguins/blob/master/README.md).
 
@@ -46,7 +50,11 @@ use "penguins.dta", clear
 
 Or, click [here](https://github.com/agrogan1/Stata/raw/master/data-visualization-with-Stata-the-basics/penguins.dta) to download the data. 
 
-> I am not a particular fan of the default `s2color` graph scheme in earlier versions of Stata.  In earlier versions of Stata, I might use the `s1color` scheme by typing `set scheme s1color`. This handout makes use of the `stcolor` graph scheme which is the default in newer versions of Stata.
+::: {.callout-tip}
+## Graph Schemes
+
+I am not a particular fan of the default `s2color` graph scheme in earlier versions of Stata.  In earlier versions of Stata, I might use the `s1color` scheme by typing `set scheme s1color`. This handout makes use of the `stcolor` graph scheme which is the default in newer versions of Stata.
+:::
 
 # Histogram: `histogram x`
 
