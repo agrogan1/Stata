@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-09-02">
+<meta name="dcterms.date" content="2025-09-25">
 
 <title>Two Page Stata</title>
 <style>
@@ -253,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 2, 2025</p>
+      <p class="date">September 25, 2025</p>
     </div>
   </div>
   
@@ -307,7 +307,7 @@ Tip
 <p><code>recode x (oldvalue = newvalue), generate(xR)</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> will recode a variable into a <em>new</em> variable. <code>recode x (-99/-1 = .), generate(xR)</code> will recode negative numbers from -99 to -1 to missing for x. <code>recode x (7/9 = .), generate(xR)</code> changes 7 through 9 to be missing for x. Indeed, <code>recode</code> will change specific values in your data to anything you want, not just missing values. Reverse coding often looks something like <code>recode x (1=3) (2=2) (3=1), generate(xR)</code>.</p>
 <p>Like many other statistical programs, Stata makes a large distinction between variables that are coded as <em>numeric</em>, and variables that are coded as <em>strings</em>. <code>describe x</code> will help you to ascertain the variable type. <code>encode x, generate(x_NUMERIC)</code> is often useful to create a <em>numeric</em> version of <em>string</em> variables. In the special case where the values of your variables are actually <em>numbers</em> but stored as <em>strings</em>, <code>destring x, generate(x_NUMERIC)</code> may be the more helpful and appropriate command. The differences between the two commands are subtle, so consult Stata help on each command.</p>
 <p>It is often convenient to <code>rename</code> your variables so that the variables have more intuitively understandable names e.g.&nbsp;<code>rename x depression</code>.</p>
-<p>You can create new variables out of old variables using <code>generate newvar = expression</code> e.g.&nbsp;<code>generate newvar = oldvar1 + oldvar2</code>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>You can create new variables (e.g.&nbsp;scales) out of old variables using <code>generate newvar = expression</code> e.g.&nbsp;<code>generate newvar = oldvar1 + oldvar2 + oldvar3</code> will create a scale out of these three variables.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <p>It is sometimes useful to <code>sort</code> your data. <code>sort x</code> will sort your data by the values of x.</p>
 </section>
 <section id="analyze-data" class="level1" data-number="4">
@@ -338,7 +338,7 @@ Tip
 <ol>
 <li id="fn1"><p>Comments, questions and corrections most welcome and may be sent to: <a href="https://agrogan1.github.io/">Andrew Grogan-Kaylor</a> @ <a href="agrogan@umich.edu">agrogan@umich.edu</a>. This document available on the web @ <a href="https://agrogan1.github.io/Stata/">https://agrogan1.github.io/Stata/</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>While generating a new variable is optional, it is almost always a good idea.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p><code>alpha oldvar1 oldvar2</code> will calculate Cronbach’s alpha from this scale.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><code>alpha oldvar1 oldvar2 oldvar3</code> will calculate Cronbach’s alpha from this scale.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>After running a multivariate model <code>estat summarize</code> will give you simple descriptive statistics for the specific sample used in that particular analysis.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>Other regression commands follow a very similar format: <code>command y x z</code> but are beyond the purview of this 2 page guide.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p><code>i.x</code> is Stata’s notation for treating independent variables as <em>categorical</em> or <em>indicator</em> variables.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
