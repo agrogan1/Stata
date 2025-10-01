@@ -41,7 +41,7 @@ Often it is not necessary to use any options since the authors of Stata have don
 | Multilevel Model                | `mixed y x z || group: x`     |
 | Structural Equation Modeling    | `sem (y <- x m z) (m <- x z)` |
 | Histogram                       | `histogram x` [^graph]        |
-| Bar Graph (of categories)       | `graph bar, over(x)`          |
+| Bar Graph (of categories)       | `graph bar, over(x)` [^asyvars] |
 | Bar Graph (of means over categories) | `graph bar y, over(x)`   |
 | Pie Chart                       | `graph pie, over(x)`          |
 | Scatterplot                     | `twoway scatter y x`          |
@@ -54,6 +54,6 @@ Often it is not necessary to use any options since the authors of Stata have don
 [^ologit]: Here again we need to use the `, or` option to ask for *odds ratios* instead of *logit coefficients*.
 [^mlogit]: Here we need to use the `, rr` option to ask for *risk ratios* instead of *logit coefficients*.
 [^graph]: For graphing commands, you can often add options after a `,`. e.g. `title("title of the graph")`, `xtitle("title of the x axis")`, `ytitle("title of the y axis")`.
-
+[^asyvars]: For bar graphs, the `asyvars` option is often helpful, as it causes the bars to be different colors.
 
 
