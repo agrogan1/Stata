@@ -31,6 +31,8 @@ So many projects have the same, or similar, workflow.
 ![A common data workflow](workflow.png){width=80%}
 
 ::: {.callout-tip}
+## Key Idea
+
 A little bit of Stata can go a long way.
 :::
 
