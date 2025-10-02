@@ -203,7 +203,7 @@ graph export mybargraph3.png, width(1000) replace
 
 Stata *graph schemes* can substantially change the look of a graph. Built in graph schemes include `s1color`, the new default scheme `stcolor`, the older default scheme `s2color`, `sj`, `economist` and `s1rcolor`. 
 
-`lean2` (type `findit lean2` in the Stata Command Window) is a user written scheme that is very helpful when preparing graphics for publication. I have written a [Stata Michigan graph scheme](https://agrogan1.github.io/Stata/) that can be installed. Asjad Naqvi has written [an excellent and comprehensive set of Stata graph schemes](https://github.com/asjadnaqvi/Stata-schemes).
+I have written a [Stata Michigan graph scheme](https://agrogan1.github.io/Stata/) that can be installed. Asjad Naqvi has written [an excellent and comprehensive set of Stata graph schemes](https://github.com/asjadnaqvi/Stata-schemes), including the `neon` scheme used in some examples in this tutorial.
 
 ## Continuous by Continuous (`twoway scatter y x, scheme(...)`)
 
@@ -220,13 +220,13 @@ graph export myscatterM.png, width(1000) replace
 ```{stata}
 #| output: false
 
-twoway scatter height age_base, title("Tree Height by Age") scheme(lean2) msymbol(o)
+twoway scatter height age_base, title("Tree Height by Age") scheme(neon) msymbol(o)
 
-graph export myscatterL.png, width(1000) replace
+graph export myscatterNEON.png, width(1000) replace
 
 ```
 
-![Scatterplot Of Tree Height By Age With lean2 Graph Scheme](myscatterL.png){width=50%}
+![Scatterplot Of Tree Height By Age With neon Graph Scheme](myscatterNEON.png){width=50%}
 
 ```{stata}
 #| output: false
@@ -254,13 +254,13 @@ graph export mybarM.png, width(1000) replace
 ```{stata}
 #| output: false
 
-graph bar height, over(location) asyvars title("Tree Height by Location") scheme(lean2)
+graph bar height, over(location) asyvars title("Tree Height by Location") scheme(neon)
 	
-graph export mybarL.png, width(1000) replace
+graph export mybarNEON.png, width(1000) replace
 
 ```
 
-![Bar Graph Of Mean Tree Height By Location With lean2 Graph Scheme](mybarL.png){width=50%}
+![Bar Graph Of Mean Tree Height By Location With neon Graph Scheme](mybarNEON.png){width=50%}
 ```{stata}
 #| output: false
 
