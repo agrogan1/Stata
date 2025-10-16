@@ -50,7 +50,7 @@ quietly graph export MichiganColorsStata.png, name("michigan") width(2000) repla
 
 ```
 
-![Colors in Michigan Graph Scheme](MichiganColorsStata.png){width=75%}
+![Colors in Michigan Graph Scheme](MichiganColorsStata.png){width=100%}
 
 Stata provides the use of graph schemes that improve the overall look of graphs.
 
@@ -73,7 +73,7 @@ clear all
 	
 use "iris.dta", clear
 
-summarize
+dtable Sepal_Length Sepal_Width Petal_Length Petal_Width i.Species
 
 ```
 
