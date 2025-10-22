@@ -15,11 +15,16 @@ format:
     toc: false
 ---
 
+::: {.callout-tip}
+# Key Idea
 The basic philosophy of Stata---"Stata in one sentence"---is: 
 
 `do_something to_variable(s), options`
 
-Often it is not necessary to use any options since the authors of Stata have done such a good job of creating an intuitive language, and of thinking about the defaults. Commands that you actually type are represented in `monospace` font. `x` and `y` refer to variables in your data.
+Often it is not necessary to use any options since the authors of Stata have done such a good job of creating an intuitive language, and of thinking about the defaults. 
+:::
+
+Commands that you actually type are represented in `monospace` font. `x` and `y` refer to variables in your data.
 
 | Task                            | Command                       | 
 |---------------------------------|-------------------------------|
