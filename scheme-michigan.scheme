@@ -11,6 +11,7 @@
 * histogram
 
 color histogram "0 39 76"
+color histogram_line "0 39 76"
 
 * bar chart
 
