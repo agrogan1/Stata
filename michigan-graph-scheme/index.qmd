@@ -43,14 +43,16 @@ ytitle(" ") ylabel(none) ///
 yscale(lcolor(none)) ///
 title(Michigan Graph Scheme Colors) ///
 scheme(michigan) ///
-ysize(1.5) scale(2) ///
+ysize(3) scale(1) ///
 name(michigan, replace)
 	
 quietly graph export MichiganColorsStata.png, name("michigan") width(2000) replace
 
+quietly graph export MichiganColorsStata.svg, name("michigan") width(2000) replace
+
 ```
 
-![Colors in Michigan Graph Scheme](MichiganColorsStata.png){width=100%}
+![Colors in Michigan Graph Scheme](MichiganColorsStata.svg){width=100%}
 
 Stata provides the use of graph schemes that improve the overall look of graphs.
 
