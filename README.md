@@ -1,5 +1,11 @@
 # Stata Materials
 
+## Many Materials Have Been Moved
+
+Many of these materials have been moved to [https://agrogan1.github.io/](https://agrogan1.github.io/).
+
+You can search for them there.
+
 ## Two Page Stata
 
 * PDF: [https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf)
@@ -22,22 +28,7 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 
 ## Installing and Using the Michigan Graph Scheme
 
-[https://agrogan1.github.io/Stata/michigan-graph-scheme](https://agrogan1.github.io/Stata/michigan-graph-scheme)
-
-## Data Visualization With Stata
-
-* [How To Choose A Chart - A Statistically Informed Visual Guide With Stata Commands](https://agrogan1.github.io/Stata/how-to-choose-a-chart-a-visual-guide-with-Stata/how-to-choose-a-chart-a-visual-guide-with-Stata.pdf)
-* [My first, older, tutorial on Stata graphing](https://agrogan1.github.io/Stata/stata-graphing/index.html)
-* Data Visualization With Stata (newer)
-    + [PDF](https://agrogan1.github.io/Stata/data-visualization-with-Stata/data-visualization-with-Stata.pdf) 
-    + [HTML](https://agrogan1.github.io/Stata/data-visualization-with-Stata/data-visualization-with-Stata.html)
-* The **Basics**
-    + [HTML](https://agrogan1.github.io/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.html)
-    + [PDF](https://agrogan1.github.io/Stata/data-visualization-with-Stata-the-basics/data-visualization-with-Stata-the-basics.pdf)
-
-## A *Very* Short Introduction to Stata
-
-[https://agrogan1.github.io/Stata/very-short-introduction/very-short-introduction.html](https://agrogan1.github.io/Stata/very-short-introduction/very-short-introduction.html)
+[https://agrogan1.github.io/posts/Michigan-graph-scheme-Stata/index.html](https://agrogan1.github.io/posts/Michigan-graph-scheme-Stata/index.html)
 
 ## Cleaning Data With Stata
 
@@ -46,10 +37,6 @@ In Stata, type `net from https://agrogan1.github.io/Stata` to install these prog
 ## Indicator Variables With Stata
 
 [https://agrogan1.github.io/Stata/indicator-variables/indicator-variables.html](https://agrogan1.github.io/Stata/indicator-variables/indicator-variables.html) [[PDF](https://agrogan1.github.io/Stata/indicator-variables/indicator-variables.pdf)]
-
-## `putdocx`
-
-[`putdocx` Test](https://github.com/agrogan1/Stata/tree/master/putdocx-test):  A test of Stata's new `putdocx` commands to create nicely formatted tables of regression results in Word.
 
 
 
