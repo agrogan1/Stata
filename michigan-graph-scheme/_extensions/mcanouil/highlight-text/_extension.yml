@@ -1,7 +1,0 @@
-title: Highlight Text
-author: Mickaël Canouil
-version: 1.1.1
-quarto-required: ">=1.6.37"
-contributes:
-  filters:
-    - highlight-text.lua
