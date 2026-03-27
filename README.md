@@ -11,10 +11,6 @@ You can search for them there.
 * PDF: [https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf)
 * HTML: [https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.html](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.html)
 
-## Do Files
-
-* [Example do File](https://github.com/agrogan1/Stata/blob/main/do-files/README.md) using the [Palmer Penguins Data](https://allisonhorst.github.io/palmerpenguins/)
-
 ## Stata Programs and Stata Graph Scheme
 
 In Stata, type `net from https://agrogan1.github.io/Stata` to install these programs.
