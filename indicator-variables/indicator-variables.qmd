@@ -1,0 +1,95 @@
+---
+title: "Indicator Variables With Stata"
+author: "Andy Grogan-Kaylor"
+date: "today"
+format: 
+  html:
+    toc: true
+    number-sections: true
+    highlight-style: haddock
+---
+
+# Introduction 
+
+# Get Data
+
+```{r}
+#| echo: false
+#| output: false
+
+library(Statamarkdown)
+
+```
+
+```{stata, collectcode=TRUE}
+
+use https://www.stata-press.com/data/r16/margex, clear
+
+```
+
+# Descriptive Statistics
+
+```{stata}
+
+dtable y i.sex i.group
+
+```
+
+# Regressions
+
+## "Usual" Regression With Indicator Variables
+
+```{stata, collectcode=TRUE}
+
+regress y i.sex i.group
+	
+est store M1 // store estimates
+
+```
+
+## Regression With No Constant and No Reference Category For One Independent Variable
+
+```{stata, collectcode=TRUE}
+
+regress y i.sex ibn.group, noconstant
+	
+est store M2 // store estimates
+
+```
+
+## Compare These Approaches
+
+```{stata}
+
+est table M1 M2, star
+
+```
+
+# A Closer Look With `margins`
+
+## Display Combinations of Results With `margins`
+
+```{stata}
+
+margins sex#group
+
+```	
+
+## The `noconstant` Option Does *Not* Work With Two Indicator Variables
+
+```{stata}
+	
+regress y ibn.sex ibn.group, noconstant
+
+```
+
+## Display Combinations of Results With `margins`
+
+```{stata}
+	
+margins sex#group
+
+```		
+	
+	
+	
