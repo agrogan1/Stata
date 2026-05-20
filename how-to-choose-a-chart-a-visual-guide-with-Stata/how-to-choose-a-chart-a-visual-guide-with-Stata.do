@@ -49,6 +49,14 @@ title("dotplot") ///
 caption("{stMono:dotplot x}", size(large)) ///
 name(mydotplot, replace)
 
+stripplot x, ///
+stack width(1) msymbol(circle) ///
+title("stripplot with stacking and binning") ///
+caption("{stMono:stripplot x, ///}" /// 
+"{stMono:stack width(1) msymbol(circle)}", size(large)) ///
+note("{stMono:stripplot} is a user written command: {stMono:ssc install stripplot}") ///
+name(mystripplot, replace)
+
 /*
 graph combine myhistogram mydensity mybar mydotplot, ///
 cols(1) ///
@@ -82,6 +90,15 @@ dotplot x, over(u) ///
 title("dotplot") ///
 caption("{stMono:dotplot x, over(u)}", size(large)) ///
 name(mydotplot2, replace)
+
+stripplot x, over(u) ///
+stack width(1) msymbol(circle) ///
+title("stripplot with stacking and binning") ///
+caption("{stMono:stripplot x, over(u) ///}" ///
+"{stMono:stack width(1) msymbol(circle)}", size(large)) ///
+note("{stMono:stripplot} is a user written command: {stMono:ssc install stripplot}") ///
+name(mystripplot2, replace)
+
 
 /*
 graph combine myhistogram2 mydensity2 mybar2 mydotplot2, ///
@@ -204,8 +221,8 @@ name(combined, replace)
 * v2
 
 graph combine ///
-myhistogram mydensity mybar mydotplot ///
-myhistogram2 mydensity2 mybar2 mydotplot2 ///
+myhistogram mydensity mybar mystripplot ///
+myhistogram2 mydensity2 mybar2 mystripplot2 ///
 mybar3 mybar4 mypie myblank ///
 mybar5 mybar6 mypie2 myspineplot ///
 myscatter myheatplot myscatter2 myscatter3, ///
