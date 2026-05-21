@@ -68,7 +68,7 @@ Like many other statistical programs, Stata makes a large distinction between va
 
 It is often convenient to `rename` your variables so that the variables have more intuitively understandable names e.g. `rename x depression`.
 
-You can create new variables (e.g. scales) out of old variables using `generate newvar = expression` e.g. `generate newvar = oldvar1 + oldvar2 + oldvar3` will create a scale out of these three variables.[^alpha]
+You can create new variables (e.g. scales) out of old variables using `generate newvar = expression` e.g. `generate newvar = (oldvar1 + oldvar2 + oldvar3) / 3` will create a scale out of these three variables.[^alpha]
 
 [^alpha]: `alpha oldvar1 oldvar2 oldvar3` will calculate Cronbach's alpha from this scale.
 
