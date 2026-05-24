@@ -236,7 +236,7 @@ note("Stata is often incredibly intuitive. The general idea of most Stata comman
 "I use the {stMono:stcolor} graph scheme, available in the newest version of Stata." /// 
 "Asjad Naqvi has provided many beautiful graph schemes in {stMono:schemepack}: https://github.com/asjadnaqvi/stata-schemepack" ///
 "Option {stMono:asyvars} is not strictly necessary, but means that bar graphs will have bars of different colors." ///
-"{stMono:stripplot} requires a few extra options to make the graph I want." ///
+"{stMono:stripplot} requires a few extra options to make the graph I want. You may want to change the {stMono:width()} option to adjust the resolution of the graph." ///
 "{stMono:///} represents a line break. On the command line, do not use {stMono:///} and type the command on a single line.")  ///
 caption("$S_DATE, https://agrogan1.github.io/, agrogan@umich.edu",  ///
 size(vsmall)) ///
