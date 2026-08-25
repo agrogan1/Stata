@@ -24,7 +24,7 @@ format:
 
 # Introduction
 
-An introduction to Stata in 2 pages.[^questions] Commands that you actually type into Stata are represented  in `monospace font`. `x` and `y` refer to variables in your data.  The treatment here is intended to be extremely brief, in order to create a kind of "cheat sheet" that can be presented in 2 pages.  More documentation on any command is available in the printed or PDF Stata manuals, or by typing `help command`.
+An introduction to Stata in 2 pages.[^questions] Commands that you actually type into Stata are represented in `monospace font`. `x` and `y` refer to variables in your data. The treatment here is intended to be extremely brief, in order to create a kind of "cheat sheet" that can be presented in 2 pages. More documentation on any command is available in the printed or PDF Stata manuals, or by typing `help command`.
 
 So many projects have the same, or similar, workflow.
 
@@ -36,9 +36,9 @@ So many projects have the same, or similar, workflow.
 A little bit of Stata can go a long way.
 :::
 
-The general idea of most Stata commands is `command variable(s), options`.  Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults. 
+The general idea of most Stata commands is `command variable(s), options`. Often it is not necessary to use any options since the authors of Stata have done such a good job of thinking about the defaults. 
 
-The Stata interface makes it extremely easy to do rapid interactive data analysis.  Hit **PAGE-UP** to recall the most recent command, which you can then quickly edit and resubmit.  
+The Stata interface makes it extremely easy to do rapid interactive data analysis. Hit **PAGE-UP** to recall the most recent command, which you can then quickly edit and resubmit.  
 
 Use the **DO FILE EDITOR** to save Stata commands that you want to use again in a `.do` file, and to create an *audit trail* of your work so that your workflow is *documented* and *replicable.*  
 
@@ -50,7 +50,7 @@ It is good practice to start by *looking at* your data. `browse x y z` will open
 
 `codebook x y` will produce a nicely formatted codebook of selected variables, which is especially useful if you have added variable labels and value labels. `codebook` is especially useful for seeing how numerical values are associated with value labels.  `codebook` by itself will list every variable in your data and generate a lot of [probably too much] output.
 
-`lookfor` allows you to find variables that contain a specified keyword.  This is especially useful in large data sets with many variables. Often abbreviated keywords are the most helpful.  e.g. to find a poverty variable, type `lookfor pov`.
+`lookfor` allows you to find variables that contain a specified keyword. This is especially useful in large data sets with many variables. Often abbreviated keywords are the most helpful.  e.g. to find a poverty variable, type `lookfor pov`.
 
 With very large data sets, it may be helpful to use `keep x y z` to only keep the variables with which you are working.
 
@@ -60,7 +60,7 @@ With very large data sets, it may be helpful to use `keep x y z` to only keep th
 
 Data with missing values, often represented as negative numbers (e.g. -99, -9, -8) need to be recoded so that the missing values are represented as a missing value character (".") that Stata knows to exclude from calculations.
 
-`recode x (oldvalue = newvalue), generate(xR)`[^generate] will recode a variable into a *new* variable. `recode x (-99/-1 = .), generate(xR)` will recode negative numbers from -99 to -1 to missing for x. `recode x (7/9 = .), generate(xR)` changes 7 through 9 to be missing for x.  Indeed, `recode` will change specific values in your data to anything you want, not just missing values. Reverse coding often looks something like `recode x (1=3) (2=2) (3=1), generate(xR)`.
+`recode x (oldvalue = newvalue), generate(xR)`[^generate] will recode a variable into a *new* variable. `recode x (-99/-1 = .), generate(xR)` will recode negative numbers from -99 to -1 to missing for x. `recode x (7/9 = .), generate(xR)` changes 7 through 9 to be missing for x. Indeed, `recode` will change specific values in your data to anything you want, not just missing values. Reverse coding often looks something like `recode x (1=3) (2=2) (3=1), generate(xR)`.
 
 [^generate]: While generating a new variable is optional, it is almost always a good idea.
 
