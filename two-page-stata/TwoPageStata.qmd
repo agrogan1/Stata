@@ -1,7 +1,9 @@
 ---
 title: "Two Page Stata"
 subtitle: "An Introduction to Stata In 2 Pages"
-authors: "Andy Grogan-Kaylor"
+author: 
+  - name: "Andy Grogan-Kaylor"
+    url: https://agrogan1.github.io/
 date: "today"
 format:
   html:
