@@ -3,6 +3,7 @@ title: "Two Page Stata"
 subtitle: "An Introduction to Stata In 2 Pages"
 author: 
   - name: "Andy Grogan-Kaylor"
+    affiliations: University of Michigan
     url: https://agrogan1.github.io/
 date: "today"
 format:
@@ -19,8 +20,8 @@ format:
   typst:
     number-sections: true
     margin:
-      x: .5in
-      y: .5in
+      x: 0.5in
+      y: 0.5in
     columns: 2
 ---
 

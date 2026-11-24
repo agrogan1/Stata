@@ -1,0 +1,36 @@
+title: APA Figure and Table Notes
+author: W. Joel Schneider
+version: 6.0.0
+quarto-required: ">=1.4.549"
+contributes:
+  # apa-note on its own, for a document that is not in one of apaquarto's
+  # formats. Such a document gets the notes by naming this extension:
+  #
+  #     filters:
+  #       - quarto
+  #       - apanote
+  #
+  # which is the whole of what it has to add. Nothing else of apaquarto comes
+  # with them, so the note is written where it belongs and styled by whatever
+  # the document is already using.
+  #
+  # The quarto line above is not decoration. A filter named on its own runs
+  # before quarto builds its figures and tables, and there would be nothing for
+  # a note to attach to; naming quarto first puts these after that work, which
+  # is where they belong. This is quarto's own way of ordering a filter and it
+  # is understood by every version that has extensions, which an at: on the
+  # entries here would not be: at: is read only by quarto 1.9 and later, and
+  # older versions stop with a validation error that takes the whole of
+  # apaquarto down with it, since one bad manifest fails the install.
+  #
+  # The filters themselves live in the apaquarto extension beside this one,
+  # which is where they are maintained and where the apaquarto formats run them
+  # from; this extension only names a few of them. The two are installed as
+  # siblings whether apaquarto is being worked on, as _extensions/apaquarto and
+  # _extensions/apanote, or added with quarto add, as _extensions/<owner>/
+  # apaquarto and _extensions/<owner>/apanote, so one path reaches them either
+  # way.
+  filters:
+    - ../apaquarto/apaextractfigure.lua
+    - ../apaquarto/embednote.lua
+    - ../apaquarto/apanote.lua
